@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<default-config>
+		<property name="user">sa</property>
+		<property name="password">67712563</property>
+		<property name="driverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="jdbcUrl">url=jdbc:sqlserver://localhost:1433;databaseName=OA</property>
+
+		<!-- 初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+		<property name="initialPoolSize">10</property>
+		<!-- 连接池中保留的最小连接数。-->
+		<property name="minPoolSize">5</property>
+		<!-- 连接池中保留的最大连接数。-->
+		<property name="maxPoolSize">10</property>
+	</default-config> 
+</c3p0-config> 
