@@ -32,7 +32,7 @@ public class UserLoginPrivilegeFilter implements Filter{
 		User user = (User) session.getAttribute("user");
 		if(user==null){
 			//没有登录
-			resp.sendRedirect(req.getContextPath()+"/login.jsp");
+			resp.sendRedirect(req.getContextPath()+"/index.jsp");
 			return;
 		}
 		

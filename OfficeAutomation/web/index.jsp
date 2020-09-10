@@ -34,10 +34,10 @@
                 <div class="auth-form-wrapper px-4 py-5">
                   <a href="#" class="noble-ui-logo d-block mb-2">自动化工程技术公司工作量汇总查询系统</a>
                   <h5 class="text-muted font-weight-normal mb-4">欢迎使用</h5>
-                  <form class="forms-sample" action="${ pageContext.request.contextPath }/LoginServlet" method="post">
+                  <form class="forms-sample" action="${ pageContext.request.contextPath }/UserServlet?method=login" method="post">
                     <div class="form-group">
                       <label for="username">用户名</label>
-                      <input type="text" name="userName" class="form-control" id="username" placeholder="用户名" />
+                      <input type="text" name="username" class="form-control" id="username" placeholder="用户名" />
                     </div>
                     <div class="form-group">
                       <label for="password">密码</label>
