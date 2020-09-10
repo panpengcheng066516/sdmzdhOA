@@ -1,9 +1,12 @@
 package com.zdh.web.servlet;
 import com.zdh.domain.User;
 import com.zdh.service.UserService;
+import org.apache.commons.beanutils.BeanUtils;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -15,12 +18,16 @@ import javax.servlet.http.HttpSession;
 public class UserServlet extends BaseServlet{
     //用户登录
     public void login(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
         HttpSession session = request.getSession();
 
         //获得输入的用户名和密码
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
+        Map<String,String[]> map =  request.getParameterMap();
+        User user2 = new User();
+        BeanUtils.populate(user2,map);
 
         //将用户名和密码传递给service层
         UserService service = new UserService();

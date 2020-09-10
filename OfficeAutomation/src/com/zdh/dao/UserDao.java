@@ -15,9 +15,6 @@ public class UserDao {
 ////        return update;
 //        return 0;
 //    }
-//
-//
-//
 
     //校验用户名是否存在
     public int checkUsername(String username) throws SQLException {
