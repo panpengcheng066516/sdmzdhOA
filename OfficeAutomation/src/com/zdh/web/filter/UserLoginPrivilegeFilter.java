@@ -3,6 +3,7 @@ package com.zdh.web.filter;
 import com.zdh.domain.User;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -24,6 +25,10 @@ public class UserLoginPrivilegeFilter implements Filter{
 		
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
+
+//		设置编码
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=utf-8");
 		
 		//校验用户是否登录----校验session是否存在user对象
 		HttpSession session = req.getSession();
@@ -32,7 +37,9 @@ public class UserLoginPrivilegeFilter implements Filter{
 		User user = (User) session.getAttribute("user");
 		if(user==null){
 			//没有登录
-			resp.sendRedirect(req.getContextPath()+"/index.jsp");
+			PrintWriter out = resp.getWriter();
+			out.print("<script>alert('登录超时，请重新登录！');window.location='"+req.getContextPath()+"/index.jsp';</script>");
+
 			return;
 		}
 		

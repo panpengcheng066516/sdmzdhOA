@@ -7,14 +7,19 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-<!--    <filter>-->
-<!--        <filter-name>UserLoginPrivilegeFilter</filter-name>-->
-<!--        <filter-class>com.zdh.web.filter.UserLoginPrivilegeFilter</filter-class>-->
-<!--    </filter>-->
-<!--    <filter-mapping>-->
-<!--        <filter-name>UserLoginPrivilegeFilter</filter-name>-->
-<!--        <url-pattern>/*</url-pattern>-->
-<!--    </filter-mapping>-->
+
+    <session-config>
+        <session-timeout>20</session-timeout>
+    </session-config>
+    <filter>
+        <filter-name>UserLoginPrivilegeFilter</filter-name>
+        <filter-class>com.zdh.web.filter.UserLoginPrivilegeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UserLoginPrivilegeFilter</filter-name>
+        <url-pattern>/Employee/*</url-pattern>
+        <url-pattern>/root/*</url-pattern>
+    </filter-mapping>
 
     <servlet>
         <display-name>UserServlet</display-name>
