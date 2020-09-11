@@ -2,6 +2,7 @@ package com.zdh.dao;
 
 import com.zdh.domain.User;
 import com.zdh.utils.DataSourceUtils;
+import org.apache.commons.beanutils.converters.SqlDateConverter;
 import org.apache.commons.dbutils.*;
 import org.apache.commons.dbutils.handlers.*;
 
@@ -15,6 +16,9 @@ public class UserDao {
 ////        return update;
 //        return 0;
 //    }
+//
+//
+//
 
     //校验用户名是否存在
     public int checkUsername(String username) throws SQLException {
@@ -27,8 +31,7 @@ public class UserDao {
     //用户登录的方法
     public User login(String username, String password) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-        String sql = "select * from user where username=? and password=?";
-        User user = runner.query(sql, new BeanHandler<>(User.class), username,password);
-        return user;
+        String sql = "select * from ppc where username=? and password=?";
+        return runner.query(sql, new BeanHandler<>(User.class), username,password);
     }
 }
