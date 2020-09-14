@@ -122,18 +122,6 @@
                                         </div>
                                     </a>
                                 </li>
-
-
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tab-debug" data-toggle="tab" href="#contacts" role="tab" aria-controls="contacts" aria-selected="false">
-                                        <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="aperture" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">Disabled</p>
-                                        </div>
-                                    </a>
-                                </li>
-
-
                             </ul>
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="design" role="tabpanel" aria-labelledby="design-tab">
