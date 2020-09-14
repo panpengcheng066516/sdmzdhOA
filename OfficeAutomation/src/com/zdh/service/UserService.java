@@ -4,6 +4,7 @@ import com.zdh.dao.UserDao;
 import com.zdh.domain.User;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserService {
 //    public boolean regist(User user) {
@@ -32,9 +33,20 @@ public class UserService {
 //        return isExist>0?true:false;
 //    }
 
-    //用户登录的方法
+    //检查用户名和密码是否一致，用户登录的方法
     public User login(String username, String password) throws SQLException {
         UserDao dao = new UserDao();
         return dao.login(username,password);
+    }
+
+    public List<User> getUserList() {
+        UserDao dao = new UserDao();
+        List<User> list = null;
+        try {
+             list = dao.getUserList();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,7 @@ public class UserServlet extends BaseServlet{
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+        //测试beanUtils
         Map<String,String[]> map =  request.getParameterMap();
         User user2 = new User();
         BeanUtils.populate(user2,map);
@@ -40,12 +42,10 @@ public class UserServlet extends BaseServlet{
 
         //判断用户是否登录成功 user是否是null
         if(user!=null){
-            //登录成功
-            String autoLogin = request.getParameter("autoLogin");
             //将user对象存到session中
             session.setAttribute("user", user);
             //重定向到首页
-            System.out.println("登陆成功"+user.getPassword()+""+user.getUsername());
+            System.out.println("登陆成功"+user.getUsername()+""+user.getName());
             response.sendRedirect(request.getContextPath()+"/index.jsp");
         }else{
             request.setAttribute("loginError", "用户名或密码错误");
