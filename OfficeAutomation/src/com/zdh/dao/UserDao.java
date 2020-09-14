@@ -7,6 +7,7 @@ import org.apache.commons.dbutils.*;
 import org.apache.commons.dbutils.handlers.*;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserDao {
 //    public int regist(User user) throws SQLException {
@@ -31,7 +32,14 @@ public class UserDao {
     //用户登录的方法
     public User login(String username, String password) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-        String sql = "select * from ppc where username=? and password=?";
+        String sql = "select * from people where username=? and password=?";
         return runner.query(sql, new BeanHandler<>(User.class), username,password);
+    }
+
+    //用户登录的方法
+    public List<User> getUserList() throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from people";
+        return (List<User>) runner.query(sql, new BeanHandler<>(User.class));
     }
 }

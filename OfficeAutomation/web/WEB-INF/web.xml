@@ -28,7 +28,17 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/UserServlet</url-pattern>
+        <url-pattern>/userServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>ProjectServlet</display-name>
+        <servlet-name>ProjectServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ProjectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProjectServlet</servlet-name>
+        <url-pattern>/projectServlet</url-pattern>
     </servlet-mapping>
 
 
