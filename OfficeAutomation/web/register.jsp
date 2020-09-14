@@ -54,11 +54,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="newPIN">新密码 </label>
-                                            <input type="password" name="newPIN" class="form-control" id="newPIN" autocomplete="new password" placeholder="新密码" />
+                                            <input type="password" name="newPIN" class="form-control" id="newPIN" autocomplete="new-password" placeholder="新密码" />
                                         </div>
                                         <div class="form-group">
                                             <label for="newPIN">密码确认 </label>
-                                            <input type="password" name="newPIN" class="form-control" id="newPIN2" autocomplete="new password" placeholder="新密码确认" />
+                                            <input type="password" name="newPIN" class="form-control" id="newPIN2" autocomplete="new-password" placeholder="新密码确认" />
                                         </div>
                                         <div class="mt-3">
                                             <button type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0">提交</button>

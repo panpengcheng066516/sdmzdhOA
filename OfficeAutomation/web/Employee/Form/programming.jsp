@@ -88,31 +88,51 @@
                                 <hr width="300" align="left">
 
                                 <h6 class="card-title" style="font-size: 14px;">填写</h6>
+
+                                //  idSel对应数据库project里的projectid工程号
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">项目名称</label>
+                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="project" id="project" placeholder="项目名称">
+                                        <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
+                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                //  type对应数据库worktype里的type项目下的阶段类型
+                                <h6 class="card-title" style="font-size: 14px;">任务类型</h6>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">高阶段分类</label>
+                                    <div class="col-sm-9">
+                                        <select class="selectpicker" name="type" id="type">
+                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
+                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
+                                            <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>
+                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>
+                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
+                                        </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">总开关量点数</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="total" id="total" placeholder="总开关量点数">
+                                        <input type="text" class="form-control" name="program1" id="program1" placeholder="总开关量点数">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">总模拟量点数</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="total2" id="total2" placeholder="总模拟量点数">
+                                        <input type="text" class="form-control" name="program2" id="program2" placeholder="总模拟量点数">
                                     </div>
                                 </div>
 
+                                //  这条记录在designType上
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">编程/画面</label>
                                     <div class="col-sm-9">
-                                        <select class="selectpicker" id="programs" name="programs">
+                                        <select class="selectpicker" id="program3" name="program3">
                                             <option value="0" style="text-align: center; text-align-last: center;">编程</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">画面</option>
                                         </select>
@@ -122,14 +142,14 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">总工日数</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="allday" id="allday" placeholder="总工日数">
+                                        <input type="text" class="form-control" name="program4" id="program4" placeholder="总工日数">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">本月完成工日数</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="finish" id="finish" placeholder="本月完成工日数">
+                                        <input type="text" class="form-control" name="program5" id="program5" placeholder="本月完成工日数">
                                     </div>
                                 </div>
 
@@ -152,13 +172,13 @@
                 <div class="col-md-6 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">修改/删除索引</h6>
-                            <h6 class="card-title" style="font-size: 14px;color: red;">序号自动生成，填写工作量时不用填写，仅修改及删除时填写。</h6>
+                            <h6 class="card-title" style="font-size: 14px;">工作内容修改</h6>
+                            <h6 class="card-title" style="font-size: 14px;color: red;">修改时请注意，不得使用英文标点符号。</h6>
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/programmingUpdateServlet" method="post">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">序号：</label>
                                     <div class="col-sm-9">
-                                        <select class="selectpicker" id="idSel" name="ID" data-live-search="true">
+                                        <select class="selectpicker" id="idSel1" name="idSel" data-live-search="true">
                                             <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                         </select>
                                     </div>
@@ -166,13 +186,7 @@
 
                                 <hr width="300" align="left">
 
-                                <h6 class="card-title" style="font-size: 14px;">填写</h6>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">项目名称</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="project1" id="project1" placeholder="项目名称">
-                                    </div>
-                                </div>
+                                <h6 class="card-title" style="font-size: 14px;">修改</h6>
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">总开关量点数</label>
@@ -251,9 +265,9 @@
 <script type="text/javascript">
 
 
-
-
-
+    function logUp() {
+        window.location.href = "${pageContext.request.contextPath}/index.jsp";
+    }
 
 </script>
 </html>

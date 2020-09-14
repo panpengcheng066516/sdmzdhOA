@@ -89,11 +89,12 @@
                                     </form>
                                 </div>
 
+                                //  inuse记录在数据库people中
                                 <div class="form-group row">
                                     <form class="forms-sample" action="${ pageContext.request.contextPath }/loginServlet" method="post">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">状态</label>
                                     <div class="col-sm-9">
-                                        <select class="selectpicker" name="inUse" id="inUse">
+                                        <select class="selectpicker" name="inuse" id="inuse">
                                             <option value="0" style="text-align: center; text-align-last: center;">借调中</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">已返回</option>
                                         </select>
@@ -129,7 +130,7 @@
                                     <form class="forms-sample" action="${ pageContext.request.contextPath }/loginServlet" method="post">
                                         <label class="col-sm-3 col-form-label" style="font-size: 14px;">状态</label>
                                         <div class="col-sm-9">
-                                            <select class="selectpicker" name="inUse1" id="inUse1">
+                                            <select class="selectpicker" name="inuse1" id="inuse1">
                                                 <option value="0" style="text-align: center; text-align-last: center;">借调中</option>
                                                 <option value="1" style="text-align: center; text-align-last: center;">已返回</option>
                                             </select>
@@ -169,7 +170,9 @@
 <script type="text/javascript">
 
 
-
+    function logUp() {
+        window.location.href = "${pageContext.request.contextPath}/index.jsp";
+    }
 
 </script>
 </html>

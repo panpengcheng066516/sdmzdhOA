@@ -20,7 +20,7 @@ public class UserDao {
 //
 //
 
-    //校验用户名是否存在
+    // 校验用户名是否存在
     public int checkUsername(String username) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select count(*) from Login where username=?";
@@ -28,7 +28,7 @@ public class UserDao {
         return query;
     }
 
-    //用户登录的方法
+    // 用户登录的方法
     public User login(String username, String password) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select * from ppc where username=? and password=?";
