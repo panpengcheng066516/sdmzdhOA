@@ -287,7 +287,7 @@
                         <div class="card-body">
                             <h6 class="card-title" style="font-size: 14px;">项目信息展示</h6>
                             <div class="form-group row">
-                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目选择：</label>
+                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目选择</label>
                                 <div class="col-sm-10">
                                     <select class="selectpicker" style="text-align:center;text-align-last:center;" id="projectSel1" name="projectSel1" onchange="opSel1()">
                                         <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
@@ -339,6 +339,14 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
+    $(function() {
+        var time = new Date();
+        var day = ("0" + time.getDate()).slice(-2);
+        var month = ("0" + (time.getMonth() + 1)).slice(-2);
+        var today = time.getFullYear() + "-" + (month) + "-" + (day);
+        $('#deadline').val(today);
+        $('#finish').val(today);
+    });
 
     $(document).ready(function() {
         $.ajax({                                     //发起ajax请求
