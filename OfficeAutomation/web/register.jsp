@@ -28,9 +28,9 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/CRM.png" />
 
-    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/jquery.validate.min.js" ></script>
-    <script type="text/javascript" src="js/messages_zh.js" ></script>
+    <script src="./js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./js/jquery.validate.min.js" ></script>
+    <script type="text/javascript" src="./js/messages_zh.js" ></script>
 
     <script type="text/javascript">
         $(function(){
@@ -74,9 +74,7 @@
                     }
                 }
             });
-
         })
-
     </script>
 
 </head>
