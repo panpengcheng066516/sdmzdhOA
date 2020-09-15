@@ -62,9 +62,7 @@
                                 <div class="table-responsive pt-3">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">选择月份</label>
                                     <div class="col-sm-10">
-                                        <select class="selectpicker" style="text-align:center;text-align-last:center;" id="sel" name="sel" onchange="opSel()">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                        </select>
+                                        <input type="date" data-provide="datepicker" name="month" id="month" class="form-control" placeholder="月份">
                                     </div>
                                 </div>
                                 <div class="table-responsive pt-3">
@@ -91,9 +89,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-1 col-form-label" style="font-size: 14px;">选择年份</label>
                                 <div class="col-sm-10">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="sel1" name="sel1" onchange="opSel1()">
-                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                    </select>
+                                    <input type="date" data-provide="datepicker" name="year" id="year" class="form-control" placeholder="年份">
                                 </div>
                             </div>
                             <div class="table-responsive pt-3">
@@ -119,9 +115,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-1 col-form-label" style="font-size: 14px;">选择年份</label>
                                 <div class="col-sm-10">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="sel2" name="sel2" onchange="opSel2()">
-                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                    </select>
+                                    <input type="date" data-provide="datepicker" name="year1" id="year1" class="form-control" placeholder="年份">
                                 </div>
                             </div>
                             <div class="table-responsive pt-3">
@@ -161,6 +155,25 @@
 <script src="<%=basePath%>assets/js/template.js" type="text/javascript"></script>
 <script src="<%=basePath%>js/bootstrap-select.js" type="text/javascript"></script>
 <script type="text/javascript">
+
+    //只选择年份
+    $('.year','.year1').datepicker({
+        format: 'yyyy',
+        language: "zh-CN",
+        autoclose:true,
+        startView: 2,
+        minViewMode: 2,
+        maxViewMode: 2
+    });
+    //只选择月份
+    $('.month').datepicker({
+        format: 'yyyy-mm',
+        language: "zh-CN",
+        autoclose:true,
+        startView: 1,
+        minViewMode: 1,
+        maxViewMode: 1
+    });
 
 
     function logUp() {

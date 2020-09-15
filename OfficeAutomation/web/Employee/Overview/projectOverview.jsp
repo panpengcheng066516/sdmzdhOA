@@ -93,44 +93,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">项目信息展示</h6>
-                            <div class="form-group row">
-                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目选择：</label>
-                                <div class="col-sm-10">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="projectSel1" name="projectSel1" onchange="opSel1()">
-                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="table-responsive pt-3">
-                                <table class="table table-bordered" id="table01">
-                                    <thead>
-                                    <tr>
-                                        <th>项目名称</th>
-                                        <th>工程号</th>
-                                        <th>要求完成时间</th>
-                                        <th>实际完成时间</th>
-                                        <th>状态</th>
-                                        <th>专业负责人</th>
-                                        <th>设计人</th>
-                                        <th>审核</th>
-                                        <th>室审</th>
-                                        <th>总师</th>
-                                        <th>备注</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         </div>
         <!-- partial:partials/_footer.html -->
         <%@ include file="../Master/Footer.jsp"%>
