@@ -50,6 +50,8 @@ public class UserServlet extends BaseServlet{
         }
     }
 
+
+    //修改密码
     public void updatePassword(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
         //获得输入的用户名和密码
@@ -61,32 +63,29 @@ public class UserServlet extends BaseServlet{
         //验证两次密码是否相同
         if(!newPIN.equals(newPIN2)){
             request.setAttribute("loginError", "两次新密码不一致");
-            request.getRequestDispatcher(request.getContextPath()+"/register.jsp").forward(request, response);
-            return;
-        }
-
-        //验证user是否存在且匹配
-        UserService service = new UserService();
-        User user = null;
-        try {
-            user = service.login(username,oldPIN);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        if(user == null){
-            request.setAttribute("loginError", "用户名或旧密码错误");
-            request.getRequestDispatcher(request.getContextPath()+"/register.jsp").forward(request, response);
-            return;
-        }
-
-        //修改密码
-        int i = service.updatePassword(username,newPIN);
-
-        PrintWriter out = response.getWriter();
-        if(i>0){
-            out.print("<script>alert('密码修改成功！');window.location='"+request.getContextPath()+"/login.jsp';</script>");
-        }else{
-            out.print("<script>alert('密码修改失败！');window.location='"+request.getContextPath()+"/login.jsp';</script>");
+            request.getRequestDispatcher("/register.jsp").forward(request, response);
+        }else {
+            //验证user是否存在且匹配
+            UserService service = new UserService();
+            User user = null;
+            try {
+                user = service.login(username,oldPIN);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            if(user == null){
+                request.setAttribute("loginError", "用户名或旧密码错误");
+                request.getRequestDispatcher("/register.jsp").forward(request, response);
+            }else{
+                //修改密码
+                int i = service.updatePassword(username,newPIN);
+                PrintWriter out = response.getWriter();
+                if(i>0){
+                    out.print("<script>alert('密码修改成功！');window.location='"+request.getContextPath()+"/login.jsp';</script>");
+                }else{
+                    out.print("<script>alert('密码修改失败！');window.location='"+request.getContextPath()+"/login.jsp';</script>");
+                }
+            }
         }
     }
 }
