@@ -15,8 +15,9 @@ public class BaseServlet extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		//是指编码
 		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=utf-8");
 		
 		try {
 			//1、获得请求的method的名称

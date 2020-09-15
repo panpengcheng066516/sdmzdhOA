@@ -42,4 +42,11 @@ public class UserDao {
         String sql = "select * from people";
         return (List<User>) runner.query(sql, new BeanHandler<>(User.class));
     }
+
+    public int updatePassword(String username, String newPIN) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "update people SET password = ? where username=?";
+        int update = runner.update(sql, newPIN, username);
+        return update;
+    }
 }

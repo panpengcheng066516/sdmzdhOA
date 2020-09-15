@@ -49,4 +49,15 @@ public class UserService {
         }
         return list;
     }
+
+    public int updatePassword(String username, String newPIN) {
+        UserDao dao = new UserDao();
+        int i = 0;
+        try {
+            i = dao.updatePassword(username,newPIN);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
 }

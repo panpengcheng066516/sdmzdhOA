@@ -38,7 +38,7 @@ public class UserLoginPrivilegeFilter implements Filter{
 		if(user==null){
 			//没有登录
 			PrintWriter out = resp.getWriter();
-			out.print("<script>alert('登录超时，请重新登录！');window.location='"+req.getContextPath()+"/index.jsp';</script>");
+			out.print("<script>alert('登录超时，请重新登录！');window.location='"+req.getContextPath()+"/login.jsp';</script>");
 
 			return;
 		}

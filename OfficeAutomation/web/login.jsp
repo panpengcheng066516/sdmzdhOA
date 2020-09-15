@@ -8,6 +8,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh">
 <head>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
@@ -18,6 +19,35 @@
     <link rel="stylesheet" href="assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="assets/images/CRM.png" />
+    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js" ></script>
+    <script type="text/javascript" src="js/messages_zh.js" ></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#loginForm").validate({
+                rules: {
+                    "username": {
+                        "required": true,
+                        "minlength": 2
+                    },
+                    "password": {
+                        "required": true,
+                        "minlength": 6
+                    }
+                },
+                messages: {
+                    "username": {
+                        "required": "用户名不能为空!",
+                        "minlength": "用户名不得少于2个字符!"
+                    },
+                    "password": {
+                        "required": "密码不能为空!",
+                        "minlength": "密码长度不得低于6位!"
+                    }
+                }
+            });
+        })
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -34,7 +64,7 @@
                                 <div class="auth-form-wrapper px-4 py-5">
                                     <a href="#" class="noble-ui-logo d-block mb-2">自动化工程技术公司工作量汇总查询系统</a>
                                     <h5 class="text-muted font-weight-normal mb-4">欢迎使用</h5>
-                                    <form class="forms-sample" action="${ pageContext.request.contextPath }/UserServlet?method=login" method="post">
+                                    <form id="loginForm" class="forms-sample" action="${ pageContext.request.contextPath }/userServlet?method=login" method="post">
                                         <div class="form-group">
                                             <label for="username">用户名</label>
                                             <input type="text" name="username" class="form-control" id="username" placeholder="用户名" />
@@ -42,6 +72,9 @@
                                         <div class="form-group">
                                             <label for="password">密码</label>
                                             <input type="password" name="password" class="form-control" id="password" autocomplete="current-password" placeholder="密码" />
+                                            <c:if test="${!empty loginError}">
+                                                <span style="color: red">${loginError}</span>
+                                            </c:if>
                                         </div>
                                         <div class="mt-5">
                                             <button type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0">登录</button>
