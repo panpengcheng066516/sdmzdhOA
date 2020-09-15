@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<c3p0-config>
-	<default-config>
-		<property name="user">sa</property>
-		<property name="password">67712563</property>
-		<property name="driverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-		<property name="jdbcUrl">jdbc:sqlserver://localhost:1433; DatabaseName=OfficeAutomation</property>
-	</default-config> 
-</c3p0-config> 
