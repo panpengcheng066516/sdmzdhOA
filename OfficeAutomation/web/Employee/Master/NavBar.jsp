@@ -8,6 +8,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- partial:partials/_navbar.html -->
+<script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+<script type="text/javascript">
+    $(function(){
+        $("#updatePassword").click(function(){
+            $(location).attr('href','${pageContext.request.contextPath}/register.jsp');
+        });
+    });
+</script>
+
 <nav class="navbar"> <a href="#" class="sidebar-toggler">
     <i data-feather="menu"></i>
 </a>
@@ -28,17 +37,17 @@
                             <img src="<%=basePath%>assets/images/carousel/img8.jpg" alt="">
                         </div>
                         <div class="info text-center">
-                            <p class="name font-weight-bold mb-0">用户名：${ sessionScope.name }</p>
-                            <p class="name font-weight-bold mb-0">职位： ${ sessionScope.power }</p>
+                            <p class="name font-weight-bold mb-0">用户名：${ sessionScope.user.name }</p>
+                            <p class="name font-weight-bold mb-0">职位： ${ sessionScope.user.power }</p>
                             <p class="name font-weight-bold mb-0">Welcome back!</p>
                         </div>
                     </div>
                     <div class="dropdown-body">
                         <ul class="profile-nav p-0 pt-3">
-                            <li class="nav-item"><a href="javascript:void(0);" class="nav-link" onclick="updatePass()">
+                            <li class="nav-item"><a href="javascript:void(0);" class="nav-link" id="updatePassword" >
                                 <i data-feather="user"></i> <span>密码修改</span>
                             </a></li>
-                            <li class="nav-item"><a href="${ pageContext.request.contextPath }/LogoutServlet" class="nav-link">
+                            <li class="nav-item"><a href="${ pageContext.request.contextPath }/userServlet?method=logout" class="nav-link">
                                 <i data-feather="log-out"></i> <span>退出</span>
                             </a></li>
                         </ul>

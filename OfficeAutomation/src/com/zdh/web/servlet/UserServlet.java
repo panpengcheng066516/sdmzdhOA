@@ -88,4 +88,13 @@ public class UserServlet extends BaseServlet{
             }
         }
     }
+
+
+    //用户注销
+    public void logout(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        HttpSession session = request.getSession();
+        session.removeAttribute("user");
+        response.sendRedirect(request.getContextPath()+"/login.jsp");
+    }
 }

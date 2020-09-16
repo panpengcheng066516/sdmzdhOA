@@ -19,30 +19,31 @@
     <link rel="stylesheet" href="assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="assets/images/CRM.png" />
-    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/jquery.validate.min.js" ></script>
-    <script type="text/javascript" src="js/messages_zh.js" ></script>
+
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript" src="assets/js/jquery.validate.js" ></script>
+    <script type="text/javascript" src="assets/js/messages_zh.js" ></script>
     <script type="text/javascript">
         $(function() {
             $("#loginForm").validate({
                 rules: {
-                    "username": {
-                        "required": true,
-                        "minlength": 2
+                    username: {
+                        required: true,
+                        minlength: 2
                     },
-                    "password": {
-                        "required": true,
-                        "minlength": 6
+                    password: {
+                        required: true,
+                        minlength: 6
                     }
                 },
                 messages: {
-                    "username": {
-                        "required": "用户名不能为空!",
-                        "minlength": "用户名不得少于2个字符!"
+                    username: {
+                        required: "用户名不能为空!",
+                        minlength: "用户名不得少于2个字符!"
                     },
-                    "password": {
-                        "required": "密码不能为空!",
-                        "minlength": "密码长度不得低于6位!"
+                    password: {
+                        required: "密码不能为空!",
+                        minlength: "密码长度不得低于6位!"
                     }
                 }
             });

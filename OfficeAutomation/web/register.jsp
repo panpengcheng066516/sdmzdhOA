@@ -10,6 +10,7 @@
 <head>
     <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,12 +29,17 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/CRM.png" />
 
-    <script src="./js/jquery-1.11.3.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="./js/jquery.validate.min.js" ></script>
-    <script type="text/javascript" src="./js/messages_zh.js" ></script>
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript" src="assets/js/jquery.validate.js" ></script>
+    <script type="text/javascript" src="assets/js/messages_zh.js" ></script>
+
 
     <script type="text/javascript">
         $(function(){
+            if (${!empty user}){
+                $("#username").val("${user.username}");
+                $("#oldPIN").val("${user.password}");
+            }
             $("#updateUserForm").validate({
                 rules:{
                     username: {
@@ -74,7 +80,7 @@
                     }
                 }
             });
-        })
+        });
     </script>
 
 </head>
