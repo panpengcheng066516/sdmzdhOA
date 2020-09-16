@@ -21,17 +21,17 @@ public class UserService {
 //    }
 //
 //
-//    //校验用户名是否存在
-//    public boolean checkUsername(String username) {
-//        UserDao dao = new UserDao();
-//        Long isExist = 0L;
-//        try {
-//            isExist = dao.checkUsername(username);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return isExist>0?true:false;
-//    }
+    //校验用户名是否存在
+    public boolean checkUsername(String username) {
+        UserDao dao = new UserDao();
+        int isExist = 0;
+        try {
+            isExist = dao.checkUsername(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return isExist>0?true:false;
+    }
 
     //检查用户名和密码是否一致，用户登录的方法
     public User login(String username, String password) throws SQLException {
@@ -55,6 +55,39 @@ public class UserService {
         int i = 0;
         try {
             i = dao.updatePassword(username,newPIN);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    public List<User> findAllUser() {
+        UserDao dao = new UserDao();
+        List<User> list = null;
+        try {
+            list = dao.getUserList();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public int addUser(User user) {
+        UserDao dao = new UserDao();
+        int i = 0;
+        try {
+            i = dao.insertUser(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    public int updateUser(User user) {
+        UserDao dao = new UserDao();
+        int i = 0;
+        try {
+            i = dao.updateUser(user);
         } catch (SQLException e) {
             e.printStackTrace();
         }

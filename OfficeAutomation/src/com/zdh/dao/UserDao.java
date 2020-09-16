@@ -10,16 +10,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserDao {
-//    public int regist(User user) throws SQLException {
-//        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-//        String sql = "insert into user values(?,?,?,?,?,?,?,?,?,?)";
-////        int update = runner.update(sql, );
-////        return update;
-//        return 0;
-//    }
-//
-//
-//
 
     // 校验用户名是否存在
     public int checkUsername(String username) throws SQLException {
@@ -36,7 +26,7 @@ public class UserDao {
         return runner.query(sql, new BeanHandler<>(User.class), username,password);
     }
 
-    //用户登录的方法
+    //获得所有用户
     public List<User> getUserList() throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select * from people";
@@ -47,6 +37,21 @@ public class UserDao {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "update people SET password = ? where username=?";
         int update = runner.update(sql, newPIN, username);
+        return update;
+    }
+
+    //添加用户
+    public int insertUser(User user) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "insert into people values (?,?,?,?,?,?,?)";
+        int update = runner.update(sql, user.getUsername(),user.getPassword(), user.getName(),user.getGroupId(),user.getPower(),user.getTransfer(),user.getInuse());
+        return update;
+    }
+
+    public int updateUser(User user) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "update people set password=?,name=?,groupid=?,power=?,transfer=?,inuse=? where username =?";
+        int update = runner.update(sql, user.getPassword(), user.getName(),user.getGroupId(),user.getPower(),user.getTransfer(),user.getInuse(),user.getUsername());
         return update;
     }
 }
