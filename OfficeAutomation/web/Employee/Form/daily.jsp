@@ -71,148 +71,62 @@
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">日常管理/出差交流/零星工日</h6>
+                            <h6 class="card-title" style="font-size: 14px;">日常管理</h6>
                             <h6 class="card-title" style="font-size: 14px;color: red;">填写时请注意，不得使用英文标点符号。</h6>
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/dailyInputServlet" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/??????" method="post">
 
                                 <hr width="300" align="left">
 
                                 <h6 class="card-title" style="font-size: 14px;">填写</h6>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">部门内部日常管理</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">日常管理</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="daily1" id="daily1" placeholder="部门内部日常管理">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">工会事务</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">工会事务</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="daily2" id="daily2" placeholder="工会事务">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">党组事务</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">党组事务</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="daily3" id="daily3" placeholder="党组事务">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">团组事务</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">团组事务</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="daily4" id="daily4" placeholder="团组事务">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">考勤</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">考勤</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="daily5" id="daily5" placeholder="考勤">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">其他报销</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">其他报销</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="daily6" id="daily6" placeholder="其他报销">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">备注</label>
-                                    <h6 class="card-title" style="font-size: 14px;">体系内审/外审等工作请备注在此处</h6>
-                                    <div class="col-sm-9">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
+                                    <div class="col-sm-4">
+                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="体系内审/外审等工作请备注在此处" rows="5"></textarea>
                                     </div>
                                 </div>
 
                                 <div align="center">
                                     <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">工作内容修改</h6>
-                            <h6 class="card-title" style="font-size: 14px;color: red;">修改时请注意，不得使用英文标点符号。</h6>
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/dailyUpdateServlet" method="post">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">序号：</label>
-                                    <div class="col-sm-9">
-                                        <select class="selectpicker" id="idSel1" name="idSel" data-live-search="true">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">修改</h6>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">部门内部日常管理</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="daily1" id="daily11" placeholder="部门内部日常管理">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">工会事务</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="daily2" id="daily21" placeholder="工会事务">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">党组事务</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="daily3" id="daily31" placeholder="党组事务">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">团组事务</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="daily4" id="daily41" placeholder="团组事务">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">考勤</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="daily5" id="daily51" placeholder="考勤">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">其他报销</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="daily6" id="daily61" placeholder="其他报销">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">备注</label>
-                                    <h6 class="card-title" style="font-size: 14px;">体系内审/外审等工作请备注在此处</h6>
-                                    <div class="col-sm-9">
-                                        <textarea class="form-control" name="remarks" id="remarks1" placeholder="备注" rows="3"></textarea>
-                                    </div>
-                                </div>
-
-                                <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="修改">
-                                    <button class="btn btn-warning" id="deleteBtn" name="submit" value="删除">删除</button>
                                 </div>
 
                             </form>
@@ -241,7 +155,6 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";
