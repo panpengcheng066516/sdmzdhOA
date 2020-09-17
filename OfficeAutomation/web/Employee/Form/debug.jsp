@@ -82,7 +82,7 @@
 
                                 <h6 class="card-title" style="font-size: 14px;">填写</h6>
 
-                                //  idSel对应数据库project里的projectid工程号
+                                <!-- idSel对应数据库project里的projectid工程号 -->
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-9">
@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
 
-                                //  type对应数据库worktype里的type项目下的阶段类型
+                                <!-- type对应数据库worktype里的type项目下的阶段类型 -->
                                 <h6 class="card-title" style="font-size: 14px;">任务类型</h6>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">高阶段分类</label>
@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
 
-                                //  这条记录在designType上
+                                <!--  这条记录在designType上 -->
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">项目地点</label>
                                     <div class="col-sm-9">
@@ -225,7 +225,7 @@
 
 
     function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/bye.jsp";
+        window.location.href = "${pageContext.request.contextPath}/login.jsp";
     }
 
 </script>

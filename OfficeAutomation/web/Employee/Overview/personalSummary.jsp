@@ -312,7 +312,7 @@
 
 
     function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/bye.jsp";
+        window.location.href = "${pageContext.request.contextPath}/login.jsp";
 
     }
 </script>

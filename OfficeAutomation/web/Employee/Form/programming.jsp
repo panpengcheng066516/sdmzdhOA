@@ -78,7 +78,7 @@
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h6 class="card-title" style="font-size: 14px;">编程画面</h6>
@@ -89,21 +89,21 @@
 
                                 <h6 class="card-title" style="font-size: 14px;">填写</h6>
 
-                                //  idSel对应数据库project里的projectid工程号
+                                <!-- idSel对应数据库project里的projectid工程号 -->
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-4">
                                         <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
                                             <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                //  type对应数据库worktype里的type项目下的阶段类型
+                                <!-- type对应数据库worktype里的type项目下的阶段类型 -->
                                 <h6 class="card-title" style="font-size: 14px;">任务类型</h6>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">高阶段分类</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-4">
                                         <select class="selectpicker" name="type" id="type">
                                             <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
@@ -128,7 +128,7 @@
                                     </div>
                                 </div>
 
-                                //  这条记录在designType上
+                                <!-- 这条记录在designType上 -->
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">编程/画面</label>
                                     <div class="col-sm-9">
@@ -168,79 +168,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">工作内容修改</h6>
-                            <h6 class="card-title" style="font-size: 14px;color: red;">修改时请注意，不得使用英文标点符号。</h6>
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/programmingUpdateServlet" method="post">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">序号：</label>
-                                    <div class="col-sm-9">
-                                        <select class="selectpicker" id="idSel1" name="idSel" data-live-search="true">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">修改</h6>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">总开关量点数</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="total1" id="total1" placeholder="总开关量点数">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">总模拟量点数</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="total21" id="total21" placeholder="总模拟量点数">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">编程/画面</label>
-                                    <div class="col-sm-9">
-                                        <select class="selectpicker" id="programs1" name="programs1">
-                                            <option value="0" style="text-align: center; text-align-last: center;">编程</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">画面</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">总工日数</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="allday1" id="allday1" placeholder="总工日数">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">本月完成工日数</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="finish1" id="finish1" placeholder="本月完成工日数">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-9">
-                                        <textarea class="form-control" name="remarks1" id="remarks1" placeholder="备注" rows="3"></textarea>
-                                    </div>
-                                </div>
-
-                                <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="修改">
-                                    <button class="btn btn-warning" id="deleteBtn" name="submit" value="删除">删除</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- partial:partials/_footer.html -->
@@ -266,7 +193,7 @@
 
 
     function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/bye.jsp";
+        window.location.href = "${pageContext.request.contextPath}/login.jsp";
     }
 
 </script>

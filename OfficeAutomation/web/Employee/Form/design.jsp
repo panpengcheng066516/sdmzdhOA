@@ -82,7 +82,7 @@
 
                                 <h6 class="card-title" style="font-size: 14px;">填写</h6>
 
-                                //  idSel对应数据库project里的projectid工程号
+                                <!-- idSel对应数据库project里的projectid工程号 -->
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-9">
@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
 
-                                //  type对应数据库worktype里的type项目下的阶段类型
+                                <!-- type对应数据库worktype里的type项目下的阶段类型 -->
                                 <h6 class="card-title" style="font-size: 14px;">任务类型</h6>
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">高阶段分类</label>
@@ -184,7 +184,7 @@
                             <h6 class="card-title" style="font-size: 14px;color: red;">修改时请注意，不得使用英文标点符号。</h6>
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/designUpdateServlet" method="post">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号：</label>    //  选择对应projectid
+                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号：</label>
                                     <div class="col-sm-9">
                                         <select class="selectpicker" id="idSel2" name="idSel2" data-live-search="true">
                                             <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
@@ -304,7 +304,7 @@
 
 
     function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/bye.jsp";
+        window.location.href = "${pageContext.request.contextPath}/login.jsp";
     }
 
 </script>

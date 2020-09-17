@@ -58,8 +58,7 @@
                             </div>
                             <div class="col-md-5 pl-md-0">
                                 <div class="auth-form-wrapper px-4 py-5">
-                                    <a href="#" class="noble-ui-logo d-block mb-2">自动化工程技术公司工作量汇总查询系统</a>
-                                    <h5 class="text-muted font-weight-normal mb-4">密码修改</h5>
+                                    <a href="#" class="noble-ui-logo d-block mb-2">密码修改</a>
                                     <form id="updateUserForm" class="forms-sample" action="${pageContext.request.contextPath}/userServlet?method=updatePassword" method="post">
                                         <div class="form-group">
                                             <label for="username">用户名</label><span style="color: red">*</span>
@@ -100,7 +99,7 @@
 <script src="assets/js/template.js"></script>
 <script type="text/javascript">
     function LoginIn() {
-        window.location.href = "index.jsp";
+        window.location.href = "login.jsp";
     }
 </script>
 </html>

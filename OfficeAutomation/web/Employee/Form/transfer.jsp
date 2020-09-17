@@ -89,7 +89,7 @@
                                     </form>
                                 </div>
 
-                                //  inuse记录在数据库people中
+                                <!-- inuse记录在数据库people中 -->
                                 <div class="form-group row">
                                     <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">状态</label>
@@ -171,7 +171,7 @@
 
 
     function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/bye.jsp";
+        window.location.href = "${pageContext.request.contextPath}/login.jsp";
     }
 
 </script>
