@@ -125,7 +125,19 @@
                             </ul>
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="design" role="tabpanel" aria-labelledby="design-tab">
-                                    <p class="text-muted mb-1">当月设计工作量</p>
+                                    <p class="text-muted mb-1">月设计工作量</p>
+                                    <div class="form-group row">
+                                        <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
+                                        <div class="col-sm-10">
+                                            <select class="selectpicker" style="text-align:center;text-align-last:center;" id="sel" name="sel" onchange="opSel()">
+                                                <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-sm-1">
+                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                        </div>
+                                    </div>
                                         <div class="form-group row">
                                             <div class="table-responsive pt-3">
                                                 <table class="table table-bordered" id="design-table">
@@ -152,7 +164,20 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
-                                <p class="text-muted mb-1">当月编程画面工作量</p>
+                                <p class="text-muted mb-1">月编程画面工作量</p>
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
+                                    <div class="col-sm-10">
+                                        <select class="selectpicker" style="text-align:center;text-align-last:center;" id="sel1" name="1" onchange="opSel()">
+                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        </select>
+
+                                    </div>
+
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="exportExcel1()">导出</button>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
                                         <table class="table table-bordered" id="programming-table">
@@ -175,7 +200,20 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
-                                <p class="text-muted mb-1">当月调试工程管理工作量</p>
+                                <p class="text-muted mb-1">月调试工程管理工作量</p>
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
+                                    <div class="col-sm-10">
+                                        <select class="selectpicker" style="text-align:center;text-align-last:center;" id="sel2" name="sel2" onchange="opSel()">
+                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        </select>
+
+                                    </div>
+
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="exportExcel2()">导出</button>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
                                         <table class="table table-bordered" id="debug-table">
@@ -196,7 +234,20 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
-                                <p class="text-muted mb-1">当月经营管理工作量</p>
+                                <p class="text-muted mb-1">月经营管理工作量</p>
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
+                                    <div class="col-sm-10">
+                                        <select class="selectpicker" style="text-align:center;text-align-last:center;" id="sel3" name="sel3" onchange="opSel()">
+                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        </select>
+
+                                    </div>
+
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="exportExcel3()">导出</button>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
                                         <table class="table table-bordered" id="manage-table">
@@ -224,7 +275,20 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
-                                <p class="text-muted mb-1">当月日常管理工作量</p>
+                                <p class="text-muted mb-1">月日常管理工作量</p>
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
+                                    <div class="col-sm-10">
+                                        <select class="selectpicker" style="text-align:center;text-align-last:center;" id="sel4" name="sel4" onchange="opSel()">
+                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        </select>
+
+                                    </div>
+
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="exportExcel4()">导出</button>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
                                         <table class="table table-bordered" id="daily-table">
@@ -248,7 +312,20 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="others" role="tabpanel" aria-labelledby="others-tab">
-                                <p class="text-muted mb-1">当月零星工日</p>
+                                <p class="text-muted mb-1">月零星工日</p>
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
+                                    <div class="col-sm-10">
+                                        <select class="selectpicker" style="text-align:center;text-align-last:center;" id="sel5" name="sel5" onchange="opSel()">
+                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        </select>
+
+                                    </div>
+
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="exportExcel5()">导出</button>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
                                         <table class="table table-bordered" id="others-table">
@@ -268,7 +345,20 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="total" role="tabpanel" aria-labelledby="total-tab">
-                                <p class="text-muted mb-1">当月工日之和</p>
+                                <p class="text-muted mb-1">月工日之和</p>
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
+                                    <div class="col-sm-10">
+                                        <select class="selectpicker" style="text-align:center;text-align-last:center;" id="sel6" name="sel6" onchange="opSel()">
+                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        </select>
+
+                                    </div>
+
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="exportExcel6()">导出</button>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
                                         <table class="table table-bordered" id="total-table">
@@ -312,7 +402,7 @@
 
 
     function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/index.jsp";
+        window.location.href = "${pageContext.request.contextPath}/bye.jsp";
 
     }
 </script>

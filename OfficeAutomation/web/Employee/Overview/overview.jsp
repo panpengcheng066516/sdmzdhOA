@@ -64,13 +64,17 @@
                                     <div class="col-sm-10">
                                         <input type="date" data-provide="datepicker" name="month" id="month" class="form-control" placeholder="月份">
                                     </div>
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                    </div>
                                 </div>
                                 <div class="table-responsive pt-3">
-                                    <table class="table table-bordered" id="table01">
+                                    <table class="table table-bordered" id="table">
                                         <thead>
                                         <tr>
                                             <th>员工姓名</th>
                                             <th>工日之和</th>
+                                            <th>总计</th>
                                         </tr>
                                         </thead>
                                         <tbody></tbody>
@@ -91,13 +95,17 @@
                                 <div class="col-sm-10">
                                     <input type="date" data-provide="datepicker" name="year" id="year" class="form-control" placeholder="年份">
                                 </div>
+                                <div class="col-sm-1">
+                                    <button type="button" class="btn btn-success" onclick="exportExcel1()">导出</button>
+                                </div>
                             </div>
                             <div class="table-responsive pt-3">
-                                <table class="table table-bordered" id="table01">
+                                <table class="table table-bordered" id="table1>
                                     <thead>
                                     <tr>
                                         <th>员工姓名</th>
                                         <th>工日之和</th>
+                                        <th>总计</th>
                                     </tr>
                                     </thead>
                                     <tbody></tbody>
@@ -117,13 +125,17 @@
                                 <div class="col-sm-10">
                                     <input type="date" data-provide="datepicker" name="year1" id="year1" class="form-control" placeholder="年份">
                                 </div>
+                                <div class="col-sm-1">
+                                    <button type="button" class="btn btn-success" onclick="exportExcel2()">导出</button>
+                                </div>
                             </div>
                             <div class="table-responsive pt-3">
-                                <table class="table table-bordered" id="table01">
+                                <table class="table table-bordered" id="table2">
                                     <thead>
                                     <tr>
                                         <th>月份</th>
                                         <th>工日之和</th>
+                                        <th>总计</th>
                                     </tr>
                                     </thead>
                                     <tbody></tbody>
@@ -175,9 +187,83 @@
         maxViewMode: 1
     });
 
+    function exportExcel() {
+        //var tmp=document.getElementById("companySel1").value;
+        //var form=$("<form>");//定义一个form表单
+        //form.attr("style","display:none");
+        //form.attr("target","");
+        //form.attr("method","post");
+        //form.attr("action","${pageContext.request.contextPath}/OrderContactExportExcelServlet?method="+tmp);
+        //var input1=$("<input>");
+        //$("body").append(form);//将表单放置在web中
+        //form.append(input1);
+        //form.submit();//表单提交
+        var fileName="本年员工月工作量汇总";
+        var time = new Date();
+        var day = ("0" + time.getDate()).slice(-2);
+        var month = ("0" + (time.getMonth() + 1)).slice(-2);
+        var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
+
+        $("#table").table2excel({
+            exclude: ".noExl",
+            name: "Excel Document Name",
+            filename: fileName+today,
+            sheetName: fileName,// sheetName
+            exclude_img: true,
+            exclude_links: true,
+            exclude_inputs: true
+        });
+    }
+
+    function exportExcel1() {
+        var fileName="历年员工年工作量汇总";
+        var time = new Date();
+        var day = ("0" + time.getDate()).slice(-2);
+        var month = ("0" + (time.getMonth() + 1)).slice(-2);
+        var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
+
+        $("#table1").table2excel({
+            exclude: ".noExl",
+            name: "Excel Document Name",
+            filename: fileName+today,
+            sheetName: fileName,// sheetName
+            exclude_img: true,
+            exclude_links: true,
+            exclude_inputs: true
+        });
+    }
+
+    function exportExcel2() {
+        var fileName="历年月工作量汇总";
+        var time = new Date();
+        var day = ("0" + time.getDate()).slice(-2);
+        var month = ("0" + (time.getMonth() + 1)).slice(-2);
+        var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
+
+        $("#table2").table2excel({
+            exclude: ".noExl",
+            name: "Excel Document Name",
+            filename: fileName+today,
+            sheetName: fileName,// sheetName
+            exclude_img: true,
+            exclude_links: true,
+            exclude_inputs: true
+        });
+    }
+
+    $(function() {
+        var winWidth=$(window).width();
+        if (parseInt(winWidth)>parseInt("900")) {
+            $("#title1").addClass("search-form");
+            $("#titleText").css("font-size","24px");
+        }
+        else {
+            $("#title1").removeClass("search-form");
+        }
+    });
 
     function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/index.jsp";
+        window.location.href = "${pageContext.request.contextPath}/bye.jsp";
 
     }
 </script>

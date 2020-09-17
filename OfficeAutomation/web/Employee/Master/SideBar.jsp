@@ -11,7 +11,7 @@
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar" style="color:#8DB6CD">
     <div class="sidebar-header">
-        <a href="javascript:void(0);" class="sidebar-brand" onclick="ShuaXin()" style="color: white;">自动化工程技术公司工作量汇总查询系统</a>
+        <a href="javascript:void(0);" class="sidebar-brand" onclick="ShuaXin()" style="color: white;">SDMZDH</a>
         <div class="sidebar-toggler not-active">
             <span></span> <span></span> <span></span>
         </div>
@@ -26,7 +26,7 @@
             <li class="nav-item nav-category" data-feather="box">功能</li>
 
             <li class="nav-item">
-                <a class="nav-link" data-feather="folder-plus" data-toggle="collapse" href="#workloadInput" role="button" aria-expanded="false" aria-controls="workloadInput"> <i class="link-icon" data-feather="server"></i> <span class="link-title">工作量填写</span> <i class="link-arrow" data-feather="chevron-down"></i>
+                <a class="nav-link" data-toggle="collapse" href="#workloadInput" role="button" aria-expanded="false" aria-controls="workloadInput"> <i class="link-icon" data-feather="server"></i> <span class="link-title">工作量填写</span> <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="workloadInput">
                     <ul class="nav sub-menu">
@@ -62,12 +62,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" data-feather="github" data-toggle="collapse" href="#projectCheck" role="button" aria-expanded="false" aria-controls="projectCheck"> <i class="link-icon" data-feather="server"></i> <span class="link-title">设计项目汇总</span> <i class="link-arrow" data-feather="chevron-down"></i>
+                <a class="nav-link" data-toggle="collapse" href="#projectCheck" role="button" aria-expanded="false" aria-controls="projectCheck"> <i class="link-icon" data-feather="server"></i> <span class="link-title">项目管理</span> <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="projectCheck">
                     <ul class="nav sub-menu">
                         <li class="nav-item" style="display: none;">
-                            <a href="${ pageContext.request.contextPath }/Employee/Form/project.jsp" class="nav-link">科室项目录入</a>
+                            <a href="${ pageContext.request.contextPath }/Employee/Project/project.jsp" class="nav-link">科室项目录入</a>
                         </li>
 
                         <li class="nav-item">
@@ -78,32 +78,24 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" data-feather="gitlab" data-toggle="collapse" href="#personalCheck" role="button" aria-expanded="false" aria-controls="personalCheck"> <i class="link-icon" data-feather="server"></i> <span class="link-title">个人工作量查询</span> <i class="link-arrow" data-feather="chevron-down"></i>
+                <a class="nav-link" data-toggle="collapse" href="#personalCheck" role="button" aria-expanded="false" aria-controls="personalCheck"> <i class="link-icon" data-feather="server"></i> <span class="link-title">个人工作量查询</span> <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="personalCheck">
                     <ul class="nav sub-menu">
                         <li class="nav-item" style="display: none;">
-                            <a href="${ pageContext.request.contextPath }/Employee/Overview/personalSummary.jsp" class="nav-link">本月工作量查询</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Overview/personalPastSummary.jsp" class="nav-link">历史工作量查询</a>
+                            <a href="${ pageContext.request.contextPath }/Employee/Overview/personalSummary.jsp" class="nav-link">本月及历史工作量查询</a>
                         </li>
                     </ul>
                 </div>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" data-feather="loader" data-toggle="collapse" href="#overview" role="button" aria-expanded="false" aria-controls="overview"> <i class="link-icon" data-feather="server"></i> <span class="link-title">科室工作量查询</span> <i class="link-arrow" data-feather="chevron-down"></i>
+                <a class="nav-link" data-toggle="collapse" href="#overview" role="button" aria-expanded="false" aria-controls="overview"> <i class="link-icon" data-feather="server"></i> <span class="link-title">科室工作量查询</span> <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="overview">
                     <ul class="nav sub-menu">
                         <li class="nav-item" style="display: none;">
-                            <a href="${ pageContext.request.contextPath }/Employee/Overview/monthSummary.jsp" class="nav-link">本月工作量查询</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Overview/pastSummary.jsp" class="nav-link">历史工作量查询</a>
+                            <a href="${ pageContext.request.contextPath }/Employee/Overview/monthSummary.jsp" class="nav-link">本月及历史工作量查询</a>
                         </li>
 
                         <li class="nav-item">

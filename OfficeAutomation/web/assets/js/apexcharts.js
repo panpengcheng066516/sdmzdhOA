@@ -8,7 +8,7 @@ $(function() {
       type: "line",
       parentHeightOffset: 0
     },
-    colors: ["#f77eb9", "#7ee5e5","#4d8af0"],
+    colors: ["#4d8af0"],
     grid: {
       borderColor: "rgba(77, 138, 240, .1)",
       padding: {
@@ -17,22 +17,14 @@ $(function() {
     },
     series: [
       {
-        name: "Data a",
-        data: [45, 52, 38, 45]
-      },
-      {
-        name: "Data b",
-        data: [12, 42, 68, 33]
-      },
-      {
         name:
-          "Data c",
-        data: [8, 32, 48, 53]
+          "人数",
+        data: [78, 82, 70, 85,94]
       }
     ],
     xaxis: {
-      type: "datetime",
-      categories: ["2015", "2016", "2017", "2018"]
+    	type: 'category',
+        categories: ['2016年','2017年','2018年', '2019年','2020年']
     },
     markers: {
       size: 0
@@ -72,7 +64,7 @@ $(function() {
       height: '320',
       parentHeightOffset: 0
     },
-    colors: ["#f77eb9"],    
+    colors: ["#f77eb9","#7FFFD4"],    
     grid: {
       borderColor: "rgba(77, 138, 240, .1)",
       padding: {
@@ -80,12 +72,25 @@ $(function() {
       }
     },
     series: [{
-      name: 'sales',
-      data: [30,40,45,50,49,60,70,91,125]
-    }],
+      name: '正在进行项目',
+      data: [17,25,18,15,30]
+    },
+    {
+        name: '已完成项目',
+        data: [11,15,13,25,28]
+      }
+    ],
+    legend: {
+        show: true,
+        position: "top",
+        horizontalAlign: 'left',
+        containerMargin: {
+          top: 30
+        }
+      },
     xaxis: {
-      type: 'datetime',
-      categories: ['01/01/1991','01/01/1992','01/01/1993','01/01/1994','01/01/1995','01/01/1996','01/01/1997', '01/01/1998','01/01/1999']
+      type: 'category',
+      categories: ['2016年','2017年','2018年', '2019年','2020年']
     }
   }
   
@@ -100,7 +105,7 @@ $(function() {
       type: "area",
       height: 300,
       parentHeightOffset: 0,
-      foreColor: "#999",
+      foreColor: "#fff",
       stacked: true,
       dropShadow: {
         enabled: true,
@@ -120,10 +125,10 @@ $(function() {
       enabled: false
     },
     series: [{
-      name: 'Total Views',
+      name: '数据1',
       data: generateDayWiseTimeSeries(0, 18)
     }, {
-      name: 'Unique Views',
+      name: '数据2',
       data: generateDayWiseTimeSeries(1, 18)
     }],
     markers: {
@@ -166,7 +171,7 @@ $(function() {
     },
     tooltip: {
       x: {
-        format: "dd MMM yyyy"
+        format: "yyyy MM dd"
       },
     },
     legend: {
@@ -191,7 +196,7 @@ $(function() {
     ]];
     var i = 0;
     var series = [];
-    var x = new Date("11 Nov 2012").getTime();
+    var x = new Date("2012 Nov 11").getTime();
     while (i < count) {
       series.push([x, values[s][i]]);
       x += 86400000;
@@ -218,123 +223,21 @@ $(function() {
     dataLabels: {
       enabled: false
     },
-    series: [44, 55, 13, 33]
+    series: [5, 23, 18, 30, 13, 6, 5],
+    labels: ['十七冶', '莱钢建设', '二十冶', '宝冶','二十三冶','五冶','一冶']
   };
   
   var chart = new ApexCharts(document.querySelector("#apexDonut"), options);
   
   chart.render();
-  // Apex Donut chart start
+  // Apex Donut chart end
   
-  // Apex Pie chart end
-  var options = {
-    chart: {
-      height: 300,
-      type: "pie"
-    },
-    colors: ["#f77eb9", "#7ee5e5","#4d8af0","#fbbc06"],
-    legend: {
-      position: 'top',
-      horizontalAlign: 'center'
-    },
-    stroke: {
-      colors: ['rgba(0,0,0,0)']
-    },
-    dataLabels: {
-      enabled: false
-    },
-    series: [44, 55, 13, 33]
-  };
+  // Apex Pie chart start
   
-  var chart = new ApexCharts(document.querySelector("#apexPie"), options);
-  
-  chart.render();  
   // Apex Pie chart end
 
   // Apex Mixed chart start
-  var options = {
-    chart: {
-      height: 300,
-      type: 'line',
-      stacked: false,
-      parentHeightOffset: 0
-    },
-    grid: {
-      borderColor: "rgba(77, 138, 240, .1)",
-      padding: {
-        bottom: -15
-      }
-    },
-    stroke: {
-      width: [0, 2, 5],
-      curve: 'smooth'
-    },
-    plotOptions: {
-      bar: {
-        columnWidth: '50%'
-      }
-    },
-    series: [{
-      name: 'TEAM A',
-      type: 'column',
-      data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
-    }, {
-      name: 'TEAM B',
-      type: 'area',
-      data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
-    }],
-    legend: {
-      position: 'top',
-      horizontalAlign: 'left'
-    },
-    fill: {
-      opacity: [0.85,0.25,1],
-      gradient: {
-        inverseColors: false,
-        shade: 'light',
-        type: "vertical",
-        opacityFrom: 0.85,
-        opacityTo: 0.55,
-        stops: [0, 100, 100, 100]
-      }
-    },
-    labels: ['01/01/2003', '02/01/2003','03/01/2003','04/01/2003','05/01/2003','06/01/2003','07/01/2003','08/01/2003','09/01/2003','10/01/2003','11/01/2003'],
-    markers: {
-      size: 0
-    },
-    xaxis: {
-      type:'datetime'
-    },
-    yaxis: {
-      title: {
-        text: 'Points',
-      },
-    },
-    tooltip: {
-      shared: true,
-      intersect: false,
-      y: [{
-        formatter: function (y) {
-          if(typeof y !== "undefined") {
-            return  y.toFixed(0) + " points";
-          }
-          return y;
-        }
-      }, {
-        formatter: function (y) {
-          if(typeof y !== "undefined") {
-            return  y.toFixed(2) + " $";
-          }
-          return y;
-        }
-      }]
-    }
-  }
-  var chart = new ApexCharts(
-    document.querySelector("#apexMixed"),
-    options
-  );
-  chart.render();
+  
   // Apex Mixed chart end
 
   // Apex Radar chart start
@@ -343,6 +246,7 @@ $(function() {
       height: 300,
       type: 'radar',
       parentHeightOffset: 0,
+      
     },
     colors: ["#f77eb9", "#7ee5e5","#4d8af0"],
     grid: {
@@ -356,13 +260,14 @@ $(function() {
       horizontalAlign: 'left'
     },
     series: [{
-      name: 'Series 1',
+      name: '权重 1',
       data: [80, 50, 30, 40, 100, 20],
+      
     }, {
-      name: 'Series 2',
+      name: '权重 2',
       data: [20, 30, 40, 80, 20, 80],
     }, {
-      name: 'Series 3',
+      name: '权重 3',
       data: [44, 76, 78, 13, 43, 10],
     }],
     stroke: {
@@ -374,7 +279,7 @@ $(function() {
     markers: {
       size: 0
     },
-    labels: ['2011', '2012', '2013', '2014', '2015', '2016']
+    labels: ['2015', '2016', '2017', '2018', '2019', '2020']
   }
 
   var chart = new ApexCharts(

@@ -5,7 +5,7 @@ $(function() {
     if (type === 'basic') {
       swal.fire({
         text: 'Any fool can use a computer',
-        confirmButtonText: 'Close',
+        confirmButtonText: '关闭',
         confirmButtonClass: 'btn btn-danger',
       })
     } else if (type === 'title-and-text') {

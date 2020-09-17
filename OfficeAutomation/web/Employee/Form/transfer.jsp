@@ -81,7 +81,7 @@
                                 <h6 class="card-title" style="font-size: 14px;">借调状态更改</h6>
                                 <h6 class="card-title" style="font-size: 14px;color: red;">文本框请填写相应借调部门。</h6>
                                 <div class="form-group row">
-                                    <form class="forms-sample" action="${ pageContext.request.contextPath }/transferInputServlet" method="post">
+                                    <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;"></label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="transfer" id="transfer" placeholder="借调至">
@@ -91,7 +91,7 @@
 
                                 //  inuse记录在数据库people中
                                 <div class="form-group row">
-                                    <form class="forms-sample" action="${ pageContext.request.contextPath }/loginServlet" method="post">
+                                    <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">状态</label>
                                     <div class="col-sm-9">
                                         <select class="selectpicker" name="inuse" id="inuse">
@@ -171,7 +171,7 @@
 
 
     function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/index.jsp";
+        window.location.href = "${pageContext.request.contextPath}/bye.jsp";
     }
 
 </script>

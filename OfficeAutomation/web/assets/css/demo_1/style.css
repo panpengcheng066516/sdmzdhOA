@@ -20151,7 +20151,7 @@ address p {
 .navbar {
   width: calc(100% - 240px);
   height: 60px;
-  background: #ffffff;
+  background: #716ACA;
   border-bottom: 1px solid #f2f4f9;
   display: -webkit-flex;
   display: flex;
@@ -20489,7 +20489,7 @@ address p {
   transition: width .1s ease, margin .1s ease-out;
   z-index: 999; }
   .sidebar .sidebar-header {
-    background: #ffffff;
+    background: #716ACA;
     height: 60px;
     border-bottom: 1px solid #f2f4f9;
     display: -webkit-flex;
@@ -21491,7 +21491,7 @@ address p {
 /* Buttons */
 .btn, .fc .fc-button, .swal2-modal .swal2-actions button, .wizard > .actions a, .wizard > .actions a:hover, .wizard > .actions .disabled a {
   font-size: 0.875rem;
-  line-height: 1;
+  line-height: 1.5;
   padding: .5rem 1rem .4rem;
   /* Buttons with only icons */
   /* Buttons with icon and text */ }
@@ -22942,7 +22942,7 @@ select {
   padding: 50px;
   list-style: none;
   text-align: left;
-  max-width: 40%; }
+  max-width: 70%; }
   @media (max-width: 767px) {
     .timeline {
       max-width: 98%;
@@ -22954,6 +22954,11 @@ select {
     font-weight: 600;
     font-size: 1rem;
     margin-bottom: 10px; }
+   .timeline h5 {
+     font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+   }
   .timeline .event {
     border-bottom: 1px dashed #e8ebf1;
     padding-bottom: 25px;
@@ -23162,8 +23167,8 @@ select {
 .auth-page .auth-left-wrapper {
   width: 100%;
   height: 100%;
-  background-image: url(../../images/carousel/img6.jpg);
-  background-size: cover; }
+  background-image: url(../../images/background.png);
+  background-size: 100% 100%; }
 
 @media (min-width: 992px) {
   .inbox-wrapper .email-aside .aside-content {
@@ -23513,7 +23518,7 @@ select {
 
 .form-group.row {
   margin-bottom: 0;
-  padding: 12px 0; }
+  padding: 2px 0; }
   .form-group.row label {
     white-space: nowrap; }
 
@@ -23885,7 +23890,8 @@ select {
     color: #686868;
     font-weight: initial;
     margin-top: 11px;
-    text-decoration: none; }
+    text-decoration: none;
+    min-width:100%; }
   .swal2-modal .swal2-close {
     font-size: 20px; }
   .swal2-modal .swal2-success-ring {

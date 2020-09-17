@@ -182,6 +182,7 @@ $(function() {
             borderColor: "#7ee5e5",
             pointBorderColor: "#7ee5e5",
             pointBackgroundColor: "#c2fdfd",
+            pointBorderColor: "#fff",
             data: [25.48,54.16,7.61,8.06,4.45]
           }
         ]

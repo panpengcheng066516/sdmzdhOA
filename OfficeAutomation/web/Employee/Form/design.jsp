@@ -86,7 +86,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-9">
-                                        <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
+                                        <select class="selectpicker " id="idSel" name="idSel" data-live-search="true">
                                             <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                         </select>
                                     </div>
@@ -304,7 +304,7 @@
 
 
     function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/index.jsp";
+        window.location.href = "${pageContext.request.contextPath}/bye.jsp";
     }
 
 </script>

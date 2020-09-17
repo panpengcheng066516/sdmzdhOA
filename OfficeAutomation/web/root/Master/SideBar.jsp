@@ -26,16 +26,12 @@
 
             <li class="nav-item nav-category">功能</li>
             <li class="nav-item"><a href="${ pageContext.request.contextPath }/Root/management.jsp" class="nav-link">
-                <i class="link-icon" data-feather="trello"></i> <span class="link-title">用户状态管理</span>
+                <i class="link-icon" data-feather="trello"></i> <span class="link-title">用户注册和管理</span>
             </a></li>
             <li class="nav-item"><a href="${ pageContext.request.contextPath }/Root/signup.jsp" class="nav-link">
                 <i class="link-icon" data-feather="server"></i> <span class="link-title">新用户注册</span>
             </a></li>
 
-            <li class="nav-item nav-category">操作手册</li>
-            <li class="nav-item"><a href="${ pageContext.request.contextPath }/Root/UserManual/UserManual.jsp" class="nav-link">
-                <i class="link-icon" data-feather="rss"></i> <span class="link-title">还没想好</span>
-            </a></li>
             <script type="text/javascript">
                 function ShuaXin() {
                     location.reload(true);
