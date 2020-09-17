@@ -40,47 +40,7 @@
                 $("#username").val("${user.username}");
                 $("#oldPIN").val("${user.password}");
             }
-            $("#updateUserForm").validate({
-                rules:{
-                    username: {
-                        required: true,
-                        minlength: 2
-                    },
-                    oldPIN: {
-                        required: true,
-                        minlength: 6
-                    },
-                    newPIN: {
-                        required: true,
-                        minlength: 6
-                    },
-                    newPIN2: {
-                        required: true,
-                        minlength: 6,
-                        equalTo:"#password"
-                    }
-                },
-                message:{
-                    username: {
-                        required: "用户名不能为空",
-                        minlength: "用户名最少两位"
-                    },
-                    oldPIN: {
-                        required: "不能为空",
-                        minlength: "最少六位"
-                    },
-                    newPIN: {
-                        required: "不能为空",
-                        minlength: "最少六位"
-                    },
-                    newPIN2: {
-                        required: "不能为空",
-                        minlength: "最少六位",
-                        equalTo:"两次密码不一致"
-                    }
-                }
-            });
-        });
+        })
     </script>
 
 </head>
@@ -102,20 +62,20 @@
                                     <h5 class="text-muted font-weight-normal mb-4">密码修改</h5>
                                     <form id="updateUserForm" class="forms-sample" action="${pageContext.request.contextPath}/userServlet?method=updatePassword" method="post">
                                         <div class="form-group">
-                                            <label for="username">用户名</label>
-                                            <input type="text" name="username" class="form-control" id="username" autocomplete="username" placeholder="用户名" />
+                                            <label for="username">用户名</label><span style="color: red">*</span>
+                                            <input type="text" name="username" class="form-control" id="username" autocomplete="username" placeholder="用户名" required="ture"/>
                                         </div>
                                         <div class="form-group">
-                                            <label for="oldPIN">原密码</label>
-                                            <input type="password" name="oldPIN" class="form-control" id="oldPIN" placeholder="原密码" />
+                                            <label for="oldPIN">原密码</label><span style="color: red">*</span>
+                                            <input type="password" name="oldPIN" class="form-control" id="oldPIN" placeholder="原密码" required="ture"/>
                                         </div>
                                         <div class="form-group">
-                                            <label for="newPIN">新密码 </label>
-                                            <input type="password" name="newPIN" class="form-control" id="newPIN" autocomplete="new-password" placeholder="新密码" />
+                                            <label for="newPIN">新密码 </label><span style="color: red">*</span>
+                                            <input type="password" name="newPIN" class="form-control" id="newPIN" autocomplete="new-password" placeholder="新密码" required="ture" />
                                         </div>
                                         <div class="form-group">
-                                            <label for="newPIN">密码确认 </label>
-                                            <input type="password" name="newPIN2" class="form-control" id="newPIN2" autocomplete="new-password" placeholder="新密码确认" />
+                                            <label for="newPIN">密码确认 </label><span style="color: red">*</span>
+                                            <input type="password" name="newPIN2" class="form-control" id="newPIN2" autocomplete="new-password" placeholder="新密码确认" required="ture"/>
                                         </div>
                                         <c:if test="${!empty loginError}">
                                             <span style="color: red">${loginError}</span>

@@ -23,30 +23,10 @@
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript" src="assets/js/jquery.validate.js" ></script>
     <script type="text/javascript" src="assets/js/messages_zh.js" ></script>
+
     <script type="text/javascript">
         $(function() {
-            $("#loginForm").validate({
-                rules: {
-                    username: {
-                        required: true,
-                        minlength: 2
-                    },
-                    password: {
-                        required: true,
-                        minlength: 6
-                    }
-                },
-                messages: {
-                    username: {
-                        required: "用户名不能为空!",
-                        minlength: "用户名不得少于2个字符!"
-                    },
-                    password: {
-                        required: "密码不能为空!",
-                        minlength: "密码长度不得低于6位!"
-                    }
-                }
-            });
+
         })
     </script>
 </head>
@@ -68,11 +48,11 @@
                                     <form id="loginForm" class="forms-sample" action="${ pageContext.request.contextPath }/userServlet?method=login" method="post">
                                         <div class="form-group">
                                             <label for="username">用户名</label>
-                                            <input type="text" name="username" class="form-control" id="username" placeholder="用户名" />
+                                            <input type="text" name="username" class="form-control" id="username" placeholder="用户名" required="ture"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="password">密码</label>
-                                            <input type="password" name="password" class="form-control" id="password" autocomplete="current-password" placeholder="密码" />
+                                            <input type="password" name="password" class="form-control" id="password" autocomplete="current-password" placeholder="密码" required="ture"/>
                                             <c:if test="${!empty loginError}">
                                                 <span style="color: red">${loginError}</span>
                                             </c:if>
@@ -99,6 +79,5 @@
     function updatepasswd() {
         window.location.href = "register.jsp";
     }
-
 </script>
 </html>
