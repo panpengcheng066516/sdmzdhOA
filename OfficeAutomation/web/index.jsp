@@ -70,9 +70,15 @@
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
-            <p>Hi you. </p>
-            <p>So what do you want to do now?</p>
-
+            <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title" style="font-size: 14px;">Hi you.</h6>
+                            <h6 class="card-title" style="font-size: 14px;">So what do you want to do now?</h6></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- partial:partials/_footer.html -->
         <%@ include file="Employee/Master/Footer.jsp"%>

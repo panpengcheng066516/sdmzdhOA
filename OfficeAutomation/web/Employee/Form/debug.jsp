@@ -71,7 +71,7 @@
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-md-8 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h6 class="card-title" style="font-size: 14px;">调试工程管理</h6>
@@ -84,19 +84,25 @@
 
                                 <!-- idSel对应数据库project里的projectid工程号 -->
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">项目名称</label>
+                                    <div class="col-sm-6">
                                         <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
                                             <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <!-- type对应数据库worktype里的type项目下的阶段类型 -->
-                                <h6 class="card-title" style="font-size: 14px;">任务类型</h6>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">高阶段分类</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">工程号</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="projectid" id="projectid" disabled="true">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                <!-- type对应数据库worktype里的type项目下的阶段类型 -->
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">高阶段分类</label>
+                                    <div class="col-sm-6">
                                         <select class="selectpicker" name="type" id="type">
                                             <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
@@ -109,30 +115,30 @@
 
                                 <!--  这条记录在designType上 -->
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">项目地点</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">项目地点</label>
+                                    <div class="col-sm-6">
                                         <input type="text" class="form-control" name="location" id="location" placeholder="项目地点">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">本月工程管理天数</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">本月工程管理天数</label>
+                                    <div class="col-sm-6">
                                         <input type="text" class="form-control" name="bug1" id="bug1" placeholder="本月工程管理天数">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">本月调试天数</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">本月调试天数</label>
+                                    <div class="col-sm-6">
                                         <input type="text" class="form-control" name="bug2" id="bug2" placeholder="本月调试天数">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-9">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
+                                    <div class="col-sm-6">
+                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="5"></textarea>
                                     </div>
                                 </div>
 
@@ -140,62 +146,6 @@
                                     <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
                                 </div>
 
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">工作内容修改</h6>
-                            <h6 class="card-title" style="font-size: 14px;color: red;">修改时请注意，不得使用英文标点符号。</h6>
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/OrderLinkmanInputServlet" method="post">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号</label>
-                                    <div class="col-sm-9">
-                                        <select class="selectpicker" id="idSel2" name="idSel2" data-live-search="true">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">修改</h6>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">项目地点</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="location" id="location1" placeholder="项目地点">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">本月工程管理天数</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="bug1" id="bug11" placeholder="本月工程管理天数">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">本月调试天数</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="bug2" id="bug21" placeholder="本月调试天数">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-9">
-                                        <textarea class="form-control" name="remarks" id="remarks1" placeholder="备注" rows="3"></textarea>
-                                    </div>
-                                </div>
-
-                                <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="修改">
-                                    <button class="btn btn-warning" id="deleteBtn" name="submit" value="删除">删除</button>
-                                </div>
                             </form>
                         </div>
                     </div>

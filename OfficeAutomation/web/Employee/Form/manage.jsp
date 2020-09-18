@@ -71,12 +71,12 @@
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h6 class="card-title" style="font-size: 14px;">经营</h6>
                             <h6 class="card-title" style="font-size: 14px;color: red;">填写时请注意，不得使用英文标点符号。</h6>
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/manageInputServlet" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
 
                                 <hr width="300" align="left">
 
@@ -84,19 +84,23 @@
 
                                 <!-- iidSel对应数据库project里的projectid工程号 -->
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
+                                    <div class="col-sm-4">
                                         <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
                                             <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                         </select>
                                     </div>
+
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="projectid" id="projectid" disabled="true">
+                                    </div>
                                 </div>
 
-                                <!-- itype对应数据库worktype里的type项目下的阶段类型 -->
-                                <h6 class="card-title" style="font-size: 14px;">任务类型</h6>
+                                    <!-- itype对应数据库worktype里的type项目下的阶段类型 -->
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">高阶段分类</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
+                                    <div class="col-sm-4">
                                         <select class="selectpicker" name="type" id="type">
                                             <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
@@ -105,67 +109,58 @@
                                             <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
                                         </select>
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">商务询价报价</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">商务询价报价</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage0" id="manage0" placeholder="商务询价报价">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">标书制作</label>
-                                    <div class="col-sm-9">
+
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">标书制作</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage1" id="manage1" placeholder="标书制作">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">合同制作与签署</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">合同制作与签署</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage2" id="manage2" placeholder="合同制作与签署">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">投标工作</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">投标工作</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage3" id="manage3" placeholder="投标工作">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">设备招标采购</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">设备招标采购</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage4" id="manage4" placeholder="设备招标采购">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">设备出厂检测</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">设备出厂检测</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage5" id="manage5" placeholder="设备出厂检测">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">催款（要账）</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">催款（要账）</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage6" id="manage6" placeholder="催款（要账）">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">合同管理</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">合同管理</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage7" id="manage7" placeholder="合同管理">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">其他经营活动</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">其他经营活动</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage8" id="manage8" placeholder="其他经营活动">
                                     </div>
                                 </div>
@@ -173,15 +168,15 @@
                                 <h6 class="card-title" style="font-size: 14px;">项目经理</h6>
                                 <h6 class="card-title" style="font-size: 14px;color: red;">此列不是写项目经理名字，如果你是项目经理，把操心的工作量折合工日写在此列。</h6>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">项目经理</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目经理</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage9" id="manage9" placeholder="项目经理">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
+                                    <div class="col-sm-4">
                                         <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
                                     </div>
                                 </div>
@@ -190,127 +185,6 @@
                                     <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
                                 </div>
 
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">工作内容修改</h6>
-                            <h6 class="card-title" style="font-size: 14px;color: red;">修改时请注意，不得使用英文标点符号。</h6>
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/manageUpdateServlet" method="post">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号：</label>
-                                    <div class="col-sm-9">
-                                        <select class="selectpicker" id="idSel2" name="idSel2" data-live-search="true">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">修改</h6>
-
-                                <h6 class="card-title" style="font-size: 14px;">任务类型</h6>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">高阶段分类</label>
-                                    <div class="col-sm-9">
-                                        <select class="selectpicker" name="type" id="type1">
-                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
-                                            <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>
-                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>
-                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">商务询价报价</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="manage0" id="manage01" placeholder="商务询价报价">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">标书制作</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="manage1" id="manage11" placeholder="标书制作">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">合同制作与签署</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="manage2" id="manage21" placeholder="合同制作与签署">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">投标工作</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="manage3" id="manage31" placeholder="投标工作">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">设备招标采购</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="manage4" id="manage41" placeholder="设备招标采购">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">设备出厂检测</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="manage5" id="manage51" placeholder="设备出厂检测">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">催款（要账）</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="manage6" id="manage61" placeholder="催款（要账）">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">合同管理</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="manage7" id="manage71" placeholder="合同管理">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">其他经营活动</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="manage8" id="manage81" placeholder="其他经营活动">
-                                    </div>
-                                </div>
-
-                                <h6 class="card-title" style="font-size: 14px;">项目经理</h6>
-                                <h6 class="card-title" style="font-size: 14px;color: red;">此列不是写项目经理名字，如果你是项目经理，把操心的工作量折合工日写在此列。</h6>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">项目经理</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="manage9" id="manage91" placeholder="项目经理">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-9">
-                                        <textarea class="form-control" name="remarks" id="remarks1" placeholder="备注" rows="3"></textarea>
-                                    </div>
-                                </div>
-
-                                <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="修改">
-                                    <button class="btn btn-warning" id="deleteBtn" name="submit" value="删除">删除</button>
-                                </div>
                             </form>
                         </div>
                     </div>

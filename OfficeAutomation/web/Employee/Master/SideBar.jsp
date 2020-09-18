@@ -39,7 +39,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Form/programming.jsp" class="nav-link">编程画面</a>
+                            <a href="${ pageContext.request.contextPath }/Employee/Form/programming.jsp" class="nav-link">编程/画面</a>
                         </li>
 
                         <li class="nav-item">
@@ -51,11 +51,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Form/daily.jsp" class="nav-link">日常管理</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Form/others.jsp" class="nav-link">零星工日</a>
+                            <a href="${ pageContext.request.contextPath }/Employee/Form/daily.jsp" class="nav-link">日常管理/零星</a>
                         </li>
                     </ul>
                 </div>
@@ -66,10 +62,6 @@
                 </a>
                 <div class="collapse" id="projectCheck">
                     <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Project/project.jsp" class="nav-link">科室项目录入</a>
-                        </li>
-
                         <li class="nav-item">
                             <a href="${ pageContext.request.contextPath }/Employee/Overview/projectOverview.jsp" class="nav-link">科室项目查询</a>
                         </li>

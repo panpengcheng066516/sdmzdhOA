@@ -71,78 +71,26 @@
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
+                <div class="col-md-6 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h6 class="card-title" style="font-size: 14px;">借调</h6>
 
                                 <hr width="300" align="left">
 
-                                <h6 class="card-title" style="font-size: 14px;">借调状态更改</h6>
                                 <h6 class="card-title" style="font-size: 14px;color: red;">文本框请填写相应借调部门。</h6>
-                                <div class="form-group row">
-                                    <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;"></label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="transfer" id="transfer" placeholder="借调至">
-                                    </div>
-                                    </form>
-                                </div>
 
-                                <!-- inuse记录在数据库people中 -->
                                 <div class="form-group row">
-                                    <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">状态</label>
-                                    <div class="col-sm-9">
-                                        <select class="selectpicker" name="inuse" id="inuse">
-                                            <option value="0" style="text-align: center; text-align-last: center;">借调中</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">已返回</option>
-                                        </select>
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">借调至</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="transfer" id="transfer" placeholder="请填写部门或地点名称">
                                     </div>
-                                    </form>
                                 </div>
 
                                 <div align="center">
                                     <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
                                 </div>
 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">借调</h6>
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">借调状态更改</h6>
-                                <h6 class="card-title" style="font-size: 14px;color: red;">文本框请填写相应借调部门。</h6>
-                                <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label" style="font-size: 14px;"></label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="transfer1" id="transfer1" placeholder="借调至">
-                                        </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <form class="forms-sample" action="${ pageContext.request.contextPath }/loginServlet" method="post">
-                                        <label class="col-sm-3 col-form-label" style="font-size: 14px;">状态</label>
-                                        <div class="col-sm-9">
-                                            <select class="selectpicker" name="inuse1" id="inuse1">
-                                                <option value="0" style="text-align: center; text-align-last: center;">借调中</option>
-                                                <option value="1" style="text-align: center; text-align-last: center;">已返回</option>
-                                            </select>
-                                        </div>
-                                    </form>
-                                </div>
-
-                                <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="修改">
-                                    <button class="btn btn-warning" id="deleteBtn" name="submit" value="删除">删除</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>

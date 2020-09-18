@@ -5,13 +5,6 @@
   Time: 2:20 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%--
-  Created by IntelliJ IDEA.
-  User: miles
-  Date: 9/1/2020
-  Time: 1:15 PM
-  To change this template use File | Settings | File Templates.
---%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="java.util.LinkedList"%>
 <%@page import="java.io.File"%>
@@ -83,7 +76,7 @@
                         <div class="card-body">
                             <h6 class="card-title" style="font-size: 14px;">编程画面</h6>
                             <h6 class="card-title" style="font-size: 14px;color: red;">填写时请注意，不得使用英文标点符号。</h6>
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/programmingInputServlet" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
 
                                 <hr width="300" align="left">
 
@@ -91,18 +84,22 @@
 
                                 <!-- idSel对应数据库project里的projectid工程号 -->
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">工程号</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
                                     <div class="col-sm-4">
                                         <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
                                             <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                         </select>
                                     </div>
+
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="projectid" id="projectid" disabled="true">
+                                    </div>
                                 </div>
 
-                                <!-- type对应数据库worktype里的type项目下的阶段类型 -->
-                                <h6 class="card-title" style="font-size: 14px;">任务类型</h6>
+                                    <!-- type对应数据库worktype里的type项目下的阶段类型 -->
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">高阶段分类</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
                                     <div class="col-sm-4">
                                         <select class="selectpicker" name="type" id="type">
                                             <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
@@ -115,47 +112,52 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">总开关量点数</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">总开关量点数</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="program1" id="program1" placeholder="总开关量点数">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">总模拟量点数</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">总模拟量点数</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="program2" id="program2" placeholder="总模拟量点数">
                                     </div>
                                 </div>
 
                                 <!-- 这条记录在designType上 -->
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">编程/画面</label>
-                                    <div class="col-sm-9">
-                                        <select class="selectpicker" id="program3" name="program3">
-                                            <option value="0" style="text-align: center; text-align-last: center;">编程</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">画面</option>
-                                        </select>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">编程/画面</label>
+                                    <div class="col-sm-4">
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="program3" id="program31" value="data1" checked="true">
+                                                编程
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="program3" id="program32" value="data2">
+                                                画面
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">总工日数</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">总工日数</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="program4" id="program4" placeholder="总工日数">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">本月完成工日数</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">本月完成工日数</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="program5" id="program5" placeholder="本月完成工日数">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
+                                    <div class="col-sm-4">
                                         <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
                                     </div>
                                 </div>

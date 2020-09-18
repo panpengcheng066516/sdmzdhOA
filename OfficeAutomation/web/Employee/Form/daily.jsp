@@ -71,57 +71,42 @@
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
+                <div class="col-md-8 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h6 class="card-title" style="font-size: 14px;">日常管理</h6>
                             <h6 class="card-title" style="font-size: 14px;color: red;">填写时请注意，不得使用英文标点符号。</h6>
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/??????" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
 
                                 <hr width="300" align="left">
 
                                 <h6 class="card-title" style="font-size: 14px;">填写</h6>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">日常管理</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="daily1" id="daily1" placeholder="部门内部日常管理">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">工会事务</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="daily2" id="daily2" placeholder="工会事务">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">党组事务</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="daily3" id="daily3" placeholder="党组事务">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">团组事务</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="daily4" id="daily4" placeholder="团组事务">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择类型</label>
+                                    <div class="col-sm-5">
+                                        <select class="selectpicker" name="progress" id="progress">
+                                            <option value="0" style="text-align: center; text-align-last: center;">日常管理</option>
+                                            <option value="1" style="text-align: center; text-align-last: center;">工会事务</option>
+                                            <option value="2" style="text-align: center; text-align-last: center;">党/团组事务</option>
+                                            <option value="3" style="text-align: center; text-align-last: center;">考勤</option>
+                                            <option value="4" style="text-align: center; text-align-last: center;">出差/交流</option>
+                                            <option value="5" style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
+                                        </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">考勤</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="daily5" id="daily5" placeholder="考勤">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">其他报销</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="daily6" id="daily6" placeholder="其他报销">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">工日天数</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" name="daily5" id="daily5" placeholder="工日天数">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-4">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="体系内审/外审等工作请备注在此处" rows="5"></textarea>
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
+                                    <div class="col-sm-5">
+                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="如有多项内容，请再填写一次" rows="5"></textarea>
                                     </div>
                                 </div>
 

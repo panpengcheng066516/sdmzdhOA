@@ -16,7 +16,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"ggg>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>自动化工程技术公司工作量汇总查询系统</title>
     <!-- 解决转发后页面失效问题 -->
     <%
@@ -62,9 +62,11 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
+
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
+
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
@@ -81,35 +83,31 @@
                                 <h6 class="card-title" style="font-size: 14px;">填写</h6>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">项目名称</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="project" id="project" placeholder="项目名称">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">工程号</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="projectid" id="projectid" placeholder="工程号">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">要求完成时间</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">要求完成时间</label>
                                     <div class="col-sm-4">
                                         <input type="date" data-provide="datepicker" name="deadline" id="deadline" class="form-control" placeholder="要求完成时间">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">实际完成时间</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">实际完成时间</label>
                                     <div class="col-sm-4">
                                         <input type="date" data-provide="datepicker" name="finish" id="finish" class="form-control" placeholder="实际完成时间">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">状态</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">状态</label>
                                     <div class="col-sm-4">
                                         <select class="selectpicker" name="progress" id="progress">
                                             <option value="0" style="text-align: center; text-align-last: center;">已完成</option>
@@ -117,46 +115,40 @@
                                             <option value="2" style="text-align: center; text-align-last: center;">取消</option>
                                         </select>
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">专业负责人</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">专业负责人</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manager" id="manager" placeholder="专业负责人">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">设计人</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">设计人</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="designer" id="designer" placeholder="设计人">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">审核</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">审核</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="reviewer" id="reviewer" placeholder="审核">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">室审</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">室审</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="office" id="office" placeholder="室审">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">总师</label>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">总师</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="CE" id="CE" placeholder="总师">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
+                                    <div class="col-sm-4">
                                         <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
                                     </div>
                                 </div>
@@ -191,28 +183,9 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-    $(function() {
-        var time = new Date();
-        var day = ("0" + time.getDate()).slice(-2);
-        var month = ("0" + (time.getMonth() + 1)).slice(-2);
-        var today = time.getFullYear() + "-" + (month) + "-" + (day);
-        $('#deadline').val(today);
-        $('#finish').val(today);
-    });
-
-    $(function() {
-        var winWidth=$(window).width();
-        if (parseInt(winWidth)>parseInt("900")) {
-            $("#title1").addClass("search-form");
-            $("#titleText").css("font-size","24px");
-        }
-        else {
-            $("#title1").removeClass("search-form");
-        }
-    });
 
     function logUp() {
-        window.location.href = "../../index.jsp";
+        window.location.href = "${pageContext.request.contextPath}/login.jsp";
     }
 
 </script>

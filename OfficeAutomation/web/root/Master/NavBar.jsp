@@ -39,7 +39,7 @@
                         </div>
                         <div class="info text-center">
                             <p class="name font-weight-bold mb-0">用户名：${ sessionScope.user.name }</p>
-                            <p class="name font-weight-bold mb-0">职位： ${ sessionScope.user.power }</p>
+                            <p class="name font-weight-bold mb-0">职位：管理员<i class="mb-1 text-primary ml-1 icon-small" data-feather="gitlab"></i></p>
                             <p class="name font-weight-bold mb-0">Welcome back!</p>
                         </div>
                     </div>
