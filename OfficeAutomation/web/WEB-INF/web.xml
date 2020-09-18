@@ -5,7 +5,7 @@
          version="4.0">
     <display-name>OfficeAutomation</display-name>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
     <session-config>
@@ -19,6 +19,7 @@
         <filter-name>UserLoginPrivilegeFilter</filter-name>
         <url-pattern>/Employee/*</url-pattern>
         <url-pattern>/root/*</url-pattern>
+        <url-pattern>/index.jsp</url-pattern>
     </filter-mapping>
 
     <servlet>

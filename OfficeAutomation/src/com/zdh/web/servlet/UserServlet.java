@@ -97,7 +97,7 @@ public class UserServlet extends BaseServlet{
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
         HttpSession session = request.getSession();
         session.removeAttribute("user");
-        response.sendRedirect(request.getContextPath()+"/login.jsp");
+        response.sendRedirect(request.getContextPath()+"/bye.jsp");
     }
 
     //用户列表
