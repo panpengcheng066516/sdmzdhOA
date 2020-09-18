@@ -48,6 +48,7 @@ public class UserDao {
         return update;
     }
 
+    //更新用户信息
     public int updateUser(User user) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "update people set password=?,name=?,groupid=?,power=?,transfer=?,inuse=? where username =?";
