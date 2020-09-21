@@ -99,21 +99,20 @@
         <!-- partial -->
     </div>
 </div>
-
 </body>
 <script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>
-<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js"></script>
-<script src="<%=basePath%>assets/js/template.js"></script>
-<script src="<%=basePath%>assets/js/chat.js"></script>
-<script src="<%=basePath%>assets/vendors/dataTables/jquery.dataTables.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.resize.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/progressbar.js/progressbar.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/template.js" type="text/javascript"></script>
+<script src="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>js/bootstrap-select.js" type="text/javascript"></script>
+<script src="<%=basePath%>js/htmlFile/linkman.js" type="text/javascript"></script>
+<!-- 弹出气泡 -->
+<script src="<%=basePath%>dialogeffects/js/classie.js"></script>
+<script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
 
 
