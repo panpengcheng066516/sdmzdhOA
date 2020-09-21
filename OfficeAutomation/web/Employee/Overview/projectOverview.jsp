@@ -65,6 +65,33 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
+                            <!-- 过滤年月 -->
+                            <div class="form-group row">
+                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
+                                <div class="col-sm-2">
+                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="year" name="year" onchange="sel()">
+                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                    </select>
+                                </div>
+
+                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
+                                <div class="col-sm-2">
+                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month" name="month" onchange="sel1()">
+                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                    </select>
+                                </div>
+
+                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">查看部分</label>
+                                <div class="col-sm-2">
+                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month" name="month" onchange="sel2()">
+                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">全部</option>
+                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">已完成</option>
+                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">未完成</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <hr width="300" align="left">
                             <h6 class="card-title" style="font-size: 14px;">项目工程汇总展示</h6>
                             <div class="form-group row">
                                 <div class="table-responsive pt-3">
@@ -115,6 +142,94 @@
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
 
+    function exportExcel() {
+        //var tmp=document.getElementById("companySel1").value;
+        //var form=$("<form>");//定义一个form表单
+        //form.attr("style","display:none");
+        //form.attr("target","");
+        //form.attr("method","post");
+        //form.attr("action","${pageContext.request.contextPath}/OrderContactExportExcelServlet?method="+tmp);
+        //var input1=$("<input>");
+        //$("body").append(form);//将表单放置在web中
+        //form.append(input1);
+        //form.submit();//表单提交
+        var fileName="项目信息整理分析表";
+        var time = new Date();
+        var day = ("0" + time.getDate()).slice(-2);
+        var month = ("0" + (time.getMonth() + 1)).slice(-2);
+        var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
+
+        $("#table01").table2excel({
+            exclude: ".noExl",
+            name: "Excel Document Name",
+            filename: fileName+today,
+            sheetName: fileName,// sheetName
+            exclude_img: true,
+            exclude_links: true,
+            exclude_inputs: true
+        });
+    }
+
+    $(function() {
+        var winWidth=$(window).width();
+        if (parseInt(winWidth)>parseInt("900")) {
+            $("#title1").addClass("search-form");
+            $("#titleText").css("font-size","24px");
+        }
+        else {
+            $("#title1").removeClass("search-form");
+        }
+    });
+
+    $('#table01').DataTable({
+        "aLengthMenu" : [ [ 10, 20, 30, -1 ], [ "10条", "20条", "30条", "所有" ] ],
+        "iDisplayLength": 10,
+        "language": {
+            search: "",
+            "sProcessing": "处理中...",
+            "sLengthMenu": "显示 _MENU_ 项结果",
+            "sZeroRecords": "没有匹配结果",
+            "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+            "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+            "sInfoPostFix": "",
+            "sSearch": "搜索:",
+            "sUrl": "",
+            "sEmptyTable": "表中数据为空",
+            "sLoadingRecords": "载入中...",
+            "sInfoThousands": ",",
+            "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "上页",
+                "sNext": "下页",
+                "sLast": "末页"
+            }
+        },
+        "oAria": {
+            "sSortAscending": ": 以升序排列此列",
+            "sSortDescending": ": 以降序排列此列"
+        }
+    });
+
+    $('#table01').each(function() {
+        var datatable = $(this);
+        var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
+        search_input.attr('placeholder', '搜索');
+        search_input.removeClass('form-control-sm');
+        var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
+        length_sel.removeClass('form-control-sm');
+    });
+
+    $(function() {
+        var winWidth=$(window).width();
+        if (parseInt(winWidth)>parseInt("900")) {
+            $("#title1").addClass("search-form");
+            $("#titleText").css("font-size","24px");
+        }
+        else {
+            $("#title1").removeClass("search-form");
+        }
+    });
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";

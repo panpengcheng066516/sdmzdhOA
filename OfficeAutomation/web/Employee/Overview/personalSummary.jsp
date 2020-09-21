@@ -94,17 +94,17 @@
 
                             <hr width="300" align="left">
                             <!-- tab选项卡 -->
-                            <ul class="nav nav-tabs mt-7" role="tablist">
+                            <ul class="nav nav-tabs mt-6" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="tab-design" data-toggle="tab" href="#design" role="tab" aria-controls="chats" aria-selected="true">
+                                    <a class="nav-link active" id="tab-design" data-toggle="tab" href="#total" role="tab" aria-controls="chats" aria-selected="true">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
                                             <i data-feather="edit" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">个人月工日之和</p>
+                                            <p class="d-none d-sm-block">当月工日之和</p>
                                         </div>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="tab-programming" data-toggle="tab" href="#programming" role="tab" aria-controls="calls" aria-selected="false">
+                                    <a class="nav-link" id="tab-programming" data-toggle="tab" href="#design" role="tab" aria-controls="calls" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
                                             <i data-feather="git-branch" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">设计</p>
@@ -112,7 +112,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="tab-debug" data-toggle="tab" href="#debug" role="tab" aria-controls="contacts" aria-selected="false">
+                                    <a class="nav-link" id="tab-debug" data-toggle="tab" href="#programming" role="tab" aria-controls="contacts" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
                                             <i data-feather="git-merge" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">编程画面</p>
@@ -120,7 +120,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="tab-manage" data-toggle="tab" href="#manage" role="tab" aria-controls="contacts" aria-selected="false">
+                                    <a class="nav-link" id="tab-manage" data-toggle="tab" href="#debug" role="tab" aria-controls="contacts" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
                                             <i data-feather="file-text" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">调试管理</p>
@@ -128,7 +128,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="tab-daily" data-toggle="tab" href="#daily" role="tab" aria-controls="contacts" aria-selected="false">
+                                    <a class="nav-link" id="tab-daily" data-toggle="tab" href="#manage" role="tab" aria-controls="contacts" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
                                             <i data-feather="edit" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">经营</p>
@@ -136,28 +136,25 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="tab-others" data-toggle="tab" href="#others" role="tab" aria-controls="contacts" aria-selected="false">
+                                    <a class="nav-link" id="tab-others" data-toggle="tab" href="#daily" role="tab" aria-controls="contacts" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
                                             <i data-feather="layers" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">零星日常管理</p>
+                                            <p class="d-none d-sm-block">日常零星</p>
                                         </div>
                                     </a>
                                 </li>
                             </ul>
                             <!-- tab选项内容 -->
                             <div class="tab-content mt-3">
-                                <div class="tab-pane fade show active" id="design" role="tabpanel" aria-labelledby="design-tab">
-                                    <div class="text-muted mb-1" align="center">本月工日之和</div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
-                                        </div>
-                                    </div>
+                                <div class="tab-pane fade show active" id="total" role="tabpanel" aria-labelledby="total-tab">
+
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="total">
+                                            <table class="table table-bordered" id="table01">
                                                 <thead>
-                                                <tr><th>姓名</th>
+                                                <tr>
+                                                    <th>序号</th>
+                                                    <th>姓名</th>
                                                     <th>总工日</th>
                                                 </tr>
                                                 </thead>
@@ -167,18 +164,14 @@
                                     </div>
                                 </div>
                                 <!-- 别加div。。 -->
-                                <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
-                                    <div class="text-muted mb-1" align="center">设计工作量</div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
-                                        </div>
-                                    </div>
+                                <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
+
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table-design">
+                                            <table class="table table-bordered" id="table02">
                                                 <thead>
-                                                <tr><th>序号</th>
+                                                <tr>
+                                                    <th>序号</th>
                                                     <th>姓名</th>
                                                     <th>工程号</th>
                                                     <th>工程名称</th>
@@ -197,18 +190,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
-                                    <p class="text-muted mb-1" align="center">编程画面工作量</p>
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
-                                        </div>
-                                    </div>
+
+                                <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
+
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table-programming">
+                                            <table class="table table-bordered" id="table03">
                                                 <thead>
-                                                <tr><th>序号</th>
+                                                <tr>
+                                                    <th>序号</th>
                                                     <th>姓名</th>
                                                     <th>工程号</th>
                                                     <th>总开关量点数</th>
@@ -224,18 +214,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
-                                    <p class="text-muted mb-1" align="center">调试工程管理工作量</p>
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel3()">导出</button>
-                                        </div>
-                                    </div>
+
+                                <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
+
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table-debug">
+                                            <table class="table table-bordered" id="table04">
                                                 <thead>
-                                                <tr> <th>序号</th>
+                                                <tr>
+                                                    <th>序号</th>
                                                     <th>姓名</th>
                                                     <th>工程号</th>
                                                     <th>项目地点</th>
@@ -249,18 +236,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
-                                    <p class="text-muted mb-1" align="center">经营管理工作量</p>
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel4()">导出</button>
-                                        </div>
-                                    </div>
+
+                                <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
+
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table-manage">
+                                            <table class="table table-bordered" id="table05">
                                                 <thead>
-                                                <tr><th>序号</th>
+                                                <tr>
+                                                    <th>序号</th>
                                                     <th>姓名</th>
                                                     <th>工程号</th>
                                                     <th>商务询价报价</th>
@@ -281,16 +265,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="others" role="tabpanel" aria-labelledby="others-tab">
-                                    <p class="text-muted mb-1" align="center">零星日常管理工日</p>
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel5()">导出</button>
-                                        </div>
-                                    </div>
+                                <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
+
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table-daily">
+                                            <table class="table table-bordered" id="table06">
                                                 <thead>
                                                 <tr><th>序号</th>
                                                     <th>姓名</th>
@@ -330,6 +309,33 @@
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
 
+    function exportExcel() {
+        //var tmp=document.getElementById("companySel1").value;
+        //var form=$("<form>");//定义一个form表单
+        //form.attr("style","display:none");
+        //form.attr("target","");
+        //form.attr("method","post");
+        //form.attr("action","${pageContext.request.contextPath}/OrderContactExportExcelServlet?method="+tmp);
+        //var input1=$("<input>");
+        //$("body").append(form);//将表单放置在web中
+        //form.append(input1);
+        //form.submit();//表单提交
+        var fileName="工作量统计";
+        var time = new Date();
+        var day = ("0" + time.getDate()).slice(-2);
+        var month = ("0" + (time.getMonth() + 1)).slice(-2);
+        var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
+
+        $("#table01").table2excel({
+            exclude: ".noExl",
+            name: "Excel Document Name",
+            filename: fileName+today,
+            sheetName: fileName,// sheetName
+            exclude_img: true,
+            exclude_links: true,
+            exclude_inputs: true
+        });
+    }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";
