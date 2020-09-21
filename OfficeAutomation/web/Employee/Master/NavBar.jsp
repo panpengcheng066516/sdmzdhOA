@@ -34,7 +34,7 @@
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
                     <div class="dropdown-header d-flex flex-column align-items-center">
                         <div class="figure mb-3">
-                            <img src="<%=basePath%>assets/images/carousel/img8.jpg" alt="">
+                            <img src="<%=basePath%>assets/images/carousel/gitlab.jpg" alt="">
                         </div>
                         <div class="info text-center">
                             <p class="name font-weight-bold mb-0">用户名：${ sessionScope.user.name }</p>

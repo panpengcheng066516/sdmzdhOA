@@ -60,11 +60,11 @@
 <body>
 <div class="main-wrapper">
     <!-- partial:partials/_sidebar.html -->
-    <%@ include file="../../Employee/Master/SideBar.jsp"%>
+    <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
-        <%@ include file="../../Employee/Master/NavBar.jsp"%>
+        <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
@@ -151,6 +151,8 @@
                                     </div>
                                 </div>
 
+                                <br>
+
                                 <div align="center">
                                     <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
                                 </div>
@@ -162,7 +164,7 @@
             </div>
         </div>
         <!-- partial:partials/_footer.html -->
-        <%@ include file="../../Employee/Master/Footer.jsp"%>
+        <%@ include file="../Master/Footer.jsp"%>
         <!-- partial -->
     </div>
 </div>

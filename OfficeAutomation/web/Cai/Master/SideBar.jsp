@@ -18,7 +18,7 @@
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar" style="color:#8DB6CD">
     <div class="sidebar-header">
-        <a href="javascript:void(0);" class="sidebar-brand" onclick="ShuaXin()" style="color: white;">SDMZDH</a>
+        <a href="javascript:void(0);" class="sidebar-brand" onclick="ShuaXin1()" style="color: white;">SDMZDH</a>
         <div class="sidebar-toggler not-active">
             <span></span> <span></span> <span></span>
         </div>
@@ -70,7 +70,7 @@
                 <div class="collapse" id="projectCheck">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Project/project.jsp" class="nav-link">科室项目录入</a>
+                            <a href="${ pageContext.request.contextPath }/Cai/Form/project.jsp" class="nav-link">科室项目录入</a>
                         </li>
 
                         <li class="nav-item">
@@ -111,6 +111,12 @@
             <script type="text/javascript">
                 function ShuaXin() {
                     location.reload(true);
+                }
+            </script>
+
+            <script type="text/javascript">
+                function ShuaXin1(){
+                    window.location = "index.jsp";
                 }
             </script>
 

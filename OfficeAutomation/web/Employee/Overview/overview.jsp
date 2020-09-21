@@ -50,107 +50,118 @@
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
-        <div class="page-content">
-            <!-- row -->
-            <div class="row">
-                <h6 class="title" style="font-size: 14px;">工作量统计汇总</h6>
-                <div class="col-md-6 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">本年员工月工作量汇总</h6>
-                            <div class="form-group row">
-                                <div class="table-responsive pt-3">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">选择月份</label>
-                                    <div class="col-sm-10">
-                                        <input type="date" data-provide="datepicker" name="month" id="month" class="form-control" placeholder="月份">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+
+                        <!-- tab选项卡 -->
+                        <ul class="nav nav-tabs mt-3" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="tab-monthly" data-toggle="tab" href="#monthly" role="tab" aria-controls="chart" aria-selected="true">
+                                    <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                        <i data-feather="edit" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                        <p class="d-none d-sm-block">本年员工月工作量汇总</p>
                                     </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="tab-yearly" data-toggle="tab" href="#yearly" role="tab" aria-controls="chart" aria-selected="false">
+                                    <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                        <i data-feather="git-branch" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                        <p class="d-none d-sm-block">员工年工作量汇总</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="tab-annual" data-toggle="tab" href="#annual" role="tab" aria-controls="chart" aria-selected="false">
+                                    <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                        <i data-feather="git-branch" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                        <p class="d-none d-sm-block">历年每月工作量汇总</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- tab选项内容 -->
+                        <div class="tab-content mt-3">
+                            <div class="tab-pane fade show active" id="monthly" role="tabpanel" aria-labelledby="monthly-tab">
+                                <div class="text-muted mb-1" align="center">本年员工月工作量汇总</div>
+                                <div class="form-group row">
                                     <div class="col-sm-1">
                                         <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
                                     </div>
                                 </div>
-                                <div class="table-responsive pt-3">
-                                    <table class="table table-bordered" id="table">
-                                        <thead>
-                                        <tr>
-                                            <th>员工姓名</th>
-                                            <th>工日之和</th>
-                                            <th>总计</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody></tbody>
-                                    </table>
+                                <div class="form-group row">
+                                    <div class="table-responsive pt-3">
+                                        <table class="table table-bordered" id="total">
+                                            <thead>
+                                            <tr>
+                                                <th>序号</th>
+                                                <th>员工姓名</th>
+                                                <th>工日之和</th>
+                                                <th>总计</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">历年员工年工作量汇总</h6>
-                            <div class="form-group row">
-                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">选择年份</label>
-                                <div class="col-sm-10">
-                                    <input type="date" data-provide="datepicker" name="year" id="year" class="form-control" placeholder="年份">
+                            <div class="tab-pane fade" id="yearly" role="tabpanel" aria-labelledby="yearly-tab">
+                                <div class="text-muted mb-1" align="center">员工年工作量汇总</div>
+                                <div class="form-group row">
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                    </div>
                                 </div>
-                                <div class="col-sm-1">
-                                    <button type="button" class="btn btn-success" onclick="exportExcel1()">导出</button>
-                                </div>
-                            </div>
-                            <div class="table-responsive pt-3">
-                                <table class="table table-bordered" id="table1>
-                                    <thead>
-                                    <tr>
-                                        <th>员工姓名</th>
-                                        <th>工日之和</th>
-                                        <th>总计</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">历年月工作量汇总</h6>
-                            <div class="form-group row">
-                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">选择年份</label>
-                                <div class="col-sm-10">
-                                    <input type="date" data-provide="datepicker" name="year1" id="year1" class="form-control" placeholder="年份">
-                                </div>
-                                <div class="col-sm-1">
-                                    <button type="button" class="btn btn-success" onclick="exportExcel2()">导出</button>
+                                <div class="form-group row">
+                                    <div class="table-responsive pt-3">
+                                        <table class="table table-bordered" id="table-design">
+                                            <thead>
+                                            <tr>
+                                                <th>序号</th>
+                                                <th>员工姓名</th>
+                                                <th>工日之和</th>
+                                                <th>总计</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="table-responsive pt-3">
-                                <table class="table table-bordered" id="table2">
-                                    <thead>
-                                    <tr>
-                                        <th>月份</th>
-                                        <th>工日之和</th>
-                                        <th>总计</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
+                            <div class="tab-pane fade" id="annual" role="tabpanel" aria-labelledby="others-tab">
+                                <p class="text-muted mb-1" align="center">历年每月工作量汇总</p>
+                                <div class="form-group row">
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="table-responsive pt-3">
+                                        <table class="table table-bordered" id="table-daily">
+                                            <thead>
+                                            <tr>
+                                                <th>月份</th>
+                                                <th>工日之和</th>
+                                                <th>总计</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-                        <!-- partial:partials/_footer.html -->
-                        <%@ include file="../Master/Footer.jsp"%>
-                        <!-- partial -->
-                    </div>
-                </div>
+        <!-- partial:partials/_footer.html -->
+        <%@ include file="../Master/Footer.jsp"%>
+        <!-- partial -->
+    </div>
+</div>
 </body>
 <script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>
@@ -166,37 +177,7 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-
-    //只选择年份
-    $('.year','.year1').datepicker({
-        format: 'yyyy',
-        language: "zh-CN",
-        autoclose:true,
-        startView: 2,
-        minViewMode: 2,
-        maxViewMode: 2
-    });
-    //只选择月份
-    $('.month').datepicker({
-        format: 'yyyy-mm',
-        language: "zh-CN",
-        autoclose:true,
-        startView: 1,
-        minViewMode: 1,
-        maxViewMode: 1
-    });
-
-    function exportExcel() {
-        //var tmp=document.getElementById("companySel1").value;
-        //var form=$("<form>");//定义一个form表单
-        //form.attr("style","display:none");
-        //form.attr("target","");
-        //form.attr("method","post");
-        //form.attr("action","${pageContext.request.contextPath}/OrderContactExportExcelServlet?method="+tmp);
-        //var input1=$("<input>");
-        //$("body").append(form);//将表单放置在web中
-        //form.append(input1);
-        //form.submit();//表单提交
+       function exportExcel() {
         var fileName="本年员工月工作量汇总";
         var time = new Date();
         var day = ("0" + time.getDate()).slice(-2);
@@ -204,42 +185,6 @@
         var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
 
         $("#table").table2excel({
-            exclude: ".noExl",
-            name: "Excel Document Name",
-            filename: fileName+today,
-            sheetName: fileName,// sheetName
-            exclude_img: true,
-            exclude_links: true,
-            exclude_inputs: true
-        });
-    }
-
-    function exportExcel1() {
-        var fileName="历年员工年工作量汇总";
-        var time = new Date();
-        var day = ("0" + time.getDate()).slice(-2);
-        var month = ("0" + (time.getMonth() + 1)).slice(-2);
-        var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
-
-        $("#table1").table2excel({
-            exclude: ".noExl",
-            name: "Excel Document Name",
-            filename: fileName+today,
-            sheetName: fileName,// sheetName
-            exclude_img: true,
-            exclude_links: true,
-            exclude_inputs: true
-        });
-    }
-
-    function exportExcel2() {
-        var fileName="历年月工作量汇总";
-        var time = new Date();
-        var day = ("0" + time.getDate()).slice(-2);
-        var month = ("0" + (time.getMonth() + 1)).slice(-2);
-        var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
-
-        $("#table2").table2excel({
             exclude: ".noExl",
             name: "Excel Document Name",
             filename: fileName+today,

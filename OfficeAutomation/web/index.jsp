@@ -74,7 +74,7 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">试验用的，不用看</h6>
+                            <h6 class="card-title">测试用的，不用看</h6>
                             <div id="accordion" class="accordion" role="tablist">
                                 <div class="card">
                                     <div class="card-header" role="tab" id="headingOne">

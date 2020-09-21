@@ -91,8 +91,10 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <hr width="300" align="left">
                             <!-- tab选项卡 -->
-                            <ul class="nav nav-tabs mt-7" role="tablist">
+                            <ul class="nav nav-tabs mt-6" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="tab-design" data-toggle="tab" href="#design" role="tab" aria-controls="chats" aria-selected="true">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
@@ -142,6 +144,7 @@
                                     </a>
                                 </li>
                             </ul>
+                            <!-- tab选项内容 -->
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="design" role="tabpanel" aria-labelledby="design-tab">
                                     <div class="text-muted mb-1" align="center">本月工日之和</div>
@@ -149,10 +152,14 @@
                                         <div class="col-sm-1">
                                             <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
                                         </div>
+
+                                        <div class="col-sm-1">
+                                            <button type="button" class="btn btn-success" onclick="update()">修改</button>
+                                        </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="design-table">
+                                            <table class="table table-bordered" id="total">
                                                 <thead>
                                                 <tr><th>姓名</th>
                                                     <th>总工日</th>
@@ -163,18 +170,21 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-content mt-3">
+                                <!-- 别加div。。 -->
                                 <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
                                 <div class="text-muted mb-1" align="center">设计工作量</div>
                                     <div class="form-group row">
                                         <div class="col-sm-1">
                                             <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
                                         </div>
+
+                                        <div class="col-sm-1">
+                                            <button type="button" class="btn btn-success" onclick="update()">修改</button>
+                                        </div>
                                     </div>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
-                                        <table class="table table-bordered" id="programming-table">
+                                        <table class="table table-bordered" id="table-design">
                                             <thead>
                                             <tr><th>序号</th>
                                                 <th>姓名</th>
@@ -202,10 +212,14 @@
                                     <div class="col-sm-1">
                                         <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
                                     </div>
+
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="update()">修改</button>
+                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
-                                        <table class="table table-bordered" id="debug-table">
+                                        <table class="table table-bordered" id="table-programming">
                                             <thead>
                                             <tr><th>序号</th>
                                                 <th>姓名</th>
@@ -227,12 +241,16 @@
                                 <p class="text-muted mb-1" align="center">调试工程管理工作量</p>
                                 <div class="form-group row">
                                     <div class="col-sm-1">
-                                        <button type="button" class="btn btn-success" onclick="exportExcel3()">导出</button>
+                                        <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                    </div>
+
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="update()">修改</button>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
-                                        <table class="table table-bordered" id="manage-table">
+                                        <table class="table table-bordered" id="table-debug">
                                             <thead>
                                             <tr> <th>序号</th>
                                                 <th>姓名</th>
@@ -252,12 +270,16 @@
                                 <p class="text-muted mb-1" align="center">经营管理工作量</p>
                                 <div class="form-group row">
                                     <div class="col-sm-1">
-                                        <button type="button" class="btn btn-success" onclick="exportExcel4()">导出</button>
+                                        <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                    </div>
+
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="update()">修改</button>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
-                                        <table class="table table-bordered" id="daily-table">
+                                        <table class="table table-bordered" id="table-manage">
                                             <thead>
                                             <tr><th>序号</th>
                                                 <th>姓名</th>
@@ -284,12 +306,16 @@
                                 <p class="text-muted mb-1" align="center">零星日常管理工日</p>
                                 <div class="form-group row">
                                     <div class="col-sm-1">
-                                        <button type="button" class="btn btn-success" onclick="exportExcel5()">导出</button>
+                                        <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                    </div>
+
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-success" onclick="update()">修改</button>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
-                                        <table class="table table-bordered" id="others-table">
+                                        <table class="table table-bordered" id="table-daily">
                                             <thead>
                                             <tr><th>序号</th>
                                                 <th>姓名</th>
