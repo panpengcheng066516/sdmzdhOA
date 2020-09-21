@@ -32,10 +32,10 @@ public class ProjectServlet extends BaseServlet {
         //得到userId
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        int userId = user.getId();
+        String userName = user.getUsername();
         //通过Userid获得projectList
         ProjectService projectService = new ProjectService();
-        List<Project> list = projectService.getProjectListByUser(userId);
+        List<Project> list = projectService.getProjectListByUser(userName);
         request.setAttribute("projectList",list);
         response.sendRedirect("");
     }

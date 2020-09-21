@@ -18,10 +18,10 @@ public class ProjectDao {
         return runner.query(sql, new BeanListHandler<Project>(Project.class));
     }
 
-    public List<Project> getProjectListByUser(int userId) throws SQLException {
+    public List<Project> getProjectListByUser(String username) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-        String sql = "select * from project where id in (select projectId from projectProject where peopleId = ?)";
-        return runner.query(sql, new BeanListHandler<Project>(Project.class),userId);
+        String sql = "select * from project where id in (select projectid from projectPeopleRelation where username = ?)";
+        return runner.query(sql, new BeanListHandler<Project>(Project.class),username);
     }
 
     //添加项目

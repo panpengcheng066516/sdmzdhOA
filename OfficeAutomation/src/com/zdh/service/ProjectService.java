@@ -18,11 +18,11 @@ public class ProjectService {
         return list;
     }
 
-    public List<Project> getProjectListByUser(int userId) {
+    public List<Project> getProjectListByUser(String username) {
         ProjectDao projectDao = new ProjectDao();
         List<Project> list = null;
         try {
-            list = projectDao.getProjectListByUser(userId);
+            list = projectDao.getProjectListByUser(username);
         } catch (SQLException e) {
             e.printStackTrace();
         }
