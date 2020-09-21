@@ -70,36 +70,36 @@
 
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">姓名</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">姓名</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="姓名">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">用户名</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">用户名</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="username" id="username" placeholder="用户名">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">密码</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">密码</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="password" id="password" placeholder="密码">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">密码确认</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">密码确认</label>
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="password1" id="password1" placeholder="密码确认">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">分组</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">分组</label>
+                                    <div class="col-sm-4">
                                         <select class="selectpicker" id="groupid" name="groupid">
                                             <option value="0" style="text-align: center; text-align-last: center;">领导组</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">编程设计组</option>
@@ -110,10 +110,10 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label" style="font-size: 14px;">权限</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">权限</label>
+                                    <div class="col-sm-4">
                                         <select class="selectpicker" id="power" name="power">
-                                            <option value="0" style="text-align: center; text-align-last: center;">管理员级别<</option>
+                                            <option value="0" style="text-align: center; text-align-last: center;">管理员级别</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">主任</option>
                                             <option value="2" style="text-align: center; text-align-last: center;">副主任</option>
                                             <option value="3" style="text-align: center; text-align-last: center;">（副）主任级别</option>
@@ -133,7 +133,7 @@
             </div>
         </div>
         <!-- partial:partials/_footer.html -->
-        <%@ include file="../Master/Footer.jsp"%>
+        <%@ include file="../root/Master/Footer.jsp"%>
         <!-- partial -->
     </div>
 </div>

@@ -27,7 +27,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/demo_1/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/CRM.png" />
+    <link rel="shortcut icon" href="assets/images/smilyface.jpg" />
 
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript" src="assets/js/jquery.validate.js" ></script>

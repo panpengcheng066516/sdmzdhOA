@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/CRM.png" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
@@ -75,7 +75,7 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <!-- 过滤年月 -->
+                            <!-- 过滤年月类型 -->
                             <div class="form-group row">
                                 <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
                                 <div class="col-sm-2">
@@ -90,6 +90,13 @@
                                         <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                     </select>
                                 </div>
+
+                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
+                                <div class="col-sm-4">
+                                    <select class="selectpicker" id="project" name="project" data-live-search="true">
+                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <hr width="300" align="left">
@@ -98,7 +105,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" id="tab-design" data-toggle="tab" href="#total" role="tab" aria-controls="chats" aria-selected="true">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="edit" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                            <i data-feather="check-square" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">当月工日之和</p>
                                         </div>
                                     </a>
@@ -106,7 +113,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="tab-programming" data-toggle="tab" href="#design" role="tab" aria-controls="calls" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="git-branch" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                            <i data-feather="cloud-lightning" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">设计</p>
                                         </div>
                                     </a>
@@ -114,7 +121,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="tab-debug" data-toggle="tab" href="#programming" role="tab" aria-controls="contacts" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="git-merge" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                            <i data-feather="disc" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">编程画面</p>
                                         </div>
                                     </a>
@@ -122,7 +129,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="tab-manage" data-toggle="tab" href="#debug" role="tab" aria-controls="contacts" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="file-text" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                            <i data-feather="edit-2" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">调试管理</p>
                                         </div>
                                     </a>
@@ -130,7 +137,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="tab-daily" data-toggle="tab" href="#manage" role="tab" aria-controls="contacts" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="edit" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                            <i data-feather="file-minus" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">经营</p>
                                         </div>
                                     </a>
@@ -138,7 +145,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="tab-others" data-toggle="tab" href="#daily" role="tab" aria-controls="contacts" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="layers" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                            <i data-feather="image" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">日常零星</p>
                                         </div>
                                     </a>
@@ -167,7 +174,13 @@
                                                     <th>总工日</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>啊哈</td>
+                                                    <td>1</td>
+                                                </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -197,13 +210,28 @@
                                                     <th>图纸折合A1张数</th>
                                                     <th>折合总工日</th>
                                                     <th>本月完成工日</th>
-                                                    <th>技术方案（工日）</th>
-                                                    <th>基本设计（工日）</th>
-                                                    <th>专业负责人（工日）</th>
+                                                    <th>技术方案</th>
+                                                    <th>基本设计</th>
+                                                    <th>专业负责人</th>
                                                     <th>备注</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>啊哈</td>
+                                                    <td>12-3</td>
+                                                    <td>啊哈哈哈</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>？</td>
+                                                </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -236,7 +264,19 @@
                                                 <th>备注</th>
                                             </tr>
                                             </thead>
-                                            <tbody></tbody>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>啊哈</td>
+                                                <td>12-1</td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>画面</td>
+                                                <td>3</td>
+                                                <td>4</td>
+                                                <td>？</td>
+                                            </tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -262,12 +302,22 @@
                                                 <th>姓名</th>
                                                 <th>工程号</th>
                                                 <th>项目地点</th>
-                                                <th>工程管理（工日）</th>
-                                                <th>调试（工日）</th>
+                                                <th>工程管理</th>
+                                                <th>调试</th>
                                                 <th>备注</th>
                                             </tr>
                                             </thead>
-                                            <tbody></tbody>
+                                            <tbody>
+                                            <tr>
+                                                <td>12</td>
+                                                <td>啊哈</td>
+                                                <td>123</td>
+                                                <td>啊哈</td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>？</td>
+                                            </tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -305,7 +355,24 @@
                                                 <th>备注</th>
                                             </tr>
                                             </thead>
-                                            <tbody></tbody>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>啊哈</td>
+                                                <td>123</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>？</td>
+                                            </tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -332,7 +399,15 @@
                                                 <th>备注</th>
                                             </tr>
                                             </thead>
-                                            <tbody></tbody>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>啊哈</td>
+                                                <td>啊哈啊哈</td>
+                                                <td>1</td>
+                                                <td>？</td>
+                                            </tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>

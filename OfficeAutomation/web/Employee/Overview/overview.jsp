@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/CRM.png" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
@@ -81,7 +81,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" id="tab-month1" data-toggle="tab" href="#month1" role="tab" aria-controls="chats" aria-selected="true">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="edit" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                            <i data-feather="archive" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">本年员工月工作量汇总</p>
                                         </div>
                                     </a>
@@ -89,7 +89,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="tab-year1" data-toggle="tab" href="#year1" role="tab" aria-controls="calls" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="git-branch" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                            <i data-feather="calendar" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">历年员工年工作量汇总</p>
                                         </div>
                                     </a>
@@ -97,7 +97,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="tab-year2" data-toggle="tab" href="#year2" role="tab" aria-controls="contacts" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="git-merge" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                            <i data-feather="chrome" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">历年月工作量汇总</p>
                                         </div>
                                     </a>
@@ -126,11 +126,18 @@
                                                 <tr>
                                                     <th>序号</th>
                                                     <th>员工姓名</th>
-                                                    <th>工日之和</th>
+                                                    <th>工日总和</th>
                                                     <th>总计</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>哈哈</td>
+                                                    <td>0</td>
+                                                    <td>1</td>
+                                                </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -157,11 +164,18 @@
                                                 <tr>
                                                     <th>序号</th>
                                                     <th>员工姓名</th>
-                                                    <th>工日之和</th>
+                                                    <th>工日总和</th>
                                                     <th>总计</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>哈哈</td>
+                                                    <td>0</td>
+                                                    <td>1</td>
+                                                </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -186,103 +200,17 @@
                                                 <thead>
                                                 <tr>
                                                     <th>月份</th>
-                                                    <th>工日之和</th>
+                                                    <th>工日总和</th>
                                                     <th>总计</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody></tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
-                                    <p class="text-muted mb-1" align="center">调试工程管理工作量</p>
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
-                                        </div>
-
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="update()">修改</button>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table04">
-                                                <thead>
-                                                <tr> <th>序号</th>
-                                                    <th>姓名</th>
-                                                    <th>工程号</th>
-                                                    <th>项目地点</th>
-                                                    <th>工程管理（工日）</th>
-                                                    <th>调试（工日）</th>
-                                                    <th>备注</th>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>哈哈</td>
+                                                    <td>1</td>
                                                 </tr>
-                                                </thead>
-                                                <tbody></tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
-                                    <p class="text-muted mb-1" align="center">经营管理工作量</p>
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
-                                        </div>
-
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="update()">修改</button>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table05">
-                                                <thead>
-                                                <tr><th>序号</th>
-                                                    <th>姓名</th>
-                                                    <th>工程号</th>
-                                                    <th>商务询价报价</th>
-                                                    <th>标书制作</th>
-                                                    <th>合同制作与签署</th>
-                                                    <th>投标</th>
-                                                    <th>设备招标采购</th>
-                                                    <th>设备出厂检测</th>
-                                                    <th>催款</th>
-                                                    <th>合同管理</th>
-                                                    <th>其他</th>
-                                                    <th>项目经理（工日）</th>
-                                                    <th>备注</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody></tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="others" role="tabpanel" aria-labelledby="others-tab">
-                                    <p class="text-muted mb-1" align="center">日常管理零星工日</p>
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
-                                        </div>
-
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="update()">修改</button>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table06">
-                                                <thead>
-                                                <tr><th>序号</th>
-                                                    <th>姓名</th>
-                                                    <th>工作类型</th>
-                                                    <th>折合天数</th>
-                                                    <th>备注</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody></tbody>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>

@@ -29,7 +29,7 @@
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown nav-profile"><a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="<%=basePath%>assets/images/carousel/img8.jpg" alt="profile">
+                <img src="<%=basePath%>assets/images/carousel/gitlab.jpg" alt="profile">
             </a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
                     <div class="dropdown-header d-flex flex-column align-items-center">
@@ -38,7 +38,7 @@
                         </div>
                         <div class="info text-center">
                             <p class="name font-weight-bold mb-0">用户名：${ sessionScope.user.name }</p>
-                            <p class="name font-weight-bold mb-0">职位： 可爱员工<i class="mb-1 text-primary ml-1 icon-small" data-feather="award"></i></p>
+                            <p class="name font-weight-bold mb-0">职位：自动化台柱子<i class="mb-1 text-primary ml-1 icon-small" data-feather="award"></i></p>
                             <p class="name font-weight-bold mb-0">Welcome back!</p>
                         </div>
                     </div>

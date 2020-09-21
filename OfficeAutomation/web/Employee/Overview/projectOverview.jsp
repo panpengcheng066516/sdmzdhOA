@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/CRM.png" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
@@ -92,7 +92,15 @@
                             </div>
 
                             <hr width="300" align="left">
-                            <h6 class="card-title" style="font-size: 14px;">项目工程汇总展示</h6>
+                            <div align="center">
+                                <h6 class="card-title" style="font-size: 14px;">项目工程汇总展示</h6>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-1">
+                                    <button type="button" class="btn btn-success" onclick="update()">修改</button>
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <div class="table-responsive pt-3">
                                     <table class="table table-bordered" id="table01">
@@ -112,7 +120,24 @@
                                             <th>备注</th>
                                         </tr>
                                         </thead>
-                                        <tbody></tbody>
+                                        <tbody>
+                                        <c:forEach items="${kits}" var="k" varStatus="s">
+                                        <tr>
+                                            <td>${k.project}</td>
+                                            <td>${k.projectid}</td>
+                                            <td>${k.deadline}</td>
+                                            <td>${k.finish}</td>
+                                            <td>${k.progress}</td>
+                                            <td>${k.manager}</td>
+                                            <td>${k.designer}</td>
+                                            <td>${k.reviewer}</td>
+                                            <td>${k.office}</td>
+                                            <td>${k.CE}</td>
+                                            <td>${k.status}</td>
+                                            <td>${k.remarks}</td>
+                                        </tr>
+                                        </c:forEach>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>

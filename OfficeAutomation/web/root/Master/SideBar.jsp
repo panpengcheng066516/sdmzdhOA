@@ -11,7 +11,7 @@
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar" style="color:#8DB6CD">
     <div class="sidebar-header">
-        <a href="javascript:void(0);" class="sidebar-brand" onclick="ShuaXin()" style="color: white;">SDMZDH</a>
+        <a href="javascript:void(0);" class="sidebar-brand" onclick="ShuaXin1()" style="color: white;">SDMZDH</a>
         <div class="sidebar-toggler not-active">
             <span></span> <span></span> <span></span>
         </div>
@@ -29,12 +29,17 @@
                 <i class="link-icon" data-feather="cast"></i> <span class="link-title">用户注册和管理</span>
             </a></li>
             <li class="nav-item"><a href="${ pageContext.request.contextPath }/root/signup.jsp" class="nav-link">
-                <i class="link-icon" data-feather="battery-charging"></i> <span class="link-title">新用户注册</span>
+                <i class="link-icon" data-feather="info"></i> <span class="link-title">新用户注册</span>
             </a></li>
 
             <script type="text/javascript">
                 function ShuaXin() {
                     location.reload(true);
+                }
+            </script>
+            <script type="text/javascript">
+                function ShuaXin1(){
+                    window.location = "index.jsp";
                 }
             </script>
 

@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/CRM.png" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
@@ -130,7 +130,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="tab-daily" data-toggle="tab" href="#manage" role="tab" aria-controls="contacts" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="edit" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                            <i data-feather="gift" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
                                             <p class="d-none d-sm-block">经营</p>
                                         </div>
                                     </a>
@@ -147,7 +147,6 @@
                             <!-- tab选项内容 -->
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="total" role="tabpanel" aria-labelledby="total-tab">
-
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table01">
@@ -158,14 +157,19 @@
                                                     <th>总工日</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>啊哈</td>
+                                                    <td>1</td>
+                                                </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- 别加div。。 -->
                                 <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
-
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table02">
@@ -179,20 +183,34 @@
                                                     <th>图纸折合A1张数</th>
                                                     <th>折合总工日</th>
                                                     <th>本月完成工日</th>
-                                                    <th>技术方案（工日）</th>
-                                                    <th>基本设计（工日）</th>
-                                                    <th>专业负责人（工日）</th>
+                                                    <th>技术方案</th>
+                                                    <th>基本设计</th>
+                                                    <th>专业负责人</th>
                                                     <th>备注</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>啊哈</td>
+                                                    <td>123-456</td>
+                                                    <td>123-456</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>？</td>
+                                                </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
-
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table03">
@@ -209,14 +227,24 @@
                                                     <th>备注</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>啊哈</td>
+                                                    <td>123-456</td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>编程</td>
+                                                    <td>4</td>
+                                                    <td>3</td>
+                                                    <td>？</td>
+                                                </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
-
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table04">
@@ -226,19 +254,27 @@
                                                     <th>姓名</th>
                                                     <th>工程号</th>
                                                     <th>项目地点</th>
-                                                    <th>工程管理（工日）</th>
-                                                    <th>调试（工日）</th>
+                                                    <th>工程管理</th>
+                                                    <th>调试</th>
                                                     <th>备注</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>啊哈</td>
+                                                    <td>123-456</td>
+                                                    <td>济南</td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>？</td>
+                                                </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
-
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table05">
@@ -256,29 +292,54 @@
                                                     <th>催款</th>
                                                     <th>合同管理</th>
                                                     <th>其他</th>
-                                                    <th>项目经理（工日）</th>
+                                                    <th>项目经理</th>
                                                     <th>备注</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>啊哈</td>
+                                                    <td>123-456</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>？</td>
+                                                </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
-
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table06">
                                                 <thead>
-                                                <tr><th>序号</th>
+                                                <tr>
+                                                    <th>序号</th>
                                                     <th>姓名</th>
                                                     <th>工作类型</th>
                                                     <th>折合天数</th>
                                                     <th>备注</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>啊哈</td>
+                                                    <td>哈哈哈哈</td>
+                                                    <td>2</td>
+                                                    <td>？</td>
+                                                </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
