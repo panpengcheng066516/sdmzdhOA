@@ -29,7 +29,7 @@ public class DesignWorkingDao {
         String sql = "insert into Design (id,year,month,username,amount,a1,zheheWorkingDay,monthDay,programDay,BasicDesignDay,leader,remark,projectid) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         return runner.update(sql,designWorking.getId(),designWorking.getYear(),designWorking.getMonth(),designWorking.getUsername(),
                 designWorking.getAmount(), designWorking.getA1(),designWorking.getZheheWorkingDay(),designWorking.getMonthDay(),
-                designWorking.getProgramDay(),designWorking.getBasicDesignDay(),designWorking.getLeader(),designWorking.getRemark(),designWorking.getPeojectid());
+                designWorking.getProgramDay(),designWorking.getBasicDesignDay(),designWorking.getLeader(),designWorking.getRemark(),designWorking.getProjectid());
     }
 
     //通过id删除设计工作
@@ -44,7 +44,7 @@ public class DesignWorkingDao {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "update Design set amount = ?,a1 = ?,zheheWorkingDay = ?,monthDay = ?,programDay = ?,basicDesignDay = ?,leader = ?,remark = ?,projectid = ?  where id = ?";
         int update = runner.update(sql,designWorking.getAmount(),designWorking.getA1(),designWorking.getZheheWorkingDay(),designWorking.getMonthDay(),
-                designWorking.getProgramDay(),designWorking.getBasicDesignDay(),designWorking.getLeader(),designWorking.getRemark(),designWorking.getPeojectid(),designWorking.getId());
+                designWorking.getProgramDay(),designWorking.getBasicDesignDay(),designWorking.getLeader(),designWorking.getRemark(),designWorking.getProjectid(),designWorking.getId());
         return update;
     }
 }

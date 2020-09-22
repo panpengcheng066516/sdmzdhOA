@@ -9,6 +9,9 @@ public class User {
     private int transfer;
     private int inuse;
 
+    public User() {
+        this.transfer = 0;
+    }
 
     public String getUsername() {
         return username;

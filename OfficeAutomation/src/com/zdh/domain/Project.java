@@ -7,13 +7,22 @@ public class Project {
     private String projectName;
     private String projectNo;
     private String deadline;
-    private  int finish;
+    private String finish;
     private String progress;
     private String manager;
     private String designer;
     private String reviewer;
     private String office;
     private String ce;
+    private String remarks;
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
 
     public int getId() {
         return id;
@@ -47,11 +56,11 @@ public class Project {
         this.deadline = deadline;
     }
 
-    public int getFinish() {
+    public String getFinish() {
         return finish;
     }
 
-    public void setFinish(int finish) {
+    public void setFinish(String finish) {
         this.finish = finish;
     }
 

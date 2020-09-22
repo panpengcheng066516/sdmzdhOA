@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog.css">
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <style type="text/css">
         .table>thead>tr>th {
             text-align: center;
@@ -56,7 +57,17 @@
             border-color: #000000;
         }
     </style>
+    <script type="text/javascript">
+        $(function(){
+            // 给工程号赋值
+            $("#projectid").change(function () {
+                var p1=$(this).children('option:selected').attr("id");
+                $("#projectNo").val(p1);
+            })
+        });
+    </script>
 </head>
+
 <body>
 <div class="main-wrapper">
     <!-- partial:partials/_sidebar.html -->
@@ -74,14 +85,9 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-
-                            <h3 class="text text-primary">设计</h3>
-
-                            <div class="alert alert-success" role="alert">
-                                填写时请注意，不得使用英文标点符号。
-                            </div>
-
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
+                            <h6 class="card-title" style="font-size: 14px;">设计</h6>
+                            <h6 class="card-title" style="font-size: 14px;color: red;">填写时请注意，不得使用英文标点符号。</h6>
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/designWorkingServlet?method=addDesignWorking" method="post">
 
                                 <hr width="300" align="left">
 
@@ -91,14 +97,19 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
                                     <div class="col-sm-4">
-                                        <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        <select class="selectpicker" id="projectid" name="projectid" >
+                                            <c:if test="${!empty projectList}">
+                                                <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                                <c:forEach var="project" items="${projectList}">
+                                                    <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;">${project.projectName}</option>
+                                                </c:forEach>
+                                            </c:if>
                                         </select>
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectid" id="projectid" disabled="true">
+                                        <input type="text" class="form-control" name="projectNo" id="projectNo" disabled="true">
                                     </div>
                                 </div>
 
@@ -107,11 +118,11 @@
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
                                     <div class="col-sm-4">
                                         <select class="selectpicker" name="type" id="type">
-                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
-                                            <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>
-                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>
-                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
+                                            <option value="施工图" style="text-align: center; text-align-last: center;">施工图</option>
+                                            <option value="方案设计" style="text-align: center; text-align-last: center;">方案设计</option>
+                                            <option value="经营投标" style="text-align: center; text-align-last: center;">经营投标</option>
+                                            <option value="可研" style="text-align: center; text-align-last: center;">可研</option>
+                                            <option value="初步设计" style="text-align: center; text-align-last: center;">初步设计</option>
                                         </select>
                                     </div>
                                 </div>
@@ -120,24 +131,24 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">图纸张数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p1" id="p1" placeholder="图纸张数">
+                                        <input type="text" class="form-control" name="amount" id="amount" placeholder="图纸张数">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">折合A1</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p2" id="p2" placeholder="折合A1">
+                                        <input type="text" class="form-control" name="a1" id="a1" placeholder="折合A1">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">折合总工日数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p3" id="p3" placeholder="折合总工日数">
+                                        <input type="text" class="form-control" name="zheheWorkingDay" id="zheheWorkingDay" placeholder="折合总工日数">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">本月完成工日数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p4" id="p4" placeholder="本月完成工日数">
+                                        <input type="text" class="form-control" name="monthDay" id="monthDay" placeholder="本月完成工日数">
                                     </div>
                                 </div>
 
@@ -146,12 +157,12 @@
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">技术方案工作量</label>
 
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p5" id="p5" placeholder="所用工日数">
+                                        <input type="text" class="form-control" name="programDay" id="programDay" placeholder="所用工日数">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">基本设计工作量</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p6" id="p6" placeholder="所用工日数">
+                                        <input type="text" class="form-control" name="basicDesignDay" id="basicDesignDay" placeholder="所用工日数">
                                     </div>
                                 </div>
 
@@ -160,21 +171,21 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">工日</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p7" id="p7" placeholder="工日">
+                                        <input type="text" class="form-control" name="leader" id="leader" placeholder="工日">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-4">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
+                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="3"></textarea>
                                     </div>
                                 </div>
 
                                 <br>
 
                                 <div align="center">
-                                    <input type="submit" class="btn btn-outline-primary mb-1 mb-md-0" name="submit" value="提交">
+                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
                                 </div>
 
                             </form>

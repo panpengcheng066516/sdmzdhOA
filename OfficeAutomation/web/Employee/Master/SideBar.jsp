@@ -35,7 +35,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Form/design.jsp" class="nav-link">设计</a>
+                            <a href="${ pageContext.request.contextPath }/designWorkingServlet?method=getAllProjectByUser" class="nav-link">设计</a>
                         </li>
 
                         <li class="nav-item">
