@@ -81,7 +81,7 @@
                                 填写时请注意，不得使用英文标点符号。
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/DailyWorkingServlet?method=addDailyWorking" method="post">
 
                                 <hr width="300" align="left">
 
@@ -90,13 +90,13 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择类型</label>
                                     <div class="col-sm-5">
-                                        <select class="selectpicker" name="progress" id="progress">
-                                            <option value="0" style="text-align: center; text-align-last: center;">日常管理</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">工会事务</option>
-                                            <option value="2" style="text-align: center; text-align-last: center;">党/团组事务</option>
-                                            <option value="3" style="text-align: center; text-align-last: center;">考勤</option>
-                                            <option value="4" style="text-align: center; text-align-last: center;">出差/交流</option>
-                                            <option value="5" style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
+                                        <select class="selectpicker" name="type" id="type">
+                                            <option value="日常管理" style="text-align: center; text-align-last: center;">日常管理</option>
+                                            <option value="工会事务" style="text-align: center; text-align-last: center;">工会事务</option>
+                                            <option value="党/团组事务" style="text-align: center; text-align-last: center;">党/团组事务</option>
+                                            <option value="考勤" style="text-align: center; text-align-last: center;">考勤</option>
+                                            <option value="出差/交流" style="text-align: center; text-align-last: center;">出差/交流</option>
+                                            <option value="其他报销/零星工日" style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
                                         </select>
                                     </div>
                                 </div>
@@ -104,14 +104,14 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">工日天数</label>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" name="daily5" id="daily5" placeholder="工日天数">
+                                        <input type="text" class="form-control" name="monthDay" id="monthDay" placeholder="工日天数">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-5">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="如有多项内容，请再填写一次" rows="5"></textarea>
+                                        <textarea class="form-control" name="remark" id="remark" placeholder="如有多项内容，请再填写一次" rows="5"></textarea>
                                     </div>
                                 </div>
 

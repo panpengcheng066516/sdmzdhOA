@@ -29,7 +29,7 @@ public class ProgramingPictureWorkingDao {
         String sql = "insert into ProgramingPicture (year,month,username,id,digitalNumber,analogNumber,programingPicture,ProgramingDay,MonthDay,remark,projectId) values(?,?,?,?,?,?,?,?,?,?,?)";
         return runner.update(sql,programingPictureWorking.getYear(),programingPictureWorking.getMonth(),programingPictureWorking.getUsername(),programingPictureWorking.getId(),
                 programingPictureWorking.getDigitaNumber(),programingPictureWorking.getAnalogNumber(),programingPictureWorking.getProgramingPicture(),programingPictureWorking.getProgramingDay(),
-                programingPictureWorking.getMonthday(),programingPictureWorking.getReamrk(),programingPictureWorking.getPeojectid());
+                programingPictureWorking.getMonthday(),programingPictureWorking.getReamrk(),programingPictureWorking.getProjectid());
     }
 
     //通过id删除编程画面工作
@@ -45,7 +45,7 @@ public class ProgramingPictureWorkingDao {
         String sql = "update ProgramingPicture set year=?,month=?,digitalNumber=?,analogNumber=?,programingPicture=?,ProgramingDay=?,MonthDay=?,remark=?,projectId=? where id = ?";
         int update = runner.update(sql,programingPictureWorking.getYear(),programingPictureWorking.getMonth(), programingPictureWorking.getDigitaNumber(),
                 programingPictureWorking.getAnalogNumber(),programingPictureWorking.getProgramingPicture(),programingPictureWorking.getProgramingDay(),
-                programingPictureWorking.getMonthday(),programingPictureWorking.getReamrk(),programingPictureWorking.getPeojectid());
+                programingPictureWorking.getMonthday(),programingPictureWorking.getReamrk(),programingPictureWorking.getProjectid());
         return update;
     }
 }
