@@ -131,12 +131,14 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>哈哈</td>
-                                                    <td>0</td>
-                                                    <td>1</td>
-                                                </tr>
+                                                <c:forEach items="${kits}" var="k" varStatus="s">
+                                                    <tr>
+                                                        <td>${s.index}</td>
+                                                        <td>${k.name}</td>
+                                                        <td>${k.total}</td>
+                                                        <td>${k.total1}</td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>

@@ -62,14 +62,11 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
-
             <!-- row -->
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
@@ -166,20 +163,25 @@
                                     <div class="text-muted mb-1" align="center">本月工日之和</div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
+
                                             <table class="table table-bordered" id="table01">
                                                 <thead>
                                                 <tr>
                                                     <th>序号</th>
                                                     <th>姓名</th>
                                                     <th>总工日</th>
+                                                    <th>操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>啊哈</td>
-                                                    <td>1</td>
-                                                </tr>
+                                                <c:forEach items="${kits}" var="k" varStatus="s">
+                                                    <tr>
+                                                        <td>${s.index}</td>
+                                                        <td>${k.name}</td>
+                                                        <td>${k.days}</td>
+                                                        <td><button type="button">修改</button></td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -214,23 +216,27 @@
                                                     <th>基本设计</th>
                                                     <th>专业负责人</th>
                                                     <th>备注</th>
+                                                    <th>操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>啊哈</td>
-                                                    <td>12-3</td>
-                                                    <td>啊哈哈哈</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>？</td>
-                                                </tr>
+                                                <c:forEach items="${kits}" var="k" varStatus="s">
+                                                    <tr>
+                                                        <td>${s.index}</td>
+                                                        <td>${k.name}</td>
+                                                        <td>${k.projectid}</td>
+                                                        <td>${k.project}</td>
+                                                        <td>${k.design}</td>
+                                                        <td>${k.design1}</td>
+                                                        <td>${k.design2}</td>
+                                                        <td>${k.design3}</td>
+                                                        <td>${k.design4}</td>
+                                                        <td>${k.design5}</td>
+                                                        <td>${k.design6}</td>
+                                                        <td>${k.remarks}</td>
+                                                        <td><button type="button">修改</button></td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -262,20 +268,24 @@
                                                 <th>总工日</th>
                                                 <th>本月完成工日</th>
                                                 <th>备注</th>
+                                                <th>操作</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>啊哈</td>
-                                                <td>12-1</td>
-                                                <td>1</td>
-                                                <td>2</td>
-                                                <td>画面</td>
-                                                <td>3</td>
-                                                <td>4</td>
-                                                <td>？</td>
-                                            </tr>
+                                            <c:forEach items="${kits}" var="k" varStatus="s">
+                                                <tr>
+                                                    <td>${s.index}</td>
+                                                    <td>${k.name}</td>
+                                                    <td>${k.projectid}</td>
+                                                    <td>${k.programming}</td>
+                                                    <td>${k.programming1}</td>
+                                                    <td>${k.programming2}</td>
+                                                    <td>${k.programming3}</td>
+                                                    <td>${k.programming4}</td>
+                                                    <td>${k.remarks}</td>
+                                                    <td><button type="button">修改</button></td>
+                                                </tr>
+                                            </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
@@ -305,18 +315,22 @@
                                                 <th>工程管理</th>
                                                 <th>调试</th>
                                                 <th>备注</th>
+                                                <th>操作</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>12</td>
-                                                <td>啊哈</td>
-                                                <td>123</td>
-                                                <td>啊哈</td>
-                                                <td>1</td>
-                                                <td>2</td>
-                                                <td>？</td>
-                                            </tr>
+                                            <c:forEach items="${kits}" var="k" varStatus="s">
+                                                <tr>
+                                                    <td>${s.index}</td>
+                                                    <td>${k.name}</td>
+                                                    <td>${k.projectid}</td>
+                                                    <td>${k.location}</td>
+                                                    <td>${k.debug}</td>
+                                                    <td>${k.debug1}</td>
+                                                    <td>${k.remarks}</td>
+                                                    <td><button type="button">修改</button></td>
+                                                </tr>
+                                            </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
@@ -353,25 +367,29 @@
                                                 <th>其他</th>
                                                 <th>项目经理（工日）</th>
                                                 <th>备注</th>
+                                                <th>操作</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>啊哈</td>
-                                                <td>123</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>？</td>
-                                            </tr>
+                                            <c:forEach items="${kits}" var="k" varStatus="s">
+                                                <tr>
+                                                    <td>${s.index}</td>
+                                                    <td>${k.name}</td>
+                                                    <td>${k.projectid}</td>
+                                                    <td>${k.manage}</td>
+                                                    <td>${k.manage1}</td>
+                                                    <td>${k.manage2}</td>
+                                                    <td>${k.manage3}</td>
+                                                    <td>${k.manage4}</td>
+                                                    <td>${k.manage5}</td>
+                                                    <td>${k.manage6}</td>
+                                                    <td>${k.manage7}</td>
+                                                    <td>${k.manage8}</td>
+                                                    <td>${k.manage9}</td>
+                                                    <td>${k.remarks}</td>
+                                                    <td><button type="button">修改</button></td>
+                                                </tr>
+                                            </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
@@ -397,16 +415,20 @@
                                                 <th>工作类型</th>
                                                 <th>折合天数</th>
                                                 <th>备注</th>
+                                                <th>操作</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>啊哈</td>
-                                                <td>啊哈啊哈</td>
-                                                <td>1</td>
-                                                <td>？</td>
-                                            </tr>
+                                            <c:forEach items="${kits}" var="k" varStatus="s">
+                                                <tr>
+                                                    <td>${s.index}</td>
+                                                    <td>${k.name}</td>
+                                                    <td>${k.type}</td>
+                                                    <td>${k.days}</td>
+                                                    <td>${k.remarks}</td>
+                                                    <td><button type="button">修改</button></td>
+                                                </tr>
+                                            </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
@@ -437,34 +459,6 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-
-    function exportExcel() {
-        //var tmp=document.getElementById("companySel1").value;
-        //var form=$("<form>");//定义一个form表单
-        //form.attr("style","display:none");
-        //form.attr("target","");
-        //form.attr("method","post");
-        //form.attr("action","${pageContext.request.contextPath}/OrderContactExportExcelServlet?method="+tmp);
-        //var input1=$("<input>");
-        //$("body").append(form);//将表单放置在web中
-        //form.append(input1);
-        //form.submit();//表单提交
-        var fileName="工作量统计";
-        var time = new Date();
-        var day = ("0" + time.getDate()).slice(-2);
-        var month = ("0" + (time.getMonth() + 1)).slice(-2);
-        var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
-
-        $("#table01").table2excel({
-            exclude: ".noExl",
-            name: "Excel Document Name",
-            filename: fileName+today,
-            sheetName: fileName,// sheetName
-            exclude_img: true,
-            exclude_links: true,
-            exclude_inputs: true
-        });
-    }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";
