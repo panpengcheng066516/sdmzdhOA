@@ -179,7 +179,7 @@
                                                         <td>${s.index}</td>
                                                         <td>${k.name}</td>
                                                         <td>${k.days}</td>
-                                                        <td><button type="button">修改</button></td>
+                                                        <td><button type="button" class="btn btn-success btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
                                                 </tbody>
@@ -234,7 +234,7 @@
                                                         <td>${k.design5}</td>
                                                         <td>${k.design6}</td>
                                                         <td>${k.remarks}</td>
-                                                        <td><button type="button">修改</button></td>
+                                                        <td><button type="button" class="btn btn-success btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
                                                 </tbody>
@@ -283,7 +283,7 @@
                                                     <td>${k.programming3}</td>
                                                     <td>${k.programming4}</td>
                                                     <td>${k.remarks}</td>
-                                                    <td><button type="button">修改</button></td>
+                                                    <td><button type="button" class="btn btn-success btn-sm" onclick="update()">修改</button></td>
                                                 </tr>
                                             </c:forEach>
                                             </tbody>
@@ -328,7 +328,7 @@
                                                     <td>${k.debug}</td>
                                                     <td>${k.debug1}</td>
                                                     <td>${k.remarks}</td>
-                                                    <td><button type="button">修改</button></td>
+                                                    <td><button type="button" class="btn btn-success btn-sm" onclick="update()">修改</button></td>
                                                 </tr>
                                             </c:forEach>
                                             </tbody>
@@ -387,7 +387,7 @@
                                                     <td>${k.manage8}</td>
                                                     <td>${k.manage9}</td>
                                                     <td>${k.remarks}</td>
-                                                    <td><button type="button">修改</button></td>
+                                                    <td><button type="button" class="btn btn-success btn-sm" onclick="update()">修改</button></td>
                                                 </tr>
                                             </c:forEach>
                                             </tbody>
@@ -426,7 +426,7 @@
                                                     <td>${k.type}</td>
                                                     <td>${k.days}</td>
                                                     <td>${k.remarks}</td>
-                                                    <td><button type="button">修改</button></td>
+                                                    <td><button type="button" class="btn btn-success btn-sm" onclick="update()">修改</button></td>
                                                 </tr>
                                             </c:forEach>
                                             </tbody>
