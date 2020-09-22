@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: miles
-  Date: 9/1/2020
-  Time: 2:50 PM
+  Date: 9/22/2020
+  Time: 11:18 AM
   To change this template use File | Settings | File Templates.
 --%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -56,72 +56,58 @@
             border-color: #000000;
         }
     </style>
+    <!-- 表格中添加按钮和文本输入框 -->
+    <script>
+        function update()
+        {
+            var obj = document.getElementById("table06");
+            obj.rows[1].cells[2].innerHTML = '<input type="text"/>';
+            obj.rows[1].cells[3].innerHTML = '<input type="text"/>';
+        }
+    </script>
+
 </head>
 <body>
 <div class="main-wrapper">
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-8 grid-margin stretch-card">
+                <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
 
-                            <h3 class="text text-primary">日常管理</h3>
 
-                            <div class="alert alert-success" role="alert">
-                                填写时请注意，不得使用英文标点符号。
+                            <table class="table table-bordered" id="table06">
+                                <thead>
+                                <tr><th>序号</th>
+                                    <th>姓名</th>
+                                    <th>工作类型</th>
+                                    <th>折合天数</th>
+                                    <th>备注</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>啊哈</td>
+                                    <td>啊哈啊哈</td>
+                                    <td>1</td>
+                                    <td>？</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="col-sm-1">
+                                <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="update()">修改</button>
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">填写</h6>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择类型</label>
-                                    <div class="col-sm-5">
-                                        <select class="selectpicker" name="progress" id="progress">
-                                            <option value="0" style="text-align: center; text-align-last: center;">日常管理</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">工会事务</option>
-                                            <option value="2" style="text-align: center; text-align-last: center;">党/团组事务</option>
-                                            <option value="3" style="text-align: center; text-align-last: center;">考勤</option>
-                                            <option value="4" style="text-align: center; text-align-last: center;">出差/交流</option>
-                                            <option value="5" style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">工日天数</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" name="daily5" id="daily5" placeholder="工日天数">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-5">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="如有多项内容，请再填写一次" rows="5"></textarea>
-                                    </div>
-                                </div>
-
-                                <br>
-
-                                <div align="center">
-                                    <input type="submit" class="btn btn-outline-primary mb-1 mb-md-0" name="submit" value="提交">
-                                </div>
-
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -147,6 +133,7 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
+
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";

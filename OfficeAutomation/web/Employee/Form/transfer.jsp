@@ -74,11 +74,14 @@
                 <div class="col-md-6 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">借调</h6>
+
+                            <h3 class="text text-primary">借调</h3>
+
+                            <div class="alert alert-info" role="alert">
+                                文本框请填写相应借调部门。
+                            </div>
 
                                 <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;color: red;">文本框请填写相应借调部门。</h6>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">借调至</label>

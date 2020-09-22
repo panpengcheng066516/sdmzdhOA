@@ -74,8 +74,13 @@
                 <div class="col-md-8 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">调试工程管理修改</h6>
-                            <h6 class="card-title" style="font-size: 14px;color: red;">修改时请注意，不得使用英文标点符号。</h6>
+
+                            <h3 class="text text-primary">调试工程管理修改</h3>
+
+                            <div class="alert alert-danger" role="alert">
+                                修改时请注意，不得使用英文标点符号。
+                            </div>
+
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/debugInputServlet" method="post">
 
                                 <hr width="300" align="left">
