@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
@@ -71,7 +71,7 @@
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
+                <div class="col-md-8 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h6 class="card-title" style="font-size: 14px;">日常管理修改</h6>
@@ -83,7 +83,16 @@
                                 <h6 class="card-title" style="font-size: 14px;">修改</h6>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择类型</label>
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择对应工作</label>
+                                    <div class="col-sm-5">
+                                        <select class="selectpicker" id="sel" name="sel" data-live-search="true">
+                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">类型确认</label>
                                     <div class="col-sm-5">
                                         <select class="selectpicker" name="progress" id="progress">
                                             <option value="0" style="text-align: center; text-align-last: center;">日常管理</option>
@@ -113,7 +122,7 @@
                                 <br>
 
                                 <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
+                                    <input type="submit" class="btn btn-outline-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>
 
                             </form>

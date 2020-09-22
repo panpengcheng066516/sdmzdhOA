@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: miles
-  Date: 9/1/2020
-  Time: 11:17 AM
+  Date: 9/22/2020
+  Time: 9:55 AM
   To change this template use File | Settings | File Templates.
 --%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -37,9 +37,9 @@
             <div class="row w-100 mx-0 auth-page">
                 <div class="col-md-8 col-xl-6 mx-auto d-flex flex-column align-items-center">
                     <img src="assets/images/404.svg" class="img-fluid mb-2" alt="404">
-                    <h1 class="font-weight-bold mb-22 mt-2 tx-80 text-muted">404</h1>
-                    <h4 class="mb-2">页面未找到</h4>
-                    <h6 class="text-muted mb-3 text-center">您所找的页面似乎跑丢了</h6>
+                    <h1 class="font-weight-bold mb-22 mt-2 tx-80 text-muted">Oops</h1>
+                    <h4 class="mb-2">Access Denied</h4>
+                    <h6 class="text-muted mb-3 text-center">您没有此权限，无法进行此操作</h6>
                     <a href="index.jsp" class="btn btn-primary-muted">返回首页</a>
                 </div>
             </div>

@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/CRM.png" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <!-- 下拉框 -->
@@ -63,15 +63,15 @@
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
+                <div class="col-md-8 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h6 class="card-title" style="font-size: 14px;">用户信息修改</h6>
 
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
                                 <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">用户选择</label>
-                                    <div class="col-sm-2">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">用户选择</label>
+                                    <div class="col-sm-3">
                                         <select class="selectpicker" id="sel" name="sel" data-live-search="true">
                                             <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                         </select>
@@ -79,32 +79,32 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">姓名</label>
-                                    <div class="col-sm-2">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">姓名</label>
+                                    <div class="col-sm-3">
                                         <input type="text" class="form-control" id="name1" name="name1" placeholder="姓名">
                                     </div>
 
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">用户名</label>
-                                    <div class="col-sm-2">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">用户名</label>
+                                    <div class="col-sm-3">
                                         <input type="text" class="form-control" id="username1" name="username1" placeholder="用户名">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">密码</label>
-                                    <div class="col-sm-2">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">密码</label>
+                                    <div class="col-sm-3">
                                         <input type="text" class="form-control" id="password11" name="password1" placeholder="密码">
                                     </div>
 
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">密码确认</label>
-                                    <div class="col-sm-2">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">密码确认</label>
+                                    <div class="col-sm-3">
                                         <input type="text" class="form-control" id="password22" name="password2" placeholder="密码确认">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">分组</label>
-                                    <div class="col-sm-2">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">分组</label>
+                                    <div class="col-sm-3">
                                         <select class="selectpicker" id="groupid1" name="groupid1">
                                             <option value="0" style="text-align: center; text-align-last: center;">领导组</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">编程设计组</option>
@@ -113,8 +113,8 @@
                                         </select>
                                     </div>
 
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">权限</label>
-                                    <div class="col-sm-2">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">权限</label>
+                                    <div class="col-sm-3">
                                         <select class="selectpicker" id="power1" name="power1">
                                             <option value="0" style="text-align: center; text-align-last: center;">管理员级别</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">主任</option>
@@ -126,22 +126,24 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">是否借调</label>
-                                    <div class="col-sm-2">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">是否借调</label>
+                                    <div class="col-sm-3">
                                         <select class="selectpicker" id="transfer" name="transfer">
                                             <option value="0" style="text-align: center; text-align-last: center;">否</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">是</option>
                                         </select>
                                     </div>
 
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">是否在职</label>
-                                    <div class="col-sm-2">
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">是否在职</label>
+                                    <div class="col-sm-3">
                                         <select class="selectpicker" id="inuse" name="inuse">
                                             <option value="0" style="text-align: center; text-align-last: center;">否</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">是</option>
                                         </select>
                                     </div>
                                 </div>
+
+                                <br>
 
                                 <div align="center">
                                     <input type="submit" class="btn btn-primary mr-2" name="submit" value="确认修改">

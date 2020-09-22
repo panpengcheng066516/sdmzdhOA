@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
@@ -98,7 +98,7 @@
 
                             <div class="form-group row">
                                 <div class="col-sm-1">
-                                    <button type="button" class="btn btn-success" onclick="update()">修改</button>
+                                    <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
@@ -156,11 +156,11 @@
                                 <div class="tab-pane fade show active" id="total" role="tabpanel" aria-labelledby="total-tab">
                                     <div class="form-group row">
                                         <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                            <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                         </div>
 
                                         <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="update()">修改</button>
+                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
                                         </div>
                                     </div>
                                     <div class="text-muted mb-1" align="center">本月工日之和</div>
@@ -189,11 +189,11 @@
                                 <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
                                     <div class="form-group row">
                                         <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                            <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                         </div>
 
                                         <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="update()">修改</button>
+                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
                                         </div>
                                     </div>
                                     <p class="text-muted mb-1" align="center">设计工作量</p>
@@ -240,11 +240,11 @@
                             <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
                                 <div class="form-group row">
                                     <div class="col-sm-1">
-                                        <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                        <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                     </div>
 
                                     <div class="col-sm-1">
-                                        <button type="button" class="btn btn-success" onclick="update()">修改</button>
+                                        <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
                                     </div>
                                 </div>
                                 <p class="text-muted mb-1" align="center">编程画面工作量</p>
@@ -285,11 +285,11 @@
                             <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
                                 <div class="form-group row">
                                     <div class="col-sm-1">
-                                        <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                        <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                     </div>
 
                                     <div class="col-sm-1">
-                                        <button type="button" class="btn btn-success" onclick="update()">修改</button>
+                                        <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
                                     </div>
                                 </div>
                                 <p class="text-muted mb-1" align="center">调试工程管理工作量</p>
@@ -326,11 +326,11 @@
                             <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
                                 <div class="form-group row">
                                     <div class="col-sm-1">
-                                        <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                        <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                     </div>
 
                                     <div class="col-sm-1">
-                                        <button type="button" class="btn btn-success" onclick="update()">修改</button>
+                                        <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
                                     </div>
                                 </div>
                                 <p class="text-muted mb-1" align="center">经营管理工作量</p>
@@ -380,11 +380,11 @@
                             <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
                                 <div class="form-group row">
                                     <div class="col-sm-1">
-                                        <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                        <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                     </div>
 
                                     <div class="col-sm-1">
-                                        <button type="button" class="btn btn-success" onclick="update()">修改</button>
+                                        <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
                                     </div>
                                 </div>
                                 <p class="text-muted mb-1" align="center">日常管理零星工日</p>

@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
@@ -148,6 +148,11 @@
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="total" role="tabpanel" aria-labelledby="total-tab">
                                     <div class="form-group row">
+                                        <div class="col-sm-1">
+                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table01">
                                                 <thead>
@@ -158,11 +163,13 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>啊哈</td>
-                                                    <td>1</td>
-                                                </tr>
+                                                <c:forEach items="${kits}" var="k" varStatus="s">
+                                                    <tr>
+                                                        <td>${s.index}</td>
+                                                        <td>${k.name}</td>
+                                                        <td>${k.days}</td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -170,6 +177,11 @@
                                 </div>
                                 <!-- 别加div。。 -->
                                 <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
+                                    <div class="form-group row">
+                                        <div class="col-sm-1">
+                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table02">
@@ -190,20 +202,22 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>啊哈</td>
-                                                    <td>123-456</td>
-                                                    <td>123-456</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>？</td>
-                                                </tr>
+                                                <c:forEach items="${kits}" var="k" varStatus="s">
+                                                    <tr>
+                                                        <td>${s.index}</td>
+                                                        <td>${k.name}</td>
+                                                        <td>${k.projectid}</td>
+                                                        <td>${k.project}</td>
+                                                        <td>${k.design}</td>
+                                                        <td>${k.design1}</td>
+                                                        <td>${k.design2}</td>
+                                                        <td>${k.design3}</td>
+                                                        <td>${k.design4}</td>
+                                                        <td>${k.design5}</td>
+                                                        <td>${k.design6}</td>
+                                                        <td>${k.remarks}</td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -211,6 +225,11 @@
                                 </div>
 
                                 <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
+                                    <div class="form-group row">
+                                        <div class="col-sm-1">
+                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table03">
@@ -228,23 +247,30 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>啊哈</td>
-                                                    <td>123-456</td>
-                                                    <td>1</td>
-                                                    <td>2</td>
-                                                    <td>编程</td>
-                                                    <td>4</td>
-                                                    <td>3</td>
-                                                    <td>？</td>
-                                                </tr>
+                                                <c:forEach items="${kits}" var="k" varStatus="s">
+                                                    <tr>
+                                                        <td>${s.index}</td>
+                                                        <td>${k.name}</td>
+                                                        <td>${k.projectid}</td>
+                                                        <td>${k.programming}</td>
+                                                        <td>${k.programming1}</td>
+                                                        <td>${k.programming2}</td>
+                                                        <td>${k.programming3}</td>
+                                                        <td>${k.programming4}</td>
+                                                        <td>${k.remarks}</td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
+                                    <div class="form-group row">
+                                        <div class="col-sm-1">
+                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table04">
@@ -260,21 +286,28 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>啊哈</td>
-                                                    <td>123-456</td>
-                                                    <td>济南</td>
-                                                    <td>1</td>
-                                                    <td>2</td>
-                                                    <td>？</td>
-                                                </tr>
+                                                <c:forEach items="${kits}" var="k" varStatus="s">
+                                                    <tr>
+                                                        <td>${s.index}</td>
+                                                        <td>${k.name}</td>
+                                                        <td>${k.projectid}</td>
+                                                        <td>${k.location}</td>
+                                                        <td>${k.debug}</td>
+                                                        <td>${k.debug1}</td>
+                                                        <td>${k.remarks}</td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
+                                    <div class="form-group row">
+                                        <div class="col-sm-1">
+                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table05">
@@ -297,28 +330,35 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>啊哈</td>
-                                                    <td>123-456</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>2</td>
-                                                    <td>？</td>
-                                                </tr>
+                                                <c:forEach items="${kits}" var="k" varStatus="s">
+                                                    <tr>
+                                                        <td>${s.index}</td>
+                                                        <td>${k.name}</td>
+                                                        <td>${k.projectid}</td>
+                                                        <td>${k.manage}</td>
+                                                        <td>${k.manage1}</td>
+                                                        <td>${k.manage2}</td>
+                                                        <td>${k.manage3}</td>
+                                                        <td>${k.manage4}</td>
+                                                        <td>${k.manage5}</td>
+                                                        <td>${k.manage6}</td>
+                                                        <td>${k.manage7}</td>
+                                                        <td>${k.manage8}</td>
+                                                        <td>${k.manage9}</td>
+                                                        <td>${k.remarks}</td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
+                                    <div class="form-group row">
+                                        <div class="col-sm-1">
+                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table06">
@@ -332,13 +372,15 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>啊哈</td>
-                                                    <td>哈哈哈哈</td>
-                                                    <td>2</td>
-                                                    <td>？</td>
-                                                </tr>
+                                                <c:forEach items="${kits}" var="k" varStatus="s">
+                                                    <tr>
+                                                        <td>${s.index}</td>
+                                                        <td>${k.name}</td>
+                                                        <td>${k.type}</td>
+                                                        <td>${k.days}</td>
+                                                        <td>${k.remarks}</td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>

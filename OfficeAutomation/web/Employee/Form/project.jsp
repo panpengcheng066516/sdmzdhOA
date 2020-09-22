@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: miles
-  Date: 9/18/2020
-  Time: 2:53 PM
+  Date: 9/1/2020
+  Time: 3:09 PM
   To change this template use File | Settings | File Templates.
 --%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,7 +16,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"ggg>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>自动化工程技术公司工作量汇总查询系统</title>
     <!-- 解决转发后页面失效问题 -->
     <%
@@ -62,9 +62,11 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
+
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
+
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
@@ -72,13 +74,13 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">科室项目修改</h6>
-                            <h6 class="card-title" style="font-size: 14px;color: red;">修改时请注意，不得使用英文标点符号。</h6>
+                            <h6 class="card-title" style="font-size: 14px;">科室项目录入</h6>
+                            <h6 class="card-title" style="font-size: 14px;color: red;">填写时请注意，不得使用英文标点符号。</h6>
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/????" method="post">
 
                                 <hr width="300" align="left">
 
-                                <h6 class="card-title" style="font-size: 14px;">修改</h6>
+                                <h6 class="card-title" style="font-size: 14px;">填写</h6>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
@@ -154,7 +156,7 @@
                                 <br>
 
                                 <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
+                                    <input type="submit" class="btn btn-outline-primary mb-1 mb-md-0" name="submit" value="提交">
                                 </div>
 
                             </form>
@@ -183,6 +185,7 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
+
     $(function() {
         var time = new Date();
         var day = ("0" + time.getDate()).slice(-2);
@@ -193,8 +196,7 @@
     });
 
     function logUp() {
-        window.location.href = "../../index.jsp";
+        window.location.href = "../../login.jsp";
     }
-
 </script>
 </html>

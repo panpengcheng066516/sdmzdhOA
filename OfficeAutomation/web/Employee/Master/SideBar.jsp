@@ -63,7 +63,7 @@
                 <div class="collapse" id="projectCheck">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Cai/Form/project.jsp" class="nav-link">科室项目录入</a>
+                            <a href="${ pageContext.request.contextPath }/Employee/Form/project.jsp" class="nav-link">科室项目录入</a>
                         </li>
 
                         <li class="nav-item">

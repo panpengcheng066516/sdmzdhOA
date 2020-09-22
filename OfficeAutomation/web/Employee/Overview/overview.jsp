@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
@@ -115,7 +115,7 @@
                                         </div>
 
                                         <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                            <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                         </div>
                                     </div>
                                     <div class="text-muted mb-1" align="center">本年员工月工作量汇总</div>
@@ -153,7 +153,7 @@
                                         </div>
 
                                         <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                            <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                         </div>
                                     </div>
                                     <div class="text-muted mb-1" align="center">历年员工年工作量汇总</div>
@@ -169,12 +169,14 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>哈哈</td>
-                                                    <td>0</td>
-                                                    <td>1</td>
-                                                </tr>
+                                                <c:forEach items="${kits}" var="k" varStatus="s">
+                                                    <tr>
+                                                        <td>${s.index}</td>
+                                                        <td>${k.name}</td>
+                                                        <td>${k.total}</td>
+                                                        <td>${k.total1}</td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -190,7 +192,7 @@
                                         </div>
 
                                         <div class="col-sm-1">
-                                            <button type="button" class="btn btn-success" onclick="exportExcel()">导出</button>
+                                            <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                         </div>
                                     </div>
                                     <p class="text-muted mb-1" align="center">历年月工作量汇总</p>
@@ -205,11 +207,13 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>哈哈</td>
-                                                    <td>1</td>
-                                                </tr>
+                                                <c:forEach items="${kits}" var="k" varStatus="s">
+                                                    <tr>
+                                                        <td>${k.month}</td>
+                                                        <td>${k.total}</td>
+                                                        <td>${k.total1}</td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
