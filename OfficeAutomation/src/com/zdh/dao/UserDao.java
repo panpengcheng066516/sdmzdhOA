@@ -55,4 +55,11 @@ public class UserDao {
         int update = runner.update(sql, user.getPassword(), user.getName(),user.getGroupId(),user.getPower(),user.getTransfer(),user.getInuse(),user.getUsername());
         return update;
     }
+
+    public int jiediaoUser(String username) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "update people set transfer=1 where username =?";
+        int update = runner.update(sql, username);
+        return update;
+    }
 }

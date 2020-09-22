@@ -93,4 +93,15 @@ public class UserService {
         }
         return i;
     }
+
+    public int jiediaouser(String username) {
+        UserDao dao = new UserDao();
+        int i = 0;
+        try {
+            i = dao.jiediaoUser(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
 }

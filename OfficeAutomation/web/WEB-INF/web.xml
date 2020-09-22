@@ -42,6 +42,24 @@
         <url-pattern>/projectServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <display-name>JiediaoServlet</display-name>
+        <servlet-name>JiediaoServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.JiediaoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JiediaoServlet</servlet-name>
+        <url-pattern>/jiediaoServlet</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <display-name>DesignWorkingServlet</display-name>
+        <servlet-name>DesignWorkingServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.DesignWorkingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DesignWorkingServlet</servlet-name>
+        <url-pattern>/designWorkingServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>
