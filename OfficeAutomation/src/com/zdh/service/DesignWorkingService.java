@@ -4,6 +4,7 @@ import com.zdh.dao.DesignWorkingDao;
 import com.zdh.domain.DesignWorking;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class DesignWorkingService {
     public int addDesignWorking(DesignWorking designWorking) {
@@ -18,4 +19,14 @@ public class DesignWorkingService {
     }
 
 
+    public List<DesignWorking> getDesignWorkingByUsername(String username) {
+        DesignWorkingDao designWorkingDao = new DesignWorkingDao();
+        List<DesignWorking> designWorkingList = null;
+        try {
+            designWorkingList = designWorkingDao.getDesignWorkingByUsername(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return designWorkingList;
+    }
 }

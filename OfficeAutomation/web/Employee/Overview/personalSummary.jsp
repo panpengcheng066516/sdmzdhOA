@@ -169,12 +169,6 @@
                                                         <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>test</td>
-                                                    <td>1</td>
-                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -190,7 +184,6 @@
                                                 <thead>
                                                 <tr>
                                                     <th>序号</th>
-                                                    <th>姓名</th>
                                                     <th>工程号</th>
                                                     <th>工程名称</th>
                                                     <th>施工图<br>图纸张数</th>
@@ -205,38 +198,24 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <c:forEach items="${kits}" var="k" varStatus="s">
-                                                    <tr>
-                                                        <td>${s.index}</td>
-                                                        <td>${k.name}</td>
-                                                        <td>${k.projectid}</td>
-                                                        <td>${k.project}</td>
-                                                        <td>${k.amount}</td>
-                                                        <td>${k.a1}</td>
-                                                        <td>${k.zheheWorkingDay}</td>
-                                                        <td>${k.monthDay}</td>
-                                                        <td>${k.programDay}</td>
-                                                        <td>${k.basicDesignDay}</td>
-                                                        <td>${k.leader}</td>
-                                                        <td>${k.remark}</td>
-                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                    </tr>
-                                                </c:forEach>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>test</td>
-                                                    <td>123</td>
-                                                    <td>test</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>test</td>
-                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                </tr>
+                                                    <c:if test="${!empty designList}">
+                                                        <c:forEach var="design" items="${designList}">
+                                                            <tr>
+                                                                <td>${design.index}</td>
+                                                                <td>${design.projectid}</td>
+                                                                <td>${design.projectid}</td>
+                                                                <td>${design.amount}</td>
+                                                                <td>${design.a1}</td>
+                                                                <td>${design.zheheWorkingDay}</td>
+                                                                <td>${design.monthDay}</td>
+                                                                <td>${design.programDay}</td>
+                                                                <td>${design.basicDesignDay}</td>
+                                                                <td>${design.leader}</td>
+                                                                <td>${design.remark}</td>
+                                                                <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </c:if>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -250,46 +229,34 @@
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table03">
                                                 <thead>
-                                                <tr>
-                                                    <th>序号</th>
-                                                    <th>姓名</th>
-                                                    <th>工程号</th>
-                                                    <th>总开关量<br>点数</th>
-                                                    <th>总模拟量<br>点数</th>
-                                                    <th>编程/画面</th>
-                                                    <th>总工日</th>
-                                                    <th>本月<br>完成工日</th>
-                                                    <th>备注</th>
-                                                    <th>操作</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th>序号</th>
+                                                        <th>工程号</th>
+                                                        <th>总开关量<br>点数</th>
+                                                        <th>总模拟量<br>点数</th>
+                                                        <th>编程/画面</th>
+                                                        <th>总工日</th>
+                                                        <th>本月<br>完成工日</th>
+                                                        <th>备注</th>
+                                                        <th>操作</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                <c:forEach items="${kits}" var="k" varStatus="s">
-                                                    <tr>
-                                                        <td>${s.index}</td>
-                                                        <td>${k.name}</td>
-                                                        <td>${k.projectid}</td>
-                                                        <td>${k.program1}</td>
-                                                        <td>${k.program2}</td>
-                                                        <td>${k.program3}</td>
-                                                        <td>${k.program4}</td>
-                                                        <td>${k.program5}</td>
-                                                        <td>${k.remarks}</td>
-                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                    </tr>
-                                                </c:forEach>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>test</td>
-                                                    <td>123</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>test</td>
-                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                </tr>
+                                                <c:if test="${!empty programingPictureList}">
+                                                    <c:forEach var="programing" items="${programingPictureList}">
+                                                        <tr>
+                                                            <td>${programing.index}</td>
+                                                            <td>${programing.projectid}</td>
+                                                            <td>${programing.digitaNumber}</td>
+                                                            <td>${programing.analogNumber}</td>
+                                                            <td>${programing.programingPicture}</td>
+                                                            <td>${programing.programingDay}</td>
+                                                            <td>${programing.monthday}</td>
+                                                            <td>${programing.reamrk}</td>
+                                                            <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </c:if>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -303,40 +270,30 @@
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table04">
                                                 <thead>
-                                                <tr>
-                                                    <th>序号</th>
-                                                    <th>姓名</th>
-                                                    <th>工程号</th>
-                                                    <th>项目地点</th>
-                                                    <th>工程管理</th>
-                                                    <th>调试</th>
-                                                    <th>备注</th>
-                                                    <th>操作</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th>序号</th>
+                                                        <th>工程号</th>
+                                                        <th>项目地点</th>
+                                                        <th>工程管理</th>
+                                                        <th>调试</th>
+                                                        <th>备注</th>
+                                                        <th>操作</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                <c:forEach items="${kits}" var="k" varStatus="s">
-                                                    <tr>
-                                                        <td>${s.index}</td>
-                                                        <td>${k.name}</td>
-                                                        <td>${k.projectid}</td>
-                                                        <td>${k.location}</td>
-                                                        <td>${k.bug1}</td>
-                                                        <td>${k.bug2}</td>
-                                                        <td>${k.remarks}</td>
-                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                    </tr>
-                                                </c:forEach>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>test</td>
-                                                    <td>123</td>
-                                                    <td>test</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>test</td>
-                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                </tr>
+                                                    <c:if test="${!empty debugList}">
+                                                        <c:forEach var="debug" items="${debugList}">
+                                                            <tr>
+                                                                <td>${debug.index}</td>
+                                                                <td>${debug.projectid}</td>
+                                                                <td>${debug.site}</td>
+                                                                <td>${debug.manageday}</td>
+                                                                <td>${debug.debugday}</td>
+                                                                <td>${debug.remark}</td>
+                                                                <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </c:if>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -348,62 +305,45 @@
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table05">
-                                                <thead>
-                                                <tr>
-                                                    <th>序号</th>
-                                                    <th>姓名</th>
-                                                    <th>工程号</th>
-                                                    <th>商务<br>询价报价</th>
-                                                    <th>标书制作</th>
-                                                    <th>合同制作<br>与签署</th>
-                                                    <th>投标</th>
-                                                    <th>设备<br>招标采购</th>
-                                                    <th>设备<br>出厂检测</th>
-                                                    <th>催款</th>
-                                                    <th>合同管理</th>
-                                                    <th>其他</th>
-                                                    <th>项目经理</th>
-                                                    <th>备注</th>
-                                                    <th>操作</th>
-                                                </tr>
-                                                </thead>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>序号</th>
+                                                            <th>工程号</th>
+                                                            <th>商务<br>询价报价</th>
+                                                            <th>标书制作</th>
+                                                            <th>合同制作<br>与签署</th>
+                                                            <th>投标</th>
+                                                            <th>设备<br>招标采购</th>
+                                                            <th>设备<br>出厂检测</th>
+                                                            <th>催款</th>
+                                                            <th>合同管理</th>
+                                                            <th>其他</th>
+                                                            <th>项目经理</th>
+                                                            <th>备注</th>
+                                                            <th>操作</th>
+                                                        </tr>
+                                                    </thead>
                                                 <tbody>
-                                                <c:forEach items="${kits}" var="k" varStatus="s">
-                                                    <tr>
-                                                        <td>${s.index}</td>
-                                                        <td>${k.name}</td>
-                                                        <td>${k.projectid}</td>
-                                                        <td>${k.manage0}</td>
-                                                        <td>${k.manage1}</td>
-                                                        <td>${k.manage2}</td>
-                                                        <td>${k.manage3}</td>
-                                                        <td>${k.manage4}</td>
-                                                        <td>${k.manage5}</td>
-                                                        <td>${k.manage6}</td>
-                                                        <td>${k.manage7}</td>
-                                                        <td>${k.manage8}</td>
-                                                        <td>${k.manage9}</td>
-                                                        <td>${k.remarks}</td>
-                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                    </tr>
-                                                </c:forEach>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>test</td>
-                                                    <td>123</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
-                                                    <td>test</td>
-                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                </tr>
+                                                    <c:if test="${!empty manageList}">
+                                                        <c:forEach var="manage" items="${manageList}">
+                                                            <tr>
+                                                                <td>${manage.index}</td>
+                                                                <td>${manage.projectid}</td>
+                                                                <td>${manage.xunjiabaojia}</td>
+                                                                <td>${manage.tender}</td>
+                                                                <td>${manage.sign}</td>
+                                                                <td>${manage.toubiao}</td>
+                                                                <td>${manage.equip}</td>
+                                                                <td>${manage.test}</td>
+                                                                <td>${manage.cuikuan}</td>
+                                                                <td>${manage.contract}</td>
+                                                                <td>${manage.other}</td>
+                                                                <td>${manage.PMday}</td>
+                                                                <td>${manage.remark}</td>
+                                                                <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </c:if>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -417,7 +357,6 @@
                                             <table class="table table-bordered" id="table06">
                                                 <thead>
                                                 <tr><th>序号</th>
-                                                    <th>姓名</th>
                                                     <th>工作类型</th>
                                                     <th>折合天数</th>
                                                     <th>备注</th>
@@ -425,24 +364,17 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <c:forEach items="${kits}" var="k" varStatus="s">
-                                                    <tr>
-                                                        <td>${s.index}</td>
-                                                        <td>${k.name}</td>
-                                                        <td>${k.type}</td>
-                                                        <td>${k.daily}</td>
-                                                        <td>${k.remarks}</td>
-                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                    </tr>
-                                                </c:forEach>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>1</td>
-                                                    <td>test</td>
-                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                </tr>
+                                                    <c:if test="${!empty dailyList}">
+                                                        <c:forEach var="daily" items="${dailyList}">
+                                                            <tr>
+                                                                <td>${daily.index}</td>
+                                                                <td>${daily.type}</td>
+                                                                <td>${daily.monthDay}</td>
+                                                                <td>${daily.remark}</td>
+                                                                <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </c:if>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -472,11 +404,5 @@
 <!-- 弹出气泡 -->
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
-<script type="text/javascript">
 
-    function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/login.jsp";
-    }
-
-</script>
 </html>

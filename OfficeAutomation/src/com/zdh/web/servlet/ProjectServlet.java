@@ -76,11 +76,10 @@ public class ProjectServlet extends BaseServlet {
         ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getProjectByProgress(progress);
 
-        //向前台传输数据
+        //转换为json向前台传输数据
         Gson gson = new Gson();
         String json = gson.toJson(list);
-        System.out.println(json);
-        System.out.println(json);
+
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().write(json);
     }

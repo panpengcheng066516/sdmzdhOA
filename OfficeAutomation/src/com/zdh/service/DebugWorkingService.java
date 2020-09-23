@@ -4,6 +4,7 @@ import com.zdh.dao.DebugWorkingDao;
 import com.zdh.domain.DebugWorking;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class DebugWorkingService {
     public int addDebugWorking(DebugWorking debugWorking) {
@@ -15,5 +16,16 @@ public class DebugWorkingService {
             e.printStackTrace();
         }
         return i;
+    }
+
+    public List<DebugWorking> getDebugWorkingByUsername(String username) {
+        DebugWorkingDao debugWorkingDao = new DebugWorkingDao();
+        List<DebugWorking> list = null;
+        try {
+            list = debugWorkingDao.getDebugWorkingByUsername(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

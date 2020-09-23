@@ -4,6 +4,7 @@ import com.zdh.dao.ProgramingPictureWorkingDao;
 import com.zdh.domain.ProgramingPictureWorking;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class ProgramingPictureWorkingService {
     public int addProgramingPictureWorking(ProgramingPictureWorking programingPictureWorking)  {
@@ -15,5 +16,16 @@ public class ProgramingPictureWorkingService {
             e.printStackTrace();
         }
         return i;
+    }
+
+    public List<ProgramingPictureWorking> getDesignWorkingByUsername(String username) {
+        ProgramingPictureWorkingDao programingPictureWorkingDao = new ProgramingPictureWorkingDao();
+        List<ProgramingPictureWorking> list = null;
+        try {
+            list = programingPictureWorkingDao.getProgramingPictureWorkingByUsername(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

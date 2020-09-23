@@ -79,7 +79,7 @@
                 <div class="collapse" id="personalCheck">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Overview/personalSummary.jsp" class="nav-link">历史工作量查询</a>
+                            <a href="${ pageContext.request.contextPath }/personalSummaryServlet?method=getAllWorkingList" class="nav-link">历史工作量查询</a>
                         </li>
                     </ul>
                 </div>

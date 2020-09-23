@@ -4,6 +4,7 @@ import com.zdh.dao.DailyWorkingDao;
 import com.zdh.domain.DailyWorking;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class DailyWorkingService {
     public int addDailyWorking(DailyWorking dailyWorking) {
@@ -15,5 +16,16 @@ public class DailyWorkingService {
             e.printStackTrace();
         }
         return i;
+    }
+
+    public List<DailyWorking> getDailyWorkingByUsername(String username) {
+        DailyWorkingDao dailyWorkingDao = new DailyWorkingDao();
+        List<DailyWorking> list = null;
+        try {
+            list = dailyWorkingDao.getDailyWorkingByUsername(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

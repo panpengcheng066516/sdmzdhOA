@@ -82,7 +82,7 @@
                                 填写时请注意，不得使用英文标点符号。<br><br>tip:  如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/dailyWorkingServlet?method=addDailyWorking" method="post">
 
                                 <hr width="300" align="left">
 

@@ -99,7 +99,16 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>DailyWorkingServlet</servlet-name>
-        <url-pattern>/DailyWorkingServlet</url-pattern>
+        <url-pattern>/dailyWorkingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <display-name>PersonalSummaryServlet</display-name>
+        <servlet-name>PersonalSummaryServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.PersonalSummaryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PersonalSummaryServlet</servlet-name>
+        <url-pattern>/personalSummaryServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>
