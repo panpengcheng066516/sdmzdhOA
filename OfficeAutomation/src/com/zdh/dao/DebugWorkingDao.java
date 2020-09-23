@@ -27,7 +27,7 @@ public class DebugWorkingDao {
     public int addDebugWorking(DebugWorking debugWorking) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "insert into Debug (id,debugday,manageday,month,projectid,remark,site,username,year) values(?,?,?,?,?,?,?,?,?)";
-        return runner.update(sql,debugWorking.getId(),debugWorking.getDebugday(),debugWorking.getManageday(),debugWorking.getMonth(),debugWorking.getPeojectid(),debugWorking.getRemark(),debugWorking.getSite(),debugWorking.getUsername(),debugWorking.getYear());
+        return runner.update(sql,debugWorking.getId(),debugWorking.getDebugday(),debugWorking.getManageday(),debugWorking.getMonth(),debugWorking.getProjectid(),debugWorking.getRemark(),debugWorking.getSite(),debugWorking.getUsername(),debugWorking.getYear());
     }
 
     //通过id删除调试工作
@@ -41,7 +41,7 @@ public class DebugWorkingDao {
     public int updateDebugWorking(DebugWorking debugWorking) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "update Debug set site = ?,manageday = ?,debugday = ?,remark = ?,projectid = ? where id = ?";
-        int update = runner.update(sql,debugWorking.getSite(),debugWorking.getManageday(),debugWorking.getDebugday(),debugWorking.getRemark(),debugWorking.getPeojectid());
+        int update = runner.update(sql,debugWorking.getSite(),debugWorking.getManageday(),debugWorking.getDebugday(),debugWorking.getRemark(),debugWorking.getProjectid());
         return update;
     }
 }

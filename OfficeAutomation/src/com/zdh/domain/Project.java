@@ -3,7 +3,7 @@ package com.zdh.domain;
 import java.io.PrintWriter;
 
 public class Project {
-    private int id;
+    private String id;
     private String projectName;
     private String projectNo;
     private String deadline;
@@ -24,11 +24,11 @@ public class Project {
         this.remarks = remarks;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

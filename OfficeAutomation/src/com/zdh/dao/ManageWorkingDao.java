@@ -30,7 +30,7 @@ public class ManageWorkingDao {
         return runner.update(sql,manageWorking.getYear(),manageWorking.getMonth(),manageWorking.getUsername(),manageWorking.getId(),
                 manageWorking.getXunjiabaojia(),manageWorking.getTender(),manageWorking.getSign(),manageWorking.getToubiao(),
                 manageWorking.getEquip(),manageWorking.getTest(),manageWorking.getCuikuan(),manageWorking.getContract(),manageWorking.getOther(),manageWorking.getPMday(),
-                manageWorking.getRemark(),manageWorking.getPeojectid());
+                manageWorking.getRemark(),manageWorking.getProjectid());
     }
 
     //通过id删除管理工作
@@ -46,7 +46,7 @@ public class ManageWorkingDao {
         String sql = "update Manage set year=?,month=?,xunjiabaojia=?,tender=?,sign=?,toubiao=?,equip=?,test=?,cuikuan=?,contract=?,other=?,PMday=?,remark=?projectid=? where id = ?";
         int update = runner.update(sql,manageWorking.getYear(),manageWorking.getMonth(),manageWorking.getXunjiabaojia(),manageWorking.getTender(),
                 manageWorking.getSign(),manageWorking.getToubiao(),manageWorking.getEquip(),manageWorking.getTest(),manageWorking.getCuikuan(),
-                manageWorking.getContract(),manageWorking.getOther(),manageWorking.getPMday(),manageWorking.getRemark(),manageWorking.getPeojectid());
+                manageWorking.getContract(),manageWorking.getOther(),manageWorking.getPMday(),manageWorking.getRemark(),manageWorking.getProjectid());
         return update;
     }
 }

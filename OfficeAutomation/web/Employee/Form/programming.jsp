@@ -56,6 +56,16 @@
             border-color: #000000;
         }
     </style>
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript">
+        $(function(){
+            // 给工程号赋值
+            $("#projectid").change(function () {
+                var p1=$(this).children('option:selected').attr("id");
+                $("#projectNo").val(p1);
+            })
+        });
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -82,7 +92,7 @@
                                 填写时请注意，不得使用英文标点符号。<br><br>tip:  如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/programingPictureWorkingServlet?method=addProgramingPictureWorking" method="post">
 
                                 <hr width="300" align="left">
 
@@ -92,40 +102,45 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
                                     <div class="col-sm-4">
-                                        <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true">
+                                            <c:if test="${!empty projectList}">
+                                                <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                                <c:forEach var="project" items="${projectList}">
+                                                    <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;">${project.projectName}</option>
+                                                </c:forEach>
+                                            </c:if>
                                         </select>
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectid" id="projectid" disabled="true">
+                                        <input type="text" class="form-control" name="projectNo" id="projectNo" disabled="true">
                                     </div>
                                 </div>
 
-                                    <!-- type对应数据库worktype里的type项目下的阶段类型 -->
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
-                                    <div class="col-sm-4">
-                                        <select class="selectpicker" name="type" id="type">
-                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
-                                            <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>
-                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>
-                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
-                                        </select>
-                                    </div>
-                                </div>
+<%--                                    <!-- type对应数据库worktype里的type项目下的阶段类型 -->--%>
+<%--                                <div class="form-group row">--%>
+<%--                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>--%>
+<%--                                    <div class="col-sm-4">--%>
+<%--                                        <select class="selectpicker" name="type" id="type">--%>
+<%--                                            <option value="施工图" style="text-align: center; text-align-last: center;">施工图</option>--%>
+<%--                                            <option value="方案设计" style="text-align: center; text-align-last: center;">方案设计</option>--%>
+<%--                                            <option value="经营投标" style="text-align: center; text-align-last: center;">经营投标</option>--%>
+<%--                                            <option value="可研" style="text-align: center; text-align-last: center;">可研</option>--%>
+<%--                                            <option value="初步设计" style="text-align: center; text-align-last: center;">初步设计</option>--%>
+<%--                                        </select>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">总开关量点数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="program1" id="program1" placeholder="总开关量点数">
+                                        <input type="text" class="form-control" name="digitaNumber" id="digitaNumber" placeholder="总开关量点数">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">总模拟量点数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="program2" id="program2" placeholder="总模拟量点数">
+                                        <input type="text" class="form-control" name="analogNumber" id="analogNumber" placeholder="总模拟量点数">
                                     </div>
                                 </div>
 
@@ -135,14 +150,14 @@
                                     <div class="col-sm-4">
                                         <div class="form-check form-check-inline">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="program3" id="program31" value="data1" checked="true">
+                                                <input type="radio" class="form-check-input" name="programingPicture" id="programingPicture1" value="data1" checked="true">
                                                 编程
                                             </label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="program3" id="program32" value="data2">
+                                                <input type="radio" class="form-check-input" name="programingPicture" id="programingPicture2" value="data2">
                                                 画面
                                             </label>
                                         </div>
@@ -152,19 +167,19 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">总工日数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="program4" id="program4" placeholder="总工日数">
+                                        <input type="text" class="form-control" name="programingDay" id="programingDay" placeholder="总工日数">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">本月完成工日数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="program5" id="program5" placeholder="本月完成工日数">
+                                        <input type="text" class="form-control" name="monthday" id="monthday" placeholder="本月完成工日数">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-4">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
+                                        <textarea class="form-control" name="reamrk" id="reamrk" placeholder="备注" rows="3"></textarea>
                                     </div>
                                 </div>
 

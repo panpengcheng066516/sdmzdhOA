@@ -81,7 +81,7 @@
                                 填写时请注意，不得使用英文标点符号。<br><br>tip:  如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/????" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/projectServlet?method=addProject" method="post">
 
                                 <hr width="300" align="left">
 
@@ -90,12 +90,12 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="project" id="project" placeholder="项目名称">
+                                        <input type="text" class="form-control" name="projectName" id="projectName" placeholder="项目名称">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectid" id="projectid" placeholder="工程号">
+                                        <input type="text" class="form-control" name="projectNo" id="projectNo" placeholder="工程号">
                                     </div>
                                 </div>
 
@@ -115,9 +115,10 @@
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">状态</label>
                                     <div class="col-sm-4">
                                         <select class="selectpicker" name="progress" id="progress">
-                                            <option value="0" style="text-align: center; text-align-last: center;">已完成</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">延期</option>
-                                            <option value="2" style="text-align: center; text-align-last: center;">取消</option>
+                                            <option value="进行中" style="text-align: center; text-align-last: center;">进行中</option>
+                                            <option value="已完成" style="text-align: center; text-align-last: center;">已完成</option>
+                                            <option value="延期" style="text-align: center; text-align-last: center;">延期</option>
+                                            <option value="取消" style="text-align: center; text-align-last: center;">取消</option>
                                         </select>
                                     </div>
 
@@ -147,7 +148,7 @@
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">总师</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="CE" id="CE" placeholder="总师">
+                                        <input type="text" class="form-control" name="ce" id="ce" placeholder="总师">
                                     </div>
                                 </div>
 

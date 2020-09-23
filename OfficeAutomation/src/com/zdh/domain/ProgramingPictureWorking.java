@@ -3,7 +3,7 @@ package com.zdh.domain;
 public class ProgramingPictureWorking {
     private String id;
     private String username;
-    private String peojectid;
+    private String projectid;
     private String year;
     private String month;
     private String digitaNumber;
@@ -29,12 +29,12 @@ public class ProgramingPictureWorking {
         this.username = username;
     }
 
-    public String getPeojectid() {
-        return peojectid;
+    public String getProjectid() {
+        return projectid;
     }
 
-    public void setPeojectid(String peojectid) {
-        this.peojectid = peojectid;
+    public void setProjectid(String peojectid) {
+        this.projectid = peojectid;
     }
 
     public String getYear() {

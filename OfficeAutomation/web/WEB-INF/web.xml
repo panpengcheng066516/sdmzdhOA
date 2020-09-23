@@ -62,4 +62,44 @@
         <url-pattern>/designWorkingServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <display-name>ProgramingPictureWorkingServlet</display-name>
+        <servlet-name>ProgramingPictureWorkingServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ProgramingPictureWorkingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProgramingPictureWorkingServlet</servlet-name>
+        <url-pattern>/programingPictureWorkingServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>DebugWorkingServlet</display-name>
+        <servlet-name>DebugWorkingServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.DebugWorkingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DebugWorkingServlet</servlet-name>
+        <url-pattern>/debugWorkingServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>ManageWorkingServlet</display-name>
+        <servlet-name>ManageWorkingServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ManageWorkingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManageWorkingServlet</servlet-name>
+        <url-pattern>/manageWorkingServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>DailyWorkingServlet</display-name>
+        <servlet-name>DailyWorkingServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.DailyWorkingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DailyWorkingServlet</servlet-name>
+        <url-pattern>/DailyWorkingServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

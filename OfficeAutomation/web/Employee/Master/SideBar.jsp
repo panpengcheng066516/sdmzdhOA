@@ -39,15 +39,15 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Form/programming.jsp" class="nav-link">编程/画面</a>
+                            <a href="${ pageContext.request.contextPath }/programingPictureWorkingServlet?method=getAllProjectByUser" class="nav-link">编程/画面</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Form/debug.jsp" class="nav-link">调试工程管理</a>
+                            <a href="${ pageContext.request.contextPath }/debugWorkingServlet?method=getAllProjectByUser" class="nav-link">调试工程管理</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Form/manage.jsp" class="nav-link">经营</a>
+                            <a href="${ pageContext.request.contextPath }/manageWorkingServlet?method=getAllProjectByUser" class="nav-link">经营</a>
                         </li>
 
                         <li class="nav-item">
@@ -67,7 +67,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Overview/projectOverview.jsp" class="nav-link">科室项目查询</a>
+                            <a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject" class="nav-link">科室项目查询</a>
                         </li>
                     </ul>
                 </div>

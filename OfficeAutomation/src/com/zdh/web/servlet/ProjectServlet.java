@@ -3,6 +3,7 @@ package com.zdh.web.servlet;
 import com.zdh.domain.Project;
 import com.zdh.domain.User;
 import com.zdh.service.ProjectService;
+import com.zdh.utils.CommonsUtils;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
@@ -23,7 +24,7 @@ public class ProjectServlet extends BaseServlet {
         ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getAllProject();
         request.setAttribute("projectList",list);
-        response.sendRedirect("");
+        request.getRequestDispatcher("/Employee/Overview/projectOverview.jsp").forward(request, response);
     }
 
     //通过user得到项目列表
@@ -47,16 +48,17 @@ public class ProjectServlet extends BaseServlet {
         Map<String,String[]> map =  request.getParameterMap();
         Project project = new Project();
         BeanUtils.populate(project,map);
+        project.setId(CommonsUtils.getUUID());
 
         //向数据库存入项目信息
         ProjectService projectService = new ProjectService();
         int r = projectService.addProject(project);
 
         PrintWriter out = response.getWriter();
-
         if(r>0){
-            out.print("<script>alert('添加项目成功');</script>");
+            out.print("<script>alert('提交成功！');window.location='"+request.getContextPath()+"/Employee/Form/project.jsp';</script>");
+        }else{
+            out.print("<script>alert('提交失败！');window.location='"+request.getContextPath()+"/Employee/Form/project.jsp';</script>");
         }
-        out.print("<script>alert('添加项目失败');</script>");
     }
 }

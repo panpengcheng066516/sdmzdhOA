@@ -1,9 +1,11 @@
 package com.zdh.web.servlet;
 
-import com.zdh.domain.DesignWorking;
+import com.zdh.domain.DebugWorking;
+import com.zdh.domain.ManageWorking;
 import com.zdh.domain.Project;
 import com.zdh.domain.User;
-import com.zdh.service.DesignWorkingService;
+import com.zdh.service.DebugWorkingService;
+import com.zdh.service.ManageWorkingService;
 import com.zdh.service.ProjectService;
 import com.zdh.utils.CommonsUtils;
 import org.apache.commons.beanutils.BeanUtils;
@@ -18,7 +20,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
-public class DesignWorkingServlet extends BaseServlet {
+public class ManageWorkingServlet extends BaseServlet {
     //得到当前用户的所有的project
     public void getAllProjectByUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
@@ -29,37 +31,36 @@ public class DesignWorkingServlet extends BaseServlet {
 //        //通过Userid获得projectList
 //        ProjectService projectService = new ProjectService();
 //        List<Project> list = projectService.getProjectListByUser(userName);
+
         ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getAllProject();
 
         request.setAttribute("projectList",list);
-        request.getRequestDispatcher("/Employee/Form/design.jsp").forward(request, response);
+        request.getRequestDispatcher("/Employee/Form/manage.jsp").forward(request, response);
     }
 
-
-    public void addDesignWorking(HttpServletRequest request, HttpServletResponse response)
+    public void addManageWorking(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
-
         //取得项目
         Map<String,String[]> map =  request.getParameterMap();
-        DesignWorking designWorking = new DesignWorking();
-        BeanUtils.populate(designWorking,map);
+        ManageWorking manageWorking = new ManageWorking();
+        BeanUtils.populate(manageWorking,map);
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        designWorking.setId(CommonsUtils.getUUID());
-        designWorking.setUsername(user.getUsername());
-        designWorking.setYear(CommonsUtils.getCurrentYear());
-        designWorking.setMonth(CommonsUtils.getCurrentMonth());
+        manageWorking.setId(CommonsUtils.getUUID());
+        manageWorking.setUsername(user.getUsername());
+        manageWorking.setYear(CommonsUtils.getCurrentYear());
+        manageWorking.setMonth(CommonsUtils.getCurrentMonth());
 
         //向数据库存入项目信息
-        DesignWorkingService designWorkingService = new DesignWorkingService();
-        int r = designWorkingService.addDesignWorking(designWorking);
+        ManageWorkingService manageWorkingService = new ManageWorkingService();
+        int r = manageWorkingService.addManageWorking(manageWorking);
 
         PrintWriter out = response.getWriter();
         if(r>0){
-            out.print("<script>alert('提交成功！');window.location='"+request.getContextPath()+"/designWorkingServlet?method=getAllProjectByUser';</script>");
+            out.print("<script>alert('提交成功！');window.location='"+request.getContextPath()+"/manageWorkingServlet?method=getAllProjectByUser';</script>");
         }else{
-            out.print("<script>alert('提交失败！');window.location='"+request.getContextPath()+"/designWorkingServlet?method=getAllProjectByUser';</script>");
+            out.print("<script>alert('提交失败！');window.location='"+request.getContextPath()+"/manageWorkingServlet?method=getAllProjectByUser';</script>");
         }
     }
 }
