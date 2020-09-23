@@ -199,9 +199,9 @@
                                                 </thead>
                                                 <tbody>
                                                     <c:if test="${!empty designList}">
-                                                        <c:forEach var="design" items="${designList}">
+                                                        <c:forEach var="design" items="${designList}" varStatus="s">
                                                             <tr>
-                                                                <td>${design.index}</td>
+                                                                <td>${s.index}</td>
                                                                 <td>${design.projectid}</td>
                                                                 <td>${design.projectid}</td>
                                                                 <td>${design.amount}</td>
@@ -243,9 +243,9 @@
                                                 </thead>
                                                 <tbody>
                                                 <c:if test="${!empty programingPictureList}">
-                                                    <c:forEach var="programing" items="${programingPictureList}">
+                                                    <c:forEach var="programing" items="${programingPictureList}" varStatus="s">
                                                         <tr>
-                                                            <td>${programing.index}</td>
+                                                            <td>${s.index}</td>
                                                             <td>${programing.projectid}</td>
                                                             <td>${programing.digitaNumber}</td>
                                                             <td>${programing.analogNumber}</td>
@@ -263,7 +263,7 @@
                                     </div>
                                 </div>
 
-                                <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
+                                <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab" >
 
                                     <p class="text-muted mb-1" align="center">调试工程管理工作量</p>
                                     <div class="form-group row">
@@ -282,9 +282,9 @@
                                                 </thead>
                                                 <tbody>
                                                     <c:if test="${!empty debugList}">
-                                                        <c:forEach var="debug" items="${debugList}">
+                                                        <c:forEach var="debug" items="${debugList}" varStatus="s">
                                                             <tr>
-                                                                <td>${debug.index}</td>
+                                                                <td>${s.index}</td>
                                                                 <td>${debug.projectid}</td>
                                                                 <td>${debug.site}</td>
                                                                 <td>${debug.manageday}</td>
@@ -325,9 +325,9 @@
                                                     </thead>
                                                 <tbody>
                                                     <c:if test="${!empty manageList}">
-                                                        <c:forEach var="manage" items="${manageList}">
+                                                        <c:forEach var="manage" items="${manageList}" varStatus="s">
                                                             <tr>
-                                                                <td>${manage.index}</td>
+                                                                <td>${s.index}</td>
                                                                 <td>${manage.projectid}</td>
                                                                 <td>${manage.xunjiabaojia}</td>
                                                                 <td>${manage.tender}</td>
@@ -365,9 +365,9 @@
                                                 </thead>
                                                 <tbody>
                                                     <c:if test="${!empty dailyList}">
-                                                        <c:forEach var="daily" items="${dailyList}">
+                                                        <c:forEach var="daily" items="${dailyList}" varStatus="s">
                                                             <tr>
-                                                                <td>${daily.index}</td>
+                                                                <td>${s.index}</td>
                                                                 <td>${daily.type}</td>
                                                                 <td>${daily.monthDay}</td>
                                                                 <td>${daily.remark}</td>
