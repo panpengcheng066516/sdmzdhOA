@@ -81,12 +81,13 @@
 <%--                                    </select>--%>
 <%--                                </div>--%>
 
+                            <div class="form-group row">
                                 <label class="col-sm-1 col-form-label" style="font-size: 14px;">查看部分</label>
                                 <div class="col-sm-2">
                                     <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month" name="month" onchange="sel2()">
-                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">全部</option>
-                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">已完成</option>
-                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">未完成</option>
+                                        <option value="全部" selected="selected" style="text-align: center; text-align-last: center;">全部</option>
+                                        <option value="已完成" selected="selected" style="text-align: center; text-align-last: center;">已完成</option>
+                                        <option value="未完成" selected="selected" style="text-align: center; text-align-last: center;">未完成</option>
                                     </select>
                                 </div>
                             </div>
