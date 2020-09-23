@@ -105,38 +105,39 @@
                                 <div class="table-responsive pt-3">
                                     <table class="table table-bordered" id="table01">
                                         <thead>
-                                        <tr>
-                                            <th>项目名称</th>
-                                            <th>工程号</th>
-                                            <th>要求完成时间</th>
-                                            <th>实际完成时间</th>
-                                            <th>状态</th>
-                                            <th>项目负责人</th>
-                                            <th>设计人</th>
-                                            <th>审核</th>
-                                            <th>室审</th>
-                                            <th>总师</th>
-                                            <th>高阶段分类</th>
-                                            <th>备注</th>
-                                        </tr>
+                                            <tr>
+                                                <th>项目名称</th>
+                                                <th>工程号</th>
+                                                <th>要求完成时间</th>
+                                                <th>实际完成时间</th>
+                                                <th>状态</th>
+                                                <th>项目负责人</th>
+                                                <th>设计人</th>
+                                                <th>审核</th>
+                                                <th>室审</th>
+                                                <th>总师</th>
+    <%--                                            <th>高阶段分类</th>--%>
+                                                <th>备注</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach items="${kits}" var="k" varStatus="s">
-                                        <tr>
-                                            <td>${k.project}</td>
-                                            <td>${k.projectid}</td>
-                                            <td>${k.deadline}</td>
-                                            <td>${k.finish}</td>
-                                            <td>${k.progress}</td>
-                                            <td>${k.manager}</td>
-                                            <td>${k.designer}</td>
-                                            <td>${k.reviewer}</td>
-                                            <td>${k.office}</td>
-                                            <td>${k.CE}</td>
-                                            <td>${k.status}</td>
-                                            <td>${k.remarks}</td>
-                                        </tr>
-                                        </c:forEach>
+                                            <c:if test="${!empty projectList}">
+                                                <c:forEach var="project" items="${projectList}">
+                                                    <tr>
+                                                        <th>${project.projectName}</th>
+                                                        <th>${project.projectNo}</th>
+                                                        <th>${project.deadline}</th>
+                                                        <th>${project.finish}</th>
+                                                        <th>${project.progress}</th>
+                                                        <th>${project.manager}</th>
+                                                        <th>${project.designer}</th>
+                                                        <th>${project.reviewer}</th>
+                                                        <th>${project.office}</th>
+                                                        <th>${project.ce}</th>
+                                                        <th>${project.remarks}</th>
+                                                    </tr>
+                                                </c:forEach>
+                                            </c:if>
                                         </tbody>
                                     </table>
                                 </div>

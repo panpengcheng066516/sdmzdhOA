@@ -67,7 +67,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Overview/projectOverview.jsp" class="nav-link">科室项目查询</a>
+                            <a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject" class="nav-link">科室项目查询</a>
                         </li>
                     </ul>
                 </div>
