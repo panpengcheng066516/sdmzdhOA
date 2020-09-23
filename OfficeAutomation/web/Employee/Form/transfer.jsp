@@ -75,7 +75,8 @@
                     <div class="card">
                         <div class="card-body">
                             <form action="${ pageContext.request.contextPath }/jiediaoServlet?method=addJiediao" method="post">
-                                <h6 class="card-title" style="font-size: 14px;">借调</h6>
+
+                                <h3 class="text text-primary">借调</h3>
 
                                 <hr width="300" align="left">
 
