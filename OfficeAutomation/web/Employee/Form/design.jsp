@@ -85,8 +85,13 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">设计</h6>
-                            <h6 class="card-title" style="font-size: 14px;color: red;">填写时请注意，不得使用英文标点符号。</h6>
+
+                            <h3 class="text text-primary">设计</h3>
+                            <br>
+                            <div class="alert alert-icon-info" role="alert">
+                                <i data-feather="alert-circle"></i>
+                                填写时请注意，不得使用英文标点符号。<br><br>tip:  如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
+                            </div>
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/designWorkingServlet?method=addDesignWorking" method="post">
 
                                 <hr width="300" align="left">

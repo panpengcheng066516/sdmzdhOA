@@ -147,11 +147,8 @@
                             <!-- tab选项内容 -->
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="total" role="tabpanel" aria-labelledby="total-tab">
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
-                                        </div>
-                                    </div>
+
+                                    <div class="text-muted mb-1" align="center">本月工日之和</div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table01">
@@ -160,6 +157,7 @@
                                                     <th>序号</th>
                                                     <th>姓名</th>
                                                     <th>总工日</th>
+                                                    <th>操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -168,8 +166,15 @@
                                                         <td>${s.index}</td>
                                                         <td>${k.name}</td>
                                                         <td>${k.days}</td>
+                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>test</td>
+                                                    <td>1</td>
+                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -177,11 +182,8 @@
                                 </div>
                                 <!-- 别加div。。 -->
                                 <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
-                                        </div>
-                                    </div>
+
+                                    <p class="text-muted mb-1" align="center">设计工作量</p>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table02">
@@ -191,14 +193,15 @@
                                                     <th>姓名</th>
                                                     <th>工程号</th>
                                                     <th>工程名称</th>
-                                                    <th>施工图图纸张数</th>
-                                                    <th>图纸折合A1张数</th>
-                                                    <th>折合总工日</th>
-                                                    <th>本月完成工日</th>
+                                                    <th>施工图<br>图纸张数</th>
+                                                    <th>图纸<br>折合A1数</th>
+                                                    <th>折合<br>总工日</th>
+                                                    <th>本月<br>完成工日</th>
                                                     <th>技术方案</th>
                                                     <th>基本设计</th>
-                                                    <th>专业负责人</th>
+                                                    <th>专业<br>负责人</th>
                                                     <th>备注</th>
+                                                    <th>操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -208,16 +211,32 @@
                                                         <td>${k.name}</td>
                                                         <td>${k.projectid}</td>
                                                         <td>${k.project}</td>
-                                                        <td>${k.design}</td>
-                                                        <td>${k.design1}</td>
-                                                        <td>${k.design2}</td>
-                                                        <td>${k.design3}</td>
-                                                        <td>${k.design4}</td>
-                                                        <td>${k.design5}</td>
-                                                        <td>${k.design6}</td>
-                                                        <td>${k.remarks}</td>
+                                                        <td>${k.amount}</td>
+                                                        <td>${k.a1}</td>
+                                                        <td>${k.zheheWorkingDay}</td>
+                                                        <td>${k.monthDay}</td>
+                                                        <td>${k.programDay}</td>
+                                                        <td>${k.basicDesignDay}</td>
+                                                        <td>${k.leader}</td>
+                                                        <td>${k.remark}</td>
+                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>test</td>
+                                                    <td>123</td>
+                                                    <td>test</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>test</td>
+                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -225,11 +244,8 @@
                                 </div>
 
                                 <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
-                                        </div>
-                                    </div>
+
+                                    <p class="text-muted mb-1" align="center">编程画面工作量</p>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table03">
@@ -238,12 +254,13 @@
                                                     <th>序号</th>
                                                     <th>姓名</th>
                                                     <th>工程号</th>
-                                                    <th>总开关量点数</th>
-                                                    <th>总模拟量点数</th>
+                                                    <th>总开关量<br>点数</th>
+                                                    <th>总模拟量<br>点数</th>
                                                     <th>编程/画面</th>
                                                     <th>总工日</th>
-                                                    <th>本月完成工日</th>
+                                                    <th>本月<br>完成工日</th>
                                                     <th>备注</th>
+                                                    <th>操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -252,25 +269,36 @@
                                                         <td>${s.index}</td>
                                                         <td>${k.name}</td>
                                                         <td>${k.projectid}</td>
-                                                        <td>${k.programming}</td>
-                                                        <td>${k.programming1}</td>
-                                                        <td>${k.programming2}</td>
-                                                        <td>${k.programming3}</td>
-                                                        <td>${k.programming4}</td>
+                                                        <td>${k.program1}</td>
+                                                        <td>${k.program2}</td>
+                                                        <td>${k.program3}</td>
+                                                        <td>${k.program4}</td>
+                                                        <td>${k.program5}</td>
                                                         <td>${k.remarks}</td>
+                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>test</td>
+                                                    <td>123</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>test</td>
+                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
-                                        </div>
-                                    </div>
+
+                                    <p class="text-muted mb-1" align="center">调试工程管理工作量</p>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table04">
@@ -283,6 +311,7 @@
                                                     <th>工程管理</th>
                                                     <th>调试</th>
                                                     <th>备注</th>
+                                                    <th>操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -292,22 +321,30 @@
                                                         <td>${k.name}</td>
                                                         <td>${k.projectid}</td>
                                                         <td>${k.location}</td>
-                                                        <td>${k.debug}</td>
-                                                        <td>${k.debug1}</td>
+                                                        <td>${k.bug1}</td>
+                                                        <td>${k.bug2}</td>
                                                         <td>${k.remarks}</td>
+                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>test</td>
+                                                    <td>123</td>
+                                                    <td>test</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>test</td>
+                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
-                                        </div>
-                                    </div>
+
+                                    <p class="text-muted mb-1" align="center">经营管理工作量</p>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table05">
@@ -316,17 +353,18 @@
                                                     <th>序号</th>
                                                     <th>姓名</th>
                                                     <th>工程号</th>
-                                                    <th>商务询价报价</th>
+                                                    <th>商务<br>询价报价</th>
                                                     <th>标书制作</th>
-                                                    <th>合同制作与签署</th>
+                                                    <th>合同制作<br>与签署</th>
                                                     <th>投标</th>
-                                                    <th>设备招标采购</th>
-                                                    <th>设备出厂检测</th>
+                                                    <th>设备<br>招标采购</th>
+                                                    <th>设备<br>出厂检测</th>
                                                     <th>催款</th>
                                                     <th>合同管理</th>
                                                     <th>其他</th>
                                                     <th>项目经理</th>
                                                     <th>备注</th>
+                                                    <th>操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -335,7 +373,7 @@
                                                         <td>${s.index}</td>
                                                         <td>${k.name}</td>
                                                         <td>${k.projectid}</td>
-                                                        <td>${k.manage}</td>
+                                                        <td>${k.manage0}</td>
                                                         <td>${k.manage1}</td>
                                                         <td>${k.manage2}</td>
                                                         <td>${k.manage3}</td>
@@ -346,29 +384,44 @@
                                                         <td>${k.manage8}</td>
                                                         <td>${k.manage9}</td>
                                                         <td>${k.remarks}</td>
+                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>test</td>
+                                                    <td>123</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>test</td>
+                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
-                                        </div>
-                                    </div>
+
+                                    <p class="text-muted mb-1" align="center">日常管理零星工日</p>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table06">
                                                 <thead>
-                                                <tr>
-                                                    <th>序号</th>
+                                                <tr><th>序号</th>
                                                     <th>姓名</th>
                                                     <th>工作类型</th>
                                                     <th>折合天数</th>
                                                     <th>备注</th>
+                                                    <th>操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -377,10 +430,19 @@
                                                         <td>${s.index}</td>
                                                         <td>${k.name}</td>
                                                         <td>${k.type}</td>
-                                                        <td>${k.days}</td>
+                                                        <td>${k.daily}</td>
                                                         <td>${k.remarks}</td>
+                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>test</td>
+                                                    <td>test</td>
+                                                    <td>1</td>
+                                                    <td>test</td>
+                                                    <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -411,34 +473,6 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-
-    function exportExcel() {
-        //var tmp=document.getElementById("companySel1").value;
-        //var form=$("<form>");//定义一个form表单
-        //form.attr("style","display:none");
-        //form.attr("target","");
-        //form.attr("method","post");
-        //form.attr("action","${pageContext.request.contextPath}/OrderContactExportExcelServlet?method="+tmp);
-        //var input1=$("<input>");
-        //$("body").append(form);//将表单放置在web中
-        //form.append(input1);
-        //form.submit();//表单提交
-        var fileName="工作量统计";
-        var time = new Date();
-        var day = ("0" + time.getDate()).slice(-2);
-        var month = ("0" + (time.getMonth() + 1)).slice(-2);
-        var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
-
-        $("#table01").table2excel({
-            exclude: ".noExl",
-            name: "Excel Document Name",
-            filename: fileName+today,
-            sheetName: fileName,// sheetName
-            exclude_img: true,
-            exclude_links: true,
-            exclude_inputs: true
-        });
-    }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";

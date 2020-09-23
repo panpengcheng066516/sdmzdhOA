@@ -76,8 +76,9 @@
                         <div class="card-body">
 
                             <h3 class="text text-primary">经营修改</h3>
-
-                            <div class="alert alert-danger" role="alert">
+                            <br>
+                            <div class="alert alert-icon-danger" role="alert">
+                                <i data-feather="alert-circle"></i>
                                 修改时请注意，不得使用英文标点符号。
                             </div>
 
@@ -170,7 +171,7 @@
                                 </div>
 
                                 <h6 class="card-title" style="font-size: 14px;">项目经理</h6>
-                                <h6 class="card-title" style="font-size: 14px;color: red;">此列不是写项目经理名字，如果你是项目经理，把操心的工作量折合工日写在此列。</h6>
+                                <h6 class="card-title" style="font-size: 14px;color: red;">此处不是写项目经理名字，如果你是项目经理，把操心的工作量折合工日写在此列。</h6>
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目经理</label>
                                     <div class="col-sm-4">

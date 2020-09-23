@@ -76,9 +76,10 @@
                         <div class="card-body">
 
                             <h3 class="text text-primary">日常管理</h3>
-
-                            <div class="alert alert-success" role="alert">
-                                填写时请注意，不得使用英文标点符号。
+                            <br>
+                            <div class="alert alert-icon-info" role="alert">
+                                <i data-feather="alert-circle"></i>
+                                填写时请注意，不得使用英文标点符号。<br><br>tip:  如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
                             </div>
 
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
@@ -90,7 +91,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择类型</label>
                                     <div class="col-sm-5">
-                                        <select class="selectpicker" name="progress" id="progress">
+                                        <select class="selectpicker" name="type" id="type">
                                             <option value="0" style="text-align: center; text-align-last: center;">日常管理</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">工会事务</option>
                                             <option value="2" style="text-align: center; text-align-last: center;">党/团组事务</option>
@@ -104,7 +105,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">工日天数</label>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" name="daily5" id="daily5" placeholder="工日天数">
+                                        <input type="text" class="form-control" name="daily" id="daily" placeholder="工日天数">
                                     </div>
                                 </div>
 

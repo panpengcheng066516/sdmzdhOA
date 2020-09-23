@@ -76,9 +76,10 @@
                         <div class="card-body">
 
                             <h3 class="text text-primary">经营</h3>
-
-                            <div class="alert alert-success" role="alert">
-                                填写时请注意，不得使用英文标点符号。
+                            <br>
+                            <div class="alert alert-icon-info" role="alert">
+                                <i data-feather="alert-circle"></i>
+                                填写时请注意，不得使用英文标点符号。<br><br>tip:  如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
                             </div>
 
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
@@ -171,7 +172,7 @@
                                 </div>
 
                                 <h6 class="card-title" style="font-size: 14px;">项目经理</h6>
-                                <h6 class="card-title" style="font-size: 14px;color: red;">此列不是写项目经理名字，如果你是项目经理，把操心的工作量折合工日写在此列。</h6>
+                                <h6 class="card-title" style="font-size: 14px;color: red;">此处不是写项目经理名字，如果你是项目经理，把操心的工作量折合工日写在此列。</h6>
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目经理</label>
                                     <div class="col-sm-4">

@@ -85,7 +85,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">借调至</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="transfer" id="transfer" placeholder="请填写部门或地点名称">
+                                        <input type="text" class="form-control" name="transfer" id="transfer" placeholder="部门或地点">
                                     </div>
                                 </div>
 

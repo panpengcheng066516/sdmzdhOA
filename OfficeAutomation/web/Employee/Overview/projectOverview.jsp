@@ -98,7 +98,7 @@
 
                             <div class="form-group row">
                                 <div class="col-sm-1">
-                                    <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
+                                    <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -118,25 +118,42 @@
                                             <th>总师</th>
                                             <th>高阶段分类</th>
                                             <th>备注</th>
+                                            <th>操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <c:forEach items="${kits}" var="k" varStatus="s">
-                                        <tr>
-                                            <td>${k.project}</td>
-                                            <td>${k.projectid}</td>
-                                            <td>${k.deadline}</td>
-                                            <td>${k.finish}</td>
-                                            <td>${k.progress}</td>
-                                            <td>${k.manager}</td>
-                                            <td>${k.designer}</td>
-                                            <td>${k.reviewer}</td>
-                                            <td>${k.office}</td>
-                                            <td>${k.CE}</td>
-                                            <td>${k.status}</td>
-                                            <td>${k.remarks}</td>
-                                        </tr>
+                                            <tr>
+                                                <td>${k.project}</td>
+                                                <td>${k.projectid}</td>
+                                                <td>${k.deadline}</td>
+                                                <td>${k.finish}</td>
+                                                <td>${k.progress}</td>
+                                                <td>${k.manager}</td>
+                                                <td>${k.designer}</td>
+                                                <td>${k.reviewer}</td>
+                                                <td>${k.office}</td>
+                                                <td>${k.CE}</td>
+                                                <td>${k.status}</td>
+                                                <td>${k.remarks}</td>
+                                                <td><button type="button" class="btn btn-outline-warning btn-sm" onclick="update()">修改</button></td>
+                                            </tr>
                                         </c:forEach>
+                                        <tr>
+                                            <td>test</td>
+                                            <td>123</td>
+                                            <td>9-23-2020</td>
+                                            <td>9-23-2020</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td><button type="button" class="btn btn-outline-warning btn-sm" onclick="update()">修改</button></td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>

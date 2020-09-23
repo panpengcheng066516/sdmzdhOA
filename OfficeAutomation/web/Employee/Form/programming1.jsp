@@ -83,8 +83,9 @@
                         <div class="card-body">
 
                             <h3 class="text text-primary">编程/画面修改</h3>
-
-                            <div class="alert alert-danger" role="alert">
+                            <br>
+                            <div class="alert alert-icon-danger" role="alert">
+                                <i data-feather="alert-circle"></i>
                                 修改时请注意，不得使用英文标点符号。
                             </div>
 
