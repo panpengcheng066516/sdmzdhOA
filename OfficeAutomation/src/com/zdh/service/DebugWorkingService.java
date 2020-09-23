@@ -28,4 +28,15 @@ public class DebugWorkingService {
         }
         return list;
     }
+
+    public List<DebugWorking> getDebugWorkingByDateUsername(String year,String month,String username) {
+        DebugWorkingDao debugWorkingDao = new DebugWorkingDao();
+        List<DebugWorking> list = null;
+        try {
+            list = debugWorkingDao.getDebugWorkingByDateUsername(year,month,username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

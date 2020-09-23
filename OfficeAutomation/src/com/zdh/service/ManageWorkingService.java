@@ -28,4 +28,15 @@ public class ManageWorkingService {
         }
         return list;
     }
+
+    public List<ManageWorking> getManageWorkingByDateUsername(String year,String month,String username) {
+        ManageWorkingDao manageWorkingDao = new ManageWorkingDao();
+        List<ManageWorking> list = null;
+        try {
+            list = manageWorkingDao.getManageWorkingByDateUsername(year,month,username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

@@ -29,4 +29,15 @@ public class DesignWorkingService {
         }
         return designWorkingList;
     }
+
+    public List<DesignWorking> getDesignWorkingByDateUsername(String year,String month,String username) {
+        DesignWorkingDao designWorkingDao = new DesignWorkingDao();
+        List<DesignWorking> designWorkingList = null;
+        try {
+            designWorkingList = designWorkingDao.getDesignWorkingByDateUsername(year,month,username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return designWorkingList;
+    }
 }

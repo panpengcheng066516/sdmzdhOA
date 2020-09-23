@@ -23,6 +23,13 @@ public class ManageWorkingDao {
         return runner.query(sql, new BeanListHandler<ManageWorking>(ManageWorking.class),username);
     }
 
+    //通过用户名日期获取管理工作列表
+    public List<ManageWorking> getManageWorkingByDateUsername(String year,String month,String username) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from Manage where username = ? and year = ? and month = ?";
+        return runner.query(sql, new BeanListHandler<ManageWorking>(ManageWorking.class),username,year,month);
+    }
+
     //新增管理工作
     public int addManageWorking(ManageWorking manageWorking) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());

@@ -23,6 +23,13 @@ public class DebugWorkingDao {
         return runner.query(sql, new BeanListHandler<DebugWorking>(DebugWorking.class),username);
     }
 
+    //通过用户名日期获取调试工作列表
+    public List<DebugWorking> getDebugWorkingByDateUsername(String year,String month,String username) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from Debug where username = ? and year = ? and month = ?";
+        return runner.query(sql, new BeanListHandler<DebugWorking>(DebugWorking.class),username,year,month);
+    }
+
     //新增调试工作
     public int addDebugWorking(DebugWorking debugWorking) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());

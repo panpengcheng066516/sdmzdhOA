@@ -28,4 +28,15 @@ public class DailyWorkingService {
         }
         return list;
     }
+
+    public List<DailyWorking> getDailyWorkingByDateUsername(String year,String month,String username) {
+        DailyWorkingDao dailyWorkingDao = new DailyWorkingDao();
+        List<DailyWorking> list = null;
+        try {
+            list = dailyWorkingDao.getDailyWorkingByDateUsername(year,month,username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

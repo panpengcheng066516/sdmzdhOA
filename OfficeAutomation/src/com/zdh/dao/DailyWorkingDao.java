@@ -24,6 +24,13 @@ public class DailyWorkingDao {
         return runner.query(sql, new BeanListHandler<DailyWorking>(DailyWorking.class),username);
     }
 
+    //通过用户名日期获取日常管理列表
+    public List<DailyWorking> getDailyWorkingByDateUsername(String year,String month,String username) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from DailyWorking where username = ? and year = ? and month = ?";
+        return runner.query(sql, new BeanListHandler<DailyWorking>(DailyWorking.class),username,year,month);
+    }
+
     //新增日常管理
     public int addDailyWorking(DailyWorking dailyWorking) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());

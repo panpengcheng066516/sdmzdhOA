@@ -28,4 +28,15 @@ public class ProgramingPictureWorkingService {
         }
         return list;
     }
+
+    public List<ProgramingPictureWorking> getDesignWorkingByDateUsername(String year,String month,String username) {
+        ProgramingPictureWorkingDao programingPictureWorkingDao = new ProgramingPictureWorkingDao();
+        List<ProgramingPictureWorking> list = null;
+        try {
+            list = programingPictureWorkingDao.getProgramingPictureWorkingByDateUsername(year,month,username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

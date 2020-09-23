@@ -23,6 +23,13 @@ public class DesignWorkingDao {
         return runner.query(sql, new BeanListHandler<DesignWorking>(DesignWorking.class),username);
     }
 
+    //通过用户名获取日期设计工作列表
+    public List<DesignWorking> getDesignWorkingByDateUsername(String year,String month,String username) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from Design where username = ? and year = ? and month = ?";
+        return runner.query(sql, new BeanListHandler<DesignWorking>(DesignWorking.class),username,year,month);
+    }
+
     //新增设计工作
     public int addDesignWorking(DesignWorking designWorking) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());

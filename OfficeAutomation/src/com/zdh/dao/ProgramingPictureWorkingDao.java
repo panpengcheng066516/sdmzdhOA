@@ -23,6 +23,13 @@ public class ProgramingPictureWorkingDao {
         return runner.query(sql, new BeanListHandler<ProgramingPictureWorking>(ProgramingPictureWorking.class),username);
     }
 
+    //通过用户名日期获取编程画面工作列表
+    public List<ProgramingPictureWorking> getProgramingPictureWorkingByDateUsername(String year,String month,String username) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from ProgramingPicture where username = ? and year = ? and month = ?";
+        return runner.query(sql, new BeanListHandler<ProgramingPictureWorking>(ProgramingPictureWorking.class),username,year,month);
+    }
+
     //新增编程画面工作
     public int addProgramingPictureWorking(ProgramingPictureWorking programingPictureWorking) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
