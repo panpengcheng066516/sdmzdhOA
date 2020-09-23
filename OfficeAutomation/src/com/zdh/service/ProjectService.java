@@ -39,4 +39,15 @@ public class ProjectService {
         }
         return r;
     }
+
+    public List<Project> getProjectByProgress(String progress) {
+        ProjectDao projectDao = new ProjectDao();
+        List<Project> list = null;
+        try {
+            list = projectDao.getProjectByProgress(progress);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

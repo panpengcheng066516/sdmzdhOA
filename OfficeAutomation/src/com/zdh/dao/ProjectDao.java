@@ -32,4 +32,11 @@ public class ProjectDao {
                 project.getProgress(),project.getManager(),project.getDesigner(),project.getReviewer(),project.getOffice(),project.getCe(),
                 project.getRemarks());
     }
+
+    //通过状态获取项目表
+    public List<Project> getProjectByProgress(String progress) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from project where progress = ? order by deadline DESC";
+        return runner.query(sql, new BeanListHandler<Project>(Project.class),progress);
+    }
 }

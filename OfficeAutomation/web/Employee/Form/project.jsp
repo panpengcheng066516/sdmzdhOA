@@ -115,7 +115,7 @@
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">状态</label>
                                     <div class="col-sm-4">
                                         <select class="selectpicker" name="progress" id="progress">
-                                            <option value="进行中" style="text-align: center; text-align-last: center;">进行中</option>
+                                            <option value="未完成" style="text-align: center; text-align-last: center;">未完成</option>
                                             <option value="已完成" style="text-align: center; text-align-last: center;">已完成</option>
                                             <option value="延期" style="text-align: center; text-align-last: center;">延期</option>
                                             <option value="取消" style="text-align: center; text-align-last: center;">取消</option>

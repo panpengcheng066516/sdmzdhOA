@@ -1,11 +1,15 @@
 package com.zdh.web.servlet;
 
+import com.google.gson.Gson;
 import com.zdh.domain.Project;
 import com.zdh.domain.User;
 import com.zdh.service.ProjectService;
 import com.zdh.utils.CommonsUtils;
+import net.sf.json.JSON;
+import net.sf.json.JSONArray;
 import org.apache.commons.beanutils.BeanUtils;
 
+import javax.json.JsonArray;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -60,5 +64,24 @@ public class ProjectServlet extends BaseServlet {
         }else{
             out.print("<script>alert('提交失败！');window.location='"+request.getContextPath()+"/Employee/Form/project.jsp';</script>");
         }
+    }
+
+    public void getProjectByProgress(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        //		设置编码
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
+        // 得到参数并查询
+        String progress = request.getParameter("progress");
+        ProjectService projectService = new ProjectService();
+        List<Project> list = projectService.getProjectByProgress(progress);
+
+        //向前台传输数据
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        System.out.println(json);
+        System.out.println(json);
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().write(json);
     }
 }

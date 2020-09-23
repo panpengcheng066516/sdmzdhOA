@@ -47,6 +47,45 @@
             text-align: center;
         }
     </style>
+
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript">
+            $(function(){
+                // 选项框
+                $("#progressSelect").change(function () {
+                    var p1=$(this).children('option:selected').val();
+                    if(p1=="全部"){
+                        var p2 = "${pageContext.request.contextPath}/projectServlet?method=getAllProject";
+                        $(location).attr('href',p2);
+                    }else{
+                        var p2 = "${pageContext.request.contextPath}/projectServlet?method=getProjectByProgress";
+                        var content = "";
+                        $.post(p2,{"progress":p1},function(data){
+                            if(data.length>0){
+                                for(var i=0;i<data.length;i++) {
+                                    content += " <tr>" +
+                                        "<th>" + data[i].projectName + "</th>" +
+                                        "<th>" + data[i].projectNo + "</th>" +
+                                        "<th>" + data[i].deadline + "</th>" +
+                                        "<th>" + data[i].finish + "</th>" +
+                                        "<th>" + data[i].progress + "</th>" +
+                                        "<th>" + data[i].manager + "</th>" +
+                                        "<th>" + data[i].designer + "</th>" +
+                                        "<th>" + data[i].reviewer + "</th>" +
+                                        "<th>" + data[i].office + "</th>" +
+                                        "<th>" + data[i].ce + "</th>" +
+                                        "<th>" + data[i].remarks + "</th>" +
+                                        "</tr>";
+                                }
+                            }else{
+                                content = " <tr> <th>空</th> </tr>";
+                            }
+                            $("#tb").html(content);
+                        },"json");
+                    }
+                })
+            });
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -84,10 +123,12 @@
                             <div class="form-group row">
                                 <label class="col-sm-1 col-form-label" style="font-size: 14px;">查看部分</label>
                                 <div class="col-sm-2">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month" name="month" onchange="sel2()">
-                                        <option value="全部" selected="selected" style="text-align: center; text-align-last: center;">全部</option>
-                                        <option value="已完成" selected="selected" style="text-align: center; text-align-last: center;">已完成</option>
-                                        <option value="未完成" selected="selected" style="text-align: center; text-align-last: center;">未完成</option>
+                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="progressSelect" name="progressSelect">
+                                        <option value="全部"  style="text-align: center; text-align-last: center;">全部</option>
+                                        <option value="已完成"  style="text-align: center; text-align-last: center;">已完成</option>
+                                        <option value="未完成"  style="text-align: center; text-align-last: center;">未完成</option>
+                                        <option value="延期"  style="text-align: center; text-align-last: center;">延期</option>
+                                        <option value="取消"  style="text-align: center; text-align-last: center;">取消</option>
                                     </select>
                                 </div>
                             </div>
@@ -121,7 +162,7 @@
                                                 <th>备注</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="tb">
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
                                                     <tr>
