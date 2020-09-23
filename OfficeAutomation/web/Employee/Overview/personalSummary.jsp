@@ -154,21 +154,17 @@
                                             <table class="table table-bordered" id="table01">
                                                 <thead>
                                                 <tr>
-                                                    <th>序号</th>
                                                     <th>姓名</th>
                                                     <th>总工日</th>
-                                                    <th>操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <c:forEach items="${kits}" var="k" varStatus="s">
-                                                    <tr>
-                                                        <td>${s.index}</td>
-                                                        <td>${k.name}</td>
-                                                        <td>${k.days}</td>
-                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
-                                                    </tr>
-                                                </c:forEach>
+                                                    <c:if test="${!empty workDay}">
+                                                        <tr>
+                                                            <td>${user.username}</td>
+                                                            <td>${workDay}</td>
+                                                        </tr>
+                                                    </c:if>
                                                 </tbody>
                                             </table>
                                         </div>
