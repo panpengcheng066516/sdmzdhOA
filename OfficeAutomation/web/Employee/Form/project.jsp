@@ -121,36 +121,53 @@
                                             <option value="取消" style="text-align: center; text-align-last: center;">取消</option>
                                         </select>
                                     </div>
+                                </div>
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">专业负责人</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manager" id="manager" placeholder="专业负责人">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">设计人</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="designer" id="designer" placeholder="设计人">
                                     </div>
+                                </div>
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">审核</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="reviewer" id="reviewer" placeholder="审核">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">室审</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="office" id="office" placeholder="室审">
                                     </div>
+                                </div>
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">总师</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="ce" id="ce" placeholder="总师">
                                     </div>
                                 </div>
+
+                                <!-- 不确定留不留
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
+                                    <div class="col-sm-4">
+                                        <select class="selectpicker" name="type" id="type">
+                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
+                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
+                                            <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>
+                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>
+                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                 不确定留不留 -->
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>

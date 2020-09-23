@@ -118,68 +118,69 @@
                                     </div>
                                 </div>
 
-<%--                                    <!-- itype对应数据库worktype里的type项目下的阶段类型 -->--%>
-<%--                                <div class="form-group row">--%>
-<%--                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>--%>
-<%--                                    <div class="col-sm-4">--%>
-<%--                                        <select class="selectpicker" name="type" id="type">--%>
-<%--                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>--%>
-<%--                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>--%>
-<%--                                            <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>--%>
-<%--                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>--%>
-<%--                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>--%>
-<%--                                        </select>--%>
-<%--                                    </div>--%>
+                                <!-- itype对应数据库worktype里的type项目下的阶段类型
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
+                                    <div class="col-sm-4">
+                                        <select class="selectpicker" name="type" id="type">
+                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
+                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
+                                           <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>
+                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>
+                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
+                                       </select>
+                                   </div>
+                                </div>-->
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">商务询价报价</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="xunjiabaojia" id="xunjiabaojia" placeholder="商务询价报价">
                                     </div>
-                                </div>
-
-                                <div class="form-group row">
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">标书制作</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="tender" id="tender" placeholder="标书制作">
                                     </div>
+                                </div>
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">合同制作与签署</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="sign" id="sign" placeholder="合同制作与签署">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">投标工作</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="toubiao" id="toubiao" placeholder="投标工作">
                                     </div>
+                                </div>
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">设备招标采购</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="equip" id="equip" placeholder="设备招标采购">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">设备出厂检测</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="test" id="test" placeholder="设备出厂检测">
                                     </div>
+                                </div>
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">催款（要账）</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="cuikuan" id="cuikuan" placeholder="催款（要账）">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">合同管理</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="contract" id="contract" placeholder="合同管理">
                                     </div>
+                                </div>
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">其他经营活动</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="other" id="other" placeholder="其他经营活动">

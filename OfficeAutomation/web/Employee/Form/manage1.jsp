@@ -104,6 +104,7 @@
                                 </div>
 
                                 <!-- itype对应数据库worktype里的type项目下的阶段类型 -->
+                                <!-- 填写页面没有这一项 不确定留不留
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
                                     <div class="col-sm-4">
@@ -115,55 +116,58 @@
                                             <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
                                         </select>
                                     </div>
+                                </div>
+                                填写页面没有这一项 不确定留不留 -->
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">商务询价报价</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage0" id="manage0" placeholder="商务询价报价">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">标书制作</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage1" id="manage1" placeholder="标书制作">
                                     </div>
+                                </div>
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">合同制作与签署</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage2" id="manage2" placeholder="合同制作与签署">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">投标工作</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage3" id="manage3" placeholder="投标工作">
                                     </div>
+                                </div>
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">设备招标采购</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage4" id="manage4" placeholder="设备招标采购">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">设备出厂检测</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage5" id="manage5" placeholder="设备出厂检测">
                                     </div>
+                                </div>
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">催款（要账）</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage6" id="manage6" placeholder="催款（要账）">
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">合同管理</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage7" id="manage7" placeholder="合同管理">
                                     </div>
+                                </div>
 
+                                <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">其他经营活动</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="manage8" id="manage8" placeholder="其他经营活动">
