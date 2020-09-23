@@ -66,20 +66,20 @@
                     <div class="card">
                         <div class="card-body">
                             <!-- 过滤年月 -->
-                            <div class="form-group row">
-                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
-                                <div class="col-sm-2">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="year" name="year" onchange="sel()">
-                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                    </select>
-                                </div>
+<%--                            <div class="form-group row">--%>
+<%--                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>--%>
+<%--                                <div class="col-sm-2">--%>
+<%--                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="year" name="year" onchange="sel()">--%>
+<%--                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>--%>
+<%--                                    </select>--%>
+<%--                                </div>--%>
 
-                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
-                                <div class="col-sm-2">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month" name="month" onchange="sel1()">
-                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                    </select>
-                                </div>
+<%--                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>--%>
+<%--                                <div class="col-sm-2">--%>
+<%--                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month" name="month" onchange="sel1()">--%>
+<%--                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>--%>
+<%--                                    </select>--%>
+<%--                                </div>--%>
 
                                 <label class="col-sm-1 col-form-label" style="font-size: 14px;">查看部分</label>
                                 <div class="col-sm-2">
@@ -98,62 +98,46 @@
 
                             <div class="form-group row">
                                 <div class="col-sm-1">
-                                    <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
+                                    <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="table-responsive pt-3">
                                     <table class="table table-bordered" id="table01">
                                         <thead>
-                                        <tr>
-                                            <th>项目名称</th>
-                                            <th>工程号</th>
-                                            <th>要求完成时间</th>
-                                            <th>实际完成时间</th>
-                                            <th>状态</th>
-                                            <th>项目负责人</th>
-                                            <th>设计人</th>
-                                            <th>审核</th>
-                                            <th>室审</th>
-                                            <th>总师</th>
-                                            <th>高阶段分类</th>
-                                            <th>备注</th>
-                                            <th>操作</th>
-                                        </tr>
+                                            <tr>
+                                                <th>项目名称</th>
+                                                <th>工程号</th>
+                                                <th>要求完成时间</th>
+                                                <th>实际完成时间</th>
+                                                <th>状态</th>
+                                                <th>项目负责人</th>
+                                                <th>设计人</th>
+                                                <th>审核</th>
+                                                <th>室审</th>
+                                                <th>总师</th>
+    <%--                                            <th>高阶段分类</th>--%>
+                                                <th>备注</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach items="${kits}" var="k" varStatus="s">
-                                            <tr>
-                                                <td>${k.project}</td>
-                                                <td>${k.projectid}</td>
-                                                <td>${k.deadline}</td>
-                                                <td>${k.finish}</td>
-                                                <td>${k.progress}</td>
-                                                <td>${k.manager}</td>
-                                                <td>${k.designer}</td>
-                                                <td>${k.reviewer}</td>
-                                                <td>${k.office}</td>
-                                                <td>${k.CE}</td>
-                                                <td>${k.status}</td>
-                                                <td>${k.remarks}</td>
-                                                <td><button type="button" class="btn btn-outline-warning btn-sm" onclick="update()">修改</button></td>
-                                            </tr>
-                                        </c:forEach>
-                                        <tr>
-                                            <td>test</td>
-                                            <td>123</td>
-                                            <td>9-23-2020</td>
-                                            <td>9-23-2020</td>
-                                            <td>test</td>
-                                            <td>test</td>
-                                            <td>test</td>
-                                            <td>test</td>
-                                            <td>test</td>
-                                            <td>test</td>
-                                            <td>test</td>
-                                            <td>test</td>
-                                            <td><button type="button" class="btn btn-outline-warning btn-sm" onclick="update()">修改</button></td>
-                                        </tr>
+                                            <c:if test="${!empty projectList}">
+                                                <c:forEach var="project" items="${projectList}">
+                                                    <tr>
+                                                        <th>${project.projectName}</th>
+                                                        <th>${project.projectNo}</th>
+                                                        <th>${project.deadline}</th>
+                                                        <th>${project.finish}</th>
+                                                        <th>${project.progress}</th>
+                                                        <th>${project.manager}</th>
+                                                        <th>${project.designer}</th>
+                                                        <th>${project.reviewer}</th>
+                                                        <th>${project.office}</th>
+                                                        <th>${project.ce}</th>
+                                                        <th>${project.remarks}</th>
+                                                    </tr>
+                                                </c:forEach>
+                                            </c:if>
                                         </tbody>
                                     </table>
                                 </div>

@@ -14,7 +14,7 @@ public class ProjectDao {
 
     public List<Project> getAllProject() throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-        String sql = "select * from project";
+        String sql = "select * from project order by deadline DESC";
         return runner.query(sql, new BeanListHandler<Project>(Project.class));
     }
 
