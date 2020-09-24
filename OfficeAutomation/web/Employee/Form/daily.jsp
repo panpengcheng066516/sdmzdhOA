@@ -75,7 +75,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h3 class="text text-primary">日常管理</h3>
+                            <h3 class="text text-primary">日常/零星</h3>
                             <br>
                             <div class="alert alert-icon-info" role="alert">
                                 <i data-feather="alert-circle"></i>
