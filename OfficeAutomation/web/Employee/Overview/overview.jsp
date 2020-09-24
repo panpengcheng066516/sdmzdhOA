@@ -82,7 +82,7 @@
                                     <a class="nav-link active" id="tab-month1" data-toggle="tab" href="#month1" role="tab" aria-controls="chats" aria-selected="true">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
                                             <i data-feather="archive" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">本年员工月工作量汇总</p>
+                                            <p class="d-none d-sm-block">历年各月工作量汇总</p>
                                         </div>
                                     </a>
                                 </li>
@@ -90,15 +90,7 @@
                                     <a class="nav-link" id="tab-year1" data-toggle="tab" href="#year1" role="tab" aria-controls="calls" aria-selected="false">
                                         <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
                                             <i data-feather="calendar" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">历年员工年工作量汇总</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tab-year2" data-toggle="tab" href="#year2" role="tab" aria-controls="contacts" aria-selected="false">
-                                        <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="chrome" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">历年月工作量汇总</p>
+                                            <p class="d-none d-sm-block">员工年工作量汇总</p>
                                         </div>
                                     </a>
                                 </li>
@@ -107,6 +99,13 @@
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="month1" role="tabpanel" aria-labelledby="month1-tab">
                                     <div class="form-group row">
+                                        <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
+                                        <div class="col-sm-2">
+                                            <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month01" name="month" onchange="sel()">
+                                                <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                            </select>
+                                        </div>
+
                                         <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
                                         <div class="col-sm-2">
                                              <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month01" name="month" onchange="sel0()">
@@ -115,10 +114,16 @@
                                         </div>
 
                                         <div class="col-sm-1">
+                                            <input type="submit" class="btn btn-success mr-2" name="submit" value="确定">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-1">
                                             <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                         </div>
                                     </div>
-                                    <div class="text-muted mb-1" align="center">本年员工月工作量汇总</div>
+                                    <div class="text-muted mb-1" align="center">历年各月工作量汇总</div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table01">
@@ -127,7 +132,7 @@
                                                     <th>序号</th>
                                                     <th>员工姓名</th>
                                                     <th>工日总和</th>
-                                                    <th>总计</th>
+                                                    <th>月科室总计</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -149,16 +154,23 @@
                                     <div class="form-group row">
                                         <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
                                         <div class="col-sm-2">
-                                            <select class="selectpicker" style="text-align:center;text-align-last:center;" id="year01" name="year" onchange="sel0()">
+                                            <select class="selectpicker" style="text-align:center;text-align-last:center;" id="year01" name="year" onchange="sel1()">
                                                 <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                             </select>
                                         </div>
 
                                         <div class="col-sm-1">
+                                            <input type="submit" class="btn btn-success mr-2" name="submit" value="确定">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-1">
                                             <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                         </div>
                                     </div>
-                                    <div class="text-muted mb-1" align="center">历年员工年工作量汇总</div>
+
+                                    <div class="text-muted mb-1" align="center">员工年工作量汇总</div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
                                             <table class="table table-bordered" id="table02">
@@ -195,29 +207,6 @@
 
                                         <div class="col-sm-1">
                                             <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
-                                        </div>
-                                    </div>
-                                    <p class="text-muted mb-1" align="center">历年月工作量汇总</p>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table03">
-                                                <thead>
-                                                <tr>
-                                                    <th>月份</th>
-                                                    <th>工日总和</th>
-                                                    <th>总计</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <c:forEach items="${kits}" var="k" varStatus="s">
-                                                    <tr>
-                                                        <td>${k.month}</td>
-                                                        <td>${k.total}</td>
-                                                        <td>${k.total1}</td>
-                                                    </tr>
-                                                </c:forEach>
-                                                </tbody>
-                                            </table>
                                         </div>
                                     </div>
                                 </div>

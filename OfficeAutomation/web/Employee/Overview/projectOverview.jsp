@@ -131,6 +131,10 @@
                                         <option value="取消"  style="text-align: center; text-align-last: center;">取消</option>
                                     </select>
                                 </div>
+
+                                <div class="col-sm-1">
+                                    <input type="submit" class="btn btn-success mr-2" name="submit" value="确定">
+                                </div>
                             </div>
 
                             <hr width="300" align="left">
@@ -139,27 +143,23 @@
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-sm-1">
-                                    <button type="button" class="btn btn-outline-info mr-2 mb-1 mb-md-0" onclick="update()">修改</button>
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <div class="table-responsive pt-3">
                                     <table class="table table-bordered" id="table01">
                                         <thead>
                                             <tr>
                                                 <th>项目名称</th>
                                                 <th>工程号</th>
-                                                <th>要求完成时间</th>
-                                                <th>实际完成时间</th>
+                                                <th>要求<br>完成时间</th>
+                                                <th>实际<br>完成时间</th>
                                                 <th>状态</th>
-                                                <th>项目负责人</th>
+                                                <th>项目<br>负责人</th>
                                                 <th>设计人</th>
                                                 <th>审核</th>
                                                 <th>室审</th>
                                                 <th>总师</th>
-    <%--                                            <th>高阶段分类</th>--%>
+                                            <%--<th>高阶段分类</th>--%>
                                                 <th>备注</th>
+                                                <th>操作</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tb">
@@ -177,6 +177,7 @@
                                                         <th>${project.office}</th>
                                                         <th>${project.ce}</th>
                                                         <th>${project.remarks}</th>
+                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
                                             </c:if>

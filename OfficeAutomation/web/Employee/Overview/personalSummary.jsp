@@ -90,6 +90,10 @@
                                         <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                     </select>
                                 </div>
+
+                                <div class="col-sm-1">
+                                    <input type="submit" class="btn btn-success mr-2" name="submit" value="确定">
+                                </div>
                             </div>
 
                             <hr width="300" align="left">
