@@ -9,8 +9,9 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="java.io.File"%>
 <%@page import="java.util.Queue"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isErrorPage="true"%>
 <%@ page isELIgnored="false"%>
+<%response.setStatus(HttpServletResponse.SC_OK);%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="zh">
 <head>

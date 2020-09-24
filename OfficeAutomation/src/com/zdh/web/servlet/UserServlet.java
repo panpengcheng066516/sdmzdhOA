@@ -43,9 +43,18 @@ public class UserServlet extends BaseServlet{
         if(user!=null){
             //将user对象存到session中
             session.setAttribute("user", user);
-            //重定向到首页
-            System.out.println("登陆成功"+user.getUsername()+""+user.getName());
-            response.sendRedirect(request.getContextPath()+"/index.jsp");
+            //如果用户不是root
+            if(user.getPower()!=0){
+                //重定向到首页
+                System.out.println("登陆成功"+user.getUsername()+""+user.getName());
+                response.sendRedirect(request.getContextPath()+"/index.jsp");
+            }else{
+                //重定向到root页面
+                System.out.println("登陆成功"+user.getUsername()+""+user.getName());
+                response.sendRedirect(request.getContextPath()+"/root/signup.jsp");
+            }
+
+
         }else{
             request.setAttribute("loginError", "用户名或密码错误");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
@@ -100,64 +109,5 @@ public class UserServlet extends BaseServlet{
         response.sendRedirect(request.getContextPath()+"/login.jsp");
     }
 
-    //用户列表
-    public void findAllUser(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
-
-        UserService service = new UserService();
-        List<User> list = service.findAllUser();
-        request.setAttribute("userList",list);
-        request.getRequestDispatcher("").forward(request,response);
-    }
-
-    //用户添加
-    public void addUser(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
-
-        UserService service = new UserService();
-
-        User user = new User();
-        Map<String, String[]> map = request.getParameterMap();
-        BeanUtils.populate(user,map);
-
-        String username = request.getParameter("username");
-        boolean b = service.checkUsername(username);
-        if(b){
-            PrintWriter out = response.getWriter();
-            out.print("<script>alert('用户名已存在！添加失败');window.location='"+request.getContextPath()+"/login.jsp';</script>");
-            return;
-        }
-        int i = service.addUser(user);
-        if(i>0){
-            PrintWriter out = response.getWriter();
-            out.print("<script>alert('添加成功！');window.location='"+request.getContextPath()+"/login.jsp';</script>");
-        }else{
-            PrintWriter out = response.getWriter();
-            out.print("<script>alert('添加失败！');window.location='"+request.getContextPath()+"/login.jsp';</script>");
-        }
-    }
-
-
-    //用户信息修改
-    public void updateUser(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
-
-        UserService service = new UserService();
-
-        User user = new User();
-        Map<String, String[]> map = request.getParameterMap();
-        BeanUtils.populate(user,map);
-
-        String username = request.getParameter("username");
-
-        int i = service.updateUser(user);
-        if(i>0){
-            PrintWriter out = response.getWriter();
-            out.print("<script>alert('修改成功！');window.location='"+request.getContextPath()+"/login.jsp';</script>");
-        }else{
-            PrintWriter out = response.getWriter();
-            out.print("<script>alert('修改失败！');window.location='"+request.getContextPath()+"/login.jsp';</script>");
-        }
-    }
 
 }

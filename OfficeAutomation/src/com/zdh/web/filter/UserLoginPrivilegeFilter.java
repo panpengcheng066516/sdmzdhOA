@@ -41,6 +41,10 @@ public class UserLoginPrivilegeFilter implements Filter{
 			out.print("<script>alert('登录超时，请重新登录！');window.location='"+req.getContextPath()+"/login.jsp';</script>");
 
 			return;
+		}else if(user.getPower()==0){
+			//root 用户
+			PrintWriter out = resp.getWriter();
+			out.print("<script>alert('您无权访问！');window.location='"+req.getContextPath()+"/root/signup.jsp';</script>");
 		}
 		
 		chain.doFilter(req, resp);

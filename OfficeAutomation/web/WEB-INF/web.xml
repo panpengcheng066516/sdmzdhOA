@@ -8,8 +8,19 @@
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
+    <!-- 404页面 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
+    <!-- 500页面 -->
+    <error-page>
+        <error-code>500</error-code>
+        <location>/500.jsp</location>
+    </error-page>
+
     <session-config>
-        <session-timeout>20</session-timeout>
+        <session-timeout>60</session-timeout>
     </session-config>
     <filter>
         <filter-name>UserLoginPrivilegeFilter</filter-name>
@@ -18,8 +29,25 @@
     <filter-mapping>
         <filter-name>UserLoginPrivilegeFilter</filter-name>
         <url-pattern>/Employee/*</url-pattern>
-        <url-pattern>/root/*</url-pattern>
         <url-pattern>/index.jsp</url-pattern>
+        <url-pattern>/projectServlet</url-pattern>
+        <url-pattern>/jiediaoServlet</url-pattern>
+        <url-pattern>/designWorkingServlet</url-pattern>
+        <url-pattern>/programingPictureWorkingServlet</url-pattern>
+        <url-pattern>/debugWorkingServlet</url-pattern>
+        <url-pattern>/manageWorkingServlet</url-pattern>
+        <url-pattern>/dailyWorkingServlet</url-pattern>
+        <url-pattern>/personalSummaryServlet</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>RootFilter</filter-name>
+        <filter-class>com.zdh.web.filter.RootFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RootFilter</filter-name>
+        <url-pattern>/root/*</url-pattern>
+        <url-pattern>/manageUserServlet</url-pattern>
     </filter-mapping>
 
     <servlet>
@@ -30,6 +58,15 @@
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/userServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <display-name>ManageUserServlet</display-name>
+        <servlet-name>ManageUserServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ManageUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManageUserServlet</servlet-name>
+        <url-pattern>/manageUserServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
