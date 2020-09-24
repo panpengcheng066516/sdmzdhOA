@@ -88,16 +88,17 @@
 
                                 <h6 class="card-title" style="font-size: 14px;">填写</h6>
 
+                                <h6 class="card-title" style="font-size: 14px;color: red;">如有多项内容，请重复填写。</h6>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择类型</label>
                                     <div class="col-sm-5">
                                         <select class="selectpicker" name="type" id="type">
-                                            <option value="0" style="text-align: center; text-align-last: center;">日常管理</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">工会事务</option>
-                                            <option value="2" style="text-align: center; text-align-last: center;">党/团组事务</option>
-                                            <option value="3" style="text-align: center; text-align-last: center;">考勤</option>
-                                            <option value="4" style="text-align: center; text-align-last: center;">出差/交流</option>
-                                            <option value="5" style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
+                                            <option value="日常管理" style="text-align: center; text-align-last: center;">日常管理</option>
+                                            <option value="工会事务" style="text-align: center; text-align-last: center;">工会事务</option>
+                                            <option value="党/团组事务" style="text-align: center; text-align-last: center;">党/团组事务</option>
+                                            <option value="考勤" style="text-align: center; text-align-last: center;">考勤</option>
+                                            <option value="出差/交流" style="text-align: center; text-align-last: center;">出差/交流</option>
+                                            <option value="其他报销/零星工日" style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
                                         </select>
                                     </div>
                                 </div>
@@ -112,7 +113,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-5">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="如有多项内容，请再填写一次" rows="5"></textarea>
+                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="5"></textarea>
                                     </div>
                                 </div>
 
