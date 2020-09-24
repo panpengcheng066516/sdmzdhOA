@@ -177,7 +177,7 @@
 <script type="text/javascript">
 
     function logUp() {
-        window.location.href = "../../bye.jsp";
+        window.location.href = "login.jsp";
     }
 </script>
 </html>

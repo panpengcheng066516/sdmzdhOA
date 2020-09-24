@@ -206,7 +206,7 @@
                                 <br>
 
                                 <div align="center">
-                                    <input type="submit" class="btn btn-outline-primary mb-1 mb-md-0" name="submit" value="提交">
+                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
                                 </div>
 
                             </form>
