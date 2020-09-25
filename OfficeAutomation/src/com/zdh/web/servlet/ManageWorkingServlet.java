@@ -24,16 +24,16 @@ public class ManageWorkingServlet extends BaseServlet {
     //得到当前用户的所有的project
     public void getAllProjectByUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
-//        //得到userId
-//        HttpSession session = request.getSession();
-//        User user = (User) session.getAttribute("user");
-//        String userName = user.getUsername();
-//        //通过Userid获得projectList
-//        ProjectService projectService = new ProjectService();
-//        List<Project> list = projectService.getProjectListByUser(userName);
-
+        //得到userId
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        String userName = user.getUsername();
+        //通过Userid获得projectList
         ProjectService projectService = new ProjectService();
-        List<Project> list = projectService.getAllProject();
+        List<Project> list = projectService.getProjectListByUser(userName);
+
+//        ProjectService projectService = new ProjectService();
+//        List<Project> list = projectService.getAllProject();
 
         request.setAttribute("projectList",list);
         request.getRequestDispatcher("/Employee/Form/manage.jsp").forward(request, response);
