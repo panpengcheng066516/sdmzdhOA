@@ -225,7 +225,7 @@
                                                             <td>${design.basicDesignDay}</td>
                                                             <td>${design.leader}</td>
                                                             <td>${design.remark}</td>
-                                                            <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                            <td><button type="button" class="btn btn-outline-warning btn-sm" onclick="update()">修改</button></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </c:if>
@@ -271,7 +271,7 @@
                                                         <td>${programing.programingDay}</td>
                                                         <td>${programing.monthday}</td>
                                                         <td>${programing.reamrk}</td>
-                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                        <td><button type="button" class="btn btn-outline-warning btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
                                             </c:if>
@@ -313,7 +313,7 @@
                                                         <td>${debug.manageday}</td>
                                                         <td>${debug.debugday}</td>
                                                         <td>${debug.remark}</td>
-                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                        <td><button type="button" class="btn btn-outline-warning btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
                                             </c:if>
@@ -369,7 +369,7 @@
                                                         <td>${manage.other}</td>
                                                         <td>${manage.PMday}</td>
                                                         <td>${manage.remark}</td>
-                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                        <td><button type="button" class="btn btn-outline-warning btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
                                             </c:if>
@@ -405,7 +405,7 @@
                                                         <td>${daily.type}</td>
                                                         <td>${daily.monthDay}</td>
                                                         <td>${daily.remark}</td>
-                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                        <td><button type="button" class="btn btn-outline-warning btn-sm" onclick="update()">修改</button></td>
                                                     </tr>
                                                 </c:forEach>
                                             </c:if>
