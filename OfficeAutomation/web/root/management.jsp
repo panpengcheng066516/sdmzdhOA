@@ -66,13 +66,15 @@
                 <div class="col-md-8 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">用户信息修改</h6>
+                            <h3 class="text text-primary">用户信息修改</h3>
+                            <hr width="300" align="left">
 
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">用户选择</label>
                                     <div class="col-sm-3">
                                         <select class="selectpicker" id="sel" name="sel" data-live-search="true">
+                                            <c:if test="${!empty userList}">
                                             <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                         </select>
                                     </div>

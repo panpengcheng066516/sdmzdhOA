@@ -66,7 +66,8 @@
                 <div class="col-md-6 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title" style="font-size: 14px;">创建新用户</h6>
+                            <h3 class="text text-primary">创建新用户</h3>
+                            <hr width="300" align="left">
 
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
                                 <div class="form-group row">

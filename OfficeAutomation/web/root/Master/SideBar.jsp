@@ -11,7 +11,7 @@
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar" style="color:#8DB6CD">
     <div class="sidebar-header">
-        <a href="javascript:void(0);" class="sidebar-brand" onclick="ShuaXin1()" style="color: white;">SDMZDH</a>
+        <a href="javascript:void(0);" class="sidebar-brand" onclick="ShuaXin()" style="color: white;">SDMZDH</a>
         <div class="sidebar-toggler not-active">
             <span></span> <span></span> <span></span>
         </div>
@@ -36,11 +36,7 @@
                 function ShuaXin() {
                     location.reload(true);
                 }
-            </script>
-            <script type="text/javascript">
-                function ShuaXin1(){
-                    window.location = "index.jsp";
-                }
+
             </script>
 
         </ul>
