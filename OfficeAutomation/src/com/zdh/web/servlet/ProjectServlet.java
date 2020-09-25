@@ -31,6 +31,17 @@ public class ProjectServlet extends BaseServlet {
         request.getRequestDispatcher("/Employee/Overview/projectOverview.jsp").forward(request, response);
     }
 
+    //得到所有的projectInfo
+    public void getProjectInfo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        String projectid = request.getParameter("projectid");
+        ProjectService projectService = new ProjectService();
+        Project project = projectService.getProjectById(projectid);
+
+        request.setAttribute("project",project);
+        request.getRequestDispatcher("/Employee/Form/project1.jsp").forward(request, response);
+    }
+
     //通过user得到项目列表
     public void getProjectListByUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
@@ -63,6 +74,26 @@ public class ProjectServlet extends BaseServlet {
             out.print("<script>alert('提交成功！');window.location='"+request.getContextPath()+"/Employee/Form/project.jsp';</script>");
         }else{
             out.print("<script>alert('提交失败！');window.location='"+request.getContextPath()+"/Employee/Form/project.jsp';</script>");
+        }
+    }
+
+    public void updateProject(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+
+        //取得项目
+        Map<String,String[]> map =  request.getParameterMap();
+        Project project = new Project();
+        BeanUtils.populate(project,map);
+
+        //向数据库存入项目信息
+        ProjectService projectService = new ProjectService();
+        int r = projectService.updateProject(project);
+
+        PrintWriter out = response.getWriter();
+        if(r>0){
+            out.print("<script>alert('修改成功！');window.location='"+request.getContextPath()+"/Employee/Form/project.jsp';</script>");
+        }else{
+            out.print("<script>alert('修改失败！');window.location='"+request.getContextPath()+"/Employee/Form/project.jsp';</script>");
         }
     }
 

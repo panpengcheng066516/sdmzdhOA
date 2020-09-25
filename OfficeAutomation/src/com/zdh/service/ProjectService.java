@@ -50,4 +50,26 @@ public class ProjectService {
         }
         return list;
     }
+
+    public Project getProjectById(String projectid) {
+        ProjectDao projectDao = new ProjectDao();
+        Project project = null;
+        try {
+            project = projectDao.getProjectById(projectid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return project;
+    }
+
+    public int updateProject(Project project) {
+        ProjectDao projectDao = new ProjectDao();
+        int r = 0;
+        try {
+            r = projectDao.updateProject(project);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return r;
+    }
 }

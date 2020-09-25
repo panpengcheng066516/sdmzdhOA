@@ -39,4 +39,19 @@ public class ProjectDao {
         String sql = "select * from project where progress = ? order by deadline DESC";
         return runner.query(sql, new BeanListHandler<Project>(Project.class),progress);
     }
+
+    public Project getProjectById(String projectid) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from project where id = ?";
+        return runner.query(sql, new BeanHandler<Project>(Project.class),projectid);
+    }
+
+    //更新项目
+    public int updateProject(Project project) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "update project set projectName=?,projectNo=?,deadline=?,finish=?,progress=?,manager=?,designer=?,reviewer=?,office=?,CE=?,remarks=? where id = ?";
+        return runner.update(sql,project.getProjectName(),project.getProjectNo(),project.getDeadline(),project.getFinish(),
+                project.getProgress(),project.getManager(),project.getDesigner(),project.getReviewer(),project.getOffice(),project.getCe(),
+                project.getRemarks(),project.getId());
+    }
 }

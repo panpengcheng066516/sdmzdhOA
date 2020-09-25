@@ -75,6 +75,7 @@
                                         "<th>" + data[i].office + "</th>" +
                                         "<th>" + data[i].ce + "</th>" +
                                         "<th>" + data[i].remarks + "</th>" +
+                                        "<td><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid="+data[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
                                         "</tr>";
                                 }
                             }else{
@@ -177,7 +178,11 @@
                                                         <th>${project.office}</th>
                                                         <th>${project.ce}</th>
                                                         <th>${project.remarks}</th>
-                                                        <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                        <td>
+                                                            <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
+                                                                <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                            </a>
+                                                        </td>
                                                     </tr>
                                                 </c:forEach>
                                             </c:if>
