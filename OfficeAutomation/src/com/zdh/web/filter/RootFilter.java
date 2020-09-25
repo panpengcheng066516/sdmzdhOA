@@ -32,12 +32,12 @@ public class RootFilter implements Filter {
             //没有登录
             PrintWriter out = resp.getWriter();
             out.print("<script>alert('登录超时，请重新登录！');window.location='"+request.getContextPath()+"/login.jsp';</script>");
-
             return;
         }else{
             if(user.getPower()!=0){
                 PrintWriter out = resp.getWriter();
                 out.print("<script>alert('您无权访问！');window.location='"+request.getContextPath()+"/index.jsp';</script>");
+                return;
             }
         }
         chain.doFilter(req, resp);

@@ -80,7 +80,7 @@
                                 修改时请注意，不得使用英文标点符号。
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/????" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/projectServlet?method=updateProject" method="post">
 
                                 <hr width="300" align="left">
 
@@ -89,67 +89,70 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectName" id="projectName" placeholder="项目名称">
+                                        <input type="text" class="form-control" name="projectName" id="projectName" placeholder="项目名称" value="${project.projectName}">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectNo" id="projectNo" placeholder="工程号">
+                                        <input type="text" class="form-control" name="projectNo" id="projectNo" placeholder="工程号" value="${project.projectName}">
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
+                                <div class="form-group row" >
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">要求完成时间</label>
                                     <div class="col-sm-4">
-                                        <input type="date" data-provide="datepicker" name="deadline" id="deadline" class="form-control" placeholder="要求完成时间">
+                                        <input type="date" data-provide="datepicker" name="deadline" id="deadline" class="form-control" placeholder="要求完成时间" value="${project.deadline}">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">实际完成时间</label>
                                     <div class="col-sm-4">
-                                        <input type="date" data-provide="datepicker" name="finish" id="finish" class="form-control" placeholder="实际完成时间">
+                                        <input type="date" data-provide="datepicker" name="finish" id="finish" class="form-control" placeholder="实际完成时间" value="${project.finish}" >
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">状态</label>
                                     <div class="col-sm-4">
-                                        <select class="selectpicker" name="progress" id="progress">
-                                            <option value="进行中" style="text-align: center; text-align-last: center;">进行中</option>
-                                            <option value="已完成" style="text-align: center; text-align-last: center;">已完成</option>
-                                            <option value="延期" style="text-align: center; text-align-last: center;">延期</option>
-                                            <option value="取消" style="text-align: center; text-align-last: center;">取消</option>
+                                        <select class="selectpicker" name="progress" id="progress" >
+                                            <option value="未完成" style="text-align: center; text-align-last: center;"  ${project.progress == '未完成'?"selected":""}>未完成</option>
+                                            <option value="已完成" style="text-align: center; text-align-last: center;" ${project.progress == '已完成'?"selected":""}>已完成</option>
+                                            <option value="延期" style="text-align: center; text-align-last: center;" ${project.progress == '延期'?"selected":""}>延期</option>
+                                            <option value="取消" style="text-align: center; text-align-last: center;" ${project.progress == '取消'?"selected":""}>取消</option>
                                         </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="id" id="id" placeholder="工程号" value="${project.id}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">专业负责人</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manager" id="manager" placeholder="专业负责人">
+                                        <input type="text" class="form-control" name="manager" id="manager" placeholder="专业负责人" value="${project.manager}">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">设计人</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="designer" id="designer" placeholder="设计人">
+                                        <input type="text" class="form-control" name="designer" id="designer" placeholder="设计人" value="${project.designer}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">审核</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="reviewer" id="reviewer" placeholder="审核">
+                                        <input type="text" class="form-control" name="reviewer" id="reviewer" placeholder="审核" value="${project.reviewer}">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">室审</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="office" id="office" placeholder="室审">
+                                        <input type="text" class="form-control" name="office" id="office" placeholder="室审" value="${project.office}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">总师</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="ce" id="ce" placeholder="总师">
+                                        <input type="text" class="form-control" name="ce" id="ce" placeholder="总师" value="${project.ce}">
                                     </div>
                                 </div>
 
@@ -171,7 +174,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-4">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
+                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3">${project.remarks}</textarea>
                                     </div>
                                 </div>
 
