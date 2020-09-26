@@ -135,7 +135,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">总开关量点数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="digitaNumber" id="digitaNumber" placeholder="总开关量点数">
+                                        <input type="text" class="form-control" name="digitalNumber" id="digitalNumber" placeholder="总开关量点数">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">总模拟量点数</label>
@@ -179,7 +179,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-4">
-                                        <textarea class="form-control" name="reamrk" id="reamrk" placeholder="备注" rows="3"></textarea>
+                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="3"></textarea>
                                     </div>
                                 </div>
 

@@ -251,14 +251,14 @@
                                                         <tr>
                                                             <td>${s.index}</td>
                                                             <td>${programing.projectid}</td>
-                                                            <td>${programing.digitaNumber}</td>
+                                                            <td>${programing.digitalNumber}</td>
                                                             <td>${programing.analogNumber}</td>
                                                             <td>${programing.programingPicture}</td>
                                                             <td>${programing.programingDay}</td>
                                                             <td>${programing.monthday}</td>
-                                                            <td>${programing.reamrk}</td>
+                                                            <td>${programing.remark}</td>
                                                             <td>
-                                                                <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${programing.id}">
+                                                                <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
                                                                     <button type="button" class="btn btn-outline-info btn-sm">修改</button>
                                                                 </a>
                                                             </td>

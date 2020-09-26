@@ -27,7 +27,7 @@ public class PersonalSummaryServlet  extends BaseServlet {
         DailyWorkingService dailyWorkingService = new DailyWorkingService();
 
         List<DesignWorking> designList = designWorkingService.getDesignWorkingByUsername(username);
-        List<ProgramingPictureWorking> programingPictureList = programingPictureWorkingService.getDesignWorkingByUsername(username);
+        List<ProgramingPictureWorking> programingPictureList = programingPictureWorkingService.getProgramingPictureWorkingByUsername(username);
         List<DebugWorking> debugList = debugWorkingService.getDebugWorkingByUsername(username);
         List<ManageWorking> manageList = manageWorkingService.getManageWorkingByUsername(username);
         List<DailyWorking> dailyList = dailyWorkingService.getDailyWorkingByUsername(username);

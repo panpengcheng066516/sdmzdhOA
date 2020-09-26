@@ -130,13 +130,13 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="id" id="id" placeholder="工程号" value="${design.id}">
+                                        <input type="text" hidden class="form-control" name="id" id="id"  value="${design.id}">
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="year" id="year" placeholder="工程号" value="${design.year}">
+                                        <input type="text" hidden class="form-control" name="year" id="year"  value="${design.year}">
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="month" id="month" placeholder="工程号" value="${design.month}">
+                                        <input type="text" hidden class="form-control" name="month" id="month"  value="${design.month}">
                                     </div>
                                 </div>
 
