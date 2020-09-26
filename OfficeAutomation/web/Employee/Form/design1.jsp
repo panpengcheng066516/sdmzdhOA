@@ -56,6 +56,16 @@
             border-color: #000000;
         }
     </style>
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript">
+        $(function(){
+            // 给工程号赋值
+            $("#projectid").change(function () {
+                var p1=$(this).children('option:selected').attr("id");
+                $("#projectNo").val(p1);
+            })
+        });
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -82,7 +92,7 @@
                                 修改时请注意，不得使用英文标点符号。
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/designWorkingServlet?method=updateDesignWorking" method="post">
 
                                 <hr width="300" align="left">
 
@@ -92,14 +102,18 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
                                     <div class="col-sm-4">
-                                        <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                        </select>
+                                    <select class="selectpicker" id="projectid" name="projectid" >
+                                        <c:if test="${!empty projectList}">
+                                            <c:forEach var="project" items="${projectList}">
+                                                <option id="${project.projectNo}" value="${project.id}" ${project.id == design.id?"selected":""} style="text-align: center; text-align-last: center;">${project.projectName}</option>
+                                            </c:forEach>
+                                        </c:if>
+                                    </select>
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectid" id="projectid" disabled="true">
+                                        <input type="text" class="form-control" name="projectNo" id="projectNo" disabled="true" value="${requestScope.designproject.projectNo}">
                                     </div>
                                 </div>
 
@@ -115,30 +129,39 @@
                                             <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
                                         </select>
                                     </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="id" id="id" placeholder="工程号" value="${design.id}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="year" id="year" placeholder="工程号" value="${design.year}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="month" id="month" placeholder="工程号" value="${design.month}">
+                                    </div>
                                 </div>
 
                                 <h6 class="card-title" style="font-size: 14px;">施工图工作量</h6>
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">图纸张数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p1" id="p1" placeholder="图纸张数">
+                                        <input type="text" class="form-control" name="amount" id="amount" placeholder="图纸张数" value="${design.amount}">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">折合A1</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p2" id="p2" placeholder="折合A1">
+                                        <input type="text" class="form-control" name="a1" id="a1" placeholder="折合A1" value="${design.a1}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">折合总工日数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p3" id="p3" placeholder="折合总工日数">
+                                        <input type="text" class="form-control" name="zheheWorkingDay" id="zheheWorkingDay" placeholder="折合总工日数" value="${design.zheheWorkingDay}">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">本月完成工日数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p4" id="p4" placeholder="本月完成工日数">
+                                        <input type="text" class="form-control" name="monthDay" id="monthDay" placeholder="本月完成工日数" value="${design.monthDay}">
                                     </div>
                                 </div>
 
@@ -147,12 +170,12 @@
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">技术方案工作量</label>
 
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p5" id="p5" placeholder="所用工日数">
+                                        <input type="text" class="form-control" name="programDay" id="programDay" placeholder="所用工日数" value="${design.programDay}">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">基本设计工作量</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p6" id="p6" placeholder="所用工日数">
+                                        <input type="text" class="form-control" name="basicDesignDay" id="basicDesignDay" placeholder="所用工日数" value="${design.basicDesignDay}">
                                     </div>
                                 </div>
 
@@ -161,14 +184,14 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">工日</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="p7" id="p7" placeholder="工日">
+                                        <input type="text" class="form-control" name="leader" id="leader" placeholder="工日" value="${design.leader}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-4">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
+                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="3" >${design.remark}</textarea>
                                     </div>
                                 </div>
 
