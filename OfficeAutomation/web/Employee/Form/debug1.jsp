@@ -56,6 +56,16 @@
             border-color: #000000;
         }
     </style>
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript">
+        $(function(){
+            // 给工程号赋值
+            $("#projectid").change(function () {
+                var p1=$(this).children('option:selected').attr("id");
+                $("#projectNo").val(p1);
+            })
+        });
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -82,7 +92,7 @@
                                 修改时请注意，不得使用英文标点符号。
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/debugInputServlet" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/debugWorkingServlet?method=updateDebugWorking" method="post">
 
                                 <hr width="300" align="left">
 
@@ -92,8 +102,12 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">项目名称</label>
                                     <div class="col-sm-6">
-                                        <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true">
+                                            <c:if test="${!empty projectList}">
+                                                <c:forEach var="project" items="${projectList}">
+                                                    <option id="${project.projectNo}" value="${project.id}" ${project.id == programing.id?"selected":""} style="text-align: center; text-align-last: center;">${project.projectName}</option>
+                                                </c:forEach>
+                                            </c:if>
                                         </select>
                                     </div>
                                 </div>
@@ -101,7 +115,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="projectid" id="projectid" disabled="true">
+                                        <input type="text" class="form-control" name="projectNo" id="projectNo" disabled="true" value="${requestScope.debugproject.projectNo}">
                                     </div>
                                 </div>
 
@@ -117,34 +131,43 @@
                                             <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
                                         </select>
                                     </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="id" id="id"  value="${debug.id}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="year" id="year"  value="${debug.year}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="month" id="month"  value="${debug.month}">
+                                    </div>
                                 </div>
 
                                 <!--  这条记录在designType上 -->
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">项目地点</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="location" id="location" placeholder="项目地点">
+                                        <input type="text" class="form-control" name="site" id="site" placeholder="项目地点" value="${debug.site}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">本月工程管理天数</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="bug1" id="bug1" placeholder="本月工程管理天数">
+                                        <input type="text" class="form-control" name="manageday" id="manageday" placeholder="本月工程管理天数" value="${debug.manageday}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">本月调试天数</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="bug2" id="bug2" placeholder="本月调试天数">
+                                        <input type="text" class="form-control" name="debugday" id="debugday" placeholder="本月调试天数" value="${debug.debugday}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-6">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="5"></textarea>
+                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="5">${debug.remark}</textarea>
                                     </div>
                                 </div>
 

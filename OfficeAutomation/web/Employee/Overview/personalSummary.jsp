@@ -299,7 +299,7 @@
                                                                 <td>${debug.debugday}</td>
                                                                 <td>${debug.remark}</td>
                                                                 <td>
-                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${debug.id}">
+                                                                    <a href="${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid=${debug.id}">
                                                                         <button type="button" class="btn btn-outline-info btn-sm">修改</button>
                                                                     </a>
                                                                 </td>

@@ -1,8 +1,10 @@
 package com.zdh.dao;
 
 import com.zdh.domain.DebugWorking;
+import com.zdh.domain.Project;
 import com.zdh.utils.DataSourceUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
@@ -48,7 +50,19 @@ public class DebugWorkingDao {
     public int updateDebugWorking(DebugWorking debugWorking) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "update Debug set site = ?,manageday = ?,debugday = ?,remark = ?,projectid = ? where id = ?";
-        int update = runner.update(sql,debugWorking.getSite(),debugWorking.getManageday(),debugWorking.getDebugday(),debugWorking.getRemark(),debugWorking.getProjectid());
+        int update = runner.update(sql,debugWorking.getSite(),debugWorking.getManageday(),debugWorking.getDebugday(),debugWorking.getRemark(),debugWorking.getProjectid(),debugWorking.getId());
         return update;
+    }
+
+    public DebugWorking getDebugWorkingInfo(String debugid) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from Debug where id = ?";
+        return runner.query(sql, new BeanHandler<DebugWorking>(DebugWorking.class),debugid);
+    }
+
+    public Project getProjectByid(String debugid) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from project where project.id = (select Debug.projectid from Debug where Debug.id = ? )";
+        return runner.query(sql, new BeanHandler<Project>(Project.class),debugid);
     }
 }
