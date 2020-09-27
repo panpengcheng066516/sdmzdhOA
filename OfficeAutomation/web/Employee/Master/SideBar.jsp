@@ -97,7 +97,7 @@
                 <div class="collapse" id="overview">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Overview/monthSummary.jsp" class="nav-link">历史工作量查询</a>
+                            <a href="${ pageContext.request.contextPath }/personalSummaryServlet?method=getWorkingList" class="nav-link">历史工作量查询</a>
                         </li>
 
                         <li class="nav-item">

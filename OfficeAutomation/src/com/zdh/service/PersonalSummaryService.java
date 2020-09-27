@@ -39,4 +39,64 @@ public class PersonalSummaryService {
 
         return mainVo;
     }
+
+    public MainVo getMainVoByDate(String year, String month) {
+        MainVo mainVo = new MainVo();
+        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
+        List<DailyVo> dailyVoList = null;
+        List<DebugVo> debugVoList = null;
+        List<DesignVo> designVoList = null;
+        List<ManageVo> manageVoList = null;
+        List<ProgramingVo> programingVoList = null;
+        List<Summary> summaryList = null;
+        try {
+            dailyVoList = personalSummaryDao.getDailyVoListByDate(year,month);
+            debugVoList = personalSummaryDao.getDebugVoListByDate(year,month);
+            designVoList = personalSummaryDao.getDesignVoListByDate(year,month);
+            manageVoList = personalSummaryDao.getManageVoListByDate(year,month);
+            programingVoList = personalSummaryDao.getProgramingVoListByDate(year,month);
+            summaryList = personalSummaryDao.getSummaryListByDate(year,month);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        mainVo.setDailyVoList(dailyVoList);
+        mainVo.setDebugVoList(debugVoList);
+        mainVo.setDesignVoList(designVoList);
+        mainVo.setManageVoList(manageVoList);
+        mainVo.setProgramingVoList(programingVoList);
+        mainVo.setSummaryList(summaryList);
+
+        return mainVo;
+    }
+
+    public MainVo getMainVoByDateProject(String year, String month, String projectid) {
+        MainVo mainVo = new MainVo();
+        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
+        List<DailyVo> dailyVoList = null;
+        List<DebugVo> debugVoList = null;
+        List<DesignVo> designVoList = null;
+        List<ManageVo> manageVoList = null;
+        List<ProgramingVo> programingVoList = null;
+        List<Summary> summaryList = null;
+        try {
+            dailyVoList = personalSummaryDao.getDailyVoListByDate(year,month);
+            debugVoList = personalSummaryDao.getDebugVoListByDateProject(year,month,projectid);
+            designVoList = personalSummaryDao.getDesignVoListByDateProject(year,month,projectid);
+            manageVoList = personalSummaryDao.getManageVoListByDateProject(year,month,projectid);
+            programingVoList = personalSummaryDao.getProgramingVoListByDateProject(year,month,projectid);
+            summaryList = personalSummaryDao.getSummaryListByDate(year,month);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        mainVo.setDailyVoList(dailyVoList);
+        mainVo.setDebugVoList(debugVoList);
+        mainVo.setDesignVoList(designVoList);
+        mainVo.setManageVoList(manageVoList);
+        mainVo.setProgramingVoList(programingVoList);
+        mainVo.setSummaryList(summaryList);
+
+        return mainVo;
+    }
 }

@@ -22,6 +22,7 @@ public class PersonalSummaryServlet  extends BaseServlet {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         String username = user.getUsername();
+
         //得到所有工作量
         PersonalSummaryService personalSummaryService = new PersonalSummaryService();
         MainVo mainVo = personalSummaryService.getMainVoByDateUser(CommonsUtils.getCurrentYear(),CommonsUtils.getCurrentMonth(),username);
@@ -33,7 +34,7 @@ public class PersonalSummaryServlet  extends BaseServlet {
         request.getRequestDispatcher("/Employee/Overview/personalSummary.jsp").forward(request, response);
     }
 
-    //得到所有的project
+
     public void getWorkingListByDateUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
         //得到用户名
@@ -52,7 +53,49 @@ public class PersonalSummaryServlet  extends BaseServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().write(json);
+    }
 
-        System.out.println(json);
+    public void getWorkingList(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+
+        ProjectService projectService = new ProjectService();
+        List<Project> projectList = projectService.getAllProject();
+
+        //得到所有工作量
+        PersonalSummaryService personalSummaryService = new PersonalSummaryService();
+        MainVo mainVo = personalSummaryService.getMainVoByDate(CommonsUtils.getCurrentYear(),CommonsUtils.getCurrentMonth());
+
+        //请求转发
+        request.setAttribute("projectList",projectList);
+        request.setAttribute("currentYear",CommonsUtils.getCurrentYear());
+        request.setAttribute("currentMonth",CommonsUtils.getCurrentMonth());
+        request.setAttribute("mainVo",mainVo);
+        request.getRequestDispatcher("/Employee/Overview/monthSummary.jsp").forward(request, response);
+    }
+
+    public void getWorkingListByDateProject(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        //得到用户名
+        String year = request.getParameter("year");
+        String month = request.getParameter("month");
+        String projectid = request.getParameter("projectid");
+        PersonalSummaryService personalSummaryService = new PersonalSummaryService();
+        MainVo mainVo = null;
+
+        if(projectid.equals("全部")){
+            //得到所有工作量
+            mainVo = personalSummaryService.getMainVoByDate(year,month);
+        }else{
+            //得到项目工作量
+            mainVo = personalSummaryService.getMainVoByDateProject(year,month,projectid);
+        }
+
+
+        //转换为json向前台传输数据
+        Gson gson = new Gson();
+        String json = gson.toJson(mainVo);
+
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().write(json);
     }
 }
