@@ -24,11 +24,6 @@
                 </a>
             </li>
 
-            <li class="nav-item nav-category">Home</li>
-            <li class="nav-item"><a href="${ pageContext.request.contextPath }/index.jsp" class="nav-link">
-                <i class="link-icon" data-feather="chevrons-right"></i> <span class="link-title">Dashboard</span>
-            </a></li>
-
             <li class="nav-item nav-category">功能</li>
             <li class="nav-item"><a href="${ pageContext.request.contextPath }/root/signup.jsp" class="nav-link">
                 <i class="link-icon" data-feather="info"></i> <span class="link-title">新用户注册</span>
