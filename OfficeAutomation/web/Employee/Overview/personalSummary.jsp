@@ -353,7 +353,7 @@
                                                                 <td>${manage.PMday}</td>
                                                                 <td>${manage.remark}</td>
                                                                 <td>
-                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${manage.id}">
+                                                                    <a href="${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid=${manage.id}">
                                                                         <button type="button" class="btn btn-outline-info btn-sm">修改</button>
                                                                     </a>
                                                                 </td>

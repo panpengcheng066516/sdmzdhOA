@@ -1,8 +1,10 @@
 package com.zdh.dao;
 
 import com.zdh.domain.ManageWorking;
+import com.zdh.domain.Project;
 import com.zdh.utils.DataSourceUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
@@ -50,10 +52,22 @@ public class ManageWorkingDao {
     //更新管理工作
     public int updateManageWorking(ManageWorking manageWorking) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-        String sql = "update Manage set year=?,month=?,xunjiabaojia=?,tender=?,sign=?,toubiao=?,equip=?,test=?,cuikuan=?,contract=?,other=?,PMday=?,remark=?projectid=? where id = ?";
+        String sql = "update Manage set year=?,month=?,xunjiabaojia=?,tender=?,sign=?,toubiao=?,equip=?,test=?,cuikuan=?,contract=?,other=?,PMday=?,remark=?,projectid=? where id = ?";
         int update = runner.update(sql,manageWorking.getYear(),manageWorking.getMonth(),manageWorking.getXunjiabaojia(),manageWorking.getTender(),
                 manageWorking.getSign(),manageWorking.getToubiao(),manageWorking.getEquip(),manageWorking.getTest(),manageWorking.getCuikuan(),
-                manageWorking.getContract(),manageWorking.getOther(),manageWorking.getPMday(),manageWorking.getRemark(),manageWorking.getProjectid());
+                manageWorking.getContract(),manageWorking.getOther(),manageWorking.getPMday(),manageWorking.getRemark(),manageWorking.getProjectid(),manageWorking.getId());
         return update;
+    }
+
+    public ManageWorking getManageWorkingById(String manageid) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from Manage where id = ?";
+        return runner.query(sql, new BeanHandler<ManageWorking>(ManageWorking.class),manageid);
+    }
+
+    public Project getProjectByid(String manageid) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from project where project.id = (select Manage.projectid from Manage where Manage.id = ?)";
+        return runner.query(sql, new BeanHandler<Project>(Project.class),manageid);
     }
 }
