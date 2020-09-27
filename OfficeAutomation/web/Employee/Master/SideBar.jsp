@@ -23,6 +23,12 @@
                 <a href="javascript:void(0);" class="nav-link" onclick="ShuaXin()"> <i class="link-icon" data-feather="activity"></i> <span class="link-title">刷新本页</span>
                 </a>
             </li>
+
+            <li class="nav-item nav-category">Home</li>
+            <li class="nav-item"><a href="${ pageContext.request.contextPath }/index.jsp" class="nav-link">
+                <i class="link-icon" data-feather="chevrons-right"></i> <span class="link-title">Dashboard</span>
+            </a></li>
+
             <li class="nav-item nav-category">功能</li>
 
             <li class="nav-item">
