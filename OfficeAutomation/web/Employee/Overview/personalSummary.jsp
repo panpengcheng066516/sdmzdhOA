@@ -158,16 +158,20 @@
                                             <table class="table table-bordered" id="table01">
                                                 <thead>
                                                 <tr>
+                                                    <th>序号</th>
                                                     <th>姓名</th>
                                                     <th>总工日</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <c:if test="${!empty workDay}">
-                                                        <tr>
-                                                            <td>${user.username}</td>
-                                                            <td>${workDay}</td>
-                                                        </tr>
+                                                    <c:if test="${!empty mainVo.summaryList}">
+                                                        <c:forEach var="summary" items="${mainVo.summaryList}" varStatus="s">
+                                                            <tr>
+                                                                <td>${s.index}</td>
+                                                                <td>${summary.name}</td>
+                                                                <td>${summary.work_day}</td>
+                                                            </tr>
+                                                        </c:forEach>
                                                     </c:if>
                                                 </tbody>
                                             </table>
@@ -198,12 +202,12 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <c:if test="${!empty designList}">
-                                                        <c:forEach var="design" items="${designList}" varStatus="s">
+                                                    <c:if test="${!empty mainVo.designVoList}">
+                                                        <c:forEach var="design" items="${mainVo.designVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
-                                                                <td>${design.projectid}</td>
-                                                                <td>${design.projectid}</td>
+                                                                <td>${design.projectNo}</td>
+                                                                <td>${design.projectName}</td>
                                                                 <td>${design.amount}</td>
                                                                 <td>${design.a1}</td>
                                                                 <td>${design.zheheWorkingDay}</td>
@@ -246,11 +250,11 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <c:if test="${!empty programingPictureList}">
-                                                    <c:forEach var="programing" items="${programingPictureList}" varStatus="s">
+                                                <c:if test="${!empty mainVo.programingVoList}">
+                                                    <c:forEach var="programing" items="${mainVo.programingVoList}" varStatus="s">
                                                         <tr>
                                                             <td>${s.index}</td>
-                                                            <td>${programing.projectid}</td>
+                                                            <td>${programing.projectNo}</td>
                                                             <td>${programing.digitalNumber}</td>
                                                             <td>${programing.analogNumber}</td>
                                                             <td>${programing.programingPicture}</td>
@@ -289,11 +293,11 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <c:if test="${!empty debugList}">
-                                                        <c:forEach var="debug" items="${debugList}" varStatus="s">
+                                                    <c:if test="${!empty mainVo.debugVoList}">
+                                                        <c:forEach var="debug" items="${mainVo.debugVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
-                                                                <td>${debug.projectid}</td>
+                                                                <td>${debug.projectNo}</td>
                                                                 <td>${debug.site}</td>
                                                                 <td>${debug.manageday}</td>
                                                                 <td>${debug.debugday}</td>
@@ -336,11 +340,11 @@
                                                         </tr>
                                                     </thead>
                                                 <tbody>
-                                                    <c:if test="${!empty manageList}">
-                                                        <c:forEach var="manage" items="${manageList}" varStatus="s">
+                                                    <c:if test="${!empty mainVo.manageVoList}">
+                                                        <c:forEach var="manage" items="${mainVo.manageVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
-                                                                <td>${manage.projectid}</td>
+                                                                <td>${manage.projectNo}</td>
                                                                 <td>${manage.xunjiabaojia}</td>
                                                                 <td>${manage.tender}</td>
                                                                 <td>${manage.sign}</td>
@@ -380,8 +384,8 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <c:if test="${!empty dailyList}">
-                                                        <c:forEach var="daily" items="${dailyList}" varStatus="s">
+                                                    <c:if test="${!empty mainVo.dailyVoList}">
+                                                        <c:forEach var="daily" items="${mainVo.dailyVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
                                                                 <td>${daily.type}</td>
