@@ -56,6 +56,131 @@
             border-color: #000000;
         }
     </style>
+
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript">
+        $(function(){
+            // 选项框
+            $("#selButton").click(function () {
+                var year=$("#selYear").children('option:selected').val();
+                var month=$("#selMonth").children('option:selected').val();
+                var url = "${pageContext.request.contextPath}/personalSummaryServlet?method=getWorkingListByDateUser";
+                var summaryContent = "";
+                var designContent = "";
+                var programingContent = "";
+                var debugContent = "";
+                var manageContent = "";
+                var dailyContent = "";
+                $.post(url,{"year":year,"month":month},function(data){
+                    if(data.summaryList.length>0){
+                        for(var i=0;i<data.summaryList.length;i++) {
+                            summaryContent += " <tr>" +
+                                "<th>" + i + "</th>" +
+                                "<th>" + data.summaryList[i].name + "</th>" +
+                                "<th>" + data.summaryList[i].work_day + "</th>" +
+                                "</tr>";
+                        }
+
+                    }else{
+                        summaryContent = " <tr> <th>空</th> </tr>";
+                    }
+                    if(data.designVoList.length>0){
+                        for(var i=0;i<data.designVoList.length;i++) {
+                            designContent += " <tr>" +
+                                "<th>" + i + "</th>" +
+                                "<th>" + data.designVoList[i].projectNo + "</th>" +
+                                "<th>" + data.designVoList[i].projectName + "</th>" +
+                                "<th>" + data.designVoList[i].amount + "</th>" +
+                                "<th>" + data.designVoList[i].a1 + "</th>" +
+                                "<th>" + data.designVoList[i].zheheWorkingDay + "</th>" +
+                                "<th>" + data.designVoList[i].monthDay + "</th>" +
+                                "<th>" + data.designVoList[i].programDay + "</th>" +
+                                "<th>" + data.designVoList[i].basicDesignDay + "</th>" +
+                                "<th>" + data.designVoList[i].leader + "</th>" +
+                                "<th>" + data.designVoList[i].remark + "</th>" +
+                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "</tr>";
+                        }
+                    }else{
+                        designContent = " <tr> <th>空</th> </tr>";
+                    }
+                    if(data.programingVoList.length>0){
+                        for(var i=0;i<data.programingVoList.length;i++) {
+                            programingContent += " <tr>" +
+                                "<th>" + i + "</th>" +
+                                "<th>" + data.programingVoList[i].projectNo + "</th>" +
+                                "<th>" + data.programingVoList[i].digitalNumber + "</th>" +
+                                "<th>" + data.programingVoList[i].analogNumber + "</th>" +
+                                "<th>" + data.programingVoList[i].programingPicture + "</th>" +
+                                "<th>" + data.programingVoList[i].programingDay + "</th>" +
+                                "<th>" + data.programingVoList[i].monthday + "</th>" +
+                                "<th>" + data.programingVoList[i].remark + "</th>" +
+                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "</tr>";
+                        }
+                    }else{
+                        programingContent = " <tr> <th>空</th> </tr>";
+                    }
+                    if(data.debugVoList.length>0){
+                        for(var i=0;i<data.debugVoList.length;i++) {
+                            debugContent += " <tr>" +
+                                "<th>" + i + "</th>" +
+                                "<th>" + data.debugVoList[i].projectNo + "</th>" +
+                                "<th>" + data.debugVoList[i].site + "</th>" +
+                                "<th>" + data.debugVoList[i].manageday + "</th>" +
+                                "<th>" + data.debugVoList[i].debugday + "</th>" +
+                                "<th>" + data.debugVoList[i].remark + "</th>" +
+                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "</tr>";
+                        }
+                    }else{
+                        debugContent = " <tr> <th>空</th> </tr>";
+                    }
+                    if(data.manageVoList.length>0){
+                        for(var i=0;i<data.manageVoList.length;i++) {
+                            manageContent += " <tr>" +
+                                "<th>" + i + "</th>" +
+                                "<th>" + data.manageVoList[i].projectNo + "</th>" +
+                                "<th>" + data.manageVoList[i].xunjiabaojia + "</th>" +
+                                "<th>" + data.manageVoList[i].tender + "</th>" +
+                                "<th>" + data.manageVoList[i].sign + "</th>" +
+                                "<th>" + data.manageVoList[i].toubiao + "</th>" +
+                                "<th>" + data.manageVoList[i].equip + "</th>" +
+                                "<th>" + data.manageVoList[i].test + "</th>" +
+                                "<th>" + data.manageVoList[i].cuikuan + "</th>" +
+                                "<th>" + data.manageVoList[i].contract + "</th>" +
+                                "<th>" + data.manageVoList[i].other + "</th>" +
+                                "<th>" + data.manageVoList[i].PMday + "</th>" +
+                                "<th>" + data.manageVoList[i].remark + "</th>" +
+                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "</tr>";
+                        }
+                    }else{
+                        manageContent = " <tr> <th>空</th> </tr>";
+                    }
+                    if(data.dailyVoList.length>0){
+                        for(var i=0;i<data.dailyVoList.length;i++) {
+                            dailyContent += " <tr>" +
+                                "<th>" + i + "</th>" +
+                                "<th>" + data.dailyVoList[i].type + "</th>" +
+                                "<th>" + data.dailyVoList[i].monthDay + "</th>" +
+                                "<th>" + data.dailyVoList[i].remark + "</th>" +
+                                "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "</tr>";
+                        }
+                    }else{
+                        dailyContent = " <tr> <th>空</th> </tr>";
+                    }
+                    $("#tbSummary").html(summaryContent);
+                    $("#tbDesign").html(designContent);
+                    $("#tbPorgraming").html(programingContent);
+                    $("#tbDebug").html(debugContent);
+                    $("#tbManage").html(manageContent);
+                    $("#tbDaily").html(dailyContent);
+                },"json");
+            })
+        });
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -79,20 +204,24 @@
                             <div class="form-group row">
                                 <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
                                 <div class="col-sm-2">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="year" name="year" onchange="sel()">
-                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="selYear" name="selYear" >
+                                        <c:forEach begin="2016" end="2022" step="1" var="i">
+                                            <option value="${i}" ${currentYear == i?"selected":""} style="text-align: center; text-align-last: center;">${i}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
 
                                 <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
                                 <div class="col-sm-2">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month" name="month" onchange="sel0()">
-                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="selMonth" name="selMonth" >
+                                        <c:forEach begin="1" end="12" step="1" var="i">
+                                            <option value="${i}" ${currentMonth == i?"selected":""} style="text-align: center; text-align-last: center;">${i}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
 
                                 <div class="col-sm-1">
-                                    <input type="submit" class="btn btn-success mr-2" name="submit" value="确定">
+                                    <input type="button" class="btn btn-success mr-2" id="selButton" value="确定">
                                 </div>
                             </div>
 
@@ -163,7 +292,7 @@
                                                     <th>总工日</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="tbSummary">
                                                     <c:if test="${!empty mainVo.summaryList}">
                                                         <c:forEach var="summary" items="${mainVo.summaryList}" varStatus="s">
                                                             <tr>
@@ -201,7 +330,7 @@
                                                     <th>操作</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="tbDesign">
                                                     <c:if test="${!empty mainVo.designVoList}">
                                                         <c:forEach var="design" items="${mainVo.designVoList}" varStatus="s">
                                                             <tr>
@@ -249,7 +378,7 @@
                                                         <th>操作</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="tbPorgraming">
                                                 <c:if test="${!empty mainVo.programingVoList}">
                                                     <c:forEach var="programing" items="${mainVo.programingVoList}" varStatus="s">
                                                         <tr>
@@ -292,7 +421,7 @@
                                                         <th>操作</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="tbDebug">
                                                     <c:if test="${!empty mainVo.debugVoList}">
                                                         <c:forEach var="debug" items="${mainVo.debugVoList}" varStatus="s">
                                                             <tr>
@@ -339,7 +468,7 @@
                                                             <th>操作</th>
                                                         </tr>
                                                     </thead>
-                                                <tbody>
+                                                <tbody id="tbManage">
                                                     <c:if test="${!empty mainVo.manageVoList}">
                                                         <c:forEach var="manage" items="${mainVo.manageVoList}" varStatus="s">
                                                             <tr>
@@ -383,7 +512,7 @@
                                                     <th>操作</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="tbDaily">
                                                     <c:if test="${!empty mainVo.dailyVoList}">
                                                         <c:forEach var="daily" items="${mainVo.dailyVoList}" varStatus="s">
                                                             <tr>
