@@ -353,7 +353,7 @@
                                                                 <td>${manage.PMday}</td>
                                                                 <td>${manage.remark}</td>
                                                                 <td>
-                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${manage.id}">
+                                                                    <a href="${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid=${manage.id}">
                                                                         <button type="button" class="btn btn-outline-info btn-sm">修改</button>
                                                                     </a>
                                                                 </td>
@@ -388,7 +388,7 @@
                                                                 <td>${daily.monthDay}</td>
                                                                 <td>${daily.remark}</td>
                                                                 <td>
-                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${daily.id}">
+                                                                    <a href="${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid=${daily.id}">
                                                                         <button type="button" class="btn btn-outline-info btn-sm">修改</button>
                                                                     </a>
                                                                 </td>

@@ -56,6 +56,16 @@
             border-color: #000000;
         }
     </style>
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript">
+        $(function(){
+            // 给工程号赋值
+            $("#projectid").change(function () {
+                var p1=$(this).children('option:selected').attr("id");
+                $("#projectNo").val(p1);
+            })
+        });
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -82,7 +92,7 @@
                                 修改时请注意，不得使用英文标点符号。
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/manageWorkingServlet?method=updateManageWorking" method="post">
 
                                 <hr width="300" align="left">
 
@@ -92,14 +102,29 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
                                     <div class="col-sm-4">
-                                        <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true">
+                                            <c:if test="${!empty projectList}">
+                                                <c:forEach var="project" items="${projectList}">
+                                                    <option id="${project.projectNo}" value="${project.id}" ${project.id == programing.id?"selected":""} style="text-align: center; text-align-last: center;">${project.projectName}</option>
+                                                </c:forEach>
+                                            </c:if>
                                         </select>
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectid" id="projectid" disabled="true">
+                                        <input type="text" class="form-control" name="projectNo" id="projectNo" disabled="true" value="${requestScope.manageproject.projectNo}">
+                                    </div>
+
+
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="id" id="id"  value="${manage.id}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="year" id="year"  value="${manage.year}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="month" id="month"  value="${manage.month}">
                                     </div>
                                 </div>
 
@@ -122,55 +147,55 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">商务询价报价</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manage0" id="manage0" placeholder="商务询价报价">
+                                        <input type="text" class="form-control" name="xunjiabaojia" id="xunjiabaojia" placeholder="商务询价报价" value="${manage.xunjiabaojia}">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">标书制作</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manage1" id="manage1" placeholder="标书制作">
+                                        <input type="text" class="form-control" name="tender" id="tender" placeholder="标书制作" value="${manage.tender}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">合同制作与签署</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manage2" id="manage2" placeholder="合同制作与签署">
+                                        <input type="text" class="form-control" name="sign" id="sign" placeholder="合同制作与签署" value="${manage.sign}">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">投标工作</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manage3" id="manage3" placeholder="投标工作">
+                                        <input type="text" class="form-control" name="toubiao" id="toubiao" placeholder="投标工作" value="${manage.toubiao}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">设备招标采购</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manage4" id="manage4" placeholder="设备招标采购">
+                                        <input type="text" class="form-control" name="equip" id="equip" placeholder="设备招标采购" value="${manage.equip}">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">设备出厂检测</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manage5" id="manage5" placeholder="设备出厂检测">
+                                        <input type="text" class="form-control" name="test" id="test" placeholder="设备出厂检测" value="${manage.test}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">催款（要账）</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manage6" id="manage6" placeholder="催款（要账）">
+                                        <input type="text" class="form-control" name="cuikuan" id="cuikuan" placeholder="催款（要账）" value="${manage.cuikuan}">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">合同管理</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manage7" id="manage7" placeholder="合同管理">
+                                        <input type="text" class="form-control" name="contract" id="contract" placeholder="合同管理" value="${manage.contract}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">其他经营活动</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manage8" id="manage8" placeholder="其他经营活动">
+                                        <input type="text" class="form-control" name="other" id="other" placeholder="其他经营活动" value="${manage.other}">
                                     </div>
                                 </div>
 
@@ -179,14 +204,14 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目经理</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manage9" id="manage9" placeholder="项目经理">
+                                        <input type="text" class="form-control" name="PMday" id="PMday" placeholder="项目经理" value="${manage.PMday}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-4">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
+                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="3">${manage.remark}</textarea>
                                     </div>
                                 </div>
 

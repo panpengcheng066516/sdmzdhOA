@@ -106,14 +106,14 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">工日天数</label>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" name="daily" id="daily" placeholder="工日天数">
+                                        <input type="text" class="form-control" name="monthDay" id="monthDay" placeholder="工日天数">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-5">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="5"></textarea>
+                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="5"></textarea>
                                     </div>
                                 </div>
 
