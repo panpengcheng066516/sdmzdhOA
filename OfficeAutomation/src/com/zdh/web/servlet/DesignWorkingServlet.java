@@ -62,4 +62,51 @@ public class DesignWorkingServlet extends BaseServlet {
             out.print("<script>alert('提交失败！');window.location='"+request.getContextPath()+"/designWorkingServlet?method=getAllProjectByUser';</script>");
         }
     }
+
+    public void updateDesignWorking(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+
+        //取得项目
+        Map<String,String[]> map =  request.getParameterMap();
+        DesignWorking designWorking = new DesignWorking();
+        BeanUtils.populate(designWorking,map);
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        designWorking.setUsername(user.getUsername());
+
+        //向数据库存入项目信息
+        DesignWorkingService designWorkingService = new DesignWorkingService();
+        int r = designWorkingService.updateDesignWorking(designWorking);
+
+        PrintWriter out = response.getWriter();
+        if(r>0){
+            out.print("<script>alert('修改成功！');window.location='"+request.getContextPath()+"/personalSummaryServlet?method=getAllWorkingList';</script>");
+        }else{
+            out.print("<script>alert('修改失败！');window.location='"+request.getContextPath()+"/personalSummaryServlet?method=getAllWorkingList';</script>");
+        }
+    }
+
+    //通过id得到design
+    public void getDesignInfo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        //得到projectList
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        String userName = user.getUsername();
+        //通过Userid获得projectList
+        ProjectService projectService = new ProjectService();
+        List<Project> list = projectService.getProjectListByUser(userName);
+        request.setAttribute("projectList",list);
+
+        //通过id得到design对象
+        String designid = request.getParameter("designid");
+        DesignWorkingService designWorkingService = new DesignWorkingService();
+        DesignWorking designWorking = designWorkingService.getDesignWorkingInfo(designid);
+        //通过id得到工程
+        Project project = designWorkingService.getProjectByid(designid);
+
+        request.setAttribute("design",designWorking);
+        request.setAttribute("designproject",project);
+        request.getRequestDispatcher("/Employee/Form/design1.jsp").forward(request, response);
+    }
 }

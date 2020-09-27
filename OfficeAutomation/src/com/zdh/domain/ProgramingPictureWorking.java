@@ -6,12 +6,12 @@ public class ProgramingPictureWorking {
     private String projectid;
     private String year;
     private String month;
-    private String digitaNumber;
+    private String digitalNumber;
     private String analogNumber;
     private String programingPicture;
     private String programingDay;
     private String monthday;
-    private String reamrk;
+    private String remark;
 
     public String getId() {
         return id;
@@ -53,12 +53,12 @@ public class ProgramingPictureWorking {
         this.month = month;
     }
 
-    public String getDigitaNumber() {
-        return digitaNumber;
+    public String getDigitalNumber() {
+        return digitalNumber;
     }
 
-    public void setDigitaNumber(String digitaNumber) {
-        this.digitaNumber = digitaNumber;
+    public void setDigitalNumber(String digitalNumber) {
+        this.digitalNumber = digitalNumber;
     }
 
     public String getAnalogNumber() {
@@ -93,11 +93,11 @@ public class ProgramingPictureWorking {
         this.monthday = monthday;
     }
 
-    public String getReamrk() {
-        return reamrk;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setReamrk(String reamrk) {
-        this.reamrk = reamrk;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }

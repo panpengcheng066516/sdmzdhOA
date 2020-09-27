@@ -1,9 +1,11 @@
 package com.zdh.dao;
 
 import com.zdh.domain.DesignWorking;
+import com.zdh.domain.Project;
 import com.zdh.utils.DataSourceUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -53,5 +55,17 @@ public class DesignWorkingDao {
         int update = runner.update(sql,designWorking.getAmount(),designWorking.getA1(),designWorking.getZheheWorkingDay(),designWorking.getMonthDay(),
                 designWorking.getProgramDay(),designWorking.getBasicDesignDay(),designWorking.getLeader(),designWorking.getRemark(),designWorking.getProjectid(),designWorking.getId());
         return update;
+    }
+
+    public DesignWorking getDesignWorkingInfo(String designid) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from Design where id = ?";
+        return runner.query(sql, new BeanHandler<DesignWorking>(DesignWorking.class),designid);
+    }
+
+    public Project getProjectByid(String designid) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from project where project.id = (select projectid from Design where Design.id = ?)";
+        return runner.query(sql, new BeanHandler<Project>(Project.class),designid);
     }
 }

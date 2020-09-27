@@ -2,6 +2,7 @@ package com.zdh.service;
 
 import com.zdh.dao.DesignWorkingDao;
 import com.zdh.domain.DesignWorking;
+import com.zdh.domain.Project;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -39,5 +40,38 @@ public class DesignWorkingService {
             e.printStackTrace();
         }
         return designWorkingList;
+    }
+
+    public DesignWorking getDesignWorkingInfo(String designid) {
+        DesignWorkingDao designWorkingDao = new DesignWorkingDao();
+        DesignWorking designWorking = null;
+        try {
+            designWorking = designWorkingDao.getDesignWorkingInfo(designid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return designWorking;
+    }
+
+    public Project getProjectByid(String designid) {
+        DesignWorkingDao designWorkingDao = new DesignWorkingDao();
+        Project project = null;
+        try {
+            project = designWorkingDao.getProjectByid(designid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return project;
+    }
+
+    public int updateDesignWorking(DesignWorking designWorking) {
+        DesignWorkingDao designWorkingDao = new DesignWorkingDao();
+        int i = 0;
+        try {
+            i = designWorkingDao.updateDesignWorking(designWorking);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
     }
 }

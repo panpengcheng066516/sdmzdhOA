@@ -212,7 +212,11 @@
                                                                 <td>${design.basicDesignDay}</td>
                                                                 <td>${design.leader}</td>
                                                                 <td>${design.remark}</td>
-                                                                <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                                <td>
+                                                                    <a href="${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid=${design.id}">
+                                                                        <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                    </a>
+                                                                </td>
                                                             </tr>
                                                         </c:forEach>
                                                     </c:if>
@@ -247,13 +251,17 @@
                                                         <tr>
                                                             <td>${s.index}</td>
                                                             <td>${programing.projectid}</td>
-                                                            <td>${programing.digitaNumber}</td>
+                                                            <td>${programing.digitalNumber}</td>
                                                             <td>${programing.analogNumber}</td>
                                                             <td>${programing.programingPicture}</td>
                                                             <td>${programing.programingDay}</td>
                                                             <td>${programing.monthday}</td>
-                                                            <td>${programing.reamrk}</td>
-                                                            <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                            <td>${programing.remark}</td>
+                                                            <td>
+                                                                <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
+                                                                    <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                </a>
+                                                            </td>
                                                         </tr>
                                                     </c:forEach>
                                                 </c:if>
@@ -290,7 +298,11 @@
                                                                 <td>${debug.manageday}</td>
                                                                 <td>${debug.debugday}</td>
                                                                 <td>${debug.remark}</td>
-                                                                <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                                <td>
+                                                                    <a href="${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid=${debug.id}">
+                                                                        <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                    </a>
+                                                                </td>
                                                             </tr>
                                                         </c:forEach>
                                                     </c:if>
@@ -340,7 +352,11 @@
                                                                 <td>${manage.other}</td>
                                                                 <td>${manage.PMday}</td>
                                                                 <td>${manage.remark}</td>
-                                                                <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                                <td>
+                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${manage.id}">
+                                                                        <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                    </a>
+                                                                </td>
                                                             </tr>
                                                         </c:forEach>
                                                     </c:if>
@@ -371,7 +387,11 @@
                                                                 <td>${daily.type}</td>
                                                                 <td>${daily.monthDay}</td>
                                                                 <td>${daily.remark}</td>
-                                                                <td><button type="button" class="btn btn-outline-info btn-sm" onclick="update()">修改</button></td>
+                                                                <td>
+                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${daily.id}">
+                                                                        <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                    </a>
+                                                                </td>
                                                             </tr>
                                                         </c:forEach>
                                                     </c:if>

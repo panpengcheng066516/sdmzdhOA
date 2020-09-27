@@ -63,6 +63,16 @@
             border-color: #000000;
         }
     </style>
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript">
+        $(function(){
+            // 给工程号赋值
+            $("#projectid").change(function () {
+                var p1=$(this).children('option:selected').attr("id");
+                $("#projectNo").val(p1);
+            })
+        });
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -89,7 +99,7 @@
                                 修改时请注意，不得使用英文标点符号。
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/programingPictureWorkingServlet?method=updateProgectingWorking" method="post">
 
                                 <hr width="300" align="left">
 
@@ -99,14 +109,18 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
                                     <div class="col-sm-4">
-                                        <select class="selectpicker" id="idSel" name="idSel" data-live-search="true">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
+                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true">
+                                            <c:if test="${!empty projectList}">
+                                                <c:forEach var="project" items="${projectList}">
+                                                    <option id="${project.projectNo}" value="${project.id}" ${project.id == programing.id?"selected":""} style="text-align: center; text-align-last: center;">${project.projectName}</option>
+                                                </c:forEach>
+                                            </c:if>
                                         </select>
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectid" id="projectid" disabled="true">
+                                        <input type="text" class="form-control" name="projectNo" id="projectNo" disabled="true" value="${requestScope.programingproject.projectNo}">
                                     </div>
                                 </div>
 
@@ -122,17 +136,26 @@
                                             <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
                                         </select>
                                     </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="id" id="id"  value="${programing.id}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="year" id="year"  value="${programing.year}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="month" id="month"  value="${programing.month}">
+                                    </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">总开关量点数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="program1" id="program1" placeholder="总开关量点数">
+                                        <input type="text" class="form-control" name="digitalNumber" id="digitalNumber" value="${programing.digitalNumber}" placeholder="总开关量点数" >
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">总模拟量点数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="program2" id="program2" placeholder="总模拟量点数">
+                                        <input type="text" class="form-control" name="analogNumber" id="analogNumber" value="${programing.analogNumber}" placeholder="总模拟量点数">
                                     </div>
                                 </div>
 
@@ -142,14 +165,14 @@
                                     <div class="col-sm-4">
                                         <div class="form-check form-check-inline">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="program3" id="program31" value="data1" checked="true">
+                                                <input type="radio" class="form-check-input" name="programingPicture" id="programingPicture1" value="编程" ${programing.programingPicture == "编程"?"checked":""}>
                                                 编程
                                             </label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="program3" id="program32" value="data2">
+                                                <input type="radio" class="form-check-input" name="programingPicture" id="programingPicture2" value="画面" ${programing.programingPicture == "画面"?"checked":""}>
                                                 画面
                                             </label>
                                         </div>
@@ -159,19 +182,19 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">总工日数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="program4" id="program4" placeholder="总工日数">
+                                        <input type="text" class="form-control" name="programingDay" id="programingDay" value="${programing.programingDay}" placeholder="总工日数">
                                     </div>
 
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">本月完成工日数</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="program5" id="program5" placeholder="本月完成工日数">
+                                        <input type="text" class="form-control" name="monthday" id="monthday" value="${programing.monthday}" placeholder="本月完成工日数">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-4">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
+                                        <textarea class="form-control" name="remark" id="remark" value="${programing.remark}" placeholder="备注" rows="3">${programing.remark}</textarea>
                                     </div>
                                 </div>
 

@@ -64,4 +64,51 @@ public class ProgramingPictureWorkingServlet extends BaseServlet {
             out.print("<script>alert('提交失败！');window.location='"+request.getContextPath()+"/programingPictureWorkingServlet?method=getAllProjectByUser';</script>");
         }
     }
+
+    public void updateProgectingWorking(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+
+        //取得项目
+        Map<String,String[]> map =  request.getParameterMap();
+        ProgramingPictureWorking programingPictureWorking = new ProgramingPictureWorking();
+        BeanUtils.populate(programingPictureWorking,map);
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        programingPictureWorking.setUsername(user.getUsername());
+
+        //向数据库存入项目信息
+        ProgramingPictureWorkingService programingPictureWorkingService = new ProgramingPictureWorkingService();
+        int r = programingPictureWorkingService.updateProgramingWorking(programingPictureWorking);
+
+        PrintWriter out = response.getWriter();
+        if(r>0){
+            out.print("<script>alert('修改成功！');window.location='"+request.getContextPath()+"/personalSummaryServlet?method=getAllWorkingList';</script>");
+        }else{
+            out.print("<script>alert('修改失败！');window.location='"+request.getContextPath()+"/personalSummaryServlet?method=getAllWorkingList';</script>");
+        }
+    }
+
+    //通过id得到design
+    public void getProgramingInfo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        //得到projectList
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        String userName = user.getUsername();
+        //通过Userid获得projectList
+        ProjectService projectService = new ProjectService();
+        List<Project> list = projectService.getProjectListByUser(userName);
+        request.setAttribute("projectList",list);
+
+        //通过id得到design对象
+        String programingid = request.getParameter("programingid");
+        ProgramingPictureWorkingService programingPictureWorkingService = new ProgramingPictureWorkingService();
+        ProgramingPictureWorking programingPictureWorking = programingPictureWorkingService.getprogramingPictureWorkingInfo(programingid);
+        //通过id得到工程
+        Project project = programingPictureWorkingService.getProjectByid(programingid);
+
+        request.setAttribute("programing",programingPictureWorking);
+        request.setAttribute("programingproject",project);
+        request.getRequestDispatcher("/Employee/Form/programming1.jsp").forward(request, response);
+    }
 }
