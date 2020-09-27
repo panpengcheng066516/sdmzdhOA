@@ -39,4 +39,26 @@ public class DailyWorkingService {
         }
         return list;
     }
+
+    public int updateDailyWorking(DailyWorking dailyWorking) {
+        DailyWorkingDao dailyWorkingDao = new DailyWorkingDao();
+        int i= 0;
+        try {
+            i = dailyWorkingDao.updateDailyWorking(dailyWorking);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    public DailyWorking getDailyWorkingInfo(String dailyid) {
+        DailyWorkingDao dailyWorkingDao = new DailyWorkingDao();
+        DailyWorking dailyWorking = null;
+        try {
+            dailyWorking = dailyWorkingDao.getDailyWorkingById(dailyid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return dailyWorking;
+    }
 }

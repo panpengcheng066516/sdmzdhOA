@@ -22,7 +22,7 @@ public class CommonsUtils {
 	//得到当前月
 	public static String getCurrentMonth(){
 		Calendar date = Calendar.getInstance();
-		String month = String.valueOf(date.get(Calendar.MONTH));
+		String month = String.valueOf(date.get(Calendar.MONTH)+1);
 		return month;
 	}
 	

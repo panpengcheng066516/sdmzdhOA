@@ -3,6 +3,7 @@ package com.zdh.dao;
 import com.zdh.domain.DailyWorking;
 import com.zdh.utils.DataSourceUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
@@ -50,7 +51,13 @@ public class DailyWorkingDao {
     public int updateDailyWorking(DailyWorking dailyWorking) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "update dailyWorking set monthDay=?,remark=?,type=? where id =?";
-        int update = runner.update(sql,dailyWorking.getMonthDay(),dailyWorking.getRemark(),dailyWorking.getType());
+        int update = runner.update(sql,dailyWorking.getMonthDay(),dailyWorking.getRemark(),dailyWorking.getType(),dailyWorking.getId());
         return update;
+    }
+
+    public DailyWorking getDailyWorkingById(String dailyid) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from DailyWorking where id =?";
+        return runner.query(sql, new BeanHandler<DailyWorking>(DailyWorking.class),dailyid);
     }
 }

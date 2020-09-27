@@ -82,47 +82,56 @@
                                 修改时请注意，不得使用英文标点符号。
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/dailyWorkingServlet?method=updateDebugWorking" method="post">
 
                                 <hr width="300" align="left">
 
                                 <h6 class="card-title" style="font-size: 14px;">修改</h6>
 
                                 <h6 class="card-title" style="font-size: 14px;color: red;">如有多项内容，请重复填写。</h6>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择对应工作</label>
-                                    <div class="col-sm-5">
-                                        <select class="selectpicker" id="sel" name="sel" data-live-search="true">
-                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                        </select>
-                                    </div>
-                                </div>
+<%--                                <div class="form-group row">--%>
+<%--                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择对应工作</label>--%>
+<%--                                    <div class="col-sm-5">--%>
+<%--                                        <select class="selectpicker" id="sel" name="sel" data-live-search="true">--%>
+<%--                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>--%>
+<%--                                        </select>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择类型</label>
                                     <div class="col-sm-5">
                                         <select class="selectpicker" name="type" id="type">
-                                            <option value="日常管理" style="text-align: center; text-align-last: center;">日常管理</option>
-                                            <option value="工会事务" style="text-align: center; text-align-last: center;">工会事务</option>
-                                            <option value="党/团组事务" style="text-align: center; text-align-last: center;">党/团组事务</option>
-                                            <option value="考勤" style="text-align: center; text-align-last: center;">考勤</option>
-                                            <option value="出差/交流" style="text-align: center; text-align-last: center;">出差/交流</option>
-                                            <option value="其他报销/零星工日" style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
+                                            <option value="日常管理" ${daily.type == "日常管理"?"selected":""} style="text-align: center; text-align-last: center;">日常管理</option>
+                                            <option value="工会事务" ${daily.type == "工会事务"?"selected":""} style="text-align: center; text-align-last: center;">工会事务</option>
+                                            <option value="党/团组事务" ${daily.type == "党/团组事务"?"selected":""} style="text-align: center; text-align-last: center;">党/团组事务</option>
+                                            <option value="考勤" ${daily.type == "考勤"?"selected":""} style="text-align: center; text-align-last: center;">考勤</option>
+                                            <option value="出差/交流" ${daily.type == "出差/交流"?"selected":""} style="text-align: center; text-align-last: center;">出差/交流</option>
+                                            <option value="其他报销/零星工日" ${daily.type == "其他报销/零星工日"?"selected":""} style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
                                         </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="id" id="id"  value="${daily.id}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="year" id="year"  value="${daily.year}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" hidden class="form-control" name="month" id="month"  value="${daily.month}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">工日天数</label>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" name="daily" id="daily" placeholder="工日天数">
+                                        <input type="text" class="form-control" name="monthDay" id="monthDay" placeholder="工日天数" value="${daily.monthDay}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
                                     <div class="col-sm-5">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="5"></textarea>
+                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="5">${daily.remark}</textarea>
                                     </div>
                                 </div>
 
