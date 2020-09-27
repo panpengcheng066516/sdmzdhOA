@@ -82,11 +82,12 @@
                             <span class="input-group-addon bg-transparent"><i data-feather="calendar" class=" text-primary"></i></span>
                             <input type="text" class="form-control">
                         </div>
-                        <!-- -->
+                        <!-- 打印个屁 -->
                         <button type="button" class="btn btn-inverse-warning btn-icon-text mr-2 mb-2 mb-md-0" id="print">
                             <i class="btn-icon-prepend" data-feather="printer"></i>
                             打印
                         </button>
+                        <!-- 下载个屁 -->
                         <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0" id="download">
                             <i class="btn-icon-prepend" data-feather="download-cloud"></i>
                             下载报告
@@ -115,6 +116,7 @@
                                             </p>
                                         </div>
                                     </div>
+                                    <!-- 这个就做假的吧 -->
                                     <div class="col-6 col-md-12 col-xl-7">
                                         <div id="apexChart2" class="mt-md-3 mt-xl-0"></div>
                                     </div>
@@ -142,7 +144,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <!-- 显示前六个 -->
+                                    <!-- 显示项目前六个？ -->
                                     <c:if test="${!empty projectList}">
                                         <c:forEach var="project" items="${projectList}" varStatus="s">
                                             <tr>
@@ -174,7 +176,7 @@
                     </div>
                 </div>
 
-            <!-- row -->
+            <!--  -->
 
                 <div class="row">
                     <div class="col-12 col-xl-12 grid-margin stretch-card">
@@ -185,9 +187,9 @@
                                 </div>
                                 <div class="row align-items-start mb-2">
                                     <div class="col-md-7">
-                                        <p class="text-muted tx-13 mb-3 mb-md-0">要这么多表有啥用。。</p>
+                                        <p class="text-muted tx-13 mb-3 mb-md-0"></p>
                                     </div>
-                                    <!-- assets/js/apexcharts.js -->
+                                    <!-- assets/js/apexcharts.js。。。 -->
                                     <div class="col-md-5 d-flex justify-content-md-end">
                                         <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
                                             <button type="button" class="btn btn-outline-danger">Year</button>
@@ -211,7 +213,7 @@
                                     <h6 class="card-title mb-0">本月各类型工作量</h6>
                                 </div>
                                 <br>
-                                <p class="text-muted mb-4">不就为了好看吗</p>
+                                <p class="text-muted mb-4"></p>
                                 <%-- assets/js/apexcharts.js --%>
                                 <div class="monthly-sales-chart-wrapper">
                                     <canvas id="monthly-sales-chart"></canvas>
@@ -253,7 +255,6 @@
 <script src="<%=basePath%>js/htmlFile/linkman.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/dashboard.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/datepicker.js" type="text/javascript"></script>
-
 <script src="<%=basePath%>assets/js/apexcharts.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js" type="text/javascript"></script>
 <!-- 弹出气泡 -->
