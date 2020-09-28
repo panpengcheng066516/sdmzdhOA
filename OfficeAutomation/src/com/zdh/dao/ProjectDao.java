@@ -6,6 +6,7 @@ import com.zdh.utils.DataSourceUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -53,5 +54,30 @@ public class ProjectDao {
         return runner.update(sql,project.getProjectName(),project.getProjectNo(),project.getDeadline(),project.getFinish(),
                 project.getProgress(),project.getManager(),project.getDesigner(),project.getReviewer(),project.getOffice(),project.getCe(),
                 project.getRemarks(),project.getId());
+    }
+
+    public int joinProject(String userName, String projectid) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "insert into projectPeople (projectid,username) values (?,?)";
+        return runner.update(sql,projectid,userName);
+    }
+
+    public int quitProject(String userName, String projectid) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "delete from projectPeople where projectid = ? and username =?";
+        return runner.update(sql,projectid,userName);
+    }
+
+    public List<Project> getPersonalProjectByProgress(String username, String progress) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select * from project,projectPeople " +
+                "where project.id = projectPeople.projectid and project.progress = ? and projectPeople.username = ? order by project.deadline DESC";
+        return runner.query(sql, new BeanListHandler<Project>(Project.class),progress,username);
+    }
+
+    public int checkJoinProject(String userName, String projectid) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select count(*) from projectPeople where projectid = ? and username = ?";
+        return (int) runner.query(sql, new ScalarHandler(),projectid,userName);
     }
 }

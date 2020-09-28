@@ -73,6 +73,10 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="${ pageContext.request.contextPath }/projectServlet?method=getAllPersonalProject" class="nav-link">个人已参与项目查询</a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject" class="nav-link">科室项目查询</a>
                         </li>
                     </ul>

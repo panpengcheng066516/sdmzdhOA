@@ -72,4 +72,48 @@ public class ProjectService {
         }
         return r;
     }
+
+    public int quitProject(String userName, String projectid) {
+        ProjectDao projectDao = new ProjectDao();
+        int r = 0;
+        try {
+            r = projectDao.quitProject(userName,projectid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return r;
+    }
+
+    public List<Project> getPersonalProjectByProgress(String username, String progress) {
+        ProjectDao projectDao = new ProjectDao();
+        List<Project> list = null;
+        try {
+            list = projectDao.getPersonalProjectByProgress(username,progress);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public int joinProject(String userName, String projectid) {
+        ProjectDao projectDao = new ProjectDao();
+        int r = 0;
+        try {
+            r = projectDao.joinProject(userName,projectid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return r;
+    }
+
+    public int checkJoinProject(String userName, String projectid) {
+        ProjectDao projectDao = new ProjectDao();
+        int r = 0;
+        try {
+            r = projectDao.checkJoinProject(userName,projectid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return r;
+    }
 }

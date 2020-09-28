@@ -55,10 +55,10 @@
                 $("#progressSelect").change(function () {
                     var p1=$(this).children('option:selected').val();
                     if(p1=="全部"){
-                        var p2 = "${pageContext.request.contextPath}/projectServlet?method=getAllProject";
+                        var p2 = "${pageContext.request.contextPath}/projectServlet?method=getAllPersonalProject";
                         $(location).attr('href',p2);
                     }else{
-                        var p2 = "${pageContext.request.contextPath}/projectServlet?method=getProjectByProgress";
+                        var p2 = "${pageContext.request.contextPath}/projectServlet?method=getPersonalProjectByProgress";
                         var content = "";
                         $.post(p2,{"progress":p1},function(data){
                             if(data.length>0){
@@ -75,8 +75,7 @@
                                         "<th>" + data[i].office + "</th>" +
                                         "<th>" + data[i].ce + "</th>" +
                                         "<th>" + data[i].remarks + "</th>" +
-                                        "<td><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid="+data[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a>" +
-                                        "<a href='${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid="+data[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >加入</button></a></td>" +
+                                        "<td><a href='${pageContext.request.contextPath}/projectServlet?method=quitProject&projectid="+data[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >退出</button></a></td>" +
                                         "</tr>";
                                 }
                             }else{
@@ -176,11 +175,8 @@
                                                         <th>${project.ce}</th>
                                                         <th>${project.remarks}</th>
                                                         <td>
-                                                            <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
-                                                                <button type="button" class="btn btn-outline-info btn-sm">修改</button>
-                                                            </a>
-                                                            <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">
-                                                                <button type="button" class="btn btn-outline-info btn-sm">加入</button>
+                                                            <a href="${pageContext.request.contextPath}/projectServlet?method=quitProject&projectid=${project.id}">
+                                                                <button type="button" class="btn btn-outline-info btn-sm">退出项目</button>
                                                             </a>
                                                         </td>
                                                     </tr>

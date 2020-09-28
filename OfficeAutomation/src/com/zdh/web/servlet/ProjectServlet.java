@@ -31,6 +31,69 @@ public class ProjectServlet extends BaseServlet {
         request.getRequestDispatcher("/Employee/Overview/projectOverview.jsp").forward(request, response);
     }
 
+    //前往个人项目查询页面
+    public void getAllPersonalProject(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        //得到userId
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        String userName = user.getUsername();
+        //通过Userid获得projectList
+        ProjectService projectService = new ProjectService();
+        List<Project> list = projectService.getProjectListByUser(userName);
+        request.setAttribute("projectList",list);
+        request.getRequestDispatcher("/Employee/Overview/personalProjectOverview.jsp").forward(request, response);
+    }
+
+
+
+    //退出项目
+    public void quitProject(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        //得到userId
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        String userName = user.getUsername();
+        String projectid = request.getParameter("projectid");
+        //通过Userid获得projectList
+        ProjectService projectService = new ProjectService();
+        int r = projectService.quitProject(userName,projectid);
+
+        PrintWriter out = response.getWriter();
+        if(r>0){
+            out.print("<script>alert('退出项目成功！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllPersonalProject';</script>");
+        }else{
+            out.print("<script>alert('退出项目失败！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllPersonalProject';</script>");
+        }
+
+    }
+
+    //加入项目
+    public void joinProject(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        //得到userId
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        String userName = user.getUsername();
+        String projectid = request.getParameter("projectid");
+        //验证是否已经加入
+        ProjectService projectService = new ProjectService();
+        int b = projectService.checkJoinProject(userName,projectid);
+        int r =0;
+
+        PrintWriter out = response.getWriter();
+        if(b>0){
+            out.print("<script>alert('不能重复加入项目！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllPersonalProject';</script>");
+        }else{
+            r = projectService.joinProject(userName,projectid);
+            if(r>0){
+                out.print("<script>alert('加入项目成功！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
+            }else{
+                out.print("<script>alert('加入项目失败！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
+            }
+        }
+    }
+
     //得到所有的projectInfo
     public void getProjectInfo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
@@ -106,6 +169,27 @@ public class ProjectServlet extends BaseServlet {
         String progress = request.getParameter("progress");
         ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getProjectByProgress(progress);
+
+        //转换为json向前台传输数据
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().write(json);
+    }
+
+    public void getPersonalProjectByProgress(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        //		设置编码
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
+        // 得到参数并查询
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        String username = user.getUsername();
+        String progress = request.getParameter("progress");
+        ProjectService projectService = new ProjectService();
+        List<Project> list = projectService.getPersonalProjectByProgress(username,progress);
 
         //转换为json向前台传输数据
         Gson gson = new Gson();
