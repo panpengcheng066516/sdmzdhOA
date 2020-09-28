@@ -45,7 +45,7 @@ public class DailyWorkingServlet extends BaseServlet {
         }
     }
 
-    public void updateDebugWorking(HttpServletRequest request, HttpServletResponse response)
+    public void updateDailyWorking(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
 
         //取得项目

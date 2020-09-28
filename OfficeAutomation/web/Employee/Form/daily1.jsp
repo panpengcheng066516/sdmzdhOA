@@ -82,7 +82,7 @@
                                 修改时请注意，不得使用英文标点符号。
                             </div>
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/dailyWorkingServlet?method=updateDebugWorking" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/dailyWorkingServlet?method=updateDailyWorking" method="post">
 
                                 <hr width="300" align="left">
 

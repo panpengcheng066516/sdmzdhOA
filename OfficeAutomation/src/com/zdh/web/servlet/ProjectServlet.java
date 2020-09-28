@@ -143,20 +143,27 @@ public class ProjectServlet extends BaseServlet {
     public void updateProject(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
 
-        //取得项目
-        Map<String,String[]> map =  request.getParameterMap();
-        Project project = new Project();
-        BeanUtils.populate(project,map);
-
-        //向数据库存入项目信息
-        ProjectService projectService = new ProjectService();
-        int r = projectService.updateProject(project);
+        //得到userId
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
 
         PrintWriter out = response.getWriter();
-        if(r>0){
-            out.print("<script>alert('修改成功！');window.location='"+request.getContextPath()+"/Employee/Form/project.jsp';</script>");
+        if(user.getPower()!=2){
+            out.print("<script>alert('您无权修改！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
         }else{
-            out.print("<script>alert('修改失败！');window.location='"+request.getContextPath()+"/Employee/Form/project.jsp';</script>");
+            //取得项目
+            Map<String,String[]> map =  request.getParameterMap();
+            Project project = new Project();
+            BeanUtils.populate(project,map);
+
+            //向数据库存入项目信息
+            ProjectService projectService = new ProjectService();
+            int r = projectService.updateProject(project);
+            if(r>0){
+                out.print("<script>alert('修改成功！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
+            }else{
+                out.print("<script>alert('修改失败！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
+            }
         }
     }
 

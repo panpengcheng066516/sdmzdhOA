@@ -75,7 +75,7 @@
                                         "<th>" + data[i].office + "</th>" +
                                         "<th>" + data[i].ce + "</th>" +
                                         "<th>" + data[i].remarks + "</th>" +
-                                        "<td><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid="+data[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a>" +
+                                        "<td><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid="+data[i].id+"'><button type='button'  ${user.power==2?'':'hidden'}  class='btn btn-outline-info btn-sm' >修改</button></a>" +
                                         "<a href='${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid="+data[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >加入</button></a></td>" +
                                         "</tr>";
                                 }
@@ -177,7 +177,7 @@
                                                         <th>${project.remarks}</th>
                                                         <td>
                                                             <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
-                                                                <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                <button type="button" ${user.power==2?"":"hidden"} class="btn btn-outline-info btn-sm">修改</button>
                                                             </a>
                                                             <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">
                                                                 <button type="button" class="btn btn-outline-info btn-sm">加入</button>
