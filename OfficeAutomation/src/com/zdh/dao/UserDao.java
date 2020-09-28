@@ -14,7 +14,7 @@ public class UserDao {
     // 校验用户名是否存在
     public int checkUsername(String username) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-        String sql = "select count(*) from Login where username=?";
+        String sql = "select count(*) from people where username=?";
         int query = (int) runner.query(sql, new ScalarHandler(), username);
         return query;
     }
@@ -30,7 +30,7 @@ public class UserDao {
     public List<User> getUserList() throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select * from people";
-        return (List<User>) runner.query(sql, new BeanHandler<>(User.class));
+        return runner.query(sql, new BeanListHandler<User>(User.class));
     }
 
     public int updatePassword(String username, String newPIN) throws SQLException {

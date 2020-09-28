@@ -28,7 +28,7 @@
             <li class="nav-item"><a href="${ pageContext.request.contextPath }/root/signup.jsp" class="nav-link">
                 <i class="link-icon" data-feather="info"></i> <span class="link-title">新用户注册</span>
             </a></li>
-            <li class="nav-item"><a href="${ pageContext.request.contextPath }/root/management.jsp" class="nav-link">
+            <li class="nav-item"><a href="${ pageContext.request.contextPath }/manageUserServlet?method=findAllUser" class="nav-link">
                 <i class="link-icon" data-feather="cast"></i> <span class="link-title">用户注册和管理</span>
             </a></li>
 

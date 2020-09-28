@@ -42,7 +42,7 @@
                     <h1 class="font-weight-bold mb-22 mt-2 tx-80 text-muted">500</h1>
                     <h4 class="mb-2">服务器内部错误</h4>
                     <h6 class="text-muted mb-3 text-center">请联系管理员或稍候再试…</h6>
-                    <a href="index.jsp" class="btn btn-primary-muted">返回首页</a>
+                    <a href="${user.power==0?"root/signup.jsp":"index.jsp"}" class="btn btn-primary-muted">返回首页</a>
                 </div>
             </div>
         </div>

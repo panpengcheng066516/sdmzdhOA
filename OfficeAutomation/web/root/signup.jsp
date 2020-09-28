@@ -69,39 +69,39 @@
                             <h3 class="text text-primary">创建新用户</h3>
                             <hr width="300" align="left">
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/?????" method="post">
+                            <form class="forms-sample" action="${ pageContext.request.contextPath }/manageUserServlet?method=addUser" method="post">
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">姓名</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="姓名">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="姓名" required="ture">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">用户名</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="username" id="username" placeholder="用户名">
+                                        <input type="text" class="form-control" name="username" id="username" placeholder="用户名" required="ture">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">密码</label>
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;" >密码</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="password" id="password" placeholder="密码">
+                                        <input type="text" class="form-control" name="password" id="password" placeholder="密码" required="ture">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">密码确认</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="password1" id="password1" placeholder="密码确认">
+                                        <input type="text" class="form-control" name="password1" id="password1" placeholder="密码确认" required="ture">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">分组</label>
                                     <div class="col-sm-4">
-                                        <select class="selectpicker" id="groupid" name="groupid">
+                                        <select class="selectpicker" id="groupId" name="groupId" required="ture">
                                             <option value="0" style="text-align: center; text-align-last: center;">领导组</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">编程设计组</option>
                                             <option value="2" style="text-align: center; text-align-last: center;">软件组</option>
@@ -111,7 +111,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">权限</label>
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;" required="ture">权限</label>
                                     <div class="col-sm-4">
                                         <select class="selectpicker" id="power" name="power">
                                             <option value="0" style="text-align: center; text-align-last: center;">管理员级别</option>
@@ -122,6 +122,9 @@
                                         </select>
                                     </div>
                                 </div>
+                                <c:if test="${!empty registerError}">
+                                    <span style="color: red">${registerError}</span>
+                                </c:if>
                                 <%-- transfer默认为0，inuse默认为1 --%>
                                 <br>
 
