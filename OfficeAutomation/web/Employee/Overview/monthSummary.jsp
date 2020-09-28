@@ -209,7 +209,7 @@
                                 <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
                                 <div class="col-sm-2">
                                     <select class="selectpicker" style="text-align:center;text-align-last:center;" id="selYear" name="selYear" >
-                                        <c:forEach begin="2016" end="2022" step="1" var="i">
+                                        <c:forEach begin="2019" end="2025" step="1" var="i">
                                             <option value="${i}" ${currentYear == i?"selected":""} style="text-align: center; text-align-last: center;">${i}</option>
                                         </c:forEach>
                                     </select>
@@ -238,6 +238,9 @@
 
                                 <div class="col-sm-1" >
                                     <input type="button" id="selButton" class="btn btn-success mr-2" name="submit" value="确定">
+                                </div>
+                                <div class="col-sm-1">
+                                    <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                 </div>
                             </div>
 
@@ -297,9 +300,7 @@
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="total" role="tabpanel" aria-labelledby="total-tab">
                                     <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
-                                        </div>
+                                        <h6 class="card-title" style="font-size: 14px;color: red;">此表为当月工日总和,不是指定项目的工日之和</h6>
                                     </div>
                                     <div class="text-muted mb-1" align="center">本月工日之和</div>
                                     <div class="form-group row">
@@ -329,11 +330,7 @@
                                 </div>
                                 <!-- 别加div。。 -->
                                 <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
-                                        </div>
-                                    </div>
+
                                     <p class="text-muted mb-1" align="center">设计工作量</p>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
@@ -386,11 +383,7 @@
                                 </div>
 
                             <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
-                                <div class="form-group row">
-                                    <div class="col-sm-1">
-                                        <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
-                                    </div>
-                                </div>
+
                                 <p class="text-muted mb-1" align="center">编程画面工作量</p>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
@@ -437,11 +430,7 @@
                             </div>
 
                             <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
-                                <div class="form-group row">
-                                    <div class="col-sm-1">
-                                        <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
-                                    </div>
-                                </div>
+
                                 <p class="text-muted mb-1" align="center">调试工程管理工作量</p>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
@@ -484,11 +473,7 @@
                             </div>
 
                             <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
-                                <div class="form-group row">
-                                    <div class="col-sm-1">
-                                        <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
-                                    </div>
-                                </div>
+
                                 <p class="text-muted mb-1" align="center">经营管理工作量</p>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">
@@ -544,11 +529,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
-                                <div class="form-group row">
-                                    <div class="col-sm-1">
-                                        <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
-                                    </div>
-                                </div>
+
                                 <p class="text-muted mb-1" align="center">日常管理零星工日</p>
                                 <div class="form-group row">
                                     <div class="table-responsive pt-3">

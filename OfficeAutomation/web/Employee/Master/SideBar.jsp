@@ -101,7 +101,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Overview/overview.jsp" class="nav-link">工作量统计汇总</a>
+                            <a href="${ pageContext.request.contextPath }/personalSummaryServlet?method=getHistorySummary" class="nav-link">工作量统计汇总</a>
                         </li>
                     </ul>
                 </div>

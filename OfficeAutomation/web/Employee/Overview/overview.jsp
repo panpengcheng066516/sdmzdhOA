@@ -56,6 +56,66 @@
             border-color: #000000;
         }
     </style>
+
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript">
+        $(function(){
+            // 选项框
+            $("#selButton").click(function () {
+                var year=$("#selYear").children('option:selected').val();
+                var month=$("#selMonth").children('option:selected').val();
+
+                var url = "${pageContext.request.contextPath}/personalSummaryServlet?method=getHistorySummaryByDate";
+                var summaryMonthContent = "";
+                var summaryYearContent = "";
+                var departmentMonthContent = "";
+                var departmentYearContent = "";
+                $.post(url,{"year":year,"month":month},function(data){
+                    if(data.summaryMonthList.length>0){
+                        for(var i=0;i<data.summaryMonthList.length;i++) {
+                            summaryMonthContent += " <tr>" +
+                                "<th>" + i + "</th>" +
+                                "<th>" + data.summaryMonthList[i].name + "</th>" +
+                                "<th>" + data.summaryMonthList[i].work_day + "</th>" +
+                                "</tr>";
+                        }
+                    }else{
+                        summaryMonthContent = " <tr> <th>空</th> </tr>";
+                    }
+
+                    if(data.summaryYearList.length>0){
+                        for(var i=0;i<data.summaryYearList.length;i++) {
+                            summaryYearContent += " <tr>" +
+                                "<th>" + i + "</th>" +
+                                "<th>" + data.summaryYearList[i].name + "</th>" +
+                                "<th>" + data.summaryYearList[i].work_day + "</th>" +
+                                "</tr>";
+                        }
+                    }else{
+                        summaryYearContent = " <tr> <th>空</th> </tr>";
+                    }
+
+                    if(data.departmentMonthWorkDay != null){
+                        departmentMonthContent += "此月科室总工日为：" +
+                            data.departmentMonthWorkDay;
+                    }else{
+                        departmentMonthContent = "空";
+                    }
+
+                    if(data.departmentYearWorkDay != null){
+                        departmentYearContent += "此年科室总工日为：" +
+                            data.departmentYearWorkDay;
+                    }else{
+                        departmentYearContent = "空";
+                    }
+                    $("#tbMonth").html(summaryMonthContent);
+                    $("#tbYear").html(summaryYearContent);
+                    $("#hMonth").html(departmentMonthContent);
+                    $("#hYear").html(departmentYearContent);
+                },"json");
+            })
+        });
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -75,6 +135,30 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
+
+                            <div class="form-group row">
+                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
+                                <div class="col-sm-2">
+                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="selYear" name="selYear" onchange="sel()">
+                                        <c:forEach begin="2019" end="2025" step="1" var="i">
+                                            <option value="${i}" ${currentYear == i?"selected":""} style="text-align: center; text-align-last: center;">${i}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+
+                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
+                                <div class="col-sm-2">
+                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="selMonth" name="selMonth" onchange="sel0()">
+                                        <c:forEach begin="1" end="12" step="1" var="i">
+                                            <option value="${i}" ${currentMonth == i?"selected":""} style="text-align: center; text-align-last: center;">${i}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+
+                                <div class="col-sm-1">
+                                    <input type="button" id="selButton" class="btn btn-success mr-2" name="submit" value="确定">
+                                </div>
+                            </div>
 
                             <!-- tab选项卡 -->
                             <ul class="nav nav-tabs mt-6" role="tablist">
@@ -98,30 +182,9 @@
                             <!-- tab选项内容 -->
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="month1" role="tabpanel" aria-labelledby="month1-tab">
-                                    <div class="form-group row">
-                                        <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
-                                        <div class="col-sm-2">
-                                            <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month01" name="month" onchange="sel()">
-                                                <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                            </select>
-                                        </div>
-
-                                        <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
-                                        <div class="col-sm-2">
-                                             <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month01" name="month" onchange="sel0()">
-                                                 <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                             </select>
-                                        </div>
-
-                                        <div class="col-sm-1">
-                                            <input type="submit" class="btn btn-success mr-2" name="submit" value="确定">
-                                        </div>
-                                    </div>
 
                                     <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
-                                        </div>
+                                        <h6 class="card-title" id="hMonth" style="font-size: 14px;">此月科室总工日为：${summaryMainVo.departmentMonthWorkDay}</h6>
                                     </div>
                                     <div class="text-muted mb-1" align="center">历年各月工作量汇总</div>
                                     <div class="form-group row">
@@ -132,18 +195,18 @@
                                                     <th>序号</th>
                                                     <th>员工姓名</th>
                                                     <th>工日总和</th>
-                                                    <th>月科室总计</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody>
-                                                <c:forEach items="${kits}" var="k" varStatus="s">
-                                                    <tr>
-                                                        <td>${s.index}</td>
-                                                        <td>${k.name}</td>
-                                                        <td>${k.total}</td>
-                                                        <td>${k.total1}</td>
-                                                    </tr>
-                                                </c:forEach>
+                                                <tbody id="tbMonth">
+                                                <c:if test="${!empty summaryMainVo.summaryMonthList}">
+                                                    <c:forEach var="summary" items="${summaryMainVo.summaryMonthList}" varStatus="s">
+                                                        <tr>
+                                                            <td>${s.index}</td>
+                                                            <td>${summary.name}</td>
+                                                            <td>${summary.work_day}</td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </c:if>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -152,24 +215,8 @@
                                 <!-- 别加div。。 -->
                                 <div class="tab-pane fade" id="year1" role="tabpanel" aria-labelledby="year1-tab">
                                     <div class="form-group row">
-                                        <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
-                                        <div class="col-sm-2">
-                                            <select class="selectpicker" style="text-align:center;text-align-last:center;" id="year01" name="year" onchange="sel1()">
-                                                <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col-sm-1">
-                                            <input type="submit" class="btn btn-success mr-2" name="submit" value="确定">
-                                        </div>
+                                        <h6 class="card-title" id="hYear" style="font-size: 14px;">此年科室总工日为：${summaryMainVo.departmentYearWorkDay}</h6>
                                     </div>
-
-                                    <div class="form-group row">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
-                                        </div>
-                                    </div>
-
                                     <div class="text-muted mb-1" align="center">员工年工作量汇总</div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
@@ -179,34 +226,20 @@
                                                     <th>序号</th>
                                                     <th>员工姓名</th>
                                                     <th>工日总和</th>
-                                                    <th>总计</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody>
-                                                <c:forEach items="${kits}" var="k" varStatus="s">
-                                                    <tr>
-                                                        <td>${s.index}</td>
-                                                        <td>${k.name}</td>
-                                                        <td>${k.total}</td>
-                                                        <td>${k.total1}</td>
-                                                    </tr>
-                                                </c:forEach>
+                                                <tbody id="tbYear">
+                                                <c:if test="${!empty summaryMainVo.summaryYearList}">
+                                                    <c:forEach var="summary" items="${summaryMainVo.summaryYearList}" varStatus="s">
+                                                        <tr>
+                                                            <td>${s.index}</td>
+                                                            <td>${summary.name}</td>
+                                                            <td>${summary.work_day}</td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </c:if>
                                                 </tbody>
                                             </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="year2" role="tabpanel" aria-labelledby="year2-tab">
-                                    <div class="form-group row">
-                                        <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
-                                        <div class="col-sm-2">
-                                            <select class="selectpicker" style="text-align:center;text-align-last:center;" id="year02" name="year" onchange="sel0()">
-                                                <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                         </div>
                                     </div>
                                 </div>

@@ -99,4 +99,49 @@ public class PersonalSummaryService {
 
         return mainVo;
     }
+
+    public List<Summary> getSummaryList(String year,String month) {
+        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
+        List<Summary> summaryList = null;
+        try {
+            summaryList = personalSummaryDao.getSummaryListByDate(year,month);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return summaryList;
+    }
+
+    public double getDepartmentMonth(String year, String month) {
+        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
+        double departmentMonthDay = 0;
+        try {
+            departmentMonthDay = personalSummaryDao.getDepartmentMonth(year,month);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return departmentMonthDay;
+    }
+
+    public List<Summary> getSummaryYearList(String year) {
+
+        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
+        List<Summary> summaryList = null;
+        try {
+            summaryList = personalSummaryDao.getSummaryListByYear(year);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return summaryList;
+    }
+
+    public double getDepartmentYear(String year) {
+        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
+        double departmentYearDay = 0;
+        try {
+            departmentYearDay = personalSummaryDao.getDepartmentYear(year);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return departmentYearDay;
+    }
 }

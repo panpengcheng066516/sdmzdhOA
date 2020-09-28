@@ -6,6 +6,7 @@ import com.zdh.domain.vo.*;
 import com.zdh.utils.DataSourceUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -195,4 +196,33 @@ public class PersonalSummaryDao {
     }
 
 
+    public double getDepartmentMonth(String year, String month) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select sum(cast(work_day as float)) from Summary where year = ? and month = ?";
+        Object o = runner.query(sql,new ScalarHandler(),year,month);
+        if(o == null){
+            return 0;
+        }else{
+            return (double)o;
+        }
+    }
+
+    public List<Summary> getSummaryListByYear(String year) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select Summary.year,people.name,Summary.username,sum(cast(work_day as float)) as work_day," +
+                "sum(cast(ratio as float)) as ratio " +
+                "from Summary,people where  Summary.username = people.username and Summary.year = ? group by Summary.username,people.name,Summary.year";
+        return runner.query(sql, new BeanListHandler<Summary>(Summary.class),year);
+    }
+
+    public double getDepartmentYear(String year) throws SQLException {
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        String sql = "select sum(cast(work_day as float)) from Summary where year = ?";
+        Object o = runner.query(sql,new ScalarHandler(),year);
+        if(o == null){
+            return 0;
+        }else{
+            return (double)o;
+        }
+    }
 }

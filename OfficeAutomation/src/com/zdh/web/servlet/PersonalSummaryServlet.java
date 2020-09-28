@@ -3,6 +3,7 @@ package com.zdh.web.servlet;
 import com.google.gson.Gson;
 import com.zdh.domain.*;
 import com.zdh.domain.vo.MainVo;
+import com.zdh.domain.vo.SummaryMainVo;
 import com.zdh.service.*;
 import com.zdh.utils.CommonsUtils;
 
@@ -94,6 +95,61 @@ public class PersonalSummaryServlet  extends BaseServlet {
         //转换为json向前台传输数据
         Gson gson = new Gson();
         String json = gson.toJson(mainVo);
+
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().write(json);
+    }
+
+    public void getHistorySummary(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+
+        PersonalSummaryService personalSummaryService = new PersonalSummaryService();
+        //月各人员工作量
+        List<Summary> summaryMonthList = personalSummaryService.getSummaryList(CommonsUtils.getCurrentYear(),CommonsUtils.getCurrentMonth());
+        //月科室总工作量
+        double departmentMonthWorkDay = personalSummaryService.getDepartmentMonth(CommonsUtils.getCurrentYear(),CommonsUtils.getCurrentMonth());
+        //年各人员工作量
+        List<Summary> summaryYearList = personalSummaryService.getSummaryYearList(CommonsUtils.getCurrentYear());
+        //年科室总工作量
+        double departmentYearWorkDay = personalSummaryService.getDepartmentYear(CommonsUtils.getCurrentYear());
+
+        SummaryMainVo summaryMainVo = new SummaryMainVo();
+        summaryMainVo.setDepartmentMonthWorkDay(departmentMonthWorkDay);
+        summaryMainVo.setDepartmentYearWorkDay(departmentYearWorkDay);
+        summaryMainVo.setSummaryMonthList(summaryMonthList);
+        summaryMainVo.setSummaryYearList(summaryYearList);
+        //请求转发
+        request.setAttribute("summaryMainVo",summaryMainVo);
+        request.setAttribute("currentYear",CommonsUtils.getCurrentYear());
+        request.setAttribute("currentMonth",CommonsUtils.getCurrentMonth());
+        request.getRequestDispatcher("/Employee/Overview/overview.jsp").forward(request, response);
+    }
+
+    public void getHistorySummaryByDate(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+
+        String year = request.getParameter("year");
+        String month = request.getParameter("month");
+
+        PersonalSummaryService personalSummaryService = new PersonalSummaryService();
+        //月各人员工作量
+        List<Summary> summaryMonthList = personalSummaryService.getSummaryList(year,month);
+        //月科室总工作量
+        double departmentMonthWorkDay = personalSummaryService.getDepartmentMonth(year,month);
+        //年各人员工作量
+        List<Summary> summaryYearList = personalSummaryService.getSummaryYearList(year);
+        //年科室总工作量
+        double departmentYearWorkDay = personalSummaryService.getDepartmentYear(year);
+
+        SummaryMainVo summaryMainVo = new SummaryMainVo();
+        summaryMainVo.setDepartmentMonthWorkDay(departmentMonthWorkDay);
+        summaryMainVo.setDepartmentYearWorkDay(departmentYearWorkDay);
+        summaryMainVo.setSummaryMonthList(summaryMonthList);
+        summaryMainVo.setSummaryYearList(summaryYearList);
+
+        //转换为json向前台传输数据
+        Gson gson = new Gson();
+        String json = gson.toJson(summaryMainVo);
 
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().write(json);
