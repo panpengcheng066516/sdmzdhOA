@@ -85,12 +85,12 @@
                         <!-- 打印个屁 -->
                         <button type="button" class="btn btn-inverse-warning btn-icon-text mr-2 mb-2 mb-md-0" id="print">
                             <i class="btn-icon-prepend" data-feather="printer"></i>
-                            打印
+                            一个按钮
                         </button>
                         <!-- 下载个屁 -->
                         <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0" id="download">
                             <i class="btn-icon-prepend" data-feather="download-cloud"></i>
-                            下载报告
+                            这是主页
                         </button>
                     </div>
                 </div>
@@ -215,8 +215,8 @@
                                 <br>
                                 <p class="text-muted mb-4"></p>
                                 <%-- assets/js/apexcharts.js --%>
-                                <div class="monthly-sales-chart-wrapper">
-                                    <canvas id="monthly-sales-chart"></canvas>
+                                <div class="flot-wrapper">
+                                    <div id="apexBar"></div>
                                 </div>
                             </div>
                         </div>

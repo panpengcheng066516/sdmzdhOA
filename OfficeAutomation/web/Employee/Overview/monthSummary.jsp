@@ -239,11 +239,12 @@
                                 <div class="col-sm-1" >
                                     <input type="button" id="selButton" class="btn btn-success mr-2" name="submit" value="确定">
                                 </div>
+
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-sm-1">
-                                    <button type="button" class="btn btn-outline-danger mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
+                                    <button type="button" class="btn btn-outline-danger-muted mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                 </div>
                             </div>
 
