@@ -239,8 +239,11 @@
                                 <div class="col-sm-1" >
                                     <input type="button" id="selButton" class="btn btn-success mr-2" name="submit" value="确定">
                                 </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <div class="col-sm-1">
-                                    <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
+                                    <button type="button" class="btn btn-outline-danger mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
                                 </div>
                             </div>
 
@@ -299,9 +302,14 @@
                             <!-- tab选项内容 -->
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="total" role="tabpanel" aria-labelledby="total-tab">
-                                    <div class="form-group row">
-                                        <h6 class="card-title" style="font-size: 14px;color: red;">此表为当月工日总和,不是指定项目的工日之和</h6>
-                                    </div>
+                                    <!-- 你那红字注释那么丑！！！！ -->
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <strong>此表为当月工日总和</strong> ，不是指定项目的工日之和
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
                                     <div class="text-muted mb-1" align="center">本月工日之和</div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
