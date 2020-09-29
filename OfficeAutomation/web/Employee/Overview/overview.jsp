@@ -183,9 +183,11 @@
                             <div class="tab-content mt-3">
                                 <div class="tab-pane fade show active" id="month1" role="tabpanel" aria-labelledby="month1-tab">
 
-                                    <div class="form-group row">
-                                        <h6 class="card-title" id="hMonth" style="font-size: 14px;">此月科室总工日为：${summaryMainVo.departmentMonthWorkDay}</h6>
+                                    <div class="alert alert-icon-primary" role="alert">
+                                        <i data-feather="clipboard"></i>
+                                        本月度科室总工日为：<strong>${summaryMainVo.departmentMonthWorkDay}</strong>
                                     </div>
+
                                     <div class="text-muted mb-1" align="center">历年各月工作量汇总</div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
@@ -214,9 +216,12 @@
                                 </div>
                                 <!-- 别加div。。 -->
                                 <div class="tab-pane fade" id="year1" role="tabpanel" aria-labelledby="year1-tab">
-                                    <div class="form-group row">
-                                        <h6 class="card-title" id="hYear" style="font-size: 14px;">此年科室总工日为：${summaryMainVo.departmentYearWorkDay}</h6>
+
+                                    <div class="alert alert-icon-primary" role="alert">
+                                        <i data-feather="clipboard"></i>
+                                        本年度科室总工日为：<strong>${summaryMainVo.departmentYearWorkDay}</strong>
                                     </div>
+
                                     <div class="text-muted mb-1" align="center">员工年工作量汇总</div>
                                     <div class="form-group row">
                                         <div class="table-responsive pt-3">
