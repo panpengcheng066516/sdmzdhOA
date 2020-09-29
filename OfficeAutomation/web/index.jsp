@@ -126,12 +126,12 @@
                                 <table class="table mb-0" id="table">
                                     <thead>
                                     <tr>
-                                        <th class="pt-0">总工日</th> <!--  -->
-                                        <th class="pt-0">设计</th> <!--  -->
-                                        <th class="pt-0">编程画面</th> <!--  -->
-                                        <th class="pt-0">调试管理</th> <!--  -->
-                                        <th class="pt-0">经营</th> <!--  -->
-                                        <th class="pt-0">日常零星</th> <!--  -->
+                                        <th class="pt-0">Total</th> <!-- 总数 -->
+                                        <th class="pt-0">Designing</th> <!-- 设计 -->
+                                        <th class="pt-0">Programming</th> <!-- 编程画面 -->
+                                        <th class="pt-0">Debugging</th> <!-- 调试 -->
+                                        <th class="pt-0">Managing</th> <!-- 经营 -->
+                                        <th class="pt-0">Others</th> <!-- 日常零星 -->
                                     </tr>
                                     </thead>
                                     <tbody>
