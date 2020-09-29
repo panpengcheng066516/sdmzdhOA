@@ -73,7 +73,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/projectServlet?method=getAllPersonalProject" class="nav-link">个人已参与项目查询</a>
+                            <a href="${ pageContext.request.contextPath }/personalProjectServlet?method=getAllPersonalProject" class="nav-link">个人已参与项目查询</a>
                         </li>
 
                         <li class="nav-item">
@@ -101,11 +101,11 @@
                 <div class="collapse" id="overview">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/personalSummaryServlet?method=getWorkingList" class="nav-link">历史工作量查询</a>
+                            <a href="${ pageContext.request.contextPath }/departmentSummaryServlet?method=getWorkingList" class="nav-link">历史工作量查询</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/personalSummaryServlet?method=getHistorySummary" class="nav-link">工作量统计汇总</a>
+                            <a href="${ pageContext.request.contextPath }/countSummaryServlet?method=getHistorySummary" class="nav-link">工作量统计汇总</a>
                         </li>
                     </ul>
                 </div>

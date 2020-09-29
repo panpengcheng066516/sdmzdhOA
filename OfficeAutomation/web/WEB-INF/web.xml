@@ -31,6 +31,7 @@
         <url-pattern>/Employee/*</url-pattern>
         <url-pattern>/index.jsp</url-pattern>
         <url-pattern>/projectServlet</url-pattern>
+        <url-pattern>/personalProjectServlet</url-pattern>
         <url-pattern>/jiediaoServlet</url-pattern>
         <url-pattern>/designWorkingServlet</url-pattern>
         <url-pattern>/programingPictureWorkingServlet</url-pattern>
@@ -38,6 +39,8 @@
         <url-pattern>/manageWorkingServlet</url-pattern>
         <url-pattern>/dailyWorkingServlet</url-pattern>
         <url-pattern>/personalSummaryServlet</url-pattern>
+        <url-pattern>/countSummaryServlet</url-pattern>
+        <url-pattern>/departmentSummaryServlet</url-pattern>
     </filter-mapping>
 
     <filter>
@@ -77,6 +80,16 @@
     <servlet-mapping>
         <servlet-name>ProjectServlet</servlet-name>
         <url-pattern>/projectServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>PersonalProjectServlet</display-name>
+        <servlet-name>PersonalProjectServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.PersonalProjectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PersonalProjectServlet</servlet-name>
+        <url-pattern>/personalProjectServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -146,6 +159,25 @@
     <servlet-mapping>
         <servlet-name>PersonalSummaryServlet</servlet-name>
         <url-pattern>/personalSummaryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <display-name>DepartmentSummaryServlet</display-name>
+        <servlet-name>DepartmentSummaryServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.DepartmentSummaryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DepartmentSummaryServlet</servlet-name>
+        <url-pattern>/departmentSummaryServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>CountSummaryServlet</display-name>
+        <servlet-name>CountSummaryServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.CountSummaryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CountSummaryServlet</servlet-name>
+        <url-pattern>/countSummaryServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -55,7 +55,7 @@
                 $("#progressSelect").change(function () {
                     var p1=$(this).children('option:selected').val();
                     if(p1=="全部"){
-                        var p2 = "${pageContext.request.contextPath}/projectServlet?method=getAllPersonalProject";
+                        var p2 = "${pageContext.request.contextPath}/personalProjectServlet?method=getAllPersonalProject";
                         $(location).attr('href',p2);
                     }else{
                         var p2 = "${pageContext.request.contextPath}/projectServlet?method=getPersonalProjectByProgress";

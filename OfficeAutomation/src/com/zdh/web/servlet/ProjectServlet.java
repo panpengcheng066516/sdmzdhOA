@@ -31,19 +31,7 @@ public class ProjectServlet extends BaseServlet {
         request.getRequestDispatcher("/Employee/Overview/projectOverview.jsp").forward(request, response);
     }
 
-    //前往个人项目查询页面
-    public void getAllPersonalProject(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
-        //得到userId
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        String userName = user.getUsername();
-        //通过Userid获得projectList
-        ProjectService projectService = new ProjectService();
-        List<Project> list = projectService.getProjectListByUser(userName);
-        request.setAttribute("projectList",list);
-        request.getRequestDispatcher("/Employee/Overview/personalProjectOverview.jsp").forward(request, response);
-    }
+
 
 
 
@@ -61,9 +49,9 @@ public class ProjectServlet extends BaseServlet {
 
         PrintWriter out = response.getWriter();
         if(r>0){
-            out.print("<script>alert('退出项目成功！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllPersonalProject';</script>");
+            out.print("<script>alert('退出项目成功！');window.location='"+request.getContextPath()+"/personalProjectServlet?method=getAllPersonalProject';</script>");
         }else{
-            out.print("<script>alert('退出项目失败！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllPersonalProject';</script>");
+            out.print("<script>alert('退出项目失败！');window.location='"+request.getContextPath()+"/personalProjectServlet?method=getAllPersonalProject';</script>");
         }
 
     }
@@ -83,7 +71,7 @@ public class ProjectServlet extends BaseServlet {
 
         PrintWriter out = response.getWriter();
         if(b>0){
-            out.print("<script>alert('不能重复加入项目！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllPersonalProject';</script>");
+            out.print("<script>alert('不能重复加入项目！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
         }else{
             r = projectService.joinProject(userName,projectid);
             if(r>0){

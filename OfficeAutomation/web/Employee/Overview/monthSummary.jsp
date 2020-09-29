@@ -101,7 +101,7 @@
                                 "<th>" + data.designVoList[i].basicDesignDay + "</th>" +
                                 "<th>" + data.designVoList[i].leader + "</th>" +
                                 "<th>" + data.designVoList[i].remark + "</th>" +
-                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' ${user.power==2?'':'disabled'} class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -119,7 +119,7 @@
                                 "<th>" + data.programingVoList[i].programingDay + "</th>" +
                                 "<th>" + data.programingVoList[i].monthday + "</th>" +
                                 "<th>" + data.programingVoList[i].remark + "</th>" +
-                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='disabled' ${user.power==2?'':'disabled'} class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -135,7 +135,7 @@
                                 "<th>" + data.debugVoList[i].manageday + "</th>" +
                                 "<th>" + data.debugVoList[i].debugday + "</th>" +
                                 "<th>" + data.debugVoList[i].remark + "</th>" +
-                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' ${user.power==2?'':'disabled'} class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -158,7 +158,7 @@
                                 "<th>" + data.manageVoList[i].other + "</th>" +
                                 "<th>" + data.manageVoList[i].PMday + "</th>" +
                                 "<th>" + data.manageVoList[i].remark + "</th>" +
-                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' ${user.power==2?'':'disabled'} class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -172,7 +172,7 @@
                                 "<th>" + data.dailyVoList[i].type + "</th>" +
                                 "<th>" + data.dailyVoList[i].monthDay + "</th>" +
                                 "<th>" + data.dailyVoList[i].remark + "</th>" +
-                                "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' ${user.power==2?'':'disabled'} class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -370,7 +370,7 @@
                                                             <td>${design.remark}</td>
                                                             <td>
                                                                 <a href="${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid=${design.id}">
-                                                                    <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                    <button type="button" ${user.power==2?'':'disabled'} class="btn btn-outline-info btn-sm">修改</button>
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -417,7 +417,7 @@
                                                         <td>${programing.remark}</td>
                                                         <td>
                                                             <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
-                                                                <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                <button type="button" ${user.power==2?'':'disabled'} class="btn btn-outline-info btn-sm">修改</button>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -460,7 +460,7 @@
                                                         <td>${debug.remark}</td>
                                                         <td>
                                                             <a href="${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid=${debug.id}">
-                                                                <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                <button type="button" ${user.power==2?'':'disabled'} class="btn btn-outline-info btn-sm">修改</button>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -517,7 +517,7 @@
                                                         <td>${manage.remark}</td>
                                                         <td>
                                                             <a href="${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid=${manage.id}">
-                                                                <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                <button type="button" ${user.power==2?'':'disabled'} class="btn btn-outline-info btn-sm">修改</button>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -554,7 +554,7 @@
                                                         <td>${daily.remark}</td>
                                                         <td>
                                                             <a href="${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid=${daily.id}">
-                                                                <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                <button type="button" ${user.power==2?'':'disabled'} class="btn btn-outline-info btn-sm">修改</button>
                                                             </a>
                                                         </td>
                                                     </tr>
