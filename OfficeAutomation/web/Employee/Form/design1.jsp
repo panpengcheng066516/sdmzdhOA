@@ -119,16 +119,16 @@
 
                                 <!-- type对应数据库worktype里的type项目下的阶段类型 -->
                                 <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
-                                    <div class="col-sm-4">
-                                        <select class="selectpicker" name="type" id="type">
-                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
-                                            <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>
-                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>
-                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
-                                        </select>
-                                    </div>
+<%--                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>--%>
+<%--                                    <div class="col-sm-4">--%>
+<%--                                        <select class="selectpicker" name="type" id="type">--%>
+<%--                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>--%>
+<%--                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>--%>
+<%--                                            <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>--%>
+<%--                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>--%>
+<%--                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>--%>
+<%--                                        </select>--%>
+<%--                                    </div>--%>
                                     <div class="col-sm-4">
                                         <input type="text" hidden class="form-control" name="id" id="id"  value="${design.id}">
                                     </div>

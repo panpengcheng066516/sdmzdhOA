@@ -68,7 +68,7 @@
                 </a>
                 <div class="collapse" id="projectCheck">
                     <ul class="nav sub-menu">
-                        <li class="nav-item">
+                        <li class="nav-item" ${user.power==2?"":"hidden"}>
                             <a href="${ pageContext.request.contextPath }/Employee/Form/project.jsp" class="nav-link">科室项目录入</a>
                         </li>
 

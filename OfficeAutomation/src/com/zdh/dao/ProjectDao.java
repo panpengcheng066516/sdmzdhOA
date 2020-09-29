@@ -28,10 +28,10 @@ public class ProjectDao {
     //添加项目
     public int addProject(Project project) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-        String sql = "insert into project (id,projectName,projectNo,deadline,finish,progress,manager,designer,reviewer,office,CE,remarks) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into project (id,projectName,projectNo,deadline,finish,progress,manager,designer,reviewer,office,CE,remarks,stage) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         return runner.update(sql,project.getId(),project.getProjectName(),project.getProjectNo(),project.getDeadline(),project.getFinish(),
                 project.getProgress(),project.getManager(),project.getDesigner(),project.getReviewer(),project.getOffice(),project.getCe(),
-                project.getRemarks());
+                project.getRemarks(),project.getStage());
     }
 
     //通过状态获取项目表
@@ -50,10 +50,10 @@ public class ProjectDao {
     //更新项目
     public int updateProject(Project project) throws SQLException {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-        String sql = "update project set projectName=?,projectNo=?,deadline=?,finish=?,progress=?,manager=?,designer=?,reviewer=?,office=?,CE=?,remarks=? where id = ?";
+        String sql = "update project set projectName=?,projectNo=?,deadline=?,finish=?,progress=?,manager=?,designer=?,reviewer=?,office=?,CE=?,remarks=?,stage=? where id = ?";
         return runner.update(sql,project.getProjectName(),project.getProjectNo(),project.getDeadline(),project.getFinish(),
                 project.getProgress(),project.getManager(),project.getDesigner(),project.getReviewer(),project.getOffice(),project.getCe(),
-                project.getRemarks(),project.getId());
+                project.getRemarks(),project.getStage(),project.getId());
     }
 
     public int joinProject(String userName, String projectid) throws SQLException {

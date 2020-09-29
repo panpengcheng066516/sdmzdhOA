@@ -74,6 +74,7 @@
                                         "<th>" + data[i].reviewer + "</th>" +
                                         "<th>" + data[i].office + "</th>" +
                                         "<th>" + data[i].ce + "</th>" +
+                                        "<th>" + data[i].stage + "</th>" +
                                         "<th>" + data[i].remarks + "</th>" +
                                         "<td><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid="+data[i].id+"'><button type='button'  ${user.power==2?'':'hidden'}  class='btn btn-outline-info btn-sm' >修改</button></a>" +
                                         "<a href='${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid="+data[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >加入</button></a></td>" +
@@ -155,7 +156,7 @@
                                                 <th>审核</th>
                                                 <th>室审</th>
                                                 <th>总师</th>
-                                            <%--<th>高阶段分类</th>--%>
+                                                <th>高阶段</th>
                                                 <th>备注</th>
                                                 <th>操作</th>
                                             </tr>
@@ -174,6 +175,7 @@
                                                         <th>${project.reviewer}</th>
                                                         <th>${project.office}</th>
                                                         <th>${project.ce}</th>
+                                                        <th>${project.stage}</th>
                                                         <th>${project.remarks}</th>
                                                         <td>
                                                             <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">

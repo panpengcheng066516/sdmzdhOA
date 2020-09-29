@@ -120,6 +120,16 @@
                                             <option value="取消" style="text-align: center; text-align-last: center;" ${project.progress == '取消'?"selected":""}>取消</option>
                                         </select>
                                     </div>
+                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
+                                    <div class="col-sm-4">
+                                        <select class="selectpicker" name="stage" id="stage">
+                                            <option value="施工图" ${project.stage == '施工图'?"selected":""} style="text-align: center; text-align-last: center;">施工图</option>
+                                            <option value="方案设计" ${project.stage == '方案设计'?"selected":""} style="text-align: center; text-align-last: center;">方案设计</option>
+                                            <option value="经营投标" ${project.stage == '经营投标'?"selected":""} style="text-align: center; text-align-last: center;">经营投标</option>
+                                            <option value="可研" ${project.stage == '可研'?"selected":""} style="text-align: center; text-align-last: center;">可研</option>
+                                            <option value="初步设计" ${project.stage == '初步设计'?"selected":""} style="text-align: center; text-align-last: center;">初步设计</option>
+                                        </select>
+                                    </div>
                                     <div class="col-sm-4">
                                         <input type="text" hidden class="form-control" name="id" id="id" placeholder="工程号" value="${project.id}">
                                     </div>

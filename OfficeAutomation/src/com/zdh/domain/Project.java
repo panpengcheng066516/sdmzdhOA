@@ -15,6 +15,15 @@ public class Project {
     private String office;
     private String ce;
     private String remarks;
+    private String stage;
+
+    public String getStage() {
+        return stage;
+    }
+
+    public void setStage(String stage) {
+        this.stage = stage;
+    }
 
     public String getRemarks() {
         return remarks;

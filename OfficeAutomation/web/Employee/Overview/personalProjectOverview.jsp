@@ -74,6 +74,7 @@
                                         "<th>" + data[i].reviewer + "</th>" +
                                         "<th>" + data[i].office + "</th>" +
                                         "<th>" + data[i].ce + "</th>" +
+                                        "<th>" + data[i].stage + "</th>" +
                                         "<th>" + data[i].remarks + "</th>" +
                                         "<td><a href='${pageContext.request.contextPath}/projectServlet?method=quitProject&projectid="+data[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >退出</button></a></td>" +
                                         "</tr>";
@@ -154,7 +155,7 @@
                                                 <th>审核</th>
                                                 <th>室审</th>
                                                 <th>总师</th>
-                                            <%--<th>高阶段分类</th>--%>
+                                                <th>高阶段</th>
                                                 <th>备注</th>
                                                 <th>操作</th>
                                             </tr>
@@ -173,6 +174,7 @@
                                                         <th>${project.reviewer}</th>
                                                         <th>${project.office}</th>
                                                         <th>${project.ce}</th>
+                                                        <th>${project.stage}</th>
                                                         <th>${project.remarks}</th>
                                                         <td>
                                                             <a href="${pageContext.request.contextPath}/projectServlet?method=quitProject&projectid=${project.id}">
