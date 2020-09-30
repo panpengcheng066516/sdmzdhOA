@@ -46,16 +46,7 @@
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
     <style type="text/css">
-        .table>thead>tr>th {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
-        .table>tbody>tr>td {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
+
     </style>
 </head>
 <body>
@@ -128,36 +119,30 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-baseline mb-2">
-                                <h6 class="card-title mb-0">最新项目</h6>
+                                <h6 class="card-title mb-0">本月各类型工作量</h6> <!--  -->
                             </div>
                             <br>
                             <div class="table-responsive">
-                                <table class="table table-borderless mb-0" id="table">
+                                <table class="table mb-0" id="table">
                                     <thead>
                                     <tr>
-                                        <th class="pt-0">#</th> <!-- 序号1，2，3，4，。。。 -->
-                                        <th class="pt-0">Project Name</th> <!-- 项目名 -->
-                                        <th class="pt-0">Deadline</th> <!-- 计划完成时间 -->
-                                        <th class="pt-0">Actual Due Date</th> <!-- 实际时间 -->
-                                        <th class="pt-0">Status</th> <!-- 状态 -->
-                                        <th class="pt-0">Assign</th> <!-- 设计人 -->
+                                        <th class="pt-0">Total</th> <!-- 总数 -->
+                                        <th class="pt-0">Designing</th> <!-- 设计 -->
+                                        <th class="pt-0">Programming</th> <!-- 编程画面 -->
+                                        <th class="pt-0">Debugging</th> <!-- 调试 -->
+                                        <th class="pt-0">Managing</th> <!-- 经营 -->
+                                        <th class="pt-0">Others</th> <!-- 日常零星 -->
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <!-- 显示项目前六个？ -->
-                                    <c:if test="${!empty projectList}">
-                                        <c:forEach var="project" items="${projectList}" varStatus="s">
-                                            <tr>
-                                                <td>${s.index}</td>
-                                                <th>${project.projectName}</th>
-                                                <th>${project.deadline}</th>
-                                                <th>${project.finish}</th>
-                                                <th>${project.progress}</th>
-                                                <th>${project.designer}</th>
-                                            </tr>
-                                        </c:forEach>
-                                    </c:if>
-                                    <!-- 显示前六个 -->
+                                        <tr>
+                                            <td>998</td>
+                                            <th>226.4</th>
+                                            <th>245.6</th>
+                                            <th>158</th>
+                                            <th>314</th>
+                                            <th>54</th>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -192,7 +177,7 @@
                                     <!-- assets/js/apexcharts.js。。。 -->
                                     <div class="col-md-5 d-flex justify-content-md-end">
                                         <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-outline-danger">Year</button>
+                                            <button type="button" class="btn btn-outline-warning">Year</button>
                                         </div>
                                     </div>
                                 </div>
