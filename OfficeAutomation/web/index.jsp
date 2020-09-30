@@ -45,9 +45,7 @@
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog.css">
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
-    <style type="text/css">
-
-    </style>
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
 </head>
 <body>
 <div class="main-wrapper">
