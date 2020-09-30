@@ -41,6 +41,7 @@
         <url-pattern>/personalSummaryServlet</url-pattern>
         <url-pattern>/countSummaryServlet</url-pattern>
         <url-pattern>/departmentSummaryServlet</url-pattern>
+        <url-pattern>/exportMonthSummaryServlet</url-pattern>
     </filter-mapping>
 
     <filter>
@@ -178,6 +179,16 @@
     <servlet-mapping>
         <servlet-name>CountSummaryServlet</servlet-name>
         <url-pattern>/countSummaryServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>ExportMonthSummaryServlet</display-name>
+        <servlet-name>ExportMonthSummaryServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ExportMonthSummaryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExportMonthSummaryServlet</servlet-name>
+        <url-pattern>/exportMonthSummaryServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>

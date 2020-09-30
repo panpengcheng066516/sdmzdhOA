@@ -102,9 +102,8 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">项目名称</label>
                                     <div class="col-sm-6">
-                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true">
+                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="ture" >
                                             <c:if test="${!empty projectList}">
-                                                <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>
                                                 <c:forEach var="project" items="${projectList}">
                                                     <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;">${project.projectName}</option>
                                                 </c:forEach>
@@ -138,7 +137,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">项目地点</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="site" id="site" placeholder="项目地点">
+                                        <input type="text" class="form-control" name="site" id="site" placeholder="项目地点" required="ture">
                                     </div>
                                 </div>
 

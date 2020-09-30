@@ -60,6 +60,15 @@
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
         $(function(){
+            $("#expButton").click(function () {
+                var year=$("#selYear").children('option:selected').val();
+                var month=$("#selMonth").children('option:selected').val();
+                var projectid=$("#selProject").children('option:selected').val();
+                var url = "${pageContext.request.contextPath}/exportMonthSummaryServlet?method=exportMonthSummary";
+
+                window.location.href=url+"&year="+year+"&month="+month+"&projectid="+projectid;
+            });
+
             // 选项框
             $("#selButton").click(function () {
                 var year=$("#selYear").children('option:selected').val();
@@ -244,7 +253,7 @@
 
                             <div class="form-group row">
                                 <div class="col-sm-1">
-                                    <button type="button" class="btn btn-outline-danger-muted mr-2 mb-2 mb-md-0" onclick="exportExcel()">导出</button>
+                                    <button type="button" id="expButton" class="btn btn-outline-danger-muted mr-2 mb-2 mb-md-0" >导出</button>
                                 </div>
                             </div>
 
@@ -598,11 +607,4 @@
 <!-- 弹出气泡 -->
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
-<script type="text/javascript">
-
-    function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/login.jsp";
-    }
-
-</script>
 </html>
