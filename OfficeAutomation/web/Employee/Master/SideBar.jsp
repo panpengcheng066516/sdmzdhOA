@@ -26,7 +26,7 @@
 
             <li class="nav-item nav-category">Home</li>
             <li class="nav-item"><a href="${ pageContext.request.contextPath }/index.jsp" class="nav-link">
-                <i class="link-icon" data-feather="chevrons-right"></i> <span class="link-title">Dashboard</span>
+                <i class="link-icon" data-feather="star"></i> <span class="link-title">Main Page</span>
             </a></li>
 
             <li class="nav-item nav-category">功能</li>
@@ -110,6 +110,11 @@
                     </ul>
                 </div>
             </li>
+
+            <li class="nav-item nav-category">Charts</li>
+            <li class="nav-item"><a href="${ pageContext.request.contextPath }/chart.jsp" class="nav-link">
+                <i class="link-icon" data-feather="chevrons-right"></i> <span class="link-title">Dashboard</span>
+            </a></li>
 
             <script type="text/javascript">
                 function ShuaXin() {
