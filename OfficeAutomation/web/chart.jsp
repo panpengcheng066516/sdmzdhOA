@@ -81,7 +81,7 @@
                         <!-- 下载个屁 -->
                         <button type="button" class="btn btn-outline-warning btn-icon-text mb-2 mb-md-0" id="download">
                             <i class="btn-icon-prepend" data-feather="download-cloud"></i>
-                            两个按钮
+                            另一个按钮
                         </button>
                     </div>
                 </div>
