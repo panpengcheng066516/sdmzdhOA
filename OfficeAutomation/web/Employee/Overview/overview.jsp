@@ -156,7 +156,7 @@
                                 </div>
 
                                 <div class="col-sm-1">
-                                    <input type="button" id="selButton" class="btn btn-success mr-2" name="submit" value="确定">
+                                    <input type="button" id="selButton" class="btn btn-inverse-success mr-2" name="submit" value="确定">
                                 </div>
                             </div>
 

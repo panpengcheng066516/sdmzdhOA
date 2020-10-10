@@ -221,7 +221,7 @@
                                 </div>
 
                                 <div class="col-sm-1">
-                                    <input type="button" class="btn btn-success mr-2" id="selButton" value="确定">
+                                    <input type="button" class="btn btn-inverse-danger-muted mr-2" id="selButton" value="确定">
                                 </div>
                             </div>
 

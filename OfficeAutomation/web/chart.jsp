@@ -45,7 +45,9 @@
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog.css">
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
-    <style type="text/css">
+    <script src="echarts.min.js"></script>
+    <style type="text/javascript">
+
 
     </style>
 </head>
@@ -65,7 +67,7 @@
             <div class="alert alert-danger" role="alert">
                 <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
                     <div>
-                        <h4 class="mb-3 mb-md-0">Welcome to Dashboard. <i class="mb-1 text-primary ml-1 icon-small" data-feather="moon"></i></h4>
+                        <h4 class="mb-3 mb-md-0">Welcome to Dashboard. </h4>
                     </div>
                     <div class="d-flex align-items-center flex-wrap text-nowrap">
                         <!-- 就是个日历 -->
@@ -73,16 +75,22 @@
                             <span class="input-group-addon bg-transparent"><i data-feather="calendar" class=" text-primary"></i></span>
                             <input type="text" class="form-control">
                         </div>
-                        <!-- 打印个屁 -->
-                        <button type="button" class="btn btn-inverse-warning btn-icon-text mr-2 mb-2 mb-md-0" id="print">
-                            <i class="btn-icon-prepend" data-feather="printer"></i>
-                            一个按钮
-                        </button>
-                        <!-- 下载个屁 -->
-                        <button type="button" class="btn btn-outline-warning btn-icon-text mb-2 mb-md-0" id="download">
-                            <i class="btn-icon-prepend" data-feather="download-cloud"></i>
-                            另一个按钮
-                        </button>
+                        <!-- mr-2 mb-2 mb-md-0 -->
+                        <div class="example">
+                            <a tabindex="0" class="btn btn-danger btn-icon-text mr-2 mb-2 mb-md-0" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="点我有彩蛋">
+                                <i class="btn-icon-prepend" data-feather="thumbs-up"></i>
+                                一个按钮
+                            </a>
+                        </div>
+                        <!-- 下载屁 -->
+                        <div class="example">
+                            <a tabindex="0" class="btn btn-inverse-warning btn-icon-text mb-2 mb-md-0" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" title="Special thanks to" data-content="小泮，小付！！！">
+                                <i class="btn-icon-prepend" data-feather="sun"></i>
+                                另一个按钮
+                            </a>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -93,10 +101,10 @@
                 <div class="col-lg-5 col-xl-4 grid-margin grid-margin-xl-0 stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-baseline">
-                                <h6 class="card-title mb-0">各月项目数</h6>
+                            <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                <h6 class="card-title mb-0">各类型比重</h6>
                             </div>
-                            <br>
+
                             <div class="row">
                                 <div class="col-6 col-md-12 col-xl-5">
                                     <h3 class="mb-2"></h3>
@@ -107,9 +115,9 @@
                                         </p>
                                     </div>
                                 </div>
-                                <!-- 这个就做假的吧 -->
+
                                 <div class="col-6 col-md-12 col-xl-7">
-                                    <div id="apexChart2" class="mt-md-3 mt-xl-0"></div>
+                                    <div id="pie" class="mt-md-3 mt-xl-0"></div>
                                 </div>
                             </div>
                         </div>
@@ -119,32 +127,22 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-baseline mb-2">
-                                <h6 class="card-title mb-0">本月各类型工作量</h6> <!--  -->
+                                <h6 class="card-title mb-0">本月各类型工作量</h6>
                             </div>
-                            <br>
-                            <div class="table-responsive">
-                                <table class="table mb-0" id="table">
-                                    <thead>
-                                    <tr>
-                                        <th class="pt-0">Total</th> <!-- 总数 -->
-                                        <th class="pt-0">Designing</th> <!-- 设计 -->
-                                        <th class="pt-0">Programming</th> <!-- 编程画面 -->
-                                        <th class="pt-0">Debugging</th> <!-- 调试 -->
-                                        <th class="pt-0">Managing</th> <!-- 经营 -->
-                                        <th class="pt-0">Others</th> <!-- 日常零星 -->
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>998</td>
-                                        <th>226.4</th>
-                                        <th>245.6</th>
-                                        <th>158</th>
-                                        <th>314</th>
-                                        <th>54</th>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                            <div class="row">
+                                <div class="col-6 col-md-12 col-xl-5">
+                                    <h3 class="mb-2"></h3>
+                                    <div class="d-flex align-items-baseline">
+                                        <p class="text-success">
+                                            <span></span>
+                                            <i data-feather="compass" class="icon-sm mb-1"></i>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-md-12 col-xl-7">
+                                    <div id="bar" class="mt-md-3 mt-xl-0"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -152,15 +150,6 @@
             </div>
 
             <br> <!-- row -->
-
-            <div class="row">
-                <div class="col-12 col-xl-12 stretch-card">
-                    <div class="row flex-grow">
-                        <!-- 几个charts -->
-                    </div>
-                </div>
-            </div>
-
             <!--  -->
 
             <div class="row">
@@ -168,51 +157,23 @@
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
-                                <h6 class="card-title mb-0">本年度每月总工作量</h6>
+                                <h6 class="card-title mb-0">年度每月总工作量</h6>
                             </div>
                             <div class="row align-items-start mb-2">
                                 <div class="col-md-7">
                                     <p class="text-muted tx-13 mb-3 mb-md-0"></p>
                                 </div>
-                                <!-- assets/js/apexcharts.js。。。 -->
+
                                 <div class="col-md-5 d-flex justify-content-md-end">
                                     <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-outline-warning">Year</button>
+                                        <h5><span class="badge badge-pill badge-primary">&nbsp; Current Year &nbsp;</span></h5>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="flot-wrapper">
-                                <div id="apexLine"></div>
+                                <div id="line"></div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- row -->
-            <div class="row">
-                <div class="col-lg-7 col-xl-8 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-baseline mb-2">
-                                <h6 class="card-title mb-0">本月各类型工作量</h6>
-                            </div>
-                            <br>
-                            <p class="text-muted mb-4"></p>
-                            <%-- assets/js/apexcharts.js --%>
-                            <div class="flot-wrapper">
-                                <div id="apexBar"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-5 col-xl-4 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <%-- assets/js/apexcharts.js --%>
-                            <h6 class="card-title">各类型比重</h6>
-                            <div id="apexDonut"></div>
                         </div>
                     </div>
                 </div>
@@ -227,11 +188,8 @@
 </body>
 <script src="<%=basePath%>assets/vendors/select2/select2.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/chartjs/Chart.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/apexcharts/apexcharts.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/progressbar.js/progressbar.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/template.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
@@ -240,7 +198,6 @@
 <script src="<%=basePath%>js/htmlFile/linkman.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/dashboard.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/datepicker.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/js/apexcharts.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js" type="text/javascript"></script>
 <!-- 弹出气泡 -->
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
