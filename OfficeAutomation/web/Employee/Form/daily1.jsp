@@ -88,7 +88,7 @@
 
                                 <h6 class="card-title" style="font-size: 14px;">修改</h6>
 
-                                <h6 class="card-title" style="font-size: 14px;color: red;">如有多项内容，请重复填写。</h6>
+                                <h6 class="card-title" style="font-size: 14px;color: red;">如有多项内容，请多次填写。</h6>
 <%--                                <div class="form-group row">--%>
 <%--                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择对应工作</label>--%>
 <%--                                    <div class="col-sm-5">--%>

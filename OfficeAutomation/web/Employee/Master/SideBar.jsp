@@ -18,7 +18,7 @@
     </div>
     <div class="sidebar-body">
         <ul class="nav">
-            <li class="nav-item nav-category">刷新</li>
+            <li class="nav-item nav-category">Refresh</li>
             <li class="nav-item">
                 <a href="javascript:void(0);" class="nav-link" onclick="ShuaXin()"> <i class="link-icon" data-feather="activity"></i> <span class="link-title">刷新本页</span>
                 </a>
@@ -26,13 +26,13 @@
 
             <li class="nav-item nav-category">Home</li>
             <li class="nav-item"><a href="${ pageContext.request.contextPath }/index.jsp" class="nav-link">
-                <i class="link-icon" data-feather="star"></i> <span class="link-title">Main Page</span>
+                <i class="link-icon" data-feather="star"></i> <span class="link-title">Dashboard</span>
             </a></li>
 
-            <li class="nav-item nav-category">功能</li>
+            <li class="nav-item nav-category">Web Apps</li>
 
             <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#workloadInput" role="button" aria-expanded="false" aria-controls="workloadInput"> <i class="link-icon" data-feather="upload-cloud"></i> <span class="link-title">工作量填写</span> <i class="link-arrow" data-feather="chevron-down"></i>
+                <a class="nav-link" data-toggle="collapse" href="#workloadInput" role="button" aria-expanded="false" aria-controls="workloadInput"> <i class="link-icon" data-feather="chevrons-right"></i> <span class="link-title">工作量填写</span> <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="workloadInput">
                     <ul class="nav sub-menu">
@@ -83,6 +83,8 @@
                 </div>
             </li>
 
+            <li class="nav-item nav-category">Inspect</li>
+
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#personalCheck" role="button" aria-expanded="false" aria-controls="personalCheck"> <i class="link-icon" data-feather="trello"></i> <span class="link-title">个人工作量查询</span> <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
@@ -110,11 +112,6 @@
                     </ul>
                 </div>
             </li>
-
-            <li class="nav-item nav-category">Charts</li>
-            <li class="nav-item"><a href="${ pageContext.request.contextPath }/chart.jsp" class="nav-link">
-                <i class="link-icon" data-feather="chevrons-right"></i> <span class="link-title">Dashboard</span>
-            </a></li>
 
             <script type="text/javascript">
                 function ShuaXin() {

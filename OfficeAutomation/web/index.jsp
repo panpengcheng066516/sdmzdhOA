@@ -47,10 +47,11 @@
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/normalize.css" />
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog.css">
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
-
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript">
 
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -64,136 +65,74 @@
 
         <!-- partial -->
         <div class="page-content">
-
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.jsp">Welcome page</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Content</li>
                 </ol>
             </nav>
-
             <div class="col-md-12">
-            <div class="alert alert-warning" role="alert">
-                <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
-                    <div>
-                        <h4 class="mb-3 mb-md-0">Hi again, ${ sessionScope.user.name } <i class="mb-1 text-primary ml-1 icon-small" data-feather="smile"></i></h4>
-                    </div>
-                    <div class="d-flex align-items-center flex-wrap text-nowrap">
-                        <!--   -->
-                        <div class="input-group date datepicker dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex" id="dashboardDate">
-                            <span class="input-group-addon bg-transparent"><i data-feather="calendar" class="text-primary"></i></span>
-                            <input type="text" class="form-control">
+                <div class="alert alert-danger-muted" role="alert">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+                        <div>
+                            <h4 class="mb-3 mb-md-0">Hi again, ${ sessionScope.user.name } <i class="mb-1 text-primary ml-1 icon-small" data-feather="smile"></i></h4>
+                            <br><h4 class="mb-3 mb-md-0">Welcome to Dashboard.</h4>
                         </div>
-                        <!--   -->
-                        <button type="button" class="btn btn-outline-dribbble btn-icon-text mr-2 mb-2 mb-md-0" id="print">
-                            <i class="btn-icon-prepend" data-feather="download-cloud"></i>
-                            这是主页
-                        </button>
+                        <div class="d-flex align-items-center flex-wrap text-nowrap">
+                            <!--  dashboardDate -->
+                            <div class="input-group date datepicker dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex" id="dashboardDate">
+                                <span class="input-group-addon bg-transparent"><i data-feather="calendar" class="text-primary"></i></span>
+                                <input type="text" class="form-control" disabled>
+                            </div>
+                            <div class="example">
+                                <a tabindex="0" class="btn btn-inverse-warning btn-icon-text mb-2 mb-md-0" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" title="Specially thanks to" data-content="小泮，小付！！！">
+                                    <i class="btn-icon-prepend" data-feather="sun"></i>
+                                    主页
+                                </a>
+                            </div>
+                        </div>
                     </div>
+                    <hr>
+                    <p class="mb-0">欢迎页，点击左侧标签卡选择类型填写工作量<br><i class="btn-icon-prepend" data-feather="arrow-left"></i></p>
                 </div>
-                <hr>
-
-                <p class="mb-0">欢迎页，点击左侧标签卡选择类型填写工作量<br><i class="btn-icon-prepend" data-feather="arrow-left"></i></p>
-
-            </div>
             </div>
 
             <hr width="400">
             <!-- partial -->
-            <div class="card">
-                <div class="card-body">
-                    <div class="container-fluid d-flex justify-content-between">
-                        <div class="col-lg-3 pl-0">
-                            <div class="noble-ui-logo d-block mt-3">SDM<span>ZDH</span></div>
-                            <h4 class="mt-5 mb-2 text-muted">本月汇总</h4>
-                        </div>
-
-                        <div class="col-lg-3 pr-0">
-                            <h4 class="font-weight-medium text-uppercase text-right mt-4 mb-2"> </h4>
-                            <h6 class="text-right mb-5 pb-4"> </h6>
-                            <h6 class="mb-0 mt-3 text-right font-weight-normal mb-2"><i class="btn-icon-prepend" data-feather="paperclip"></i>&nbsp; <span class="text-muted">Overview</span></h6>
-                        </div>
-                    </div>
-                    <div class="container-fluid mt-5 d-flex justify-content-center w-100">
-                        <div class="table-responsive w-100">
-                            <table class="table table-bordered" id="table1">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Description</th>
-                                    <th class="text-right">Quantity</th>
-                                    <th class="text-right">Percentage</th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                <tr class="text-right">
-                                    <td class="text-left">1</td>
-                                    <td class="text-left">设计</td>
-                                    <td> </td>
-                                    <td> </td>
-                                </tr>
-
-                                <tr class="text-right">
-                                    <td class="text-left">2</td>
-                                    <td class="text-left">编程/画面</td>
-                                    <td> </td>
-                                    <td> </td>
-                                </tr>
-
-                                <tr class="text-right">
-                                    <td class="text-left">3</td>
-                                    <td class="text-left">调试/管理</td>
-                                    <td> </td>
-                                    <td> </td>
-                                </tr>
-
-                                <tr class="text-right">
-                                    <td class="text-left">4</td>
-                                    <td class="text-left">经营</td>
-                                    <td> </td>
-                                    <td> </td>
-                                </tr>
-
-                                <tr class="text-right">
-                                    <td class="text-left">5</td>
-                                    <td class="text-left">其他</td>
-                                    <td> </td>
-                                    <td> </td>
-                                </tr>
-                                </tbody>
-
-                            </table>
-                        </div>
-                    </div>
-                    <div class="container-fluid mt-5 w-100">
-                        <div class="row">
-                            <div class="col-md-6 ml-auto">
-                                <div class="table-responsive">
-                                    <table class="table" id="table2">
-                                        <tbody>
-                                        <tr>
-                                            <td>Current Month Total</td>
-                                            <td class="text-right"> </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Annual Total</td>
-                                            <td class="text-right"> </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+            <div class="row">
+                <div class="col-md-6 grid-margin stretch-card">
+                    <!-- <div class="col-lg-3 col-xl-5 stretch-card"> -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
+                                    <div class="noble-ui-logo d-block mt-3"><span>本月各类型数据比例</span></div>
+                                </div>
+                                <span></span>
+                                <div class="flot-wrapper">
+                                    <div id="pie" class="chart-pie" > </div><!-- style="width:100%; height:100%" -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="container-fluid w-100">
-                        <a href="index.jsp" class="btn btn-inverse-success float-right mt-4 ml-2"><i data-feather="send" class="mr-3 icon-md"></i>Back to top</a>
+
+                <!--<div class="col-md-7 grid-margin stretch-card">
+                    <! -- <div class="col-lg-6 col-xl-7 stretch-card"> -- >
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
+                                    <div class="noble-ui-logo d-block mt-3"> </div>
+                                </div>
+
+                                <div class="flot-wrapper">
+                                    <div id=" "> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </div> -->
+
         </div>
-        <!--  -->
-        <!-- partial:partials/_footer.html -->
+        <!-- partial -->
         <%@ include file="Employee/Master/Footer.jsp"%>
         <!-- partial -->
     </div>
@@ -215,66 +154,75 @@
 <!-- 弹出气泡 -->
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
+<!-- chart -->
+<script src="<%=basePath%>assets/vendors/apexcharts/apexcharts.min.js"></script>
+<script src="<%=basePath%>js/jquery-1.11.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
-    $(function(){
-        // 选项框
-        $(function () {
-            var year=$("#selYear").children('option:selected').val();
-            var month=$("#selMonth").children('option:selected').val();
-
-            var url = "${pageContext.request.contextPath}/personalSummaryServlet?method=getHistorySummaryByDate";
-            var summaryMonthContent = "";
-            var summaryYearContent = "";
-            var departmentMonthContent = "";
-            var departmentYearContent = "";
-            $.post(url,{"year":year,"month":month},function(data){
-                if(data.summaryMonthList.length>0){
-                    for(var i=0;i<data.summaryMonthList.length;i++) {
-                        summaryMonthContent += " <tr>" +
-                            "<th>" + i + "</th>" +
-                            "<th>" + data.summaryMonthList[i].name + "</th>" +
-                            "<th>" + data.summaryMonthList[i].work_day + "</th>" +
-                            "</tr>";
-                    }
-                }else{
-                    summaryMonthContent = " <tr> <th>空</th> </tr>";
+    var pieOption = {
+        labels: ["设计", "编程画面", "调试管理", "经营", "日常"],
+        series: [  ],   // 1,2,3,4,5
+        chart: {
+            type: 'donut'
+        },
+        dataLabels: {
+            enabled: true
+        },
+        fill: {
+            type: 'fill'
+        },
+        legend: {
+            show: true,
+            //formatter: function(val, opts) {
+            //    return val + " - " + opts.w.globals.series[opts.seriesIndex]
+            //}
+        },
+        noData: {
+            text: '暂无数据',
+            align: 'center',
+            verticalAlign: 'middle',
+            offsetX: 0,
+            offsetY: 0,
+            style: {
+                color: '#F08080',
+                fontSize: '18px',
+            }
+        },
+        responsive: [{
+            breakpoint: undefined,
+            options: {
+                chart: {
+                    width: 200
+                },
+                legend: {
+                    position: 'bottom'
                 }
-
-                if(data.summaryYearList.length>0){
-                    for(var i=0;i<data.summaryYearList.length;i++) {
-                        summaryYearContent += " <tr>" +
-                            "<th>" + i + "</th>" +
-                            "<th>" + data.summaryYearList[i].name + "</th>" +
-                            "<th>" + data.summaryYearList[i].work_day + "</th>" +
-                            "</tr>";
-                    }
-                }else{
-                    summaryYearContent = " <tr> <th>空</th> </tr>";
-                }
-
-                if(data.departmentMonthWorkDay != null){
-                    departmentMonthContent += "此月科室总工日为：" +
-                        data.departmentMonthWorkDay;
-                }else{
-                    departmentMonthContent = "空";
-                }
-
-                if(data.departmentYearWorkDay != null){
-                    departmentYearContent += "此年科室总工日为：" +
-                        data.departmentYearWorkDay;
-                }else{
-                    departmentYearContent = "空";
-                }
-                $("#tbMonth").html(summaryMonthContent);
-                $("#tbYear").html(summaryYearContent);
-                $("#hMonth").html(departmentMonthContent);
-                $("#hYear").html(departmentYearContent);
-            },"json");
-        })
+            }
+        }]
+    };
+    var url = ' ';
+    $.getJSON(url, function(response) {
+        pieChart.updateSeries([{
+            //name: ' ',
+            data: response                      // JSON: "data":[ 1,2,3,4,5 ]
+        }])
     });
+    var pieChart = new ApexCharts(document.querySelector("#pie"), pieOption);
+    pieChart.render();
+    //
+    //axios({
+    //    method: 'GET',
+     //   url: url,
+    //}).then(function(response) {
+    //    pieChart.updateSeries([{
+    //        name: '  ',
+    //        data: response.data
+    //    }])
+   // })
 
 
+
+    /* logout */
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";
     }
