@@ -191,4 +191,14 @@
         <url-pattern>/exportMonthSummaryServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <display-name>ChartServlet</display-name>
+        <servlet-name>ChartServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ChartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChartServlet</servlet-name>
+        <url-pattern>/chartServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
