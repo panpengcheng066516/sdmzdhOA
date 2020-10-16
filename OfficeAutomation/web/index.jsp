@@ -49,56 +49,6 @@
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
-    <script type="text/javascript">
-        $(function(){
-            var year=$("#selYear").children('option:selected').val();
-            var month=$("#selMonth").children('option:selected').val();
-            var url = "${pageContext.request.contextPath}/chartServlet?method=getChartData";
-            var pieOption = "";
-            $.post(url,{"year":year,"month":month},function(data){
-                pieOption += "{" +
-                    "labels: ['设计', '编程画面', '调试管理', '经营', '日常']," +
-                    "series: [ "+data[0]+","+data[1]+","+data[2]+","+data[3]+","+data[4]+" ]," +
-                    " chart: {"+
-                    "type: 'donut'"+
-                    " },"+
-                    " dataLabels: {"+
-                    " enabled: true"+
-                    "},"+
-                    "fill: {"+
-                    "  type: 'fill'"+
-                    " },"+
-                    "legend: {"+
-                    " show: true,"+
-                    " },"+
-                    " noData: {"+
-                    "text: '暂无数据',"+
-                    " align: 'center',"+
-                    "verticalAlign: 'middle',"+
-                    " offsetX: 0,"+
-                    " offsetY: 0,"+
-                    "style: {"+
-                    "  color: '#F08080',"+
-                    " fontSize: '18px',"+
-                    "  }"+
-                    " },"+
-                    " responsive: [{"+
-                    " breakpoint: undefined,"+
-                    "  options: {"+
-                    " chart: {"+
-                    " width: 200"+
-                    "  },"+
-                    " legend: {"+
-                    "   position: 'bottom'"+
-                    "   }"+
-                    " }"+
-                    "  }]"+
-                    "}";
-                var pieChart = new ApexCharts(document.querySelector("#pie"), pieOption);
-                pieChart.render();
-            },"json");
-        });
-    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -205,51 +155,57 @@
 <script src="<%=basePath%>assets/vendors/apexcharts/apexcharts.min.js"></script>
 <script src="<%=basePath%>js/jquery-1.11.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    // var pieOption = {
-    //     labels: ["设计", "编程画面", "调试管理", "经营", "日常"],
-    //     series: [  ],   // 1,2,3,4,5
-    //     chart: {
-    //         type: 'donut'
-    //     },
-    //     dataLabels: {
-    //         enabled: true
-    //     },
-    //     fill: {
-    //         type: 'fill'
-    //     },
-    //     legend: {
-    //         show: true,
-    //         //formatter: function(val, opts) {
-    //         //    return val + " - " + opts.w.globals.series[opts.seriesIndex]
-    //         //}
-    //     },
-    //     noData: {
-    //         text: '暂无数据',
-    //         align: 'center',
-    //         verticalAlign: 'middle',
-    //         offsetX: 0,
-    //         offsetY: 0,
-    //         style: {
-    //             color: '#F08080',
-    //             fontSize: '18px',
-    //         }
-    //     },
-    //     responsive: [{
-    //         breakpoint: undefined,
-    //         options: {
-    //             chart: {
-    //                 width: 200
-    //             },
-    //             legend: {
-    //                 position: 'bottom'
-    //             }
-    //         }
-    //     }]
-    // };
-    //
-    //
-    // var pieChart = new ApexCharts(document.querySelector("#pie"), pieOption);
-    // pieChart.render();
+    var pieOption = {
+        labels: ["设计", "编程画面", "调试管理", "经营", "日常"],
+        series: [ 1,2,3,4,5 ],
+        chart: {
+            type: 'donut'
+        },
+        dataLabels: {
+            enabled: true
+        },
+        fill: {
+            type: 'fill'
+        },
+        legend: {
+            show: true,
+            //formatter: function(val, opts) {
+            //    return val + " - " + opts.w.globals.series[opts.seriesIndex]
+            //}
+        },
+        noData: {
+            text: '暂无数据',
+            align: 'center',
+            verticalAlign: 'middle',
+            offsetX: 0,
+            offsetY: 0,
+            style: {
+                color: '#F08080',
+                fontSize: '18px',
+            }
+        },
+        responsive: [{
+            breakpoint: undefined,
+            options: {
+                chart: {
+                    width: 200
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
+    };
+
+    var pieChart = new ApexCharts(document.querySelector("#pie"), pieOption);
+
+    var url = '${pageContext.request.contextPath}/chartServlet?method=getChartData';
+    $.getJSON(url, function(date) {
+        pieChart.updateSeries(date);
+    });
+
+    pieChart.render();
+
 
     /* logout */
     function logUp() {

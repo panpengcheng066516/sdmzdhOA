@@ -3,7 +3,9 @@ package com.zdh.web.servlet;
 import com.google.gson.Gson;
 import com.zdh.domain.Summary;
 import com.zdh.domain.vo.SummaryMainVo;
+import com.zdh.service.ChartsService;
 import com.zdh.service.PersonalSummaryService;
+import com.zdh.utils.CommonsUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,14 +18,15 @@ public class ChartServlet  extends BaseServlet {
     public void getChartData(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
 
-        String year = request.getParameter("year");
-        String month = request.getParameter("month");
+        String year = CommonsUtils.getCurrentYear();
+        String month = CommonsUtils.getCurrentMonth();
 
-        int[] i = {5,5,5,5,5};
+        ChartsService chartsService = new ChartsService();
+        List<Double> doubles = chartsService.getSumWorkdays(year,month);
 
         //转换为json向前台传输数据
         Gson gson = new Gson();
-        String json = gson.toJson(i);
+        String json = gson.toJson(doubles);
 
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().write(json);
