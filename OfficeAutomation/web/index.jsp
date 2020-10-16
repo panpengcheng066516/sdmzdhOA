@@ -97,7 +97,7 @@
             <hr width="400">
             <!-- partial -->
             <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-lg-5 col-xl-4 grid-margin grid-margin-xl-0 stretch-card">
                     <!-- <div class="col-lg-3 col-xl-5 stretch-card"> -->
                         <div class="card">
                             <div class="card-body">
@@ -111,23 +111,19 @@
                             </div>
                         </div>
                     </div>
-
-                <!--<div class="col-md-7 grid-margin stretch-card">
-                    <! -- <div class="col-lg-6 col-xl-7 stretch-card"> -- >
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
-                                    <div class="noble-ui-logo d-block mt-3"> </div>
-                                </div>
-
-                                <div class="flot-wrapper">
-                                    <div id=" "> </div>
-                                </div>
+                <div class="col-lg-7 col-xl-8 stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
+                                <div class="noble-ui-logo d-block mt-3">今年各月总量</div>
+                            </div>
+                            <div class="flot-wrapper">
+                                <div id="line" class="apexcharts-canvas"></div>
                             </div>
                         </div>
                     </div>
-                </div> -->
-
+                </div>
+            </div>
         </div>
         <!-- partial -->
         <%@ include file="Employee/Master/Footer.jsp"%>
@@ -152,12 +148,12 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <!-- chart -->
-<script src="<%=basePath%>assets/vendors/apexcharts/apexcharts.min.js"></script>
-<script src="<%=basePath%>js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="<%=basePath%>js/apexcharts.min.js"></script>
+<%--<script src="<%=basePath%>assets/js/jquery-1.11.3.min.js" type="text/javascript"></script>--%>
 <script type="text/javascript">
     var pieOption = {
         labels: ["设计", "编程画面", "调试管理", "经营", "日常"],
-        series: [ 1,2,3,4,5 ],
+        series: [],
         chart: {
             type: 'donut'
         },
@@ -205,6 +201,76 @@
     });
 
     pieChart.render();
+
+
+// line
+    var options = {
+        series: [],             //{name:'', data:[ 400, 300, 1000, 900, 290, 190, 220, 90, 120, 70, 190, 50 ]}
+        chart: {
+            height: 350,
+            type: 'line',
+        },
+        stroke: {
+            width: 7,
+            curve: 'smooth'
+        },
+        xaxis: {
+            type: 'datetime',
+            categories: ['1/11/2000', '2/11/2000', '3/11/2000', '4/11/2000', '5/11/2000', '6/11/2000', '7/11/2000', '8/11/2000', '9/11/2000', '10/11/2000', '11/11/2000', '12/11/2000', '1/11/2001' ],
+            tickAmount: 7,
+            labels: {
+                formatter: function(value, timestamp, opts) {
+                    return opts.dateFormatter(new Date(timestamp), 'MMM')
+                }
+            }
+        },
+        tools: {
+            download: false,
+            selection: true,
+            zoom: true,
+            zoomin: true,
+            zoomout: true,
+            pan: true,
+            reset: true,
+        },
+        title: {
+            text: 'workload per each month',
+            align: 'left',
+            style: {
+                fontSize: "16px",
+                color: '#666'
+            }
+        },
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                gradientToColors: [ '#FDD835'],
+                shadeIntensity: 1,
+                type: 'horizontal',
+                opacityFrom: 1,
+                opacityTo: 1,
+                stops: [0, 100, 100, 100]
+            },
+        },
+        markers: {
+            size: 4,
+            colors: ["#FFA41B"],
+            strokeColors: "#fff",
+            strokeWidth: 2,
+            hover: {
+                size: 7,
+            }
+        },
+        yaxis: {
+            min: 0,
+            max: undefined,
+        }
+    };
+    var chart = new ApexCharts(document.querySelector("#line"), options);
+    chart.render();
+    var url = ' ';
+
 
 
     /* logout */
