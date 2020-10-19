@@ -59,6 +59,8 @@
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
         $(function(){
+            var p=$("#projectid").children('option:selected').attr("id");
+            $("#projectNo").val(p);
             // 给工程号赋值
             $("#projectid").change(function () {
                 var p1=$(this).children('option:selected').attr("id");
