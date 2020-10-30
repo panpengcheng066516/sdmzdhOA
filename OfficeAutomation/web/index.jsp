@@ -59,16 +59,9 @@
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="Employee/Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
-            <nav class="page-breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.jsp">Welcome page</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Content</li>
-                </ol>
-            </nav>
-            <div class="col-md-12">
+            <div class="container-fluid inline grid-margin col-md-12">
                 <div class="alert alert-danger-muted" role="alert">
                     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
                         <div>
@@ -76,16 +69,9 @@
                             <br><h4 class="mb-3 mb-md-0">Welcome to Dashboard.</h4>
                         </div>
                         <div class="d-flex align-items-center flex-wrap text-nowrap">
-                            <!--  dashboardDate -->
                             <div class="input-group date datepicker dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex" id="dashboardDate">
                                 <span class="input-group-addon bg-transparent"><i data-feather="calendar" class="text-primary"></i></span>
-                                <input type="text" class="form-control" disabled>
-                            </div>
-                            <div class="example">
-                                <a tabindex="0" class="btn btn-inverse-warning btn-icon-text mb-2 mb-md-0" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" title="Specially thanks to" data-content="小泮，小付！！！">
-                                    <i class="btn-icon-prepend" data-feather="sun"></i>
-                                    主页
-                                </a>
+                                <input type="text" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -96,29 +82,24 @@
 
             <hr width="400">
             <!-- partial -->
-            <div class="row">
-                <div class="col-lg-5 col-xl-4 grid-margin grid-margin-xl-0 stretch-card">
-                    <!-- <div class="col-lg-3 col-xl-5 stretch-card"> -->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
-                                    <div class="noble-ui-logo d-block mt-3"><span>本月各类型数据比例</span></div>
+            <div class="main-wrapper">
+                <div class="main-content">
+                    <div class="row">
+                        <div class="col-xs-11 col-md-12">
+                            <div class="container align-self-stretch">
+                                <div class="content">
+                                    <div class="card-header-transparent">
+                                        <p class="text-linkedin ">本月各类工作完成比例</p>
+                                        <button class="btn btn-o btn-icon btn-s btn-icon-text pull-right" data-toggle="popover" data-trigger="focus" data-content="由于部分浏览器默认缓存设置可能导致回调函数请求失效。为了数据准确，推荐使用Google Chrome浏览器。">
+                                            <i data-feather="alert-triangle"></i>
+                                        </button>
+                                    </div>
+                                    <br>
+                                    <div class="container-fluid">
+                                        <div class="apexcharts-canvas" id="pie" > </div>
+                                        <%--style="width:100%;height:auto"--%>
+                                    </div>
                                 </div>
-                                <span></span>
-                                <div class="flot-wrapper">
-                                    <div id="pie" class="chart-pie" > </div><!-- style="width:100%; height:100%" -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <div class="col-lg-7 col-xl-8 stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
-                                <div class="noble-ui-logo d-block mt-3">今年各月总量</div>
-                            </div>
-                            <div class="flot-wrapper">
-                                <div id="line" class="apexcharts-canvas"></div>
                             </div>
                         </div>
                     </div>
@@ -155,123 +136,58 @@
         labels: ["设计", "编程画面", "调试管理", "经营", "日常"],
         series: [],
         chart: {
-            type: 'donut'
+            type: 'donut',
+            width: "130%",
+            // height: auto,
         },
         dataLabels: {
-            enabled: true
+            enabled: true,
+            dropShadow: {
+                enabled: true,
+                left: 2,
+                top: 2,
+                opacity: 0.5
+            },
         },
         fill: {
             type: 'fill'
         },
         legend: {
             show: true,
-            //formatter: function(val, opts) {
+            // formatter: function(val, opts) {
             //    return val + " - " + opts.w.globals.series[opts.seriesIndex]
-            //}
+            // },
+            position: 'right',
+            containerMargin: {
+                left: 35,
+                right: 60
+            }
         },
         noData: {
-            text: '暂无数据',
-            align: 'center',
-            verticalAlign: 'middle',
+            text: '暂无可用数据',
+            align: 'left',
+            verticalAlign: 'center',
             offsetX: 0,
             offsetY: 0,
             style: {
-                color: '#F08080',
-                fontSize: '18px',
+                color: '#000000',
+                fontSize: '14px',
             }
         },
         responsive: [{
             breakpoint: undefined,
-            options: {
-                chart: {
-                    width: 200
-                },
-                legend: {
-                    position: 'bottom'
-                }
+            legend: {
+                position: "top"
             }
         }]
     };
 
     var pieChart = new ApexCharts(document.querySelector("#pie"), pieOption);
-
     var url = '${pageContext.request.contextPath}/chartServlet?method=getChartData';
     $.getJSON(url, function(date) {
         pieChart.updateSeries(date);
     });
-
     pieChart.render();
-
-
-// line
-    var options = {
-        series: [],             //{name:'', data:[ 400, 300, 1000, 900, 290, 190, 220, 90, 120, 70, 190, 50 ]}
-        chart: {
-            height: 350,
-            type: 'line',
-        },
-        stroke: {
-            width: 7,
-            curve: 'smooth'
-        },
-        xaxis: {
-            type: 'datetime',
-            categories: ['1/11/2000', '2/11/2000', '3/11/2000', '4/11/2000', '5/11/2000', '6/11/2000', '7/11/2000', '8/11/2000', '9/11/2000', '10/11/2000', '11/11/2000', '12/11/2000', '1/11/2001' ],
-            tickAmount: 7,
-            labels: {
-                formatter: function(value, timestamp, opts) {
-                    return opts.dateFormatter(new Date(timestamp), 'MMM')
-                }
-            }
-        },
-        tools: {
-            download: false,
-            selection: true,
-            zoom: true,
-            zoomin: true,
-            zoomout: true,
-            pan: true,
-            reset: true,
-        },
-        title: {
-            text: 'workload per each month',
-            align: 'left',
-            style: {
-                fontSize: "16px",
-                color: '#666'
-            }
-        },
-        fill: {
-            type: 'gradient',
-            gradient: {
-                shade: 'dark',
-                gradientToColors: [ '#FDD835'],
-                shadeIntensity: 1,
-                type: 'horizontal',
-                opacityFrom: 1,
-                opacityTo: 1,
-                stops: [0, 100, 100, 100]
-            },
-        },
-        markers: {
-            size: 4,
-            colors: ["#FFA41B"],
-            strokeColors: "#fff",
-            strokeWidth: 2,
-            hover: {
-                size: 7,
-            }
-        },
-        yaxis: {
-            min: 0,
-            max: undefined,
-        }
-    };
-    var chart = new ApexCharts(document.querySelector("#line"), options);
-    chart.render();
-    var url = ' ';
-
-
 
     /* logout */
     function logUp() {

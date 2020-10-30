@@ -55,6 +55,11 @@
             border-top: 1px solid #000000;
             border-color: #000000;
         }
+        hr.style-two {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(192,192,192), rgba(0, 0, 0, 0));
+        }
     </style>
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
@@ -74,37 +79,34 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-8 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <h3 class="text text-primary">调试工程管理</h3>
-                            <br>
-                            <div class="alert alert-icon-info" role="alert">
-                                <i data-feather="alert-circle"></i>
-                                填写时请注意，不得使用英文标点符号。<br><br>tip:  如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
+                <div class="container-fluid grid-margin col-md-12">
+                    <div class="card card-rounded">
+                        <div class="card-header">
+                            <div class="custom-control-inline">
+                                <div class="col">
+                                    <div class="card-title"><h3 class="text text-primary">调试工程管理</h3>
+                                    </div>
+                                    <div class="col">
+                                        <div class="alert alert-icon-info-muted text-small col-sm-auto">
+                                            <i data-feather="alert-circle" ></i>填写时请注意，不得使用英文标点符号。如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/debugWorkingServlet?method=addDebugWorking" method="post">
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">填写</h6>
-
-                                <!-- idSel对应数据库project里的projectid工程号 -->
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">项目名称</label>
-                                    <div class="col-sm-6">
-                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="ture" >
+                        </div>
+                        <div class="card-body">
+                            <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/debugWorkingServlet?method=addDebugWorking" method="post">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
+                                    <div class="control-text col-xs-pull col-sm col-md-3 col-lg-3">
+                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="true">
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
                                                     <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;">${project.projectName}</option>
@@ -112,65 +114,48 @@
                                             </c:if>
                                         </select>
                                     </div>
+                                    <%--<div class="d-flex flex-fill"></div>--%>
+                                    <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
+                                    <input type="text" class="form-control col-sm-2 " name="projectNo" id="projectNo" disabled>
+                                </div>
+                                <hr class="style-two">
+                                <%-- horizontal rule --%>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="site" >项目地点</label>
+                                    <input type="text" class="form-control col-sm-2" name="site" id="site" placeholder="地点" autocomplete="off">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">工程号</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="projectNo" id="projectNo" disabled="true">
-                                    </div>
+                                <div style="height:10px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-<%--                                <div class="form-group row">--%>
-<%--                                <!-- type对应数据库worktype里的type项目下的阶段类型 -->--%>
-<%--                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">高阶段分类</label>--%>
-<%--                                    <div class="col-sm-6">--%>
-<%--                                        <select class="selectpicker" name="type" id="type">--%>
-<%--                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>--%>
-<%--                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>--%>
-<%--                                            <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>--%>
-<%--                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>--%>
-<%--                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>--%>
-<%--                                        </select>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manageday">工程管理</label>
+                                    <input type="text" class="form-control col-sm-2" name="manageday" id="manageday" placeholder="工日" autocomplete="off">
 
-                                <!--  这条记录在designType上 -->
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">项目地点</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="site" id="site" placeholder="项目地点" required="ture">
-                                    </div>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="debugday">工程调试</label>
+                                    <input type="text" class="form-control col-sm-2" name="debugday" id="debugday" placeholder="工日" autocomplete="off">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">本月工程管理天数</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="manageday" id="manageday" placeholder="本月工程管理天数">
-                                    </div>
+                                <div class="help-text col-sm text-small text-reddit mt-1 text-justify" style="margin-left: 35px; margin-right: 40px">注：填写以上两（单）项内容请填写统计好的当月该项工作所用的总天数。</div>
+
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">本月调试天数</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="debugday" id="debugday" placeholder="本月调试天数">
-                                    </div>
+                                <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="font-size: 14px;">备注</label>
+                                    <textarea class="form-control col-sm-6" name="remark" id="remark" placeholder="备注" rows="5"></textarea>
                                 </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-6">
-                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="5"></textarea>
-                                    </div>
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
-
-                                <br>
-
                                 <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
+                                    <input type="submit" class="btn btn-inverse-success mr-2" name="submit" value="提交">
                                 </div>
-
                             </form>
+                        </div>
+                        <div class="card-footer">
                         </div>
                     </div>
                 </div>

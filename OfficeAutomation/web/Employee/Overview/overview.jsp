@@ -47,16 +47,24 @@
     <style type="text/css">
         .table>thead>tr>th {
             text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
         }
         .table>tbody>tr>td {
             text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
+        }
+        hr.style-two {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(204,204,204), rgba(0, 0, 0, 0));
+        }
+        table {
+            table-layout: fixed;
+        }
+        .special {
+            font-weight: normal !important;
+            color: #0C090A !important;
+            background: whitesmoke !important;
         }
     </style>
-
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
         $(function(){
@@ -74,25 +82,25 @@
                     if(data.summaryMonthList.length>0){
                         for(var i=0;i<data.summaryMonthList.length;i++) {
                             summaryMonthContent += " <tr>" +
-                                "<th>" + i + "</th>" +
-                                "<th>" + data.summaryMonthList[i].name + "</th>" +
-                                "<th>" + data.summaryMonthList[i].work_day + "</th>" +
+                                "<td>" + i + "</td>" +
+                                "<td>" + data.summaryMonthList[i].name + "</td>" +
+                                "<td>" + data.summaryMonthList[i].work_day + "</td>" +
                                 "</tr>";
                         }
                     }else{
-                        summaryMonthContent = " <tr> <th>空</th> </tr>";
+                        summaryMonthContent = " <tr> <td>空</td> </tr>";
                     }
 
                     if(data.summaryYearList.length>0){
                         for(var i=0;i<data.summaryYearList.length;i++) {
                             summaryYearContent += " <tr>" +
-                                "<th>" + i + "</th>" +
-                                "<th>" + data.summaryYearList[i].name + "</th>" +
-                                "<th>" + data.summaryYearList[i].work_day + "</th>" +
+                                "<td>" + i + "</td>" +
+                                "<td>" + data.summaryYearList[i].name + "</td>" +
+                                "<td>" + data.summaryYearList[i].work_day + "</td>" +
                                 "</tr>";
                         }
                     }else{
-                        summaryYearContent = " <tr> <th>空</th> </tr>";
+                        summaryYearContent = " <tr> <td>空</td> </tr>";
                     }
 
                     if(data.departmentMonthWorkDay != null){
@@ -122,129 +130,119 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
-        <div class="page-content">
-
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <div class="form-group row">
-                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
-                                <div class="col-sm-2">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="selYear" name="selYear" onchange="sel()">
-                                        <c:forEach begin="2019" end="2025" step="1" var="i">
-                                            <option value="${i}" ${currentYear == i?"selected":""} style="text-align: center; text-align-last: center;">${i}</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-
-                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
-                                <div class="col-sm-2">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="selMonth" name="selMonth" onchange="sel0()">
-                                        <c:forEach begin="1" end="12" step="1" var="i">
-                                            <option value="${i}" ${currentMonth == i?"selected":""} style="text-align: center; text-align-last: center;">${i}</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-
-                                <div class="col-sm-1">
-                                    <input type="button" id="selButton" class="btn btn-inverse-success mr-2" name="submit" value="确定">
-                                </div>
-                            </div>
-
-                            <!-- tab选项卡 -->
-                            <ul class="nav nav-tabs mt-6" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="tab-month1" data-toggle="tab" href="#month1" role="tab" aria-controls="chats" aria-selected="true">
-                                        <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="archive" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">历年各月工作量汇总</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tab-year1" data-toggle="tab" href="#year1" role="tab" aria-controls="calls" aria-selected="false">
-                                        <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="calendar" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">员工年工作量汇总</p>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- tab选项内容 -->
-                            <div class="tab-content mt-3">
-                                <div class="tab-pane fade show active" id="month1" role="tabpanel" aria-labelledby="month1-tab">
-
-                                    <div class="alert alert-icon-primary" role="alert">
-                                        <i data-feather="clipboard"></i>
-                                        本月度科室总工日为：<strong>${summaryMainVo.departmentMonthWorkDay}</strong>
+        <main class="page-main">
+            <div class="page-content">
+                <!-- row -->
+                <div class="row">
+                    <div class="container-fluid grid-margin col-md-12">
+                        <div class="card card-rounded border-light">
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label class="col-sm-auto col-form-label text-primary">年份</label>
+                                    <div class="control-text col-sm-auto col-md-auto col-lg-auto">
+                                        <select class="dropdown-item-text text-primary border-primary-muted" id="selYear" name="selYear" onchange="sel()">
+                                            <c:forEach begin="2019" end="2025" step="1" var="i">
+                                                <option value="${i}" ${currentYear == i?"selected":""}>${i}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                        &nbsp;
+                                    <label class="col-sm-auto col-form-label text-primary">月份</label>
+                                    <div class="control-text col-sm-auto col-md-auto col-lg-auto">
+                                        <select class="dropdown-item-text text-primary border-primary-muted" id="selMonth" name="selMonth" onchange="sel0()">
+                                            <c:forEach begin="1" end="12" step="1" var="i">
+                                                <option value="${i}" ${currentMonth == i?"selected":""}>${i}</option>
+                                            </c:forEach>
+                                        </select>
                                     </div>
 
-                                    <div class="text-muted mb-1" align="center">历年各月工作量汇总</div>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table01">
-                                                <thead>
-                                                <tr>
-                                                    <th>序号</th>
-                                                    <th>员工姓名</th>
-                                                    <th>工日总和</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody id="tbMonth">
-                                                <c:if test="${!empty summaryMainVo.summaryMonthList}">
-                                                    <c:forEach var="summary" items="${summaryMainVo.summaryMonthList}" varStatus="s">
-                                                        <tr>
-                                                            <td>${s.index}</td>
-                                                            <td>${summary.name}</td>
-                                                            <td>${summary.work_day}</td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                </c:if>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                    <div class="col-sm-1 form-label">
+                                        <input type="button" id="selButton" class="btn btn-inverse-danger-muted btn-rounded border-danger-muted btn-sm text-danger" name="submit" value="确定">
                                     </div>
                                 </div>
-                                <!-- 别加div。。 -->
-                                <div class="tab-pane fade" id="year1" role="tabpanel" aria-labelledby="year1-tab">
-
-                                    <div class="alert alert-icon-primary" role="alert">
-                                        <i data-feather="clipboard"></i>
-                                        本年度科室总工日为：<strong>${summaryMainVo.departmentYearWorkDay}</strong>
+                                <!-- tab选项卡 -->
+                                <ul class="nav nav-tabs mt-6" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="tab-month1" data-toggle="tab" href="#month1" role="tab" aria-controls="chats" aria-selected="true">
+                                            <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                                <i data-feather="archive" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                                <p class="d-none d-sm-block">月工日统计</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="tab-year1" data-toggle="tab" href="#year1" role="tab" aria-controls="calls" aria-selected="false">
+                                            <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                                <i data-feather="calendar" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                                <p class="d-none d-sm-block">年工日统计</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- tab选项内容 -->
+                                <div class="tab-content mt-3">
+                                    <div class="tab-pane fade show active" id="month1" role="tabpanel" aria-labelledby="month1-tab">
+                                        <div class="alert alert-icon-primary" role="alert">
+                                            <i data-feather="clipboard"></i>
+                                            本月全科室总工日：<strong>${summaryMainVo.departmentMonthWorkDay}</strong>
+                                        </div>
+                                        <div class="custom-control table">
+                                            <div class="table-responsive text-nowrap">
+                                                <table class="table table-striped table-condensed table-hover table-responsive-md" id="table01">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>员工</th>
+                                                        <th>月工日和</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="tbMonth" class="text-muted">
+                                                    <c:if test="${!empty summaryMainVo.summaryMonthList}">
+                                                        <c:forEach var="summary" items="${summaryMainVo.summaryMonthList}" varStatus="s">
+                                                            <tr>
+                                                                <td>${s.index}</td>
+                                                                <td>${summary.name}</td>
+                                                                <td>${summary.work_day}</td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </c:if>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    <div class="text-muted mb-1" align="center">员工年工作量汇总</div>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table02">
-                                                <thead>
-                                                <tr>
-                                                    <th>序号</th>
-                                                    <th>员工姓名</th>
-                                                    <th>工日总和</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody id="tbYear">
-                                                <c:if test="${!empty summaryMainVo.summaryYearList}">
-                                                    <c:forEach var="summary" items="${summaryMainVo.summaryYearList}" varStatus="s">
-                                                        <tr>
-                                                            <td>${s.index}</td>
-                                                            <td>${summary.name}</td>
-                                                            <td>${summary.work_day}</td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                </c:if>
-                                                </tbody>
-                                            </table>
+                                    <div class="tab-pane fade" id="year1" role="tabpanel" aria-labelledby="year1-tab">
+                                        <div class="alert alert-icon-primary" role="alert">
+                                            <i data-feather="clipboard"></i>
+                                            全年科室总工日：<strong>${summaryMainVo.departmentYearWorkDay}</strong>
+                                        </div>
+                                        <div class="custom-control table">
+                                            <div class="table-responsive text-nowrap">
+                                                <table class="table table-striped table-condensed table-hover table-responsive-md" id="table01">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>员工</th>
+                                                        <th>年工日和</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="tbYear" class="text-muted">
+                                                    <c:if test="${!empty summaryMainVo.summaryYearList}">
+                                                        <c:forEach var="summary" items="${summaryMainVo.summaryYearList}" varStatus="s">
+                                                            <tr>
+                                                                <td>${s.index}</td>
+                                                                <td>${summary.name}</td>
+                                                                <td>${summary.work_day}</td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </c:if>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -256,8 +254,9 @@
             <!-- partial:partials/_footer.html -->
             <%@ include file="../Master/Footer.jsp"%>
             <!-- partial -->
-        </div>
+        </main>
     </div>
+</div>
 </body>
 <script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>

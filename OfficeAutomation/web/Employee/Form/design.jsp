@@ -46,15 +46,10 @@
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <style type="text/css">
-        .table>thead>tr>th {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
-        .table>tbody>tr>td {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
+        hr.style-two {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(192,192,192), rgba(0, 0, 0, 0));
         }
     </style>
     <script type="text/javascript">
@@ -69,121 +64,118 @@
         });
     </script>
 </head>
-
 <body>
 <div class="main-wrapper">
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <h3 class="text text-primary">设计</h3>
-                            <br>
-                            <div class="alert alert-icon-info" role="alert">
-                                <i data-feather="alert-circle"></i>
-                                填写时请注意，不得使用英文标点符号。<br><br>tip:  如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
+                <div class="container-fluid grid-margin col-md-12">
+                    <div class="card card-rounded">
+                        <div class="card-header">
+                            <div class="custom-control-inline">
+                                <div class="col">
+                                    <div class="card-title"><h3 class="text text-primary">设计</h3>
+                                </div>
+                                <div class="col">
+                                    <div class="alert alert-icon-info-muted text-small col-sm-auto">
+                                        <i data-feather="alert-circle" ></i>填写时请注意，不得使用英文标点符号。如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
+                                    </div>
+                                </div>
                             </div>
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/designWorkingServlet?method=addDesignWorking" method="post">
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">填写</h6>
-
-                                <!-- idSel对应数据库project里的projectid工程号 -->
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
-                                    <div class="col-sm-4">
-                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="ture">
-                                        <c:if test="${!empty projectList}">
-                                            <c:forEach var="project" items="${projectList}">
-                                                <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;">${project.projectName}</option>
-                                            </c:forEach>
-                                        </c:if>
-                                    </select>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/designWorkingServlet?method=addDesignWorking" method="post">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
+                                    <div class="control-text col-sm col-md-3 col-lg-3">
+                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="true">
+                                            <c:if test="${!empty projectList}">
+                                                <c:forEach var="project" items="${projectList}">
+                                                    <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;">${project.projectName}</option>
+                                                </c:forEach>
+                                            </c:if>
+                                        </select>
                                     </div>
+                                    <%--<div class="d-flex flex-fill"></div>--%>
+                                    <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
+                                    <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled>
+                                </div>
 
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectNo" id="projectNo" disabled="true">
+                                <hr class="style-two">
+                                <%-- horizontal rule --%>
+                                <div>
+                                    <div class="form-text mdi-help-box text-small text-gray col-xs-auto" style="margin-left: 50px">施工图工作量：</div>
+                                    <br>
+                                    <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                        <label class="col-sm-auto col-form-label" style="display:table-cell;" for="amount">图纸张数</label>
+                                        <input type="text" class="form-control col-sm-2" name="amount" id="amount" placeholder="图纸" autocomplete="off">
+                                        <%--<div class="d-flex flex-fill"></div>--%>
+                                        <label class="col-sm-auto col-form-label" style="display:table-cell;" for="a1">折合成A1</label>
+                                        <input type="text" class="form-control col-sm-2"  name="a1" id="a1" placeholder="A1" autocomplete="off">
                                     </div>
                                 </div>
 
-                                    <!-- type对应数据库worktype里的type项目下的阶段类型 -->
-
-
-                                <h6 class="card-title" style="font-size: 14px;">施工图工作量</h6>
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">图纸张数</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="amount" id="amount" placeholder="图纸张数">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">折合A1</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="a1" id="a1" placeholder="折合A1">
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">折合总工日数</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="zheheWorkingDay" id="zheheWorkingDay" placeholder="折合总工日数">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">本月完成工日数</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="monthDay" id="monthDay" placeholder="本月完成工日数">
-                                    </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="zheheWorkingDay">总工日数</label>
+                                    <input type="text" class="form-control form-group-sm col-sm-2" name="zheheWorkingDay" id="zheheWorkingDay" placeholder="折合总数" autocomplete="off">
+                                    <%--<div class="d-flex flex-fill min-col-xs-1"></div>--%>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="monthDay">本月完成</label>
+                                    <input type="text" class="form-control col-sm-2" name="monthDay" id="monthDay" placeholder="工日" autocomplete="off">
                                 </div>
 
-
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">技术方案工作量</label>
-
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="programDay" id="programDay" placeholder="所用工日数">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">基本设计工作量</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="basicDesignDay" id="basicDesignDay" placeholder="所用工日数">
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <h6 class="card-title" style="font-size: 14px;">专业负责人工日</h6>
-                                <h6 class="card-title" style="font-size: 14px;color: red;">专业负责人且不是设计人员，将零星工作量折合工日后填在此处。</h6>
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">工日</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="leader" id="leader" placeholder="工日">
-                                    </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="programDay">技术方案</label>
+                                    <input type="text" class="form-control col-sm-2 " name="programDay" id="programDay" placeholder="工日" autocomplete="off">
+                                    <%--<div class="d-flex flex-fill min-col-xs-1"></div>--%>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="basicDesignDay">基本设计</label>
+                                    <input type="text" class="form-control col-sm-2 " name="basicDesignDay" id="basicDesignDay" placeholder="工日" autocomplete="off">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-4">
-                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="3"></textarea>
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <br>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="leader" >专业负责人</label>
+                                    <input type="text" class="form-control col-sm-2" name="leader" id="leader" placeholder="工日" autocomplete="off">
+                                    <div class="help-text col-sm-3 text-small text-reddit mt-2 text-justify">注：是专业负责人且不是设计人员，将零星工作量折合工日后填在此处。</div>
+                                </div>
+
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
+
+                                <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" for="remark">备注</label>
+                                    <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5" >${design.remark}</textarea>
+                                </div>
+
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
 
                                 <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
+                                    <input type="submit" class="btn btn-inverse-success mb-1 mb-md-0" name="submit" value="提交">
                                 </div>
-
                             </form>
+                        </div>
+                        <div class="card-footer">
                         </div>
                     </div>
                 </div>

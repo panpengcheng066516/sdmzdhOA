@@ -37,7 +37,7 @@
                 <div class="collapse" id="workloadInput">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Form/transfer.jsp" class="nav-link">借调状态更改</a>
+                            <a href="${ pageContext.request.contextPath }/Employee/Form/transfer.jsp" class="nav-link">借调</a>
                         </li>
 
                         <li class="nav-item">
@@ -49,7 +49,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/debugWorkingServlet?method=getAllProjectByUser" class="nav-link">调试工程管理</a>
+                            <a href="${ pageContext.request.contextPath }/debugWorkingServlet?method=getAllProjectByUser" class="nav-link">调试/管理</a>
                         </li>
 
                         <li class="nav-item">
@@ -57,7 +57,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Form/daily.jsp" class="nav-link">日常管理/零星</a>
+                            <a href="${ pageContext.request.contextPath }/Employee/Form/daily.jsp" class="nav-link">日常零星</a>
                         </li>
                     </ul>
                 </div>
@@ -72,7 +72,7 @@
                             <a href="${ pageContext.request.contextPath }/Employee/Form/project.jsp" class="nav-link">科室项目录入</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item" ${user.power!=1?"":"hidden"}>
                             <a href="${ pageContext.request.contextPath }/personalProjectServlet?method=getAllPersonalProject" class="nav-link">个人已参与项目</a>
                         </li>
 

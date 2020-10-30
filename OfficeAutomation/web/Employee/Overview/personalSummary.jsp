@@ -47,16 +47,19 @@
     <style type="text/css">
         .table>thead>tr>th {
             text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
         }
         .table>tbody>tr>td {
             text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
+        }
+        hr.style-two {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(204,204,204), rgba(0, 0, 0, 0));
+        }
+        table {
+            table-layout: fixed;
         }
     </style>
-
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
         $(function(){
@@ -75,101 +78,101 @@
                     if(data.summaryList.length>0){
                         for(var i=0;i<data.summaryList.length;i++) {
                             summaryContent += " <tr>" +
-                                "<th>" + i + "</th>" +
-                                "<th>" + data.summaryList[i].name + "</th>" +
-                                "<th>" + data.summaryList[i].work_day + "</th>" +
+                                "<td>" + i + "</td>" +
+                                "<td>" + data.summaryList[i].name + "</td>" +
+                                "<td>" + data.summaryList[i].work_day + "</td>" +
                                 "</tr>";
                         }
 
                     }else{
-                        summaryContent = " <tr> <th>空</th> </tr>";
+                        summaryContent = " <tr> <td>空</td> </tr>";
                     }
                     if(data.designVoList.length>0){
                         for(var i=0;i<data.designVoList.length;i++) {
                             designContent += " <tr>" +
-                                "<th>" + i + "</th>" +
-                                "<th>" + data.designVoList[i].projectNo + "</th>" +
-                                "<th>" + data.designVoList[i].projectName + "</th>" +
-                                "<th>" + data.designVoList[i].amount + "</th>" +
-                                "<th>" + data.designVoList[i].a1 + "</th>" +
-                                "<th>" + data.designVoList[i].zheheWorkingDay + "</th>" +
-                                "<th>" + data.designVoList[i].monthDay + "</th>" +
-                                "<th>" + data.designVoList[i].programDay + "</th>" +
-                                "<th>" + data.designVoList[i].basicDesignDay + "</th>" +
-                                "<th>" + data.designVoList[i].leader + "</th>" +
-                                "<th>" + data.designVoList[i].remark + "</th>" +
-                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "<td>" + i + "</td>" +
+                                "<td><div class='text-wrap text-break'>" + data.designVoList[i].projectNo + "</div></td>" +
+                                "<td>" + data.designVoList[i].projectName + "</td>" +
+                                "<td>" + data.designVoList[i].amount + "</td>" +
+                                "<td>" + data.designVoList[i].a1 + "</td>" +
+                                "<td>" + data.designVoList[i].zheheWorkingDay + "</td>" +
+                                "<td>" + data.designVoList[i].monthDay + "</td>" +
+                                "<td>" + data.designVoList[i].programDay + "</td>" +
+                                "<td>" + data.designVoList[i].basicDesignDay + "</td>" +
+                                "<td>" + data.designVoList[i].leader + "</td>" +
+                                "<td><div class='text text-wrap text-break'>" + data.designVoList[i].remark + "</div></td>" +
+                                "<td><div class='text text-wrap text-break'><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></div></td>" +
                                 "</tr>";
                         }
                     }else{
-                        designContent = " <tr> <th>空</th> </tr>";
+                        designContent = " <tr> <td>空</td> </tr>";
                     }
                     if(data.programingVoList.length>0){
                         for(var i=0;i<data.programingVoList.length;i++) {
                             programingContent += " <tr>" +
-                                "<th>" + i + "</th>" +
-                                "<th>" + data.programingVoList[i].projectNo + "</th>" +
-                                "<th>" + data.programingVoList[i].digitalNumber + "</th>" +
-                                "<th>" + data.programingVoList[i].analogNumber + "</th>" +
-                                "<th>" + data.programingVoList[i].programingPicture + "</th>" +
-                                "<th>" + data.programingVoList[i].programingDay + "</th>" +
-                                "<th>" + data.programingVoList[i].monthday + "</th>" +
-                                "<th>" + data.programingVoList[i].remark + "</th>" +
-                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "<td>" + i + "</td>" +
+                                "<td><div class='text-wrap text-break'>" + data.programingVoList[i].projectNo + "</div></td>" +
+                                "<td>" + data.programingVoList[i].digitalNumber + "</td>" +
+                                "<td>" + data.programingVoList[i].analogNumber + "</td>" +
+                                "<td>" + data.programingVoList[i].programingPicture + "</td>" +
+                                "<td>" + data.programingVoList[i].programingDay + "</td>" +
+                                "<td>" + data.programingVoList[i].monthday + "</td>" +
+                                "<td><div class='text-wrap text-break'>" + data.programingVoList[i].remark + "</div></td>" +
+                                "<td><div class='text-wrap text-break'><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></div></td>" +
                                 "</tr>";
                         }
                     }else{
-                        programingContent = " <tr> <th>空</th> </tr>";
+                        programingContent = " <tr> <td>空</td> </tr>";
                     }
                     if(data.debugVoList.length>0){
                         for(var i=0;i<data.debugVoList.length;i++) {
                             debugContent += " <tr>" +
-                                "<th>" + i + "</th>" +
-                                "<th>" + data.debugVoList[i].projectNo + "</th>" +
-                                "<th>" + data.debugVoList[i].site + "</th>" +
-                                "<th>" + data.debugVoList[i].manageday + "</th>" +
-                                "<th>" + data.debugVoList[i].debugday + "</th>" +
-                                "<th>" + data.debugVoList[i].remark + "</th>" +
-                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "<td>" + i + "</td>" +
+                                "<td><div class='text-wrap text-break'>" + data.debugVoList[i].projectNo + "</div></td>" +
+                                "<td>" + data.debugVoList[i].site + "</td>" +
+                                "<td>" + data.debugVoList[i].manageday + "</td>" +
+                                "<td>" + data.debugVoList[i].debugday + "</td>" +
+                                "<td><div class='text-wrap text-break'>" + data.debugVoList[i].remark + "</div></td>" +
+                                "<td><div class='text-wrap text-break'><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></div></td>" +
                                 "</tr>";
                         }
                     }else{
-                        debugContent = " <tr> <th>空</th> </tr>";
+                        debugContent = " <tr> <td>空</td> </tr>";
                     }
                     if(data.manageVoList.length>0){
                         for(var i=0;i<data.manageVoList.length;i++) {
                             manageContent += " <tr>" +
-                                "<th>" + i + "</th>" +
-                                "<th>" + data.manageVoList[i].projectNo + "</th>" +
-                                "<th>" + data.manageVoList[i].xunjiabaojia + "</th>" +
-                                "<th>" + data.manageVoList[i].tender + "</th>" +
-                                "<th>" + data.manageVoList[i].sign + "</th>" +
-                                "<th>" + data.manageVoList[i].toubiao + "</th>" +
-                                "<th>" + data.manageVoList[i].equip + "</th>" +
-                                "<th>" + data.manageVoList[i].test + "</th>" +
-                                "<th>" + data.manageVoList[i].cuikuan + "</th>" +
-                                "<th>" + data.manageVoList[i].contract + "</th>" +
-                                "<th>" + data.manageVoList[i].other + "</th>" +
-                                "<th>" + data.manageVoList[i].PMday + "</th>" +
-                                "<th>" + data.manageVoList[i].remark + "</th>" +
-                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "<td>" + i + "</td>" +
+                                "<td><div class='text-wrap text-break'>" + data.manageVoList[i].projectNo + "</div></td>" +
+                                "<td>" + data.manageVoList[i].xunjiabaojia + "</td>" +
+                                "<td>" + data.manageVoList[i].tender + "</td>" +
+                                "<td>" + data.manageVoList[i].sign + "</td>" +
+                                "<td>" + data.manageVoList[i].toubiao + "</td>" +
+                                "<td>" + data.manageVoList[i].equip + "</td>" +
+                                "<td>" + data.manageVoList[i].test + "</td>" +
+                                "<td>" + data.manageVoList[i].cuikuan + "</td>" +
+                                "<td>" + data.manageVoList[i].contract + "</td>" +
+                                "<td>" + data.manageVoList[i].other + "</td>" +
+                                "<td>" + data.manageVoList[i].PMday + "</td>" +
+                                "<td><div class='text-wrap text-break'>" + data.manageVoList[i].remark + "</div></td>" +
+                                "<td><div class='text-wrap text-break'><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></div></td>" +
                                 "</tr>";
                         }
                     }else{
-                        manageContent = " <tr> <th>空</th> </tr>";
+                        manageContent = " <tr> <td>空</td> </tr>";
                     }
                     if(data.dailyVoList.length>0){
                         for(var i=0;i<data.dailyVoList.length;i++) {
                             dailyContent += " <tr>" +
-                                "<th>" + i + "</th>" +
-                                "<th>" + data.dailyVoList[i].type + "</th>" +
-                                "<th>" + data.dailyVoList[i].monthDay + "</th>" +
-                                "<th>" + data.dailyVoList[i].remark + "</th>" +
-                                "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >修改</button></a></td>" +
+                                "<td>" + i + "</td>" +
+                                "<td>" + data.dailyVoList[i].type + "</td>" +
+                                "<td>" + data.dailyVoList[i].monthDay + "</td>" +
+                                "<td><div class='text-wrap text-break'>" + data.dailyVoList[i].remark + "</div></td>" +
+                                "<td><div class='text-wrap text-break'><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></div></td>" +
                                 "</tr>";
                         }
                     }else{
-                        dailyContent = " <tr> <th>空</th> </tr>";
+                        dailyContent = " <tr> <td>空</td> </tr>";
                     }
                     $("#tbSummary").html(summaryContent);
                     $("#tbDesign").html(designContent);
@@ -187,112 +190,104 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
-        <div class="page-content">
-
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- 过滤年月 -->
-                            <div class="form-group row">
-                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>
-                                <div class="col-sm-2">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="selYear" name="selYear" >
-                                        <c:forEach begin="2016" end="2022" step="1" var="i">
-                                            <option value="${i}" ${currentYear == i?"selected":""} style="text-align: center; text-align-last: center;">${i}</option>
-                                        </c:forEach>
-                                    </select>
+        <main class="page-main">
+            <div class="page-content">
+                <!-- row -->
+                <div class="row">
+                    <div class="container-fluid grid-margin col-md-12">
+                        <div class="card card-rounded border-light">
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label class="col-sm-auto col-form-label text-primary">年份</label>
+                                    <div class="control-text col-sm-auto col-md-auto col-lg-auto">
+                                        <select class="dropdown-item-text text-primary border-primary-muted" id="selYear" name="selYear">
+                                            <c:forEach begin="2018" end="2025" step="1" var="i">
+                                                <option value="${i}" ${currentYear == i?"selected":""} style="text-align: center; text-align-last: center;">${i}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-auto col-form-label text-primary">月份</label>
+                                    <div class="control-text col-sm-auto col-md-auto col-lg-auto">
+                                        <select class="dropdown-item-text text-primary border-primary-muted" id="selMonth" name="selMonth" >
+                                            <c:forEach begin="1" end="12" step="1" var="i">
+                                                <option value="${i}" ${currentMonth == i?"selected":""} style="text-align: center; text-align-last: center;">${i}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    &nbsp;
+                                    <div class="col-sm-1 form-label">
+                                        <input type="button" class="btn btn-inverse-warning btn-rounded border-warning btn-sm" id="selButton" value="确定">
+                                    </div>
                                 </div>
-
-                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>
-                                <div class="col-sm-2">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="selMonth" name="selMonth" >
-                                        <c:forEach begin="1" end="12" step="1" var="i">
-                                            <option value="${i}" ${currentMonth == i?"selected":""} style="text-align: center; text-align-last: center;">${i}</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-
-                                <div class="col-sm-1">
-                                    <input type="button" class="btn btn-inverse-danger-muted mr-2" id="selButton" value="确定">
-                                </div>
-                            </div>
-
-                            <hr width="300" align="left">
-                            <!-- tab选项卡 -->
-                            <ul class="nav nav-tabs mt-6" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="tab-design" data-toggle="tab" href="#total" role="tab" aria-controls="chats" aria-selected="true">
-                                        <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="edit" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">当月工日之和</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tab-programming" data-toggle="tab" href="#design" role="tab" aria-controls="calls" aria-selected="false">
-                                        <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="git-branch" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">设计</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tab-debug" data-toggle="tab" href="#programming" role="tab" aria-controls="contacts" aria-selected="false">
-                                        <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="git-merge" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">编程画面</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tab-manage" data-toggle="tab" href="#debug" role="tab" aria-controls="contacts" aria-selected="false">
-                                        <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="file-text" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">调试管理</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tab-daily" data-toggle="tab" href="#manage" role="tab" aria-controls="contacts" aria-selected="false">
-                                        <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="gift" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">经营</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tab-others" data-toggle="tab" href="#daily" role="tab" aria-controls="contacts" aria-selected="false">
-                                        <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                            <i data-feather="layers" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                            <p class="d-none d-sm-block">日常零星</p>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- tab选项内容 -->
-                            <div class="tab-content mt-3">
-                                <div class="tab-pane fade show active" id="total" role="tabpanel" aria-labelledby="total-tab">
-
-                                    <div class="text-muted mb-1" align="center">本月工日之和</div>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table01">
-                                                <thead>
-                                                <tr>
-                                                    <th>序号</th>
-                                                    <th>姓名</th>
-                                                    <th>总工日</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody id="tbSummary">
+                                <hr class="style-two">
+                                <ul class="nav nav-tabs mt-6 nav-tabs-justified" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="tab-total" data-toggle="tab" href="#total" role="tab" aria-controls="chats" aria-selected="true">
+                                            <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                                <i data-feather="edit" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                                <p class="d-none d-sm-block">月总工日</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="tab-design" data-toggle="tab" href="#design" role="tab" aria-controls="calls" aria-selected="false">
+                                            <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                                <i data-feather="git-branch" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                                <p class="d-none d-sm-block">设计</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="tab-programming" data-toggle="tab" href="#programming" role="tab" aria-controls="contacts" aria-selected="false">
+                                            <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                                <i data-feather="git-merge" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                                <p class="d-none d-sm-block">编程画面</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="tab-debug" data-toggle="tab" href="#debug" role="tab" aria-controls="contacts" aria-selected="false">
+                                            <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                                <i data-feather="file-text" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                                <p class="d-none d-sm-block">调试管理</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="tab-manage" data-toggle="tab" href="#manage" role="tab" aria-controls="contacts" aria-selected="false">
+                                            <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                                <i data-feather="gift" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                                <p class="d-none d-sm-block">经营</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="tab-daily" data-toggle="tab" href="#daily" role="tab" aria-controls="contacts" aria-selected="false">
+                                            <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                                <i data-feather="layers" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                                <p class="d-none d-sm-block">日常零星</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- tab选项内容 -->
+                                <div class="tab-content mt-3">
+                                    <div class="tab-pane fade show active" id="total" role="tabpanel" aria-labelledby="total-tab">
+                                        <div class="custom-control table">
+                                            <div class="table-responsive text-nowrap">
+                                                <table class="table table-striped table-condensed table-hover table-responsive-md" id="table01">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>姓名</th>
+                                                        <th>总工日</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="tbSummary" class="text-secondary">
                                                     <c:if test="${!empty mainVo.summaryList}">
                                                         <c:forEach var="summary" items="${mainVo.summaryList}" varStatus="s">
                                                             <tr>
@@ -302,41 +297,38 @@
                                                             </tr>
                                                         </c:forEach>
                                                     </c:if>
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- 别加div。。 -->
-                                <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
-
-                                    <p class="text-muted mb-1" align="center">设计工作量</p>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table02">
-                                                <thead>
-                                                <tr>
-                                                    <th>序号</th>
-                                                    <th>工程号</th>
-                                                    <th>工程名称</th>
-                                                    <th>施工图<br>图纸张数</th>
-                                                    <th>图纸<br>折合A1数</th>
-                                                    <th>折合<br>总工日</th>
-                                                    <th>本月<br>完成工日</th>
-                                                    <th>技术方案</th>
-                                                    <th>基本设计</th>
-                                                    <th>专业<br>负责人</th>
-                                                    <th>备注</th>
-                                                    <th>操作</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody id="tbDesign">
+                                    <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
+                                        <div class="custom-control table">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" id="table02" >
+                                                    <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>工程号</th>
+                                                        <th>&emsp;工程名称&emsp;</th>
+                                                        <th>图纸数</th>
+                                                        <th>折合A1</th>
+                                                        <th>总工日</th>
+                                                        <th>完成工日</th>
+                                                        <th>技术方案</th>
+                                                        <th>基本设计</th>
+                                                        <th>专业<br>负责人</th>
+                                                        <th>&emsp;备注&emsp;</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="tbDesign" class="text-secondary">
                                                     <c:if test="${!empty mainVo.designVoList}">
                                                         <c:forEach var="design" items="${mainVo.designVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
-                                                                <td>${design.projectNo}</td>
-                                                                <td>${design.projectName}</td>
+                                                                <td><div class="text text-wrap text-break">${design.projectNo}</div></td>
+                                                                <td><div class="text text-wrap text-break">${design.projectName}</div></td>
                                                                 <td>${design.amount}</td>
                                                                 <td>${design.a1}</td>
                                                                 <td>${design.zheheWorkingDay}</td>
@@ -344,136 +336,128 @@
                                                                 <td>${design.programDay}</td>
                                                                 <td>${design.basicDesignDay}</td>
                                                                 <td>${design.leader}</td>
-                                                                <td>${design.remark}</td>
+                                                                <td><div class="text text-wrap text-break">${design.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid=${design.id}">
-                                                                        <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
                                                     </c:if>
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
-
-                                    <p class="text-muted mb-1" align="center">编程画面工作量</p>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table03">
-                                                <thead>
+                                    <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
+                                        <div class="custom-control table">
+                                            <div class="table-responsive text-nowrap">
+                                                <table class="table table-striped table-borderless table-hover table-condensed table-sm table-responsive-md" id="table03" cellspacing="0">
+                                                    <thead>
                                                     <tr>
-                                                        <th>序号</th>
+                                                        <th>#</th>
                                                         <th>工程号</th>
-                                                        <th>总开关量<br>点数</th>
-                                                        <th>总模拟量<br>点数</th>
-                                                        <th>编程/画面</th>
+                                                        <th>总开关量</th>
+                                                        <th>总模拟量</th>
+                                                        <th>类型</th>
                                                         <th>总工日</th>
-                                                        <th>本月<br>完成工日</th>
-                                                        <th>备注</th>
+                                                        <th>完成工日</th>
+                                                        <th>&emsp;备注&emsp;</th>
                                                         <th>操作</th>
                                                     </tr>
-                                                </thead>
-                                                <tbody id="tbPorgraming">
-                                                <c:if test="${!empty mainVo.programingVoList}">
-                                                    <c:forEach var="programing" items="${mainVo.programingVoList}" varStatus="s">
-                                                        <tr>
-                                                            <td>${s.index}</td>
-                                                            <td>${programing.projectNo}</td>
-                                                            <td>${programing.digitalNumber}</td>
-                                                            <td>${programing.analogNumber}</td>
-                                                            <td>${programing.programingPicture}</td>
-                                                            <td>${programing.programingDay}</td>
-                                                            <td>${programing.monthday}</td>
-                                                            <td>${programing.remark}</td>
-                                                            <td>
-                                                                <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
-                                                                    <button type="button" class="btn btn-outline-info btn-sm">修改</button>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                </c:if>
-                                                </tbody>
-                                            </table>
+                                                    </thead>
+                                                    <tbody id="tbPorgraming" class="text-secondary">
+                                                    <c:if test="${!empty mainVo.programingVoList}">
+                                                        <c:forEach var="programing" items="${mainVo.programingVoList}" varStatus="s">
+                                                            <tr>
+                                                                <td>${s.index}</td>
+                                                                <td><div class="text-wrap text-break">${programing.projectNo}</div></td>
+                                                                <td>${programing.digitalNumber}</td>
+                                                                <td>${programing.analogNumber}</td>
+                                                                <td>${programing.programingPicture}</td>
+                                                                <td>${programing.programingDay}</td>
+                                                                <td>${programing.monthday}</td>
+                                                                <td><div class="text-wrap text-break">${programing.remark}</div></td>
+                                                                <td>
+                                                                    <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </c:if>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab" >
-
-                                    <p class="text-muted mb-1" align="center">调试工程管理工作量</p>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table04">
-                                                <thead>
+                                    <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab" >
+                                        <div class="custom-control table">
+                                            <div class="table-responsive text-nowrap">
+                                                <table class="table table-striped table-borderless table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table04">
+                                                    <thead>
                                                     <tr>
-                                                        <th>序号</th>
+                                                        <th>#</th>
                                                         <th>工程号</th>
-                                                        <th>项目地点</th>
-                                                        <th>工程管理</th>
+                                                        <th>地点</th>
+                                                        <th>管理</th>
                                                         <th>调试</th>
-                                                        <th>备注</th>
+                                                        <th>&emsp;备注&emsp;</th>
                                                         <th>操作</th>
                                                     </tr>
-                                                </thead>
-                                                <tbody id="tbDebug">
+                                                    </thead>
+                                                    <tbody id="tbDebug" class="text-secondary">
                                                     <c:if test="${!empty mainVo.debugVoList}">
                                                         <c:forEach var="debug" items="${mainVo.debugVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
-                                                                <td>${debug.projectNo}</td>
+                                                                <td><div class="text-wrap text-break">${debug.projectNo}</div></td>
                                                                 <td>${debug.site}</td>
                                                                 <td>${debug.manageday}</td>
                                                                 <td>${debug.debugday}</td>
-                                                                <td>${debug.remark}</td>
+                                                                <td><div class="text-wrap text-break">${debug.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid=${debug.id}">
-                                                                        <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
                                                     </c:if>
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
-
-                                    <p class="text-muted mb-1" align="center">经营管理工作量</p>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table05">
+                                    <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
+                                        <div class="custom-control table">
+                                            <div class="table-responsive text-nowrap">
+                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table05">
                                                     <thead>
-                                                        <tr>
-                                                            <th>序号</th>
-                                                            <th>工程号</th>
-                                                            <th>商务<br>询价报价</th>
-                                                            <th>标书制作</th>
-                                                            <th>合同制作<br>与签署</th>
-                                                            <th>投标</th>
-                                                            <th>设备<br>招标采购</th>
-                                                            <th>设备<br>出厂检测</th>
-                                                            <th>催款</th>
-                                                            <th>合同管理</th>
-                                                            <th>其他</th>
-                                                            <th>项目经理</th>
-                                                            <th>备注</th>
-                                                            <th>操作</th>
-                                                        </tr>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>工程号</th>
+                                                        <th>商务询价</th>
+                                                        <th>标书制作</th>
+                                                        <th>合同签署</th>
+                                                        <th>投标</th>
+                                                        <th>设备采购</th>
+                                                        <th>设备检测</th>
+                                                        <th>债务</th>
+                                                        <th>合同管理</th>
+                                                        <th>其他</th>
+                                                        <th>项目经理</th>
+                                                        <th>&emsp;备注&emsp;</th>
+                                                        <th>操作</th>
+                                                    </tr>
                                                     </thead>
-                                                <tbody id="tbManage">
+                                                    <tbody id="tbManage" class="text-secondary">
                                                     <c:if test="${!empty mainVo.manageVoList}">
                                                         <c:forEach var="manage" items="${mainVo.manageVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
-                                                                <td>${manage.projectNo}</td>
+                                                                <td><div class="text-wrap text-break">${manage.projectNo}</div></td>
                                                                 <td>${manage.xunjiabaojia}</td>
                                                                 <td>${manage.tender}</td>
                                                                 <td>${manage.sign}</td>
@@ -484,52 +468,54 @@
                                                                 <td>${manage.contract}</td>
                                                                 <td>${manage.other}</td>
                                                                 <td>${manage.PMday}</td>
-                                                                <td>${manage.remark}</td>
+                                                                <td><div class="text-wrap text-break">${manage.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid=${manage.id}">
-                                                                        <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                        <%--<button type="button" class="btn btn-inverse-warning btn-icon btn-xs btn-rounded">--%>
+                                                                        <%--    <i data-feather="edit-2"></i></button>--%>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
                                                     </c:if>
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
-
-                                    <p class="text-muted mb-1" align="center">日常管理零星工日</p>
-                                    <div class="form-group row">
-                                        <div class="table-responsive pt-3">
-                                            <table class="table table-bordered" id="table06">
-                                                <thead>
-                                                <tr><th>序号</th>
-                                                    <th>工作类型</th>
-                                                    <th>折合天数</th>
-                                                    <th>备注</th>
-                                                    <th>操作</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody id="tbDaily">
+                                    <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
+                                        <div class="custom-control table">
+                                            <div class="table-responsive text-nowrap">
+                                                <table class="table table-striped table-borderless table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table06">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>类型</th>
+                                                        <th>工日</th>
+                                                        <th>&emsp;备注&emsp;</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="tbDaily" class="text-secondary">
                                                     <c:if test="${!empty mainVo.dailyVoList}">
                                                         <c:forEach var="daily" items="${mainVo.dailyVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
                                                                 <td>${daily.type}</td>
                                                                 <td>${daily.monthDay}</td>
-                                                                <td>${daily.remark}</td>
+                                                                <td><div class="text-wrap text-break">${daily.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid=${daily.id}">
-                                                                        <button type="button" class="btn btn-outline-info btn-sm">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
                                                     </c:if>
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -538,11 +524,12 @@
                     </div>
                 </div>
             </div>
-            <!-- partial:partials/_footer.html -->
-            <%@ include file="../Master/Footer.jsp"%>
-            <!-- partial -->
-        </div>
+        </main>
+        <!-- partial:partials/_footer.html -->
+        <%@ include file="../Master/Footer.jsp"%>
+        <!-- partial -->
     </div>
+</div>
 </body>
 <script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>

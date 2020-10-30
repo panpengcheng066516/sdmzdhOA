@@ -32,8 +32,6 @@
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript" src="assets/js/jquery.validate.js" ></script>
     <script type="text/javascript" src="assets/js/messages_zh.js" ></script>
-
-
     <script type="text/javascript">
         $(function(){
             if (${!empty user}){
@@ -42,7 +40,6 @@
             }
         })
     </script>
-
 </head>
 <body>
 <div class="main-wrapper">
@@ -62,19 +59,19 @@
                                     <form id="updateUserForm" class="forms-sample" action="${pageContext.request.contextPath}/userServlet?method=updatePassword" method="post">
                                         <div class="form-group">
                                             <label for="username">用户名</label><span style="color: red">*</span>
-                                            <input type="text" name="username" class="form-control" id="username" autocomplete="username" placeholder="用户名" required="ture"/>
+                                            <input type="text" name="username" class="form-control" id="username" autocomplete="username" placeholder="用户名" required="true"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="oldPIN">原密码</label><span style="color: red">*</span>
-                                            <input type="password" name="oldPIN" class="form-control" id="oldPIN" placeholder="原密码" required="ture"/>
+                                            <input type="password" name="oldPIN" class="form-control" id="oldPIN" placeholder="原密码" required="true"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="newPIN">新密码 </label><span style="color: red">*</span>
-                                            <input type="password" name="newPIN" class="form-control" id="newPIN" autocomplete="new-password" placeholder="新密码" required="ture" />
+                                            <input type="password" name="newPIN" class="form-control" id="newPIN" autocomplete="new-password" placeholder="新密码" required="true" />
                                         </div>
                                         <div class="form-group">
                                             <label for="newPIN">密码确认 </label><span style="color: red">*</span>
-                                            <input type="password" name="newPIN2" class="form-control" id="newPIN2" autocomplete="new-password" placeholder="新密码确认" required="ture"/>
+                                            <input type="password" name="newPIN2" class="form-control" id="newPIN2" autocomplete="new-password" placeholder="新密码确认" required="true"/>
                                         </div>
                                         <c:if test="${!empty loginError}">
                                             <span style="color: red">${loginError}</span>

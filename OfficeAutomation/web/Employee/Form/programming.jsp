@@ -55,6 +55,11 @@
             border-top: 1px solid #000000;
             border-color: #000000;
         }
+        hr.style-two {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(192,192,192), rgba(0, 0, 0, 0));
+        }
     </style>
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
@@ -78,33 +83,31 @@
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
+                <div class="col-md-12 grid-margin container-fluid">
                     <div class="card">
-                        <div class="card-body">
-
-                            <h3 class="text text-primary">编程/画面</h3>
-                            <br>
-                            <div class="alert alert-icon-info" role="alert">
-                                <i data-feather="alert-circle"></i>
-                                填写时请注意，不得使用英文标点符号。<br><br>tip:  如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
+                        <div class="card-header">
+                            <div class="custom-control-inline">
+                                <div class="col">
+                                    <div class="card-title"><h3 class="text text-primary">编程/画面</h3>
+                                    </div>
+                                    <div class="col">
+                                        <div class="alert alert-icon-info-muted text-small col-sm-auto">
+                                            <i data-feather="alert-circle" ></i>填写时请注意，不得使用英文标点符号。如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/programingPictureWorkingServlet?method=addProgramingPictureWorking" method="post">
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">填写</h6>
-
-                                <!-- idSel对应数据库project里的projectid工程号 -->
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
-                                    <div class="col-sm-4">
-                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="ture">
+                        </div>
+                        <div class="card-body">
+                            <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/programingPictureWorkingServlet?method=addProgramingPictureWorking" method="post">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
+                                    <div class="control-text col-sm col-md-3 col-lg-3">
+                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="true">
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
                                                     <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;">${project.projectName}</option>
@@ -112,85 +115,69 @@
                                             </c:if>
                                         </select>
                                     </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectNo" id="projectNo" disabled="true">
-                                    </div>
+                                    <%--<div class="d-flex flex-fill"></div>--%>
+                                        <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
+                                    <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled>
+                                </div>
+                                <hr class="style-two">
+                                <%-- horizontal rule --%>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="digitalNumber" >总开关量</label>
+                                    <input type="text" class="form-control col-sm-2" name="digitalNumber" id="digitalNumber" placeholder="点数" autocomplete="off">
+                                        <%--<div class="d-flex flex-fill"></div>--%>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="analogNumber">总模拟量</label>
+                                    <input type="text" class="form-control col-sm-2"  name="analogNumber" id="analogNumber" placeholder="点数" autocomplete="off">
                                 </div>
 
-<%--                                    <!-- type对应数据库worktype里的type项目下的阶段类型 -->--%>
-<%--                                <div class="form-group row">--%>
-<%--                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>--%>
-<%--                                    <div class="col-sm-4">--%>
-<%--                                        <select class="selectpicker" name="type" id="type">--%>
-<%--                                            <option value="施工图" style="text-align: center; text-align-last: center;">施工图</option>--%>
-<%--                                            <option value="方案设计" style="text-align: center; text-align-last: center;">方案设计</option>--%>
-<%--                                            <option value="经营投标" style="text-align: center; text-align-last: center;">经营投标</option>--%>
-<%--                                            <option value="可研" style="text-align: center; text-align-last: center;">可研</option>--%>
-<%--                                            <option value="初步设计" style="text-align: center; text-align-last: center;">初步设计</option>--%>
-<%--                                        </select>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">总开关量点数</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="digitalNumber" id="digitalNumber" placeholder="总开关量点数">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">总模拟量点数</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="analogNumber" id="analogNumber" placeholder="总模拟量点数">
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <!-- 这条记录在designType上 -->
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">编程/画面</label>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" >具体类型</label>
                                     <div class="col-sm-4">
-                                        <div class="form-check form-check-inline">
+                                        <div class="form-check form-check-inline form-check-danger-muted ">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="programingPicture" id="programingPicture1" value="data1" checked="true">
+                                                <input type="radio" class="form-check-input" name="programingPicture" id="programingPicture1" value="编程">
                                                 编程
                                             </label>
                                         </div>
-
-                                        <div class="form-check form-check-inline">
+                                        <div class="form-check form-check-inline form-check-danger-muted">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="programingPicture" id="programingPicture2" value="data2">
+                                                <input type="radio" class="form-check-input primary" name="programingPicture" id="programingPicture2" value="画面">
                                                 画面
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">总工日数</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="programingDay" id="programingDay" placeholder="总工日数">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">本月完成工日数</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="monthday" id="monthday" placeholder="本月完成工日数">
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-4">
-                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="3"></textarea>
-                                    </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="programingDay">总工日数</label>
+                                    <input type="text" class="form-control col-sm-2 " name="programingDay" id="programingDay" placeholder="总工日数" autocomplete="off">
+                                    <%--<div class="d-flex flex-fill min-col-xs-1"></div>--%>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="monthday">完成情况</label>
+                                    <input type="text" class="form-control col-sm-2 " name="monthday" id="monthday" placeholder="完成工日数" autocomplete="off">
+                                </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <br>
-
+                                <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" for="remark">备注</label>
+                                    <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5" ></textarea>
+                                </div>
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
                                 <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
+                                    <input type="submit" class="btn btn-inverse-success mr-2" name="submit" value="提交">
                                 </div>
-
                             </form>
+                        </div>
+                        <div class="card-footer">
                         </div>
                     </div>
                 </div>

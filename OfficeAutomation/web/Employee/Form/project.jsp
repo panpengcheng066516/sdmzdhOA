@@ -45,15 +45,10 @@
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
     <style type="text/css">
-        .table>thead>tr>th {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
-        .table>tbody>tr>td {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
+        hr.style-two {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(192,192,192), rgba(0, 0, 0, 0));
         }
     </style>
 </head>
@@ -62,137 +57,129 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="text text-primary">科室项目录入</h3>
-                            <br>
-                            <div class="alert alert-icon-info" role="alert">
-                                <i data-feather="alert-circle"></i>
-                                填写时请注意，不得使用英文标点符号。<br><br>tip:  如需修改可前往项目查询页面选择要修改的内容，修改完自动跳回当前页面。
+                <div class="container-fluid grid-margin col-md-12">
+                    <div class="card card-rounded">
+                        <div class="card-header">
+                            <div class="custom-control-inline">
+                                <div class="col">
+                                    <div class="card-title"><h3 class="text text-primary">科室项目录入</h3>
+                                    </div>
+                                    <div class="col">
+                                        <div class="alert alert-icon-info-muted text-small col-sm-auto">
+                                            <i data-feather="alert-circle"></i>填写时请注意，不得使用英文标点符号。如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="card-body">
+                            <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/projectServlet?method=addProject" method="post">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" for="projectName">项目名称</label>
+                                    <input type="text" class="form-control col-sm-2" name="projectName" id="projectName" placeholder="项目名称" autocomplete="off">
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/projectServlet?method=addProject" method="post">
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">填写</h6>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectName" id="projectName" placeholder="项目名称">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectNo" id="projectNo" placeholder="工程号">
-                                    </div>
+                                    <label class="col-sm-auto col-form-label" for="projectNo">工程号&emsp;</label>
+                                    <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" placeholder="工程号" autocomplete="off">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">要求完成时间</label>
-                                    <div class="col-sm-4">
-                                        <input type="date" data-provide="datepicker" name="deadline" id="deadline" class="form-control" placeholder="要求完成时间">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">实际完成时间</label>
-                                    <div class="col-sm-4">
-                                        <input type="date" data-provide="datepicker" name="finish" id="finish" class="form-control" placeholder="实际完成时间">
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">状态</label>
-                                    <div class="col-sm-4">
-                                        <select class="selectpicker" name="progress" id="progress">
-                                            <option value="未完成" style="text-align: center; text-align-last: center;">未完成</option>
-                                            <option value="已完成" style="text-align: center; text-align-last: center;">已完成</option>
-                                            <option value="延期" style="text-align: center; text-align-last: center;">延期</option>
-                                            <option value="取消" style="text-align: center; text-align-last: center;">取消</option>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label data-provide="datepicker-inline" class="col-sm-auto col-form-label" style="display:table-cell;" for="deadline">截止日期</label>
+                                    <input type="date" class="datepicker form-control col-sm-2 text-success" name="deadline" id="deadline" placeholder="要求完成时间">
+
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="finish">实际日期</label>
+                                    <input type="date" class="datepicker form-control col-sm-2 text-success" name="finish" id="finish" placeholder="实际完成时间">
+                                </div>
+
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
+
+                                <div class="form-group row text-nowrap" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="progress">进度状态</label>
+                                    <div class="control-text col-sm-2">
+                                        <select class="dropdown-item-text" id="progress" name="progress">
+                                            <option value="已完成">已完成</option>
+                                            <option value="未完成">未完成</option>
+                                            <option value="延期">延期</option>
+                                            <option value="取消">取消</option>
                                         </select>
                                     </div>
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
-                                    <div class="col-sm-4">
-                                        <select class="selectpicker" name="stage" id="stage">
-                                            <option value="施工图" style="text-align: center; text-align-last: center;">施工图</option>
-                                            <option value="方案设计" style="text-align: center; text-align-last: center;">方案设计</option>
-                                            <option value="经营投标" style="text-align: center; text-align-last: center;">经营投标</option>
-                                            <option value="可研" style="text-align: center; text-align-last: center;">可研</option>
-                                            <option value="初步设计" style="text-align: center; text-align-last: center;">初步设计</option>
+
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="stage">高阶段分类</label>
+                                    <div class="control-text col-sm-2">
+                                        <select class="dropdown-item-text " name="stage" id="stage">
+                                            <option value="施工图">施工图</option>
+                                            <option value="方案设计">方案设计</option>
+                                            <option value="经营投标">经营投标</option>
+                                            <option value="可研">可研</option>
+                                            <option value="初步设计">初步设计</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">专业负责人</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="manager" id="manager" placeholder="专业负责人">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">设计人</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="designer" id="designer" placeholder="设计人">
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">审核</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="reviewer" id="reviewer" placeholder="审核">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">室审</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="office" id="office" placeholder="室审">
-                                    </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manager">专业负责人</label>
+                                    <input type="text" class="form-control col-sm-2" name="manager" id="manager" placeholder="专业负责人" autocomplete="off">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">总师</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="ce" id="ce" placeholder="总师">
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <!-- 不确定留不留
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
-                                    <div class="col-sm-4">
-                                        <select class="selectpicker" name="type" id="type">
-                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
-                                            <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>
-                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>
-                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                 不确定留不留 -->
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="designer">设计人&emsp;</label>
+                                    <input type="text" class="form-control col-sm-2" name="designer" id="designer" placeholder="设计人" autocomplete="off">
 
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-4">
-                                        <textarea class="form-control" name="remarks" id="remarks" placeholder="备注" rows="3"></textarea>
-                                    </div>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="reviewer">审核人&emsp;</label>
+                                    <input type="text" class="form-control col-sm-2" name="reviewer" id="reviewer" placeholder="审核" autocomplete="off">
                                 </div>
 
-                                <br>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
+
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">&emsp;室审&emsp;</label>
+                                    <input type="text" class="form-control col-sm-2" name="office" id="office" placeholder="室审" autocomplete="off">
+
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="ce">&emsp;总师&emsp;</label>
+                                    <input type="text" class="form-control col-sm-2" name="ce" id="ce" placeholder="总师" autocomplete="off">
+                                </div>
+
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
+
+                                <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" for="remarks">备注</label>
+                                    <textarea class="form-control col-sm-6" type="text" name="remarks" id="remarks" placeholder="备注" rows="5" ></textarea>
+                                </div>
+
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
 
                                 <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
+                                    <input type="submit" class="btn btn-inverse-success mb-1 mb-md-0" name="submit" value="提交">
                                 </div>
-
                             </form>
+                        </div>
+                        <div class="card-footer">
                         </div>
                     </div>
                 </div>
@@ -224,9 +211,15 @@
         var day = ("0" + time.getDate()).slice(-2);
         var month = ("0" + (time.getMonth() + 1)).slice(-2);
         var today = time.getFullYear() + "-" + (month) + "-" + (day);
+
+        var day2 = new Date();
+        day2.setTime(day2.getTime()+24*60*60*1000);
+        var tomorrow = day2.getFullYear()+"-" + (day2.getMonth()+1) + "-" + day2.getDate();
+
         $('#deadline').val(today);
-        $('#finish').val(today);
+        $('#finish').val(tomorrow);
     });
+
 
     function logUp() {
         window.location.href = "../../login.jsp";

@@ -71,36 +71,26 @@
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-8 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <h3 class="text text-primary">日常/零星修改</h3>
-                            <br>
-                            <div class="alert alert-icon-danger" role="alert">
-                                <i data-feather="alert-circle"></i>
-                                修改时请注意，不得使用英文标点符号。
+                <div class="container-fluid grid-margin col-md-12">
+                    <div class="card card-rounded">
+                        <div class="card-header">
+                            <div class="custom-control-inline">
+                                <div class="col">
+                                    <div class="card-title"><h3 class="text text-primary">日常零星修改</h3>
+                                    </div>
+                                    <div class="col">
+                                        <div class="alert alert-icon-danger-muted text-small col-sm-auto">
+                                            <i data-feather="alert-circle"></i>修改时请注意，不得使用英文标点符号。
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/dailyWorkingServlet?method=updateDailyWorking" method="post">
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">修改</h6>
-
-                                <h6 class="card-title" style="font-size: 14px;color: red;">如有多项内容，请多次填写。</h6>
-<%--                                <div class="form-group row">--%>
-<%--                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择对应工作</label>--%>
-<%--                                    <div class="col-sm-5">--%>
-<%--                                        <select class="selectpicker" id="sel" name="sel" data-live-search="true">--%>
-<%--                                            <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>--%>
-<%--                                        </select>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择类型</label>
-                                    <div class="col-sm-5">
+                        </div>
+                        <div class="card-body">
+                            <form class="forms form-control-plaintext" action="${ pageContext.request.contextPath }/dailyWorkingServlet?method=updateDailyWorking" method="post">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label">选择类型</label>
+                                    <div class="control-text col-sm col-md-3 col-lg-3">
                                         <select class="selectpicker" name="type" id="type">
                                             <option value="日常管理" ${daily.type == "日常管理"?"selected":""} style="text-align: center; text-align-last: center;">日常管理</option>
                                             <option value="工会事务" ${daily.type == "工会事务"?"selected":""} style="text-align: center; text-align-last: center;">工会事务</option>
@@ -110,35 +100,34 @@
                                             <option value="其他报销/零星工日" ${daily.type == "其他报销/零星工日"?"selected":""} style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="id" id="id"  value="${daily.id}">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="year" id="year"  value="${daily.year}">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="month" id="month"  value="${daily.month}">
-                                    </div>
+                                        <%--<div style="height:1px; background: transparent;">--%>
+                                        <%--    <hr style="display:none;" />--%>
+                                        <%--</div>--%>
+                                    <label class="col-sm-auto col-form-label">折合工日</label>
+                                    <input type="text" class="form-control col-sm-2" name="monthDay" id="monthDay" value="${daily.monthDay}">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">工日天数</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" name="monthDay" id="monthDay" placeholder="工日天数" value="${daily.monthDay}">
-                                    </div>
+                                <div class="input-group-append" style="margin-left: 3.5%; margin-right: 3.5%" hidden="true">
+                                    <input type="text"  class="form-control col-sm-1" name="id" id="id" value="${daily.id}">
+                                    <input type="text"  class="form-control col-sm-1" name="year" id="year" value="${daily.year}">
+                                    <input type="text" class="form-control col-sm-1" name="month" id="month" value="${daily.month}">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-5">
-                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="5">${daily.remark}</textarea>
-                                    </div>
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <br>
+                                <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label">备注</label>
+                                    <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" rows="5">${daily.remark}</textarea>
+                                </div>
+
+                                <div style="height:30px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
 
                                 <div align="center">
-                                    <input type="submit" class="btn btn-outline-primary mb-1 mb-md-0" name="submit" value="确认修改">
+                                    <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>
 
                             </form>

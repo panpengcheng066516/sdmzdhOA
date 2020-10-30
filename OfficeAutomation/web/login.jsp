@@ -23,12 +23,6 @@
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript" src="assets/js/jquery.validate.js" ></script>
     <script type="text/javascript" src="assets/js/messages_zh.js" ></script>
-
-    <script type="text/javascript">
-        $(function() {
-
-        })
-    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -48,11 +42,11 @@
                                     <form id="loginForm" class="forms-sample" action="${ pageContext.request.contextPath }/userServlet?method=login" method="post">
                                         <div class="form-group">
                                             <label for="username">用户名</label>
-                                            <input type="text" name="username" class="form-control" id="username" placeholder="用户名" required="ture"/>
+                                            <input type="text" name="username" class="form-control" id="username" placeholder="用户名" required="true"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="password">密码</label>
-                                            <input type="password" name="password" class="form-control" id="password" autocomplete="current-password" placeholder="密码" required="ture"/>
+                                            <input type="password" name="password" class="form-control" id="password" autocomplete="current-password" placeholder="密码" required="true"/>
                                             <c:if test="${!empty loginError}">
                                                 <span style="color: red">${loginError}</span>
                                             </c:if>

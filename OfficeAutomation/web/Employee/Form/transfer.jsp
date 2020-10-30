@@ -62,36 +62,44 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
-                    <div class="card">
+                <div class="col-md-6 grid-margin container-fluid">
+                    <div class="card card-rounded card-block visible-inline">
+                        <div class="card-header">
+                            <div class="card-title"><h3 class="text text-primary mt-md-3">借调</h3></div>
+                        </div>
+
                         <div class="card-body">
-                            <form action="${ pageContext.request.contextPath }/jiediaoServlet?method=addJiediao" method="post">
+                            <div style="height:5px; background: transparent;">
+                                <hr style="display:none;" />
+                            </div>
 
-                                <h3 class="text text-primary">借调</h3>
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;color: red;">文本框请填写相应借调部门。</h6>
-
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">借调至</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="transfer" id="transfer" placeholder="部门或地点">
+                            <form class="custom-control" action="${ pageContext.request.contextPath }/jiediaoServlet?method=addJiediao" method="post">
+                                <div class="input-group mb-3" style="margin-left: 2.5%; margin-right: 2.5%">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text col-sm-auto text-dark">借调至</span>
                                     </div>
+                                    <input type="text" aria-label="部门/地点" class="form-control col-sm-auto" style="margin-right:40px" name="transfer" id="transfer" placeholder="相应部门/地点" autocomplete="off">
+                                </div>
+
+                                <div class="help-text col-sm-auto text-small text-reddit text-justify" for="transfer" style="margin-left: 2.5%; margin-right: 2.5%">注：此处请填写被借调至的相应地点或者部门名称。</div>
+
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
                                 <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
+                                    <input type="submit" class="btn btn-inverse-success mr-2" name="submit" value="提交">
+                                </div>
+
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
                             </form>
                         </div>

@@ -46,48 +46,55 @@
         .table>tbody>tr>td {
             text-align: center;
         }
+        hr.style-two {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(204,204,204), rgba(0, 0, 0, 0));
+        }
+        table {
+            table-layout: fixed;
+        }
     </style>
-
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
-            $(function(){
-                // 选项框
-                $("#progressSelect").change(function () {
-                    var p1=$(this).children('option:selected').val();
-                    if(p1=="全部"){
-                        var p2 = "${pageContext.request.contextPath}/projectServlet?method=getAllProject";
-                        $(location).attr('href',p2);
-                    }else{
-                        var p2 = "${pageContext.request.contextPath}/projectServlet?method=getProjectByProgress";
-                        var content = "";
-                        $.post(p2,{"progress":p1},function(data){
-                            if(data.length>0){
-                                for(var i=0;i<data.length;i++) {
-                                    content += " <tr>" +
-                                        "<th>" + data[i].projectName + "</th>" +
-                                        "<th>" + data[i].projectNo + "</th>" +
-                                        "<th>" + data[i].deadline + "</th>" +
-                                        "<th>" + data[i].finish + "</th>" +
-                                        "<th>" + data[i].progress + "</th>" +
-                                        "<th>" + data[i].manager + "</th>" +
-                                        "<th>" + data[i].designer + "</th>" +
-                                        "<th>" + data[i].reviewer + "</th>" +
-                                        "<th>" + data[i].office + "</th>" +
-                                        "<th>" + data[i].ce + "</th>" +
-                                        "<th>" + data[i].stage + "</th>" +
-                                        "<th>" + data[i].remarks + "</th>" +
-                                        "<td><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid="+data[i].id+"'><button type='button'  ${user.power==2?'':'hidden'}  class='btn btn-outline-info btn-sm' >修改</button></a>" +
-                                        "<a href='${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid="+data[i].id+"'><button type='button' class='btn btn-outline-info btn-sm' >加入</button></a></td>" +
-                                        "</tr>";
-                                }
-                            }else{
-                                content = " <tr> <th>空</th> </tr>";
+        $(function(){
+            // 选项框
+            $("#progressSelect").change(function () {
+                var p1=$(this).children('option:selected').val();
+                if(p1=="全部"){
+                    var p2 = "${pageContext.request.contextPath}/projectServlet?method=getAllProject";
+                    $(location).attr('href',p2);
+                }else{
+                    var p2 = "${pageContext.request.contextPath}/projectServlet?method=getProjectByProgress";
+                    var content = "";
+                    $.post(p2,{"progress":p1},function(data){
+                        if(data.length>0){
+                            for(var i=0;i<data.length;i++) {
+                                content += " <tr>" +
+                                    "<td><div class='text-wrap text-break'>" + data[i].projectName + "</div></td>" +
+                                    "<td>" + data[i].projectNo + "</td>" +
+                                    "<td><div class='text-wrap text-break'>" + data[i].deadline + "</div></td>" +
+                                    "<td><div class='text-wrap text-break'>" + data[i].finish + "</div></td>" +
+                                    "<td>" + data[i].progress + "</td>" +
+                                    "<td>" + data[i].manager + "</td>" +
+                                    "<td><div class='text-wrap text-break'>" + data[i].designer + "</div></td>" +
+                                    "<td>" + data[i].reviewer + "</td>" +
+                                    "<td>" + data[i].office + "</td>" +
+                                    "<td>" + data[i].ce + "</td>" +
+                                    "<td>" + data[i].stage + "</td>" +
+                                    "<td><div class='text-wrap text-break'>" + data[i].remarks + "</div></td>" +
+                                    "<td ${user.power==2||user.power==3||user.power==18?'':'hidden'}><div class='text-wrap text-break'><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid="+data[i].id+"'><button type='button' ${user.power==2?'':'hidden'} class='btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary'>修改</button></a>" +
+                                    "<a href='${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid="+data[i].id+"'><button type='button' class='btn btn-inverse-primary btn-rounded btn-xs border-primary'>加入</button></a></div></td>" +
+                                    "</tr>";
                             }
-                            $("#tb").html(content);
-                        },"json");
-                    }
-                })
-            });
+                        }else{
+                            content = " <tr> <td>空</td> </tr>";
+                        }
+                        $("#tb").html(content);
+                    },"json");
+                }
+            })
+        });
     </script>
 </head>
 <body>
@@ -95,113 +102,99 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
-    <div class="page-wrapper">
+    <main class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
-        <div class="page-content">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- 过滤年月 -->
-<%--                            <div class="form-group row">--%>
-<%--                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">年份选择</label>--%>
-<%--                                <div class="col-sm-2">--%>
-<%--                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="year" name="year" onchange="sel()">--%>
-<%--                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>--%>
-<%--                                    </select>--%>
-<%--                                </div>--%>
-
-<%--                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">月份选择</label>--%>
-<%--                                <div class="col-sm-2">--%>
-<%--                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="month" name="month" onchange="sel1()">--%>
-<%--                                        <option value="0" selected="selected" style="text-align: center; text-align-last: center;">请选择</option>--%>
-<%--                                    </select>--%>
-<%--                                </div>--%>
-
-                            <div class="form-group row">
-                                <label class="col-sm-1 col-form-label" style="font-size: 14px;">查看部分</label>
-                                <div class="col-sm-2">
-                                    <select class="selectpicker" style="text-align:center;text-align-last:center;" id="progressSelect" name="progressSelect">
-                                        <option value="全部"  style="text-align: center; text-align-last: center;">全部</option>
-                                        <option value="已完成"  style="text-align: center; text-align-last: center;">已完成</option>
-                                        <option value="未完成"  style="text-align: center; text-align-last: center;">未完成</option>
-                                        <option value="延期"  style="text-align: center; text-align-last: center;">延期</option>
-                                        <option value="取消"  style="text-align: center; text-align-last: center;">取消</option>
-                                    </select>
+        <main class="page-main">
+            <div class="page-content">
+                <nav class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item text-small text-twitter">Tables</li>
+                        <li class="breadcrumb-item active text-small" aria-current="project">科室项目一览</li>
+                    </ol>
+                </nav>
+                <!-- row -->
+                <div class="row">
+                    <div class="container-fluid grid-margin col-md-12">
+                        <div class="card card-rounded border-light">
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label class="col-sm-auto col-form-label text-primary">请选择</label>
+                                    <div class="control-text col-sm-auto col-md-auto col-lg-auto">
+                                        <select class="dropdown-item-text text-primary border-primary-muted" id="progressSelect" name="progressSelect">
+                                            <option value="全部">全部</option>
+                                            <option value="已完成">已完成</option>
+                                            <option value="未完成">未完成</option>
+                                            <option value="延期">延期</option>
+                                            <option value="取消">取消</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <hr width="300" align="left">
-                            <div align="center">
-                                <h6 class="card-title" style="font-size: 14px;">项目工程汇总展示</h6>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="table-responsive pt-3">
-                                    <table class="table table-bordered" id="table01">
-                                        <thead>
-                                            <tr>
-                                                <th>项目名称</th>
-                                                <th>工程号</th>
-                                                <th>要求<br>完成时间</th>
-                                                <th>实际<br>完成时间</th>
-                                                <th>状态</th>
-                                                <th>项目<br>负责人</th>
-                                                <th>设计人</th>
-                                                <th>审核</th>
-                                                <th>室审</th>
-                                                <th>总师</th>
-                                                <th>高阶段</th>
-                                                <th>备注</th>
-                                                <th>操作</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tb">
-                                            <c:if test="${!empty projectList}">
-                                                <c:forEach var="project" items="${projectList}">
+                                <hr class="style-two">
+                                <div class="table-content">
+                                    <div class="custom-control table">
+                                        <div class="table-responsive text-wrap">
+                                            <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" id="table01" cellspacing="0" cellpadding="15">
+                                                <thead>
                                                     <tr>
-                                                        <th>${project.projectName}</th>
-                                                        <th>${project.projectNo}</th>
-                                                        <th>${project.deadline}</th>
-                                                        <th>${project.finish}</th>
-                                                        <th>${project.progress}</th>
-                                                        <th>${project.manager}</th>
-                                                        <th>${project.designer}</th>
-                                                        <th>${project.reviewer}</th>
-                                                        <th>${project.office}</th>
-                                                        <th>${project.ce}</th>
-                                                        <th>${project.stage}</th>
-                                                        <th>${project.remarks}</th>
-                                                        <td>
-                                                            <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
-                                                                <button type="button" ${user.power==2?"":"hidden"} class="btn btn-outline-info btn-sm">修改</button>
-                                                            </a>
-                                                            <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">
-                                                                <button type="button" class="btn btn-outline-info btn-sm">加入</button>
-                                                            </a>
-                                                        </td>
+                                                        <th>&ensp;项目名称&ensp;</th>
+                                                        <th>工程号</th>
+                                                        <th>截止日期</th>
+                                                        <th>实际日期</th>
+                                                        <th>状态</th>
+                                                        <th>专业<br>负责人</th>
+                                                        <th>设计人&ensp;</th>
+                                                        <th>审核</th>
+                                                        <th>室审</th>
+                                                        <th>总师</th>
+                                                        <th>高阶段<br>分类</th>
+                                                        <th>&emsp;&emsp;备注&emsp;&emsp;</th>
+                                                        <th ${user.power==2||user.power==3||user.power==18?"":"hidden"} >操作</th>
                                                     </tr>
-                                                </c:forEach>
-                                            </c:if>
-                                        </tbody>
-                                    </table>
+                                                </thead>
+                                                <tbody id="tb" class="text-secondary">
+                                                    <c:if test="${!empty projectList}">
+                                                        <c:forEach var="project" items="${projectList}">
+                                                            <tr>
+                                                                <td><div class="text-wrap text-break">${project.projectName}</div></td>
+                                                                <td><div class="text-wrap text-break">${project.projectNo}</div></td>
+                                                                <td><div class="text-wrap text-break">${project.deadline}</div></td>
+                                                                <td><div class="text-wrap text-break">${project.finish}</div></td>
+                                                                <td>${project.progress}</td>
+                                                                <td>${project.manager}</td>
+                                                                <td><div class="text-wrap text-break">${project.designer}</div></td>
+                                                                <td>${project.reviewer}</td>
+                                                                <td>${project.office}</td>
+                                                                <td>${project.ce}</td>
+                                                                <td>${project.stage}</td>
+                                                                <td><div class="text-wrap text-break">${project.remarks}</div></td>
+                                                                <td ${user.power==2||user.power==3||user.power==18?"":"hidden"} ><div class="text-wrap">
+                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
+                                                                        <button type="button" ${user.power==2?"":"hidden"} class="btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary">修改</button>
+                                                                    </a>
+                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">
+                                                                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-xs border-primary">加入</button>
+                                                                    </a></div>
+                                                                </td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </c:if>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
         <!-- partial:partials/_footer.html -->
         <%@ include file="../Master/Footer.jsp"%>
         <!-- partial -->
     </div>
-</div>
 </body>
 <script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>

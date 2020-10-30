@@ -62,37 +62,34 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-8 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <h3 class="text text-primary">日常/零星</h3>
-                            <br>
-                            <div class="alert alert-icon-info" role="alert">
-                                <i data-feather="alert-circle"></i>
-                                填写时请注意，不得使用英文标点符号。<br><br>tip:  如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
+                <div class="container-fluid grid-margin col-md-12">
+                    <div class="card card-rounded">
+                        <div class="card-header">
+                            <div class="custom-control-inline">
+                                <div class="col">
+                                    <div class="card-title"><h3 class="text text-primary">日常零星</h3>
+                                    </div>
+                                    <div class="col">
+                                        <div class="alert alert-icon-info-muted text-small col-sm-auto">
+                                            <i data-feather="alert-circle" ></i>填写时请注意，不得使用英文标点符号。如需修改可前往个人查询页面选择要修改的内容，修改完自动跳回当前页面。
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/dailyWorkingServlet?method=addDailyWorking" method="post">
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">填写</h6>
-
-                                <h6 class="card-title" style="font-size: 14px;color: red;">如有多项内容，请多次填写。</h6>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">选择类型</label>
-                                    <div class="col-sm-5">
-                                        <select class="selectpicker" name="type" id="type">
+                        </div>
+                        <div class="card-body">
+                            <form class="forms form-control-plaintext" action="${ pageContext.request.contextPath }/dailyWorkingServlet?method=addDailyWorking" method="post" >
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label">选择类型</label>
+                                    <div class="control-text col-sm-auto col-md-auto col-lg-auto">
+                                        <select class="dropdown-item-text" name="type" id="type">
                                             <option value="日常管理" style="text-align: center; text-align-last: center;">日常管理</option>
                                             <option value="工会事务" style="text-align: center; text-align-last: center;">工会事务</option>
                                             <option value="党/团组事务" style="text-align: center; text-align-last: center;">党/团组事务</option>
@@ -101,29 +98,32 @@
                                             <option value="其他报销/零星工日" style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
                                         </select>
                                     </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">工日天数</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" name="monthDay" id="monthDay" placeholder="工日天数">
+                                    <div style="height:1px; background: transparent;">
+                                        <hr style="display:none;" />
                                     </div>
+                                    <label class="col-sm-auto col-form-label">折合工日</label>
+                                    <input type="text" class="form-control col-sm-2" name="monthDay" id="monthDay" placeholder="天数" autocomplete="off">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-5">
-                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="5"></textarea>
-                                    </div>
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <br>
+                                <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label">备注</label>
+                                    <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5"></textarea>
+                                </div>
+
+                                <div style="height:30px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
 
                                 <div align="center">
-                                    <input type="submit" class="btn btn-primary mr-2" name="submit" value="提交">
+                                    <input type="submit" class="btn btn-inverse-success mr-2" name="submit" value="提交">
                                 </div>
-
                             </form>
+                        </div>
+                        <div class="card-footer">
                         </div>
                     </div>
                 </div>

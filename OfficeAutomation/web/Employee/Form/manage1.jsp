@@ -55,6 +55,11 @@
             border-top: 1px solid #000000;
             border-color: #000000;
         }
+        hr.style-two {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(192,192,192), rgba(0, 0, 0, 0));
+        }
     </style>
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
@@ -72,37 +77,34 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <h3 class="text text-primary">经营修改</h3>
-                            <br>
-                            <div class="alert alert-icon-danger" role="alert">
-                                <i data-feather="alert-circle"></i>
-                                修改时请注意，不得使用英文标点符号。
+                <div class="container-fluid grid-margin col-md-12">
+                    <div class="card card-rounded">
+                        <div class="card-header">
+                            <div class="custom-control-inline">
+                                <div class="col">
+                                    <div class="card-title"><h3 class="text text-primary">经营修改</h3>
+                                    </div>
+                                    <div class="col">
+                                        <div class="alert alert-icon-danger-muted text-small col-sm-auto">
+                                            <i data-feather="alert-circle"></i>修改时请注意，不得使用英文标点符号。
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/manageWorkingServlet?method=updateManageWorking" method="post">
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">修改</h6>
-
-                                <!-- iidSel对应数据库project里的projectid工程号 -->
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目名称</label>
-                                    <div class="col-sm-4">
-                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="ture">
+                        </div>
+                        <div class="card-body">
+                            <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/manageWorkingServlet?method=updateManageWorking" method="post">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
+                                    <div class="control-text col-sm col-md-3 col-lg-3">
+                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="true">
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
                                                     <option id="${project.projectNo}" value="${project.id}" ${project.id == programing.id?"selected":""} style="text-align: center; text-align-last: center;">${project.projectName}</option>
@@ -110,118 +112,88 @@
                                             </c:if>
                                         </select>
                                     </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">工程号</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="projectNo" id="projectNo" disabled="true" value="${requestScope.manageproject.projectNo}">
-                                    </div>
-
-
-                                    <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="id" id="id"  value="${manage.id}">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="year" id="year"  value="${manage.year}">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="month" id="month"  value="${manage.month}">
-                                    </div>
+                                    <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
+                                    <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled value="${requestScope.manageproject.projectNo}">
+                                </div>
+                                <%--隐藏--%>
+                                <div class="input-group-append" style="margin-left: 3.5%; margin-right: 3.5%" hidden="true">
+                                    <input type="text"  class="form-control col-sm-1" name="id" id="id"  value="${manage.id}">
+                                    <input type="text"  class="form-control col-sm-1" name="year" id="year"  value="${manage.year}">
+                                    <input type="text" class="form-control col-sm-1" name="month" id="month"  value="${manage.month}">
                                 </div>
 
-                                <!-- itype对应数据库worktype里的type项目下的阶段类型 -->
-                                <!-- 填写页面没有这一项 不确定留不留
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">高阶段分类</label>
-                                    <div class="col-sm-4">
-                                        <select class="selectpicker" name="type" id="type">
-                                            <option value="0" style="text-align: center; text-align-last: center;">施工图</option>
-                                            <option value="1" style="text-align: center; text-align-last: center;">方案设计</option>
-                                            <option value="2" style="text-align: center; text-align-last: center;">经营投标</option>
-                                            <option value="3" style="text-align: center; text-align-last: center;">可研</option>
-                                            <option value="4" style="text-align: center; text-align-last: center;">初步设计</option>
-                                        </select>
-                                    </div>
+                                <hr class="style-two">
+                                <%-- horizontal rule --%>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="xunjiabaojia" >商务询价</label>
+                                    <input type="text" class="form-control col-sm-2" name="xunjiabaojia" id="xunjiabaojia" value="${manage.xunjiabaojia}">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="tender">标书制作</label>
+                                    <input type="text" class="form-control col-sm-2"  name="tender" id="tender" value="${manage.tender}">
                                 </div>
-                                填写页面没有这一项 不确定留不留 -->
-
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">商务询价报价</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="xunjiabaojia" id="xunjiabaojia" placeholder="商务询价报价" value="${manage.xunjiabaojia}">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">标书制作</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="tender" id="tender" placeholder="标书制作" value="${manage.tender}">
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">合同制作与签署</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="sign" id="sign" placeholder="合同制作与签署" value="${manage.sign}">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">投标工作</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="toubiao" id="toubiao" placeholder="投标工作" value="${manage.toubiao}">
-                                    </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="sign">合同相关</label>
+                                    <input type="text" class="form-control form-group-sm col-sm-2" name="sign" id="sign" value="${manage.sign}">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="toubiao">投标工作</label>
+                                    <input type="text" class="form-control col-sm-2" name="toubiao" id="toubiao" value="${manage.toubiao}">
                                 </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">设备招标采购</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="equip" id="equip" placeholder="设备招标采购" value="${manage.equip}">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">设备出厂检测</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="test" id="test" placeholder="设备出厂检测" value="${manage.test}">
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="equip">设备采购</label>
+                                    <input type="text" class="form-control col-sm-2 " name="equip" id="equip" value="${manage.equip}">
+                                    <%--<div class="d-flex flex-fill min-col-xs-1"></div>--%>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="test">设备检测</label>
+                                    <input type="text" class="form-control col-sm-2 " name="test" id="test" value="${manage.test}">
+                                </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="cuikuan">债务相关</label>
+                                    <input type="text" class="form-control col-sm-2 " name="cuikuan" id="cuikuan" value="${manage.cuikuan}">
+                                    <%--<div class="d-flex flex-fill min-col-xs-1"></div>--%>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="contract">合同管理</label>
+                                    <input type="text" class="form-control col-sm-2 " name="contract" id="contract" value="${manage.contract}">
+                                </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="other">其他活动</label>
+                                    <input type="text" class="form-control col-sm-2" name="other" id="other" value="${manage.other}">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">催款（要账）</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="cuikuan" id="cuikuan" placeholder="催款（要账）" value="${manage.cuikuan}">
-                                    </div>
-
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">合同管理</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="contract" id="contract" placeholder="合同管理" value="${manage.contract}">
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="leader" >项目经理</label>
+                                    <input type="text" class="form-control col-sm-2" name="leader" id="leader" value="${manage.PMday}">
+                                    <div class="help-text col-sm-3 text-small text-reddit mt-2 text-justify" for="leader">注：<strong>该处不写经理人名字</strong>，请经理人将工作量折合工日写在此处。</div>
+                                </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">其他经营活动</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="other" id="other" placeholder="其他经营活动" value="${manage.other}">
-                                    </div>
+                                <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" for="remark">备注</label>
+                                    <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5" >${manage.remark}</textarea>
                                 </div>
 
-                                <h6 class="card-title" style="font-size: 14px;">项目经理</h6>
-                                <h6 class="card-title" style="font-size: 14px;color: red;">此处不是写项目经理名字，如果你是项目经理，把操心的工作量折合工日写在此列。</h6>
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">项目经理</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="PMday" id="PMday" placeholder="项目经理" value="${manage.PMday}">
-                                    </div>
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-1 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-4">
-                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="3">${manage.remark}</textarea>
-                                    </div>
-                                </div>
-
-                                <br>
 
                                 <div align="center">
-                                    <input type="submit" class="btn btn-outline-primary mb-1 mb-md-0" name="submit" value="确认修改">
+                                    <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>
-
                             </form>
+                        </div>
+                        <div class="card-footer">
                         </div>
                     </div>
                 </div>

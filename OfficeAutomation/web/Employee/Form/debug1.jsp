@@ -55,6 +55,11 @@
             border-top: 1px solid #000000;
             border-color: #000000;
         }
+        hr.style-two {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(192,192,192), rgba(0, 0, 0, 0));
+        }
     </style>
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
@@ -72,37 +77,34 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-8 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <h3 class="text text-primary">调试工程管理修改</h3>
-                            <br>
-                            <div class="alert alert-icon-danger" role="alert">
-                                <i data-feather="alert-circle"></i>
-                                修改时请注意，不得使用英文标点符号。
+                <div class="container-fluid grid-margin col-md-12">
+                    <div class="card card-rounded">
+                        <div class="card-header">
+                            <div class="custom-control">
+                                <div class="col">
+                                    <div class="card-title"><h3 class="text text-primary">调试工程管理修改</h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="alert alert-icon-danger-muted text-small">
+                                            <i data-feather="alert-circle" ></i>修改时请注意，不得使用英文标点符号。
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
+                        </div>
+                        <div class="card-body">
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/debugWorkingServlet?method=updateDebugWorking" method="post">
-
-                                <hr width="300" align="left">
-
-                                <h6 class="card-title" style="font-size: 14px;">修改</h6>
-
-                                <!-- idSel对应数据库project里的projectid工程号 -->
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">项目名称</label>
-                                    <div class="col-sm-6">
-                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="ture">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
+                                    <div class="control-text col-sm col-md-3 col-lg-3">
+                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="true">
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
                                                     <option id="${project.projectNo}" value="${project.id}" ${project.id == programing.id?"selected":""} style="text-align: center; text-align-last: center;">${project.projectName}</option>
@@ -110,64 +112,50 @@
                                             </c:if>
                                         </select>
                                     </div>
+                                    <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
+                                    <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled value="${requestScope.debugproject.projectNo}">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">工程号</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="projectNo" id="projectNo" disabled="true" value="${requestScope.debugproject.projectNo}">
-                                    </div>
+                                <div class="input-group-append" style="margin-left: 3.5%; margin-right: 3.5%" hidden="true">
+                                    <input type="text"  class="form-control col-sm-1" name="id" id="id" value="${debug.id}">
+                                    <input type="text"  class="form-control col-sm-1" name="year" id="year" value="${debug.year}">
+                                    <input type="text" class="form-control col-sm-1" name="month" id="month" value="${debug.month}">
                                 </div>
 
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="id" id="id"  value="${debug.id}">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="year" id="year"  value="${debug.year}">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" hidden class="form-control" name="month" id="month"  value="${debug.month}">
-                                    </div>
+                                <hr class="style-two">
+                                <%-- horizontal rule --%>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="site" >项目地点</label>
+                                    <input type="text" class="form-control col-sm-2" name="site" id="site" value="${debug.site}" required="true">
                                 </div>
-
-                                <!--  这条记录在designType上 -->
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">项目地点</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="site" id="site" placeholder="项目地点" value="${debug.site}" required="ture">
-                                    </div>
+                                <div style="height:1px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%"
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manageday">工程管理</label>
+                                    <input type="text" class="form-control col-sm-2" name="manageday" id="manageday" value="${debug.manageday}">
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">本月工程管理天数</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="manageday" id="manageday" placeholder="本月工程管理天数" value="${debug.manageday}">
-                                    </div>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="debugday">工程调试</label>
+                                    <input type="text" class="form-control col-sm-2" name="debugday" id="debugday" value="${debug.debugday}">
                                 </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">本月调试天数</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="debugday" id="debugday" placeholder="本月调试天数" value="${debug.debugday}">
-                                    </div>
+                                <div class="help-text col-sm text-small text-reddit mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">注：修改以上两（单）项内容请填写统计好的当月该项工作所用的总天数。</div>
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
                                 </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">备注</label>
-                                    <div class="col-sm-6">
-                                        <textarea class="form-control" name="remark" id="remark" placeholder="备注" rows="5">${debug.remark}</textarea>
-                                    </div>
+                                <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="font-size: 14px;">备注</label>
+                                    <textarea class="form-control col-sm-6" name="remark" id="remark" placeholder="备注" rows="5">${debug.remark}</textarea>
                                 </div>
-
-                                <br>
-
+                                <div style="height:20px; background: transparent;">
+                                    <hr style="display:none;" />
+                                </div>
                                 <div align="center">
-                                    <input type="submit" class="btn btn-outline-primary mb-1 mb-md-0" name="submit" value="确认修改">
+                                    <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>
-
-                            </form>
-                        </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
                     </div>
                 </div>
             </div>
