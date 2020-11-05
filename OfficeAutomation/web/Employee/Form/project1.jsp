@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
@@ -156,12 +156,13 @@
                                 </div>
 
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">&emsp;室审&emsp;</label>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">室审&emsp;&emsp;</label>
                                     <input type="text" class="form-control col-sm-2" name="office" id="office" value="${project.office}">
 
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="ce">&emsp;总师&emsp;</label>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="ce">总师&emsp;&emsp;</label>
                                     <input type="text" class="form-control col-sm-2" name="ce" id="ce" value="${project.ce}">
                                 </div>
+
                                 <div style="height:1px; background: transparent;">
                                     <hr style="display:none;" />
                                 </div>
@@ -206,6 +207,9 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        $('.selectpicker').selectpicker('mobile');
+    }
 
     function logUp() {
         window.location.href = "../../index.jsp";

@@ -18,9 +18,8 @@
     <link rel="stylesheet" href="assets/vendors/core/core.css">
     <link rel="stylesheet" href="assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="assets/images/favicon.png" />
-
-    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.validate.js" ></script>
     <script type="text/javascript" src="assets/js/messages_zh.js" ></script>
 </head>
@@ -35,25 +34,26 @@
                             <div class="col-md-7 pr-md-0">
                                 <div class="auth-left-wrapper"></div>
                             </div>
-                            <div class="col-md-5 pl-md-0">
+                            <div class="col-md-auto pl-md-0">
                                 <div class="auth-form-wrapper px-4 py-5">
-                                    <a href="#" class="noble-ui-logo d-block mb-2">自动化工程技术公司工作量汇总查询系统</a>
-                                    <h5 class="text-muted font-weight-normal mb-4">欢迎使用</h5>
+                                    <div class="noble-ui-logo">自动化工程技术公司<br>
+                                    <span>工作量查询系统</span></div><br>
+                                    <h5 class="text-danger font-weight-normal mb-2">欢迎使用！</h5>
                                     <form id="loginForm" class="forms-sample" action="${ pageContext.request.contextPath }/userServlet?method=login" method="post">
                                         <div class="form-group">
                                             <label for="username">用户名</label>
-                                            <input type="text" name="username" class="form-control" id="username" placeholder="用户名" required="true"/>
+                                            <input type="text" name="username" class="form-control col-sm-2 col-md-auto col-lg-auto" id="username" placeholder="用户名" required="true"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="password">密码</label>
-                                            <input type="password" name="password" class="form-control" id="password" autocomplete="current-password" placeholder="密码" required="true"/>
+                                            <input type="password" name="password" class="form-control col-sm-2 col-md-auto col-lg-auto" id="password" autocomplete="current-password" placeholder="密码" required="true"/>
                                             <c:if test="${!empty loginError}">
                                                 <span style="color: red">${loginError}</span>
                                             </c:if>
                                         </div>
-                                        <div class="mt-5">
-                                            <button type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0">登录</button>
-                                            <button type="button" class="btn btn-success mr-2 mb-2 mb-md-0" onclick="updatepasswd();">修改密码</button>
+                                        <div class="mt-2">
+                                            <button type="submit" class="btn btn-inverse-primary mr-2 mb-2 mb-md-0">登录</button>
+                                            <button type="button" class="btn btn-inverse-success mr-2 mb-2 mb-md-0" onclick="updatepasswd();">修改密码</button>
                                         </div>
                                     </form>
                                 </div>

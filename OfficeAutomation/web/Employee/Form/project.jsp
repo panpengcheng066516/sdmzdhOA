@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/smilyface.jpg" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
@@ -94,11 +94,11 @@
                                 </div>
 
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <label data-provide="datepicker-inline" class="col-sm-auto col-form-label" style="display:table-cell;" for="deadline">截止日期</label>
-                                    <input type="date" class="datepicker form-control col-sm-2 text-success" name="deadline" id="deadline" placeholder="要求完成时间">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="deadline">截止日期</label>
+                                    <input type="date" class="datepicker form-control col-sm-2 text-success" name="deadline" id="deadline">
 
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="finish">实际日期</label>
-                                    <input type="date" class="datepicker form-control col-sm-2 text-success" name="finish" id="finish" placeholder="实际完成时间">
+                                    <input type="date" class="datepicker form-control col-sm-2 text-success" name="finish" id="finish">
                                 </div>
 
                                 <div style="height:1px; background: transparent;">
@@ -154,10 +154,10 @@
                                 </div>
 
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">&emsp;室审&emsp;</label>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">室审&emsp;&emsp;</label>
                                     <input type="text" class="form-control col-sm-2" name="office" id="office" placeholder="室审" autocomplete="off">
 
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="ce">&emsp;总师&emsp;</label>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="ce">总师&emsp;&emsp;</label>
                                     <input type="text" class="form-control col-sm-2" name="ce" id="ce" placeholder="总师" autocomplete="off">
                                 </div>
 
@@ -212,14 +212,9 @@
         var month = ("0" + (time.getMonth() + 1)).slice(-2);
         var today = time.getFullYear() + "-" + (month) + "-" + (day);
 
-        var day2 = new Date();
-        day2.setTime(day2.getTime()+24*60*60*1000);
-        var tomorrow = day2.getFullYear()+"-" + (day2.getMonth()+1) + "-" + day2.getDate();
-
         $('#deadline').val(today);
-        $('#finish').val(tomorrow);
+        $('#finish').val(today);
     });
-
 
     function logUp() {
         window.location.href = "../../login.jsp";

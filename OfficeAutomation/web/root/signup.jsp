@@ -40,68 +40,73 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <!-- 下拉框 -->
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
-    <style type="text/css">
-        .table>thead>tr>th {
-            text-align: center;
-        }
-        .table>tbody>tr>td {
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
 <div class="main-wrapper">
     <!-- partial:partials/_sidebar.html -->
-    <%@ include file="../root/Master/SideBar.jsp"%>
+    <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
-        <%@ include file="../root/Master/NavBar.jsp"%>
-
+        <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
-                    <div class="card">
+                <div class="container-fluid grid-margin col-md-12">
+                    <div class="card card-rounded">
+                        <div class="card-header">
+                            <div class="custom-control-inline">
+                                <div class="col">
+                                    <div class="card-title">
+                                        <h3 class="text text-primary">创建新用户</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
-                            <h3 class="text text-primary">创建新用户</h3>
-                            <hr width="300" align="left">
+                            <form class="forms form-control-plaintext" action="${ pageContext.request.contextPath }/manageUserServlet?method=addUser" method="post">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="name">姓名</label>
+                                    <input type="text" class="form-control col-sm-2" name="name" id="name" placeholder="姓名"  required="true" autocomplete="off">
 
-                            <form class="forms-sample" action="${ pageContext.request.contextPath }/manageUserServlet?method=addUser" method="post">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="debugday">工程调试</label>
+                                    <input type="text" class="form-control col-sm-2" name="debugday" id="debugday" placeholder="工日" autocomplete="off" required="true">
+                                </div>
+
+
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">姓名</label>
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">用户名</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="姓名" required="ture">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="用户名" required="true">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">用户名</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="username" id="username" placeholder="用户名" required="ture">
+                                        <input type="text" class="form-control" name="username" id="username" placeholder="用户名" required="true">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;" >密码</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="password" id="password" placeholder="密码" required="ture">
+                                        <input type="text" class="form-control" name="password" id="password" placeholder="密码" required="true">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">密码确认</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="password1" id="password1" placeholder="密码确认" required="ture">
+                                        <input type="text" class="form-control" name="password1" id="password1" placeholder="密码确认" required="true">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label" style="font-size: 14px;">分组</label>
                                     <div class="col-sm-4">
-                                        <select class="selectpicker" id="groupId" name="groupId" required="ture">
+                                        <select class="selectpicker" id="groupId" name="groupId" required="true"">
                                             <option value="0" style="text-align: center; text-align-last: center;">领导组</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">编程设计组</option>
                                             <option value="2" style="text-align: center; text-align-last: center;">软件组</option>
@@ -111,9 +116,9 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;" required="ture">权限</label>
+                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">权限</label>
                                     <div class="col-sm-4">
-                                        <select class="selectpicker" id="power" name="power">
+                                        <select class="selectpicker" id="power" name="power" required="true">
                                             <option value="0" style="text-align: center; text-align-last: center;">管理员级别</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">主任</option>
                                             <option value="2" style="text-align: center; text-align-last: center;">副主任</option>

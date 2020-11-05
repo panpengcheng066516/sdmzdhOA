@@ -44,18 +44,6 @@
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog.css">
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
-    <style type="text/css">
-        .table>thead>tr>th {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
-        .table>tbody>tr>td {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
-    </style>
 </head>
 <body>
 <div class="main-wrapper">
@@ -105,6 +93,7 @@
                                     <input type="text" class="form-control col-sm-2" name="monthDay" id="monthDay" placeholder="天数" autocomplete="off">
                                 </div>
 
+                                <div class="help-text col-sm text-small text-facebook mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">注：如有多项工作内容，请多次填写。</div>
                                 <div style="height:20px; background: transparent;">
                                     <hr style="display:none;" />
                                 </div>
@@ -123,8 +112,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="card-footer">
-                        </div>
+                        <div class="card-footer"></div>
                     </div>
                 </div>
             </div>
@@ -149,6 +137,9 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        $('.selectpicker').selectpicker('mobile');
+    }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";

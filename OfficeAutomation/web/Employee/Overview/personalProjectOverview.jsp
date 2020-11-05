@@ -105,7 +105,7 @@
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
-        <main class="page-main">
+        <div class="page-main">
             <div class="page-content">
                 <nav class="page-breadcrumb">
                     <ol class="breadcrumb">
@@ -139,34 +139,24 @@
                                     </div>
                                 </div>
 
-                                <div style="height:5px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
                                 <div class="table-content">
-
-                                    <div style="height:10px; background: transparent;">
-                                        <hr style="display:none;" />
-                                    </div>
-
-                                    <div class="table-content">
-                                        <div class="custom-control table">
-                                            <div class="table-responsive text-wrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" id="table01" cellspacing="0" cellpadding="15">
+                                    <div class="custom-control table">
+                                        <div class="table-responsive text-wrap">
+                                            <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" id="table01" cellspacing="0" cellpadding="15">
                                                 <thead>
                                                 <tr>
-                                                    <th>&ensp;项目名称&ensp;</th>
+                                                    <th>项目名称</th>
                                                     <th>工程号</th>
                                                     <th>截止日期</th>
                                                     <th>实际日期</th>
                                                     <th>状态</th>
                                                     <th>专业<br>负责人</th>
-                                                    <th>设计人&ensp;</th>
+                                                    <th>设计人</th>
                                                     <th>审核</th>
                                                     <th>室审</th>
                                                     <th>总师</th>
                                                     <th>高阶段<br>分类</th>
-                                                    <th>&emsp;&emsp;备注&emsp;&emsp;</th>
+                                                    <th>备&emsp;注</th>
                                                     <th>操作</th>
                                                 </tr>
                                                 </thead>
@@ -175,17 +165,17 @@
                                                     <c:forEach var="project" items="${projectList}">
                                                         <tr>
                                                             <td><div class="text-wrap text-break">${project.projectName}</div></td>
-                                                            <td>${project.projectNo}</td>
-                                                            <td>${project.deadline}</td>
-                                                            <td>${project.finish}</td>
-                                                            <td>${project.progress}</td>
-                                                            <td>${project.manager}</td>
+                                                            <td><div class="text-wrap text-break">${project.projectNo}</div></td>
+                                                            <td><div class="text-wrap text-break">${project.deadline}</div></td>
+                                                            <td><div class="text-wrap text-break">${project.finish}</div></td>
+                                                            <td><div class="text-wrap text-break">${project.progress}</div></td>
+                                                            <td><div class="text-wrap text-break">${project.manager}</div></td>
                                                             <td><div class="text-wrap text-break">${project.designer}</div></td>
-                                                            <td>${project.reviewer}</td>
-                                                            <td>${project.office}</td>
-                                                            <td>${project.ce}</td>
-                                                            <td>${project.stage}</td>
-                                                            <td><div class="text-wrap text-break">${project.remarks}</div></td>
+                                                            <td><div class="text-wrap text-break">${project.reviewer}</div></td>
+                                                            <td><div class="text-wrap text-break">${project.office}</div></td>
+                                                            <td><div class="text-wrap text-break">${project.ce}</div></td>
+                                                            <td><div class="text-wrap text-break">${project.stage}</div></td>
+                                                            <td><div class="text-wrap">${project.remarks}</div></td>
                                                             <td>
                                                                 <a href="${pageContext.request.contextPath}/projectServlet?method=quitProject&projectid=${project.id}">
                                                                     <button type="button" class="btn btn-inverse-danger-muted btn-rounded btn-xs text-danger border-danger">退出</button>
@@ -204,10 +194,11 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
         <!-- partial:partials/_footer.html -->
         <%@ include file="../Master/Footer.jsp"%>
         <!-- partial -->
+    </main>
 </div>
 </body>
 <script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
@@ -314,9 +305,12 @@
         }
     });
 
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        $('.selectpicker').selectpicker('mobile');
+    }
+
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";
-
     }
 </script>
 </html>

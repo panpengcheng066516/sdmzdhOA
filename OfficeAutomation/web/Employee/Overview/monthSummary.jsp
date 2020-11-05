@@ -76,13 +76,11 @@
 
                 window.location.href=url+"&year="+year+"&month="+month+"&projectid="+projectid;
             });
-
             // 选项框
             $("#selButton").click(function () {
                 var year=$("#selYear").children('option:selected').val();
                 var month=$("#selMonth").children('option:selected').val();
                 var projectid=$("#selProject").children('option:selected').val();
-
                 var url = "${pageContext.request.contextPath}/personalSummaryServlet?method=getWorkingListByDateProject";
                 var summaryContent = "";
                 var designContent = "";
@@ -117,8 +115,8 @@
                                 "<td>" + data.designVoList[i].programDay + "</td>" +
                                 "<td>" + data.designVoList[i].basicDesignDay + "</td>" +
                                 "<td>" + data.designVoList[i].leader + "</td>" +
-                                "<td><div class='text text-wrap text-break'>" + data.designVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' ${user.power==1||user.power==2?"":"hidden"} class='btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary' >修改</button></a></td>" +
+                                "<td ${user.power==1||user.power==2?'':'hidden'}><div class='text text-wrap text-break'>" + data.designVoList[i].remark + "</div></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-inverse-info btn-rounded border-primary-muted btn-sm text-primary'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -135,8 +133,8 @@
                                 "<td>" + data.programingVoList[i].programingPicture + "</td>" +
                                 "<td>" + data.programingVoList[i].programingDay + "</td>" +
                                 "<td>" + data.programingVoList[i].monthday + "</td>" +
-                                "<td><div class='text text-wrap text-break'>" + data.programingVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='disabled'  ${user.power==1||user.power==2?"":"hidden"} class='btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary' >修改</button></a></td>" +
+                                "<td ${user.power==1||user.power==2?'':'hidden'}><div class='text text-wrap text-break'>" + data.programingVoList[i].remark + "</div></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='disabled' class='btn btn-inverse-info btn-rounded border-primary-muted btn-sm text-primary' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -151,8 +149,8 @@
                                 "<td>" + data.debugVoList[i].site + "</td>" +
                                 "<td>" + data.debugVoList[i].manageday + "</td>" +
                                 "<td>" + data.debugVoList[i].debugday + "</td>" +
-                                "<td><div class='text text-wrap text-break'>" + data.debugVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button'  ${user.power==1||user.power==2?"":"hidden"} class='btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary' >修改</button></a></td>" +
+                                "<td ${user.power==1||user.power==2?'':'hidden'}><div class='text text-wrap text-break'>" + data.debugVoList[i].remark + "</div></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-inverse-info btn-rounded border-primary-muted btn-sm text-primary' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -174,8 +172,8 @@
                                 "<td>" + data.manageVoList[i].contract + "</td>" +
                                 "<td>" + data.manageVoList[i].other + "</td>" +
                                 "<td>" + data.manageVoList[i].PMday + "</td>" +
-                                "<td><div class='text text-wrap text-break'>" + data.manageVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button'  ${user.power==1||user.power==2?"":"hidden"} class='btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary' >修改</button></a></td>" +
+                                "<td ${user.power==1||user.power==2?'':'hidden'}><div class='text text-wrap text-break'>" + data.manageVoList[i].remark + "</div></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-inverse-info btn-rounded border-primary-muted btn-sm text-primary' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -188,8 +186,8 @@
                                 "<td>" + data.dailyVoList[i].name + "</td>" +
                                 "<td>" + data.dailyVoList[i].type + "</td>" +
                                 "<td>" + data.dailyVoList[i].monthDay + "</td>" +
-                                "<td><div class='text text-wrap text-break'>" + data.dailyVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button'  ${user.power==1||user.power==2?"":"hidden"} class='btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary' >修改</button></a></td>" +
+                                "<td ${user.power==1||user.power==2?'':'hidden'}><div class='text text-wrap text-break'>" + data.dailyVoList[i].remark + "</div></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-inverse-info btn-rounded border-primary-muted btn-sm text-primary' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -318,7 +316,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            <!-- tab选项内容 -->
+                                <!-- tab选项内容 -->
                                 <div class="tab-content mt-3">
                                     <div class="tab-pane fade show active" id="total" role="tabpanel" aria-labelledby="total-tab">
                                         <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
@@ -391,7 +389,7 @@
                                                                 <td><div class="text text-wrap text-break">${design.remark}</div></td>
                                                                 <td ${user.power==1||user.power==2?"":"hidden"}>
                                                                     <a href="${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid=${design.id}">
-                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-sm text-primary">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -435,7 +433,7 @@
                                                                 <td><div class="text text-wrap text-break">${programing.remark}</div></td>
                                                                 <td ${user.power==1||user.power==2?"":"hidden"}>
                                                                     <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
-                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-sm text-primary">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -475,7 +473,7 @@
                                                                 <td><div class="text text-wrap text-break">${debug.remark}</div></td>
                                                                 <td ${user.power==1||user.power==2?"":"hidden"}>
                                                                     <a href="${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid=${debug.id}">
-                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-sm text-primary">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -529,7 +527,7 @@
                                                                 <td><div class="text text-wrap text-break">${manage.remark}</div></td>
                                                                 <td ${user.power==1||user.power==2?"":"hidden"}>
                                                                     <a href="${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid=${manage.id}">
-                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-sm text-primary">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -565,7 +563,7 @@
                                                                 <td><div class="text text-wrap text-break">${daily.remark}</div></td>
                                                                 <td ${user.power==1||user.power==2?"":"hidden"}>
                                                                     <a href="${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid=${daily.id}">
-                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-sm text-primary">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -576,7 +574,7 @@
                                             </div>
                                         </div>
                                     </div>
-                            </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -608,6 +606,9 @@
         $('.selectpicker').selectpicker('mobile');
     }
 
+    function logUp() {
+        window.location.href = "../../login.jsp";
+    }
 
 </script>
 </html>

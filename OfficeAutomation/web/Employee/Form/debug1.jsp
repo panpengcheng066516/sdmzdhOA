@@ -45,16 +45,6 @@
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
     <style type="text/css">
-        .table>thead>tr>th {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
-        .table>tbody>tr>td {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
         hr.style-two {
             border: 0;
             height: 1px;
@@ -126,19 +116,19 @@
                                 <%-- horizontal rule --%>
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="site" >项目地点</label>
-                                    <input type="text" class="form-control col-sm-2" name="site" id="site" value="${debug.site}" required="true">
+                                    <input type="text" class="form-control col-sm-2" name="site" id="site" value="${debug.site}">
                                 </div>
                                 <div style="height:1px; background: transparent;">
                                     <hr style="display:none;" />
                                 </div>
-                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%"
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manageday">工程管理</label>
                                     <input type="text" class="form-control col-sm-2" name="manageday" id="manageday" value="${debug.manageday}">
 
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="debugday">工程调试</label>
                                     <input type="text" class="form-control col-sm-2" name="debugday" id="debugday" value="${debug.debugday}">
                                 </div>
-                                <div class="help-text col-sm text-small text-reddit mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">注：修改以上两（单）项内容请填写统计好的当月该项工作所用的总天数。</div>
+                                <div class="help-text col-sm text-small text-reddit mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">注：修改以上两（单）项内容请统计好当月该项工作所用的工日。</div>
                                 <div style="height:20px; background: transparent;">
                                     <hr style="display:none;" />
                                 </div>
@@ -152,11 +142,9 @@
                                 <div align="center">
                                     <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card-footer">
-                    </div>
+                            </form>
+                        </div>
+                    <div class="card-footer"></div>
                 </div>
             </div>
         </div>
@@ -180,7 +168,9 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        $('.selectpicker').selectpicker('mobile');
+    }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";

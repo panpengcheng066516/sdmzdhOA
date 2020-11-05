@@ -55,7 +55,6 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="Employee/Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="Employee/Master/NavBar.jsp"%>
@@ -76,7 +75,7 @@
                         </div>
                     </div>
                     <hr>
-                    <p class="mb-0">欢迎页，点击左侧标签卡选择类型填写工作量<br><i class="btn-icon-prepend" data-feather="arrow-left"></i></p>
+                    <p class="mb-0">点击左侧标签卡选择类型填写工作量<br><i class="btn-icon-prepend" data-feather="arrow-left"></i></p>
                 </div>
             </div>
 
@@ -130,7 +129,6 @@
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <!-- chart -->
 <script src="<%=basePath%>js/apexcharts.min.js"></script>
-<%--<script src="<%=basePath%>assets/js/jquery-1.11.3.min.js" type="text/javascript"></script>--%>
 <script type="text/javascript">
     var pieOption = {
         labels: ["设计", "编程画面", "调试管理", "经营", "日常"],
@@ -165,7 +163,7 @@
         },
         noData: {
             text: '暂无可用数据',
-            align: 'left',
+            align: 'right',
             verticalAlign: 'center',
             offsetX: 0,
             offsetY: 0,

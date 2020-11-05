@@ -156,7 +156,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="leader" >专业负责人</label>
                                     <input type="text" class="form-control col-sm-2" name="leader" id="leader" value="${design.leader}">
-                                    <div class="help-text col-sm-3 text-small text-reddit mt-2 text-justify">注：是专业负责人且不是设计人员，将零星工作量折合工日后填在此处。</div>
+                                    <div class="help-text col-sm-3 text-small text-reddit mt-2 text-justify">注：<strong>是专业负责人且不是设计人员</strong>，将工作量折合工日后填在此处。</div>
                                 </div>
 
                                 <div style="height:1px; background: transparent;">
@@ -177,8 +177,7 @@
                                 </div>
                             </form>
                         </div>
-                    <div class="card-footer">
-                    </div>
+                    <div class="card-footer"></div>
                 </div>
             </div>
         </div>
@@ -202,7 +201,9 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        $('.selectpicker').selectpicker('mobile');
+    }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";

@@ -130,118 +130,119 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-    <div class="page-wrapper">
+    <main class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
-        <main class="page-main">
+        <div class="page-main">
             <div class="page-content">
-                <!-- row -->
                 <div class="row">
                     <div class="container-fluid grid-margin col-md-12">
                         <div class="card card-rounded border-light">
-                            <div class="card-body">
-                                <div class="form-group row">
-                                    <label class="col-sm-auto col-form-label text-primary">年份</label>
-                                    <div class="control-text col-sm-auto col-md-auto col-lg-auto">
-                                        <select class="dropdown-item-text text-primary border-primary-muted" id="selYear" name="selYear" onchange="sel()">
-                                            <c:forEach begin="2019" end="2025" step="1" var="i">
-                                                <option value="${i}" ${currentYear == i?"selected":""}>${i}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label class="col-sm-auto col-form-label text-primary">年份</label>
+                                        <div class="control-text col-sm-auto col-md-auto col-lg-auto">
+                                            <select class="dropdown-item-text text-primary border-primary-muted" id="selYear" name="selYear" onchange="sel()">
+                                                <c:forEach begin="2019" end="2025" step="1" var="i">
+                                                    <option value="${i}" ${currentYear == i?"selected":""}>${i}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
                                         &nbsp;
-                                    <label class="col-sm-auto col-form-label text-primary">月份</label>
-                                    <div class="control-text col-sm-auto col-md-auto col-lg-auto">
-                                        <select class="dropdown-item-text text-primary border-primary-muted" id="selMonth" name="selMonth" onchange="sel0()">
-                                            <c:forEach begin="1" end="12" step="1" var="i">
-                                                <option value="${i}" ${currentMonth == i?"selected":""}>${i}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
+                                        <label class="col-sm-auto col-form-label text-primary">月份</label>
+                                        <div class="control-text col-sm-auto col-md-auto col-lg-auto">
+                                            <select class="dropdown-item-text text-primary border-primary-muted" id="selMonth" name="selMonth" onchange="sel0()">
+                                                <c:forEach begin="1" end="12" step="1" var="i">
+                                                    <option value="${i}" ${currentMonth == i?"selected":""}>${i}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
 
-                                    <div class="col-sm-1 form-label">
-                                        <input type="button" id="selButton" class="btn btn-inverse-danger-muted btn-rounded border-danger-muted btn-sm text-danger" name="submit" value="确定">
-                                    </div>
-                                </div>
-                                <!-- tab选项卡 -->
-                                <ul class="nav nav-tabs mt-6" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="tab-month1" data-toggle="tab" href="#month1" role="tab" aria-controls="chats" aria-selected="true">
-                                            <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                                <i data-feather="archive" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                                <p class="d-none d-sm-block">月工日统计</p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="tab-year1" data-toggle="tab" href="#year1" role="tab" aria-controls="calls" aria-selected="false">
-                                            <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
-                                                <i data-feather="calendar" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
-                                                <p class="d-none d-sm-block">年工日统计</p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <!-- tab选项内容 -->
-                                <div class="tab-content mt-3">
-                                    <div class="tab-pane fade show active" id="month1" role="tabpanel" aria-labelledby="month1-tab">
-                                        <div class="alert alert-icon-primary" role="alert">
-                                            <i data-feather="clipboard"></i>
-                                            本月全科室总工日：<strong>${summaryMainVo.departmentMonthWorkDay}</strong>
-                                        </div>
-                                        <div class="custom-control table">
-                                            <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-condensed table-hover table-responsive-md" id="table01">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>员工</th>
-                                                        <th>月工日和</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody id="tbMonth" class="text-muted">
-                                                    <c:if test="${!empty summaryMainVo.summaryMonthList}">
-                                                        <c:forEach var="summary" items="${summaryMainVo.summaryMonthList}" varStatus="s">
-                                                            <tr>
-                                                                <td>${s.index}</td>
-                                                                <td>${summary.name}</td>
-                                                                <td>${summary.work_day}</td>
-                                                            </tr>
-                                                        </c:forEach>
-                                                    </c:if>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                        <div class="col-sm-1 form-label">
+                                            <input type="button" id="selButton" class="btn btn-inverse-danger-muted btn-rounded border-danger-muted btn-sm text-danger" name="submit" value="确定">
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="year1" role="tabpanel" aria-labelledby="year1-tab">
-                                        <div class="alert alert-icon-primary" role="alert">
-                                            <i data-feather="clipboard"></i>
-                                            全年科室总工日：<strong>${summaryMainVo.departmentYearWorkDay}</strong>
+                                    <!-- tab选项卡 -->
+                                    <ul class="nav nav-tabs mt-6" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="tab-month1" data-toggle="tab" href="#month1" role="tab" aria-controls="chats" aria-selected="true">
+                                                <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                                    <i data-feather="archive" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                                    <p class="d-none d-sm-block">月工日统计</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="tab-year1" data-toggle="tab" href="#year1" role="tab" aria-controls="calls" aria-selected="false">
+                                                <div class="d-flex flex-row flex-lg-column flex-xl-row align-items-center">
+                                                    <i data-feather="calendar" class="icon-sm mr-sm-2 mr-lg-0 mr-xl-2 mb-md-1 mb-xl-0"></i>
+                                                    <p class="d-none d-sm-block">年工日统计</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- tab选项内容 -->
+                                    <div class="tab-content mt-3">
+                                        <div class="tab-pane fade show active" id="month1" role="tabpanel" aria-labelledby="month1-tab">
+                                            <div class="alert alert-icon-primary" role="alert">
+                                                <i data-feather="clipboard"></i>
+                                                本月全科室总工日：<strong>${summaryMainVo.departmentMonthWorkDay}</strong>
+                                            </div>
+                                            <div class="custom-control table">
+                                                <div class="table-responsive text-nowrap">
+                                                    <table class="table table-striped table-condensed table-hover table-responsive-md" id="table01">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>员工</th>
+                                                            <th>月工日和</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="tbMonth" class="text-muted">
+                                                        <c:if test="${!empty summaryMainVo.summaryMonthList}">
+                                                            <c:forEach var="summary" items="${summaryMainVo.summaryMonthList}" varStatus="s">
+                                                                <tr>
+                                                                    <td>${s.index}</td>
+                                                                    <td>${summary.name}</td>
+                                                                    <td>${summary.work_day}</td>
+                                                                </tr>
+                                                            </c:forEach>
+                                                        </c:if>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="custom-control table">
-                                            <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-condensed table-hover table-responsive-md" id="table01">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>员工</th>
-                                                        <th>年工日和</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody id="tbYear" class="text-muted">
-                                                    <c:if test="${!empty summaryMainVo.summaryYearList}">
-                                                        <c:forEach var="summary" items="${summaryMainVo.summaryYearList}" varStatus="s">
-                                                            <tr>
-                                                                <td>${s.index}</td>
-                                                                <td>${summary.name}</td>
-                                                                <td>${summary.work_day}</td>
-                                                            </tr>
-                                                        </c:forEach>
-                                                    </c:if>
-                                                    </tbody>
-                                                </table>
+                                        <div class="tab-pane fade" id="year1" role="tabpanel" aria-labelledby="year1-tab">
+                                            <div class="alert alert-icon-primary" role="alert">
+                                                <i data-feather="clipboard"></i>
+                                                全年科室总工日：<strong>${summaryMainVo.departmentYearWorkDay}</strong>
+                                            </div>
+                                            <div class="custom-control table">
+                                                <div class="table-responsive text-nowrap">
+                                                    <table class="table table-striped table-condensed table-hover table-responsive-md" id="table02">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>员工</th>
+                                                            <th>年工日和</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="tbYear" class="text-muted">
+                                                        <c:if test="${!empty summaryMainVo.summaryYearList}">
+                                                            <c:forEach var="summary" items="${summaryMainVo.summaryYearList}" varStatus="s">
+                                                                <tr>
+                                                                    <td>${s.index}</td>
+                                                                    <td>${summary.name}</td>
+                                                                    <td>${summary.work_day}</td>
+                                                                </tr>
+                                                            </c:forEach>
+                                                        </c:if>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -251,11 +252,11 @@
                     </div>
                 </div>
             </div>
-            <!-- partial:partials/_footer.html -->
-            <%@ include file="../Master/Footer.jsp"%>
-            <!-- partial -->
-        </main>
-    </div>
+        </div>
+        <!-- partial:partials/_footer.html -->
+        <%@ include file="../Master/Footer.jsp"%>
+        <!-- partial -->
+    </main>
 </div>
 </body>
 <script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
@@ -299,6 +300,10 @@
             exclude_links: true,
             exclude_inputs: true
         });
+    }
+
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        $('.selectpicker').selectpicker('mobile');
     }
 
     function logUp() {

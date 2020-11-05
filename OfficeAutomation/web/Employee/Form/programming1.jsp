@@ -5,13 +5,6 @@
   Time: 2:52 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%--
-  Created by IntelliJ IDEA.
-  User: miles
-  Date: 9/1/2020
-  Time: 2:20 PM
-  To change this template use File | Settings | File Templates.
---%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="java.util.LinkedList"%>
 <%@page import="java.io.File"%>
@@ -52,16 +45,6 @@
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
     <style type="text/css">
-        .table>thead>tr>th {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
-        .table>tbody>tr>td {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
         hr.style-two {
             border: 0;
             height: 1px;
@@ -84,11 +67,9 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
@@ -147,7 +128,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" >具体类型</label>
                                     <div class="col-sm-4">
-                                        <div class="form-check form-check-inline form-check-danger-muted ">
+                                        <div class="form-check form-check-inline form-check-danger-muted">
                                             <label class="form-check-label">
                                                 <input type="radio" class="form-check-input" name="programingPicture" id="programingPicture1" value="编程" ${programing.programingPicture == "编程"?"checked":""}>
                                                 编程
@@ -155,7 +136,7 @@
                                         </div>
                                         <div class="form-check form-check-inline form-check-danger-muted">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input primary" name="programingPicture" id="programingPicture2" value="画面" ${programing.programingPicture == "画面"?"checked":""}>
+                                                <input type="radio" class="form-check-input" name="programingPicture" id="programingPicture2" value="画面" ${programing.programingPicture == "画面"?"checked":""}>
                                                 画面
                                             </label>
                                         </div>
@@ -214,7 +195,9 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        $('.selectpicker').selectpicker('mobile');
+    }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";

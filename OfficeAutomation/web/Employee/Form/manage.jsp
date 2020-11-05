@@ -45,16 +45,6 @@
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
     <style type="text/css">
-        .table>thead>tr>th {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
-        .table>tbody>tr>td {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
         hr.style-two {
             border: 0;
             height: 1px;
@@ -107,7 +97,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
                                     <div class="control-text col-sm col-md-3 col-lg-3">
-                                        <select class="selectpicker" style="text-facebook" id="projectid" name="projectid" data-live-search="true" required="true">
+                                        <select class="selectpicker text-dark" id="projectid" name="projectid" data-live-search="true">
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
                                                     <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;">${project.projectName}</option>
@@ -119,7 +109,7 @@
                                     <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
                                     <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled>
                                 </div>
-
+                                <div class="help-text col-sm text-small text-success mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">前往<a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject" class="text">项目查询页</a>添加相关项目</div>
                                 <hr class="style-two">
                                 <%-- horizontal rule --%>
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
@@ -195,8 +185,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="card-footer">
-                        </div>
+                        <div class="card-footer"></div>
                     </div>
                 </div>
             </div>
@@ -221,7 +210,9 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        $('.selectpicker').selectpicker('mobile');
+    }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";

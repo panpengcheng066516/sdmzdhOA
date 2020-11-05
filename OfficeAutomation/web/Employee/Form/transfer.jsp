@@ -44,18 +44,6 @@
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog.css">
     <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
     <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
-    <style type="text/css">
-        .table>thead>tr>th {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
-        .table>tbody>tr>td {
-            text-align: center;
-            border-top: 1px solid #000000;
-            border-color: #000000;
-        }
-    </style>
 </head>
 <body>
 <div class="main-wrapper">
@@ -74,12 +62,10 @@
                         <div class="card-header">
                             <div class="card-title"><h3 class="text text-primary mt-md-3">借调</h3></div>
                         </div>
-
                         <div class="card-body">
                             <div style="height:5px; background: transparent;">
                                 <hr style="display:none;" />
                             </div>
-
                             <form class="custom-control" action="${ pageContext.request.contextPath }/jiediaoServlet?method=addJiediao" method="post">
                                 <div class="input-group mb-3" style="margin-left: 2.5%; margin-right: 2.5%">
                                     <div class="input-group-prepend">
@@ -127,7 +113,9 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        $('.selectpicker').selectpicker('mobile');
+    }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";

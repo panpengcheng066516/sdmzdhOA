@@ -53,32 +53,33 @@
                             <div class="col-md-7 pr-md-0">
                                 <div class="auth-left-wrapper"></div>
                             </div>
-                            <div class="col-md-5 pl-md-0">
+                            <div class="col-md-auto pl-md-0">
                                 <div class="auth-form-wrapper px-4 py-5">
-                                    <a href="#" class="noble-ui-logo d-block mb-2">密码修改</a>
+                                    <h4 class="text-facebook mb-1">密码修改</h4>
                                     <form id="updateUserForm" class="forms-sample" action="${pageContext.request.contextPath}/userServlet?method=updatePassword" method="post">
                                         <div class="form-group">
-                                            <label for="username">用户名</label><span style="color: red">*</span>
-                                            <input type="text" name="username" class="form-control" id="username" autocomplete="username" placeholder="用户名" required="true"/>
+                                            <label for="username">用户名<span class="text-danger">*</span></label>
+                                            <input type="text" name="username" class="form-control col-sm-2 col-md-auto col-lg-auto" id="username" autocomplete="username" placeholder="用户名" required="true"/>
                                         </div>
                                         <div class="form-group">
-                                            <label for="oldPIN">原密码</label><span style="color: red">*</span>
-                                            <input type="password" name="oldPIN" class="form-control" id="oldPIN" placeholder="原密码" required="true"/>
+                                            <label for="oldPIN">原密码<span class="text-danger">*</span></label>
+                                            <input type="password" name="oldPIN" class="form-control col-sm-2 col-md-auto col-lg-auto" id="oldPIN" placeholder="原密码" required="true"/>
                                         </div>
                                         <div class="form-group">
-                                            <label for="newPIN">新密码 </label><span style="color: red">*</span>
-                                            <input type="password" name="newPIN" class="form-control" id="newPIN" autocomplete="new-password" placeholder="新密码" required="true" />
+                                            <label for="newPIN">新密码<span class="text-danger">*</span></label>
+                                            <input type="password" name="newPIN" class="form-control col-sm-2 col-md-auto col-lg-auto" id="newPIN" autocomplete="new-password" placeholder="新密码" required="true" />
                                         </div>
                                         <div class="form-group">
-                                            <label for="newPIN">密码确认 </label><span style="color: red">*</span>
-                                            <input type="password" name="newPIN2" class="form-control" id="newPIN2" autocomplete="new-password" placeholder="新密码确认" required="true"/>
+                                            <label for="newPIN">确认新密码<span class="text-danger">*</span></label>
+                                            <input type="password" name="newPIN2" class="form-control col-sm-2 col-md-auto col-lg-auto" id="newPIN2" autocomplete="new-password" placeholder="确认新密码" required="true"/>
                                         </div>
                                         <c:if test="${!empty loginError}">
                                             <span style="color: red">${loginError}</span>
                                         </c:if>
-                                        <div class="mt-3">
-                                            <button type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0">提交</button>
-                                            <button type="reset" class="btn btn-outline-info mr-2 mb-1 mb-md-0">清空</button>
+                                        <div class="custom-control-inline mt-3">
+                                            <button type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0">确认</button>
+                                            <div class="flex-fill"></div>
+                                            <a href="index.jsp" class="text text-small mt-2"> 返回登录页面</a>
                                         </div>
                                     </form>
                                 </div>
