@@ -118,7 +118,7 @@
 
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="stage">高阶段分类</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="dropdown-item-text " name="stage" id="stage">
+                                        <select class="dropdown-item-text" name="stage" id="stage">
                                             <option value="施工图">施工图</option>
                                             <option value="方案设计">方案设计</option>
                                             <option value="经营投标">经营投标</option>
@@ -144,6 +144,10 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="designer">设计人&emsp;</label>
                                     <input type="text" class="form-control col-sm-2" name="designer" id="designer" placeholder="设计人" autocomplete="off">
+<%--                                    <div class="control-text col-sm-2">--%>
+<%--                                        <select class="selectpicker" id="designer" name="designer" required="true" data-live-search="true">--%>
+<%--                                            <c:if test="${!empty userList}">--%>
+
 
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="reviewer">审核人&emsp;</label>
                                     <input type="text" class="form-control col-sm-2" name="reviewer" id="reviewer" placeholder="审核" autocomplete="off">

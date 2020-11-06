@@ -97,7 +97,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
                                     <div class="control-text col-sm col-md-3 col-lg-3">
-                                        <select class="selectpicker text-dark" id="projectid" name="projectid" data-live-search="true">
+                                        <select class="selectpicker text-dark" id="projectid" name="projectid" data-live-search="true" required="true">
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
                                                     <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;">${project.projectName}</option>

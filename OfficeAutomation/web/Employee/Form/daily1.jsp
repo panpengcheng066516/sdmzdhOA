@@ -76,8 +76,8 @@
                             <form class="forms form-control-plaintext" action="${ pageContext.request.contextPath }/dailyWorkingServlet?method=updateDailyWorking" method="post">
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label">选择类型</label>
-                                    <div class="control-text col-sm col-md-3 col-lg-3">
-                                        <select class="selectpicker" name="type" id="type">
+                                    <div class="control-text col-sm-auto col-md-auto col-lg-auto">
+                                        <select class="dropdown-item-text" name="type" id="type">
                                             <option value="日常管理" ${daily.type == "日常管理"?"selected":""} style="text-align: center; text-align-last: center;">日常管理</option>
                                             <option value="工会事务" ${daily.type == "工会事务"?"selected":""} style="text-align: center; text-align-last: center;">工会事务</option>
                                             <option value="党/团组事务" ${daily.type == "党/团组事务"?"selected":""} style="text-align: center; text-align-last: center;">党/团组事务</option>
@@ -86,9 +86,9 @@
                                             <option value="其他报销/零星工日" ${daily.type == "其他报销/零星工日"?"selected":""} style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
                                         </select>
                                     </div>
-                                        <%--<div style="height:1px; background: transparent;">--%>
-                                        <%--    <hr style="display:none;" />--%>
-                                        <%--</div>--%>
+                                    <div style="height:1px; background: transparent;">
+                                        <hr style="display:none;" />
+                                    </div>
                                     <label class="col-sm-auto col-form-label">折合工日</label>
                                     <input type="text" class="form-control col-sm-2" name="monthDay" id="monthDay" value="${daily.monthDay}">
                                 </div>

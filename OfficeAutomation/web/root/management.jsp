@@ -67,26 +67,30 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../root/Master/SideBar.jsp"%>
     <!-- partial -->
-
     <div class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../root/Master/NavBar.jsp"%>
-
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="col-md-8 grid-margin stretch-card">
-                    <div class="card">
+                <div class="container-fluid grid-margin col-md-12">
+                    <div class="card card-rounded">
+                        <div class="card-header">
+                            <div class="custom-control-inline">
+                                <div class="col">
+                                    <div class="card-title">
+                                        <h3 class="text text-primary">用户信息修改</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
-                            <h3 class="text text-primary">用户信息修改</h3>
-                            <hr width="300" align="left">
-
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/manageUserServlet?method=updateUser" method="post">
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">用户选择</label>
-                                    <div class="col-sm-3">
-                                        <select class="selectpicker" id="username" name="username" required="ture" data-live-search="true">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="name">选择用户</label>
+                                    <div class="control-text col-sm-2">
+                                        <select class="selectpicker" name="username" id="username" required="true" data-live-search="true">
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
                                                     <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
@@ -96,34 +100,26 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">姓名</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="姓名">
-                                    </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="name">姓名&emsp;&emsp;</label>
+                                    <input type="text" class="form-control col-sm-2" name="name" id="name" placeholder="姓名"  required="true" autocomplete="off">
 
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">用户名</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" id="username1" name="username1"  placeholder="用户名" readonly="readonly">
-                                    </div>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="username1">用户名&emsp;</label>
+                                    <input type="text" class="form-control col-sm-2" name="username1" id="username1" placeholder="用户名" autocomplete="off" required="true">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">密码</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" id="password" name="password" required="ture" placeholder="密码">
-                                    </div>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password">密码&emsp;&emsp;</label>
+                                    <input type="text" class="form-control col-sm-2" name="password" id="password" placeholder="密码"  required="true" autocomplete="off">
 
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">密码确认</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" id="password1" name="password1" required="ture" placeholder="密码确认">
-                                    </div>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password1">确认密码</label>
+                                    <input type="text" class="form-control col-sm-2" name="password1" id="password1" placeholder="确认密码" autocomplete="off" required="true">
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">分组</label>
-                                    <div class="col-sm-3">
-                                        <select class="selectpicker" id="groupId" name="groupId" required="ture">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password">分组&emsp;&emsp;</label>
+                                    <div class="control-text col-sm-2">
+                                        <select class="dropdown-item-text" id="groupId" name="groupId" required="ture">
                                             <option value="0" style="text-align: center; text-align-last: center;">领导组</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">编程设计组</option>
                                             <option value="2" style="text-align: center; text-align-last: center;">软件组</option>
@@ -131,9 +127,9 @@
                                         </select>
                                     </div>
 
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">权限</label>
-                                    <div class="col-sm-3">
-                                        <select class="selectpicker" id="power" name="power" required="ture">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password1">权限&emsp;&emsp;</label>
+                                    <div class="control-text col-sm-2">
+                                        <select class="dropdown-item-text" id="power" name="power" required="ture">
                                             <option value="0" style="text-align: center; text-align-last: center;">管理员级别</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">主任</option>
                                             <option value="2" style="text-align: center; text-align-last: center;">副主任</option>
@@ -143,18 +139,18 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">是否借调</label>
-                                    <div class="col-sm-3">
-                                        <select class="selectpicker" id="transfer" name="transfer" required="ture">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password">是否借调</label>
+                                    <div class="control-text col-sm-2">
+                                        <select class="dropdown-item-text" id="transfer" name="transfer" required="ture">
                                             <option value="0" selected style="text-align: center; text-align-last: center;">否</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">是</option>
                                         </select>
                                     </div>
 
-                                    <label class="col-sm-2 col-form-label" style="font-size: 14px;">是否在职</label>
-                                    <div class="col-sm-3">
-                                        <select class="selectpicker" id="inuse" name="inuse" required="ture">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password1">是否在职</label>
+                                    <div class="control-text col-sm-2">
+                                        <select class="dropdown-item-text" id="inuse" name="inuse" required="ture">
                                             <option value="0"  style="text-align: center; text-align-last: center;">否</option>
                                             <option value="1" selected style="text-align: center; text-align-last: center;">是</option>
                                         </select>
@@ -196,6 +192,10 @@
 <script src="<%=basePath%>js/htmlFile/Management.js"></script>
 <script src="<%=basePath%>js/bootstrap-select.js" type="text/javascript"></script>
 <script type="text/javascript">
+
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        $('.selectpicker').selectpicker('mobile');
+    }
 
     function logUp() {
         window.location.href = "login.jsp";

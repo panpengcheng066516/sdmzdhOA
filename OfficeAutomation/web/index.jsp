@@ -89,7 +89,7 @@
                                 <div class="content">
                                     <div class="card-header-transparent">
                                         <p class="text-linkedin ">本月各类工作完成比例</p>
-                                        <button class="btn btn-o btn-icon btn-s btn-icon-text pull-right" data-toggle="popover" data-trigger="focus" data-content="由于部分浏览器默认缓存设置可能导致回调函数请求失效。为了数据准确，推荐使用Google Chrome浏览器。">
+                                        <button class="btn btn-o btn-icon btn-s btn-icon-text pull-right" data-toggle="popover" data-trigger="focus" data-content="由于部分浏览器的缓存设置可能导致回调函数请求失效。为了保证图形渲染准确，推荐使用Google Chrome浏览器。">
                                             <i data-feather="alert-triangle"></i>
                                         </button>
                                     </div>
@@ -152,9 +152,9 @@
         },
         legend: {
             show: true,
-            // formatter: function(val, opts) {
-            //    return val + " - " + opts.w.globals.series[opts.seriesIndex]
-            // },
+            formatter: function(val, opts) {
+               return val + " - " + opts.w.globals.series[opts.seriesIndex]
+            },
             position: 'right',
             containerMargin: {
                 left: 35,
