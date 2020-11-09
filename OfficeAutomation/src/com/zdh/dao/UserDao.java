@@ -57,4 +57,9 @@ public class UserDao {
         int update = runner.update(sql, username);
         return update;
     }
+
+    public User getUserByUsername(String username) throws SQLException {
+        String sql = "select * from people where username = ?";
+        return runner.query(sql, new BeanHandler<User>(User.class),username);
+    }
 }

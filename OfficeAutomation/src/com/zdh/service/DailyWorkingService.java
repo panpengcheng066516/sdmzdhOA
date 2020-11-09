@@ -7,8 +7,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class DailyWorkingService {
+
+    DailyWorkingDao dailyWorkingDao = new DailyWorkingDao();
+
+
     public int addDailyWorking(DailyWorking dailyWorking) {
-        DailyWorkingDao dailyWorkingDao = new DailyWorkingDao();
         int i= 0;
         try {
             i = dailyWorkingDao.addDailyWorking(dailyWorking);
@@ -19,7 +22,6 @@ public class DailyWorkingService {
     }
 
     public List<DailyWorking> getDailyWorkingByUsername(String username) {
-        DailyWorkingDao dailyWorkingDao = new DailyWorkingDao();
         List<DailyWorking> list = null;
         try {
             list = dailyWorkingDao.getDailyWorkingByUsername(username);
@@ -30,7 +32,6 @@ public class DailyWorkingService {
     }
 
     public List<DailyWorking> getDailyWorkingByDateUsername(String year,String month,String username) {
-        DailyWorkingDao dailyWorkingDao = new DailyWorkingDao();
         List<DailyWorking> list = null;
         try {
             list = dailyWorkingDao.getDailyWorkingByDateUsername(year,month,username);
@@ -41,7 +42,6 @@ public class DailyWorkingService {
     }
 
     public int updateDailyWorking(DailyWorking dailyWorking) {
-        DailyWorkingDao dailyWorkingDao = new DailyWorkingDao();
         int i= 0;
         try {
             i = dailyWorkingDao.updateDailyWorking(dailyWorking);
@@ -52,7 +52,6 @@ public class DailyWorkingService {
     }
 
     public DailyWorking getDailyWorkingInfo(String dailyid) {
-        DailyWorkingDao dailyWorkingDao = new DailyWorkingDao();
         DailyWorking dailyWorking = null;
         try {
             dailyWorking = dailyWorkingDao.getDailyWorkingById(dailyid);

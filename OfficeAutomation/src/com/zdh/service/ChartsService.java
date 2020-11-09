@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChartsService {
+
+    ChartsDao chartsDao = new ChartsDao();
+
+
     public List<Double> getSumWorkdays(String year, String month) {
-        ChartsDao chartsDao = new ChartsDao();
         ArrayList<Double> list = new ArrayList<Double>();
         Double design = Double.valueOf(0);
         Double programing = Double.valueOf(0);

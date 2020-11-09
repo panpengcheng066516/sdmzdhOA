@@ -8,8 +8,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ManageWorkingService {
+    ManageWorkingDao manageWorkingDao = new ManageWorkingDao();
+
     public int addManageWorking(ManageWorking manageWorking) {
-        ManageWorkingDao manageWorkingDao = new ManageWorkingDao();
         int i = 0;
         try {
             i = manageWorkingDao.addManageWorking(manageWorking);
@@ -20,7 +21,6 @@ public class ManageWorkingService {
     }
 
     public List<ManageWorking> getManageWorkingByUsername(String username) {
-        ManageWorkingDao manageWorkingDao = new ManageWorkingDao();
         List<ManageWorking> list = null;
         try {
             list = manageWorkingDao.getManageWorkingByUsername(username);
@@ -31,7 +31,6 @@ public class ManageWorkingService {
     }
 
     public List<ManageWorking> getManageWorkingByDateUsername(String year,String month,String username) {
-        ManageWorkingDao manageWorkingDao = new ManageWorkingDao();
         List<ManageWorking> list = null;
         try {
             list = manageWorkingDao.getManageWorkingByDateUsername(year,month,username);
@@ -42,7 +41,6 @@ public class ManageWorkingService {
     }
 
     public int updateManageWorking(ManageWorking manageWorking) {
-        ManageWorkingDao manageWorkingDao = new ManageWorkingDao();
         int i = 0;
         try {
             i = manageWorkingDao.updateManageWorking(manageWorking);
@@ -53,7 +51,6 @@ public class ManageWorkingService {
     }
 
     public ManageWorking getManageWorkingInfo(String manageid) {
-        ManageWorkingDao manageWorkingDao = new ManageWorkingDao();
         ManageWorking manageWorking = null;
         try {
             manageWorking = manageWorkingDao.getManageWorkingById(manageid);
@@ -64,7 +61,6 @@ public class ManageWorkingService {
     }
 
     public Project getProjectByid(String manageid) {
-        ManageWorkingDao manageWorkingDao = new ManageWorkingDao();
         Project project = null;
         try {
             project = manageWorkingDao.getProjectByid(manageid);

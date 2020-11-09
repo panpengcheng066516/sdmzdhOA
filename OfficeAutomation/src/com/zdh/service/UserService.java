@@ -7,6 +7,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserService {
+
+    UserDao dao = new UserDao();
+
+
 //    public boolean regist(User user) {
 //
 //        UserDao dao = new UserDao();
@@ -23,7 +27,6 @@ public class UserService {
 //
     //校验用户名是否存在
     public boolean checkUsername(String username) {
-        UserDao dao = new UserDao();
         int isExist = 0;
         try {
             isExist = dao.checkUsername(username);
@@ -35,12 +38,10 @@ public class UserService {
 
     //检查用户名和密码是否一致，用户登录的方法
     public User login(String username, String password) throws SQLException {
-        UserDao dao = new UserDao();
         return dao.login(username,password);
     }
 
     public List<User> getUserList() {
-        UserDao dao = new UserDao();
         List<User> list = null;
         try {
              list = dao.getUserList();
@@ -51,7 +52,6 @@ public class UserService {
     }
 
     public int updatePassword(String username, String newPIN) {
-        UserDao dao = new UserDao();
         int i = 0;
         try {
             i = dao.updatePassword(username,newPIN);
@@ -62,7 +62,6 @@ public class UserService {
     }
 
     public List<User> findAllUser() {
-        UserDao dao = new UserDao();
         List<User> list = null;
         try {
             list = dao.getUserList();
@@ -73,7 +72,6 @@ public class UserService {
     }
 
     public int addUser(User user) {
-        UserDao dao = new UserDao();
         int i = 0;
         try {
             i = dao.insertUser(user);
@@ -84,7 +82,6 @@ public class UserService {
     }
 
     public int updateUser(User user) {
-        UserDao dao = new UserDao();
         int i = 0;
         try {
             i = dao.updateUser(user);
@@ -95,7 +92,6 @@ public class UserService {
     }
 
     public int jiediaouser(String username) {
-        UserDao dao = new UserDao();
         int i = 0;
         try {
             i = dao.jiediaoUser(username);
@@ -103,5 +99,15 @@ public class UserService {
             e.printStackTrace();
         }
         return i;
+    }
+
+    public User getUserByUsername(String username){
+        User user = null;
+        try {
+            user = dao.getUserByUsername(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 }

@@ -7,8 +7,9 @@ import com.zdh.domain.User;
 import java.sql.SQLException;
 
 public class JiediaoService {
+    JiediaoDao jiediaoDao = new JiediaoDao();
+
     public int addJiediao(Jiediao jiediao) {
-        JiediaoDao jiediaoDao = new JiediaoDao();
         int i = 0;
         try {
             i = jiediaoDao.insertJiediao(jiediao);

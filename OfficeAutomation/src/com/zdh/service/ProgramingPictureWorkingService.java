@@ -8,8 +8,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ProgramingPictureWorkingService {
+
+    ProgramingPictureWorkingDao programingPictureWorkingDao = new ProgramingPictureWorkingDao();
+
+
     public int addProgramingPictureWorking(ProgramingPictureWorking programingPictureWorking)  {
-        ProgramingPictureWorkingDao programingPictureWorkingDao = new ProgramingPictureWorkingDao();
         int i = 0;
         try {
             i = programingPictureWorkingDao.addProgramingPictureWorking(programingPictureWorking);
@@ -20,7 +23,6 @@ public class ProgramingPictureWorkingService {
     }
 
     public List<ProgramingPictureWorking> getProgramingPictureWorkingByUsername(String username) {
-        ProgramingPictureWorkingDao programingPictureWorkingDao = new ProgramingPictureWorkingDao();
         List<ProgramingPictureWorking> list = null;
         try {
             list = programingPictureWorkingDao.getProgramingPictureWorkingByUsername(username);
@@ -31,7 +33,6 @@ public class ProgramingPictureWorkingService {
     }
 
     public List<ProgramingPictureWorking> getDesignWorkingByDateUsername(String year,String month,String username) {
-        ProgramingPictureWorkingDao programingPictureWorkingDao = new ProgramingPictureWorkingDao();
         List<ProgramingPictureWorking> list = null;
         try {
             list = programingPictureWorkingDao.getProgramingPictureWorkingByDateUsername(year,month,username);
@@ -42,7 +43,6 @@ public class ProgramingPictureWorkingService {
     }
 
     public ProgramingPictureWorking getprogramingPictureWorkingInfo(String programingid) {
-        ProgramingPictureWorkingDao programingPictureWorkingDao = new ProgramingPictureWorkingDao();
         ProgramingPictureWorking programingPictureWorking = null;
         try {
             programingPictureWorking = programingPictureWorkingDao.getProgramingPictureWorkingInfo(programingid);
@@ -53,7 +53,6 @@ public class ProgramingPictureWorkingService {
     }
 
     public Project getProjectByid(String programingid) {
-        ProgramingPictureWorkingDao programingPictureWorkingDao = new ProgramingPictureWorkingDao();
         Project project = null;
         try {
             project = programingPictureWorkingDao.getProjectByProgramingId(programingid);
@@ -64,7 +63,6 @@ public class ProgramingPictureWorkingService {
     }
 
     public int updateProgramingWorking(ProgramingPictureWorking programingPictureWorking) {
-        ProgramingPictureWorkingDao programingPictureWorkingDao = new ProgramingPictureWorkingDao();
         int i = 0;
         try {
             i = programingPictureWorkingDao.updateProgramingPictureWorking(programingPictureWorking);

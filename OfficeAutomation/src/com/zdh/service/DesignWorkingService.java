@@ -8,8 +8,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class DesignWorkingService {
+
+
+    DesignWorkingDao designWorkingDao = new DesignWorkingDao();
+
+
     public int addDesignWorking(DesignWorking designWorking) {
-        DesignWorkingDao designWorkingDao = new DesignWorkingDao();
         int i = 0;
         try {
             i = designWorkingDao.addDesignWorking(designWorking);
@@ -21,7 +25,6 @@ public class DesignWorkingService {
 
 
     public List<DesignWorking> getDesignWorkingByUsername(String username) {
-        DesignWorkingDao designWorkingDao = new DesignWorkingDao();
         List<DesignWorking> designWorkingList = null;
         try {
             designWorkingList = designWorkingDao.getDesignWorkingByUsername(username);
@@ -32,7 +35,6 @@ public class DesignWorkingService {
     }
 
     public List<DesignWorking> getDesignWorkingByDateUsername(String year,String month,String username) {
-        DesignWorkingDao designWorkingDao = new DesignWorkingDao();
         List<DesignWorking> designWorkingList = null;
         try {
             designWorkingList = designWorkingDao.getDesignWorkingByDateUsername(year,month,username);
@@ -43,7 +45,6 @@ public class DesignWorkingService {
     }
 
     public DesignWorking getDesignWorkingInfo(String designid) {
-        DesignWorkingDao designWorkingDao = new DesignWorkingDao();
         DesignWorking designWorking = null;
         try {
             designWorking = designWorkingDao.getDesignWorkingInfo(designid);
@@ -54,7 +55,6 @@ public class DesignWorkingService {
     }
 
     public Project getProjectByid(String designid) {
-        DesignWorkingDao designWorkingDao = new DesignWorkingDao();
         Project project = null;
         try {
             project = designWorkingDao.getProjectByid(designid);
@@ -65,7 +65,6 @@ public class DesignWorkingService {
     }
 
     public int updateDesignWorking(DesignWorking designWorking) {
-        DesignWorkingDao designWorkingDao = new DesignWorkingDao();
         int i = 0;
         try {
             i = designWorkingDao.updateDesignWorking(designWorking);

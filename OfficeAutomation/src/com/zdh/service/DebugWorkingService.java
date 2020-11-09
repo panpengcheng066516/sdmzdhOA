@@ -9,8 +9,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class DebugWorkingService {
+
+    DebugWorkingDao debugWorkingDao = new DebugWorkingDao();
+
+
     public int addDebugWorking(DebugWorking debugWorking) {
-        DebugWorkingDao debugWorkingDao = new DebugWorkingDao();
         int i =0;
         try {
             i = debugWorkingDao.addDebugWorking(debugWorking);
@@ -21,7 +24,6 @@ public class DebugWorkingService {
     }
 
     public List<DebugWorking> getDebugWorkingByUsername(String username) {
-        DebugWorkingDao debugWorkingDao = new DebugWorkingDao();
         List<DebugWorking> list = null;
         try {
             list = debugWorkingDao.getDebugWorkingByUsername(username);
@@ -32,7 +34,6 @@ public class DebugWorkingService {
     }
 
     public List<DebugWorking> getDebugWorkingByDateUsername(String year,String month,String username) {
-        DebugWorkingDao debugWorkingDao = new DebugWorkingDao();
         List<DebugWorking> list = null;
         try {
             list = debugWorkingDao.getDebugWorkingByDateUsername(year,month,username);
@@ -43,7 +44,6 @@ public class DebugWorkingService {
     }
 
     public int updateDebugWorking(DebugWorking debugWorking) {
-        DebugWorkingDao debugWorkingDao = new DebugWorkingDao();
         int i =0;
         try {
             i = debugWorkingDao.updateDebugWorking(debugWorking);
@@ -54,7 +54,6 @@ public class DebugWorkingService {
     }
 
     public DebugWorking getDebugWorkingInfo(String debugid) {
-        DebugWorkingDao debugWorkingDao = new DebugWorkingDao();
         DebugWorking debugWorking = null;
         try {
             debugWorking = debugWorkingDao.getDebugWorkingInfo(debugid);
@@ -65,7 +64,6 @@ public class DebugWorkingService {
     }
 
     public Project getProjectByid(String debugid) {
-        DebugWorkingDao debugWorkingDao = new DebugWorkingDao();
         Project project = null;
         try {
             project = debugWorkingDao.getProjectByid(debugid);

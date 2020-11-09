@@ -201,4 +201,14 @@
         <url-pattern>/chartServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <display-name>AddProjectServlet</display-name>
+        <servlet-name>AddProjectServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.AddProjectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddProjectServlet</servlet-name>
+        <url-pattern>/addProjectServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

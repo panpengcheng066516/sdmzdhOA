@@ -7,8 +7,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ProjectService {
+
+    ProjectDao projectDao = new ProjectDao();
+
+
     public List<Project> getAllProject() {
-        ProjectDao projectDao = new ProjectDao();
         List<Project> list = null;
         try {
             list = projectDao.getAllProject();
@@ -19,7 +22,6 @@ public class ProjectService {
     }
 
     public List<Project> getProjectListByUser(String username) {
-        ProjectDao projectDao = new ProjectDao();
         List<Project> list = null;
         try {
             list = projectDao.getProjectListByUser(username);
@@ -30,7 +32,6 @@ public class ProjectService {
     }
 
     public int addProject(Project project) {
-        ProjectDao projectDao = new ProjectDao();
         int r = 0;
         try {
             r = projectDao.addProject(project);
@@ -41,7 +42,6 @@ public class ProjectService {
     }
 
     public List<Project> getProjectByProgress(String progress) {
-        ProjectDao projectDao = new ProjectDao();
         List<Project> list = null;
         try {
             list = projectDao.getProjectByProgress(progress);
@@ -52,7 +52,6 @@ public class ProjectService {
     }
 
     public Project getProjectById(String projectid) {
-        ProjectDao projectDao = new ProjectDao();
         Project project = null;
         try {
             project = projectDao.getProjectById(projectid);
@@ -63,7 +62,6 @@ public class ProjectService {
     }
 
     public int updateProject(Project project) {
-        ProjectDao projectDao = new ProjectDao();
         int r = 0;
         try {
             r = projectDao.updateProject(project);
@@ -74,7 +72,6 @@ public class ProjectService {
     }
 
     public int quitProject(String userName, String projectid) {
-        ProjectDao projectDao = new ProjectDao();
         int r = 0;
         try {
             r = projectDao.quitProject(userName,projectid);
@@ -85,7 +82,6 @@ public class ProjectService {
     }
 
     public List<Project> getPersonalProjectByProgress(String username, String progress) {
-        ProjectDao projectDao = new ProjectDao();
         List<Project> list = null;
         try {
             list = projectDao.getPersonalProjectByProgress(username,progress);
@@ -96,7 +92,6 @@ public class ProjectService {
     }
 
     public int joinProject(String userName, String projectid) {
-        ProjectDao projectDao = new ProjectDao();
         int r = 0;
         try {
             r = projectDao.joinProject(userName,projectid);
@@ -107,7 +102,6 @@ public class ProjectService {
     }
 
     public int checkJoinProject(String userName, String projectid) {
-        ProjectDao projectDao = new ProjectDao();
         int r = 0;
         try {
             r = projectDao.checkJoinProject(userName,projectid);

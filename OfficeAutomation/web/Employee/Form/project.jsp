@@ -48,7 +48,7 @@
         hr.style-two {
             border: 0;
             height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(192,192,192), rgba(0, 0, 0, 0));
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(192, 192, 192), rgba(0, 0, 0, 0));
         }
     </style>
 </head>
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/projectServlet?method=addProject" method="post">
+                            <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/addProjectServlet?method=addProject" method="post">
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" for="projectName">项目名称</label>
                                     <input type="text" class="form-control col-sm-2" name="projectName" id="projectName" placeholder="项目名称" autocomplete="off">
@@ -122,32 +122,72 @@
                                 &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manager">专业负责人</label>
-                                    <input type="text" class="form-control col-sm-2" name="manager" id="manager" placeholder="专业负责人" autocomplete="off">
+                                    <div class="control-text col-sm-2">
+                                        <select class="selectpicker" name="manager" id="manager" required="true" data-live-search="true">
+                                            <option value="0"  style="text-align: center; text-align-last: center;">请选择</option>
+                                            <c:if test="${!empty userList}">
+                                                <c:forEach var="u" items="${userList}">
+                                                    <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
+                                                </c:forEach>
+                                            </c:if>
+                                        </select>
+                                    </div>
+<%--                                    <input type="text" class="form-control col-sm-2" name="manager" id="manager" placeholder="专业负责人" autocomplete="off">--%>
                                 </div>
                                 &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="designer">设计人&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker" id="designer" name="designer" required="true" data-live-search="true" multiple data-selected-text-format="values">
-                                            <option>Mustard</option>
-                                            <option>Ketchup</option>
-                                            <option>Relish</option>
-                                            <option>Mustard</option>
-                                            <option>Ketchup</option>
-                                            <option>Relish</option>
+                                        <select class="selectpicker" name="designer" id="designer" required="true" data-live-search="true">
+                                            <option value="0"  style="text-align: center; text-align-last: center;">请选择</option>
+                                            <c:if test="${!empty userList}">
+                                                <c:forEach var="u" items="${userList}">
+                                                    <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
+                                                </c:forEach>
+                                            </c:if>
                                         </select>
                                     </div>
                                     &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="reviewer">审核人&emsp;</label>
-                                    <input type="text" class="form-control col-sm-2" name="reviewer" id="reviewer" placeholder="审核" autocomplete="off">
+                                    <div class="control-text col-sm-2">
+                                        <select class="selectpicker" name="reviewer" id="reviewer" required="true" data-live-search="true">
+                                            <option value="0"  style="text-align: center; text-align-last: center;">请选择</option>
+                                            <c:if test="${!empty userList}">
+                                                <c:forEach var="u" items="${userList}">
+                                                    <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
+                                                </c:forEach>
+                                            </c:if>
+                                        </select>
+                                    </div>
+<%--                                    <input type="text" class="form-control col-sm-2" name="reviewer" id="reviewer" placeholder="审核" autocomplete="off">--%>
                                 </div>
                                 &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">室审&emsp;&emsp;</label>
-                                    <input type="text" class="form-control col-sm-2" name="office" id="office" placeholder="室审" autocomplete="off">
+                                    <div class="control-text col-sm-2">
+                                        <select class="selectpicker" name="office" id="office" required="true" data-live-search="true">
+                                            <option value="0"  style="text-align: center; text-align-last: center;">请选择</option>
+                                            <c:if test="${!empty userList}">
+                                                <c:forEach var="u" items="${userList}">
+                                                    <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
+                                                </c:forEach>
+                                            </c:if>
+                                        </select>
+                                    </div>
+<%--                                    <input type="text" class="form-control col-sm-2" name="office" id="office" placeholder="室审" autocomplete="off">--%>
                                     &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="ce">总师&emsp;&emsp;</label>
-                                    <input type="text" class="form-control col-sm-2" name="ce" id="ce" placeholder="总师" autocomplete="off">
+                                    <div class="control-text col-sm-2">
+                                        <select class="selectpicker" name="ce" id="ce" required="true" data-live-search="true">
+                                            <option value="0"  style="text-align: center; text-align-last: center;">请选择</option>
+                                            <c:if test="${!empty userList}">
+                                                <c:forEach var="u" items="${userList}">
+                                                    <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
+                                                </c:forEach>
+                                            </c:if>
+                                        </select>
+                                    </div>
+<%--                                    <input type="text" class="form-control col-sm-2" name="ce" id="ce" placeholder="总师" autocomplete="off">--%>
                                 </div>
                                 &nbsp;
                                 <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">

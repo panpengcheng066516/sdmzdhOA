@@ -50,17 +50,6 @@
     </style>
 
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
-    <script type="text/javascript">
-        $(function(){
-            // 给工程号赋值
-            $("#username").change(function () {
-                var p1=$(this).children('option:selected').val();
-                var p2=$(this).children('option:selected').html();
-                $("#username1").val(p1);
-                $("#name").val(p2);
-            })
-        });
-    </script>
 </head>
 <body>
 <div class="main-wrapper">

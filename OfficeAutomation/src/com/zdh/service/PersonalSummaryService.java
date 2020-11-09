@@ -9,10 +9,11 @@ import java.util.List;
 
 public class PersonalSummaryService {
 
+    PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
+
     //个人工作量统计
     public MainVo getMainVoByDateUser(String year, String month, String username) {
         MainVo mainVo = new MainVo();
-        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
         List<DailyVo> dailyVoList = null;
         List<DebugVo> debugVoList = null;
         List<DesignVo> designVoList = null;
@@ -42,7 +43,6 @@ public class PersonalSummaryService {
 
     public MainVo getMainVoByDate(String year, String month) {
         MainVo mainVo = new MainVo();
-        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
         List<DailyVo> dailyVoList = null;
         List<DebugVo> debugVoList = null;
         List<DesignVo> designVoList = null;
@@ -72,7 +72,6 @@ public class PersonalSummaryService {
 
     public MainVo getMainVoByDateProject(String year, String month, String projectid) {
         MainVo mainVo = new MainVo();
-        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
         List<DailyVo> dailyVoList = null;
         List<DebugVo> debugVoList = null;
         List<DesignVo> designVoList = null;
@@ -101,7 +100,6 @@ public class PersonalSummaryService {
     }
 
     public List<Summary> getSummaryList(String year,String month) {
-        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
         List<Summary> summaryList = null;
         try {
             summaryList = personalSummaryDao.getSummaryListByDate(year,month);
@@ -112,7 +110,6 @@ public class PersonalSummaryService {
     }
 
     public double getDepartmentMonth(String year, String month) {
-        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
         double departmentMonthDay = 0;
         try {
             departmentMonthDay = personalSummaryDao.getDepartmentMonth(year,month);
@@ -124,7 +121,6 @@ public class PersonalSummaryService {
 
     public List<Summary> getSummaryYearList(String year) {
 
-        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
         List<Summary> summaryList = null;
         try {
             summaryList = personalSummaryDao.getSummaryListByYear(year);
@@ -135,7 +131,6 @@ public class PersonalSummaryService {
     }
 
     public double getDepartmentYear(String year) {
-        PersonalSummaryDao personalSummaryDao = new PersonalSummaryDao();
         double departmentYearDay = 0;
         try {
             departmentYearDay = personalSummaryDao.getDepartmentYear(year);
