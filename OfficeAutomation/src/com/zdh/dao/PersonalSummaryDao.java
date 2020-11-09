@@ -12,9 +12,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class PersonalSummaryDao {
+
+    QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+
+
     //通过用户名获取日期设计工作列表
     public List<DesignVo> getDesignVoListByDateUsername(String year, String month, String username) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select " +
                 "design.id,design.username,design.projectid,design.year,design.month," +
                 "design.amount,design.a1,design.zheheWorkingDay,design.monthDay,design.programDay," +
@@ -26,7 +29,6 @@ public class PersonalSummaryDao {
     }
 
     public List<DesignVo> getDesignVoListByDate(String year, String month) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select " +
                 "design.id,design.username,design.projectid,design.year,design.month," +
                 "design.amount,design.a1,design.zheheWorkingDay,design.monthDay,design.programDay," +
@@ -38,7 +40,6 @@ public class PersonalSummaryDao {
     }
 
     public List<DesignVo> getDesignVoListByDateProject(String year, String month, String projectid) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select " +
                 "design.id,design.username,design.projectid,design.year,design.month," +
                 "design.amount,design.a1,design.zheheWorkingDay,design.monthDay,design.programDay," +
@@ -50,7 +51,6 @@ public class PersonalSummaryDao {
     }
 
     public List<ManageVo> getManageVoListByDateUsername(String year, String month, String username) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select \n" +
                 "Manage.id,Manage.username,Manage.projectid,Manage.year,Manage.month," +
                 "Manage.xunjiaBaojia,Manage.tender,Manage.sign,Manage.toubiao,Manage.equip," +
@@ -62,7 +62,6 @@ public class PersonalSummaryDao {
     }
 
     public List<ManageVo> getManageVoListByDate(String year, String month) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select \n" +
                 "Manage.id,Manage.username,Manage.projectid,Manage.year,Manage.month," +
                 "Manage.xunjiaBaojia,Manage.tender,Manage.sign,Manage.toubiao,Manage.equip," +
@@ -74,7 +73,6 @@ public class PersonalSummaryDao {
     }
 
     public List<ManageVo> getManageVoListByDateProject(String year, String month, String projectid) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select \n" +
                 "Manage.id,Manage.username,Manage.projectid,Manage.year,Manage.month," +
                 "Manage.xunjiaBaojia,Manage.tender,Manage.sign,Manage.toubiao,Manage.equip," +
@@ -86,7 +84,6 @@ public class PersonalSummaryDao {
     }
 
     public List<ProgramingVo> getProgramingVoListByDateUsername(String year, String month, String username) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select " +
                 "ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month," +
                 "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture," +
@@ -98,7 +95,6 @@ public class PersonalSummaryDao {
     }
 
     public List<ProgramingVo> getProgramingVoListByDate(String year, String month) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select " +
                 "ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month," +
                 "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture," +
@@ -110,7 +106,6 @@ public class PersonalSummaryDao {
     }
 
     public List<ProgramingVo> getProgramingVoListByDateProject(String year, String month, String projectid) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select " +
                 "ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month," +
                 "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture," +
@@ -122,7 +117,6 @@ public class PersonalSummaryDao {
     }
 
     public List<DebugVo> getDebugVoListByDateUsername(String year, String month, String username) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select " +
                 "Debug.id,Debug.username,Debug.projectid,Debug.year,Debug.month," +
                 "Debug.site,Debug.manageday,Debug.debugday,Debug.remark," +
@@ -133,7 +127,6 @@ public class PersonalSummaryDao {
     }
 
     public List<DebugVo> getDebugVoListByDate(String year, String month) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select " +
                 "Debug.id,Debug.username,Debug.projectid,Debug.year,Debug.month," +
                 "Debug.site,Debug.manageday,Debug.debugday,Debug.remark," +
@@ -144,7 +137,6 @@ public class PersonalSummaryDao {
     }
 
     public List<DebugVo> getDebugVoListByDateProject(String year, String month, String projectid) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select " +
                 "Debug.id,Debug.username,Debug.projectid,Debug.year,Debug.month," +
                 "Debug.site,Debug.manageday,Debug.debugday,Debug.remark," +
@@ -155,7 +147,6 @@ public class PersonalSummaryDao {
     }
 
     public List<DailyVo> getDailyVoListByDateUsername(String year, String month, String username) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select " +
                 "DailyWorking.id,DailyWorking.username,DailyWorking.year,DailyWorking.month," +
                 "DailyWorking.type,DailyWorking.monthDay,DailyWorking.remark," +
@@ -166,7 +157,6 @@ public class PersonalSummaryDao {
     }
 
     public List<DailyVo> getDailyVoListByDate(String year, String month) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select " +
                 "DailyWorking.id,DailyWorking.username,DailyWorking.year,DailyWorking.month," +
                 "DailyWorking.type,DailyWorking.monthDay,DailyWorking.remark," +
@@ -178,7 +168,6 @@ public class PersonalSummaryDao {
 
 
     public List<Summary> getSummaryListByDateUsername(String year, String month, String username) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select Summary.year,Summary.month,Summary.username," +
                 "Summary.work_day,Summary.ratio,people.name,people.groupId " +
                 "from Summary,people " +
@@ -187,7 +176,6 @@ public class PersonalSummaryDao {
     }
 
     public List<Summary> getSummaryListByDate(String year, String month) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select Summary.year,Summary.month,Summary.username," +
                 "Summary.work_day,Summary.ratio,people.name,people.groupId " +
                 "from Summary,people " +
@@ -197,7 +185,6 @@ public class PersonalSummaryDao {
 
 
     public double getDepartmentMonth(String year, String month) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select sum(cast(work_day as float)) from Summary where year = ? and month = ?";
         Object o = runner.query(sql,new ScalarHandler(),year,month);
         if(o == null){
@@ -208,7 +195,6 @@ public class PersonalSummaryDao {
     }
 
     public List<Summary> getSummaryListByYear(String year) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select Summary.year,people.name,Summary.username,sum(cast(work_day as float)) as work_day," +
                 "sum(cast(ratio as float)) as ratio " +
                 "from Summary,people where  Summary.username = people.username and Summary.year = ? group by Summary.username,people.name,Summary.year";
@@ -216,7 +202,6 @@ public class PersonalSummaryDao {
     }
 
     public double getDepartmentYear(String year) throws SQLException {
-        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         String sql = "select sum(cast(work_day as float)) from Summary where year = ?";
         Object o = runner.query(sql,new ScalarHandler(),year);
         if(o == null){

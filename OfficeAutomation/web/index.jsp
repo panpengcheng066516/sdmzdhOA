@@ -132,7 +132,7 @@
 <script type="text/javascript">
     var pieOption = {
         labels: ["设计", "编程画面", "调试管理", "经营", "日常"],
-        series: [],
+        series: [1,1,1,1,1],
         chart: {
             type: 'donut',
             width: "130%",
@@ -153,7 +153,7 @@
         legend: {
             show: true,
             formatter: function(val, opts) {
-               return val + " - " + opts.w.globals.series[opts.seriesIndex]
+               return val + "  " + opts.w.globals.series[opts.seriesIndex]
             },
             position: 'right',
             containerMargin: {

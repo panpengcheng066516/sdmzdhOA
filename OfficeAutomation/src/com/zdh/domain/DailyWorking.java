@@ -1,7 +1,5 @@
 package com.zdh.domain;
 
-import jdk.nashorn.internal.runtime.regexp.joni.constants.StringType;
-
 public class DailyWorking {
     private String id;
     private String username;
