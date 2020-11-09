@@ -23,8 +23,8 @@
 </a>
     <div class="navbar-content">
         <div id="title1">
-            <div class="input-group">
-                <span id="titleText" draggable="false" style="font-weight: bold; font-size: 20px;color: white;">自动化工程技术公司工作量汇总查询系统</span> <span id="subitem" draggable="false" style="font-weight: bold; font-size: 20px; display: none;"></span>
+            <div class="navbar-brand">
+                <span id="titleText" style="font-weight: bold; font-size: x-large;color: white;">Office Automation</span>
             </div>
         </div>
 

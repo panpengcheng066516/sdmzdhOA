@@ -59,7 +59,7 @@
                             <div class="custom-control-inline">
                                 <div class="col">
                                     <div class="card-title">
-                                        <h3 class="text text-primary">创建新用户</h3>
+                                        <h3 class="text text-success">创建新用户</h3>
                                     </div>
                                 </div>
                             </div>

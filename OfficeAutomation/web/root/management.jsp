@@ -80,7 +80,7 @@
                             <div class="custom-control-inline">
                                 <div class="col">
                                     <div class="card-title">
-                                        <h3 class="text text-primary">用户信息修改</h3>
+                                        <h3 class="text text-success">用户信息修改</h3>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password">分组&emsp;&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="dropdown-item-text" id="groupId" name="groupId" required="ture">
+                                        <select class="dropdown-item-text" id="groupId" name="groupId" required="true">
                                             <option value="0" style="text-align: center; text-align-last: center;">领导组</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">编程设计组</option>
                                             <option value="2" style="text-align: center; text-align-last: center;">软件组</option>
@@ -129,8 +129,8 @@
 
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password1">权限&emsp;&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="dropdown-item-text" id="power" name="power" required="ture">
-                                            <option value="0" style="text-align: center; text-align-last: center;">管理员级别</option>
+                                        <select class="dropdown-item-text" id="power" name="power" required="true">
+                                            <option value="0" style="text-align: center; text-align-last: center;">管理员</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">主任</option>
                                             <option value="2" style="text-align: center; text-align-last: center;">副主任</option>
                                             <option value="3" style="text-align: center; text-align-last: center;">（副）主任级别</option>
@@ -142,7 +142,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password">是否借调</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="dropdown-item-text" id="transfer" name="transfer" required="ture">
+                                        <select class="dropdown-item-text" id="transfer" name="transfer" required="true">
                                             <option value="0" selected style="text-align: center; text-align-last: center;">否</option>
                                             <option value="1" style="text-align: center; text-align-last: center;">是</option>
                                         </select>
@@ -150,7 +150,7 @@
 
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password1">是否在职</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="dropdown-item-text" id="inuse" name="inuse" required="ture">
+                                        <select class="dropdown-item-text" id="inuse" name="inuse" required="true">
                                             <option value="0"  style="text-align: center; text-align-last: center;">否</option>
                                             <option value="1" selected style="text-align: center; text-align-last: center;">是</option>
                                         </select>

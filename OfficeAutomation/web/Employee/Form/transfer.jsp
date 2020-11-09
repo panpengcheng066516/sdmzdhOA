@@ -63,9 +63,10 @@
                             <div class="card-title"><h3 class="text text-primary mt-md-3">借调</h3></div>
                         </div>
                         <div class="card-body">
-                            <div style="height:5px; background: transparent;">
-                                <hr style="display:none;" />
-                            </div>
+<%--                            <div style="height:5px; background: transparent;">--%>
+<%--                                <hr style="display:none;" />--%>
+<%--                            </div>--%>
+                            &nbsp;
                             <form class="custom-control" action="${ pageContext.request.contextPath }/jiediaoServlet?method=addJiediao" method="post">
                                 <div class="input-group mb-3" style="margin-left: 2.5%; margin-right: 2.5%">
                                     <div class="input-group-prepend">
@@ -74,21 +75,14 @@
                                     <input type="text" aria-label="部门/地点" class="form-control col-sm-auto" style="margin-right:40px" name="transfer" id="transfer" placeholder="相应部门/地点" autocomplete="off">
                                 </div>
 
-                                <div class="help-text col-sm-auto text-small text-reddit text-justify" for="transfer" style="margin-left: 2.5%; margin-right: 2.5%">注：此处请填写被借调至的相应地点或者部门名称。</div>
-
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                <div class="help-text col-sm-auto text-small text-reddit text-justify">注：此处请填写被借调至的相应地点或者部门名称。</div>
+                                &nbsp;
                                 <div align="center">
                                     <input type="submit" class="btn btn-inverse-success mr-2" name="submit" value="提交">
                                 </div>
-
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
                             </form>
                         </div>
+                        <div class="card-footer"></div>
                     </div>
                 </div>
             </div>

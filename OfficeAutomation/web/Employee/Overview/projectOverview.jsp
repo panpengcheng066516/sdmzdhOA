@@ -72,19 +72,19 @@
                             for(var i=0;i<data.length;i++) {
                                 content += " <tr>" +
                                     "<td><div class='text-wrap text-break'>" + data[i].projectName + "</div></td>" +
-                                    "<td>" + data[i].projectNo + "</td>" +
+                                    "<td><div class='text-wrap text-break'>" + data[i].projectNo + "</div></td>" +
                                     "<td><div class='text-wrap text-break'>" + data[i].deadline + "</div></td>" +
                                     "<td><div class='text-wrap text-break'>" + data[i].finish + "</div></td>" +
                                     "<td>" + data[i].progress + "</td>" +
                                     "<td>" + data[i].manager + "</td>" +
-                                    "<td><div class='text-wrap text-break'>" + data[i].designer + "</div></td>" +
+                                    "<td>" + data[i].designer + "</td>" +
                                     "<td>" + data[i].reviewer + "</td>" +
                                     "<td>" + data[i].office + "</td>" +
                                     "<td>" + data[i].ce + "</td>" +
                                     "<td>" + data[i].stage + "</td>" +
                                     "<td><div class='text-wrap text-break'>" + data[i].remarks + "</div></td>" +
-                                    "<td ${user.power==2||user.power==3||user.power==18?'':'hidden'}><div class='text-wrap text-break'><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid="+data[i].id+"'><button type='button' ${user.power==2?'':'hidden'} class='btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary'>修改</button></a>" +
-                                    "<a href='${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid="+data[i].id+"'><button type='button' class='btn btn-inverse-primary btn-rounded btn-xs border-primary'>加入</button></a></div></td>" +
+                                    "<td ${user.power==2||user.power==3||user.power==18?'':'hidden'}><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid="+data[i].id+"'><button type='button' ${user.power==2?'':'hidden'} class='btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary'>修改</button></a><br>" +
+                                    "<a href='${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid="+data[i].id+"'><button type='button' class='btn btn-inverse-primary btn-rounded btn-xs border-primary'>加入</button></a></td>" +
                                     "</tr>";
                             }
                         }else{
@@ -132,17 +132,17 @@
                                     </div>
                                 </div>
                                 <hr class="style-two">
-
+                                &nbsp;
                                 <div class="custom-control row align-self-end">
                                     <div class="right-pill col-sm-auto text-small text-reddit text-justify float-sm-right">
-                                        &nbsp;* 点击操作栏的按钮可将对应项目加入自己名下
+                                        * 点击操作栏的按钮可将对应项目加入自己名下
                                     </div>
                                 </div>
 
                                 <div class="table-content">
                                     <div class="custom-control table">
                                         <div class="table-responsive text-wrap">
-                                            <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" id="table01" cellspacing="0" cellpadding="15">
+                                            <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md w-auto" id="table01" cellspacing="0" cellpadding="15">
                                                 <thead>
                                                     <tr>
                                                         <th>项目名称</th>
@@ -156,7 +156,7 @@
                                                         <th>室审</th>
                                                         <th>总师</th>
                                                         <th>高阶段<br>分类</th>
-                                                        <th>备&emsp;注</th>
+                                                        <th>&emsp;备注&emsp;</th>
                                                         <th ${user.power==2||user.power==3||user.power==18?"":"hidden"} >操作</th>
                                                     </tr>
                                                 </thead>
@@ -168,21 +168,21 @@
                                                                 <td><div class="text-wrap text-break">${project.projectNo}</div></td>
                                                                 <td><div class="text-wrap text-break">${project.deadline}</div></td>
                                                                 <td><div class="text-wrap text-break">${project.finish}</div></td>
-                                                                <td><div class="text-wrap text-break">${project.progress}</div></td>
-                                                                <td><div class="text-wrap text-break">${project.manager}</div></td>
-                                                                <td><div class="text-wrap text-break">${project.designer}</div></td>
-                                                                <td><div class="text-wrap text-break">${project.reviewer}</div></td>
-                                                                <td><div class="text-wrap text-break">${project.office}</div></td>
-                                                                <td><div class="text-wrap text-break">${project.ce}</div></td>
-                                                                <td><div class="text-wrap text-break">${project.stage}</div></td>
+                                                                <td>${project.progress}</td>
+                                                                <td>${project.manager}</td>
+                                                                <td>${project.designer}</td>
+                                                                <td>${project.reviewer}</td>
+                                                                <td>${project.office}</td>
+                                                                <td>${project.ce}</td>
+                                                                <td>${project.stage}</td>
                                                                 <td><div class="text-wrap">${project.remarks}</div></td>
-                                                                <td ${user.power==2||user.power==3||user.power==18?"":"hidden"} ><div class="text-wrap">
+                                                                <td ${user.power==2||user.power==3||user.power==18?"":"hidden"} >
                                                                     <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
                                                                         <button type="button" ${user.power==2?"":"hidden"} class="btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary">修改</button>
-                                                                    </a>
+                                                                    </a><br>
                                                                     <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">
                                                                         <button type="button" class="btn btn-inverse-primary btn-rounded btn-xs border-primary">&#10004;</button>
-                                                                    </a></div>
+                                                                    </a>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>

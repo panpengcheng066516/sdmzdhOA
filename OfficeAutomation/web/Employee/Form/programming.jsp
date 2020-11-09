@@ -104,7 +104,7 @@
                                             </c:if>
                                         </select>
                                     </div>
-
+                                    &nbsp;
                                     <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
                                     <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled>
                                 </div>
@@ -114,15 +114,11 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="digitalNumber" >总开关量</label>
                                     <input type="text" class="form-control col-sm-2" name="digitalNumber" id="digitalNumber" placeholder="点数" autocomplete="off">
-                                        <%--<div class="d-flex flex-fill"></div>--%>
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="analogNumber">总模拟量</label>
                                     <input type="text" class="form-control col-sm-2"  name="analogNumber" id="analogNumber" placeholder="点数" autocomplete="off">
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" >具体类型</label>
                                     <div class="col-sm-4">
@@ -140,28 +136,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="programingDay">总工日数</label>
                                     <input type="text" class="form-control col-sm-2 " name="programingDay" id="programingDay" placeholder="总工日数" autocomplete="off">
-                                    <%--<div class="d-flex flex-fill min-col-xs-1"></div>--%>
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="monthday">完成情况</label>
                                     <input type="text" class="form-control col-sm-2 " name="monthday" id="monthday" placeholder="完成工日数" autocomplete="off">
                                 </div>
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" for="remark">备注</label>
-                                    <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5" ></textarea>
+                                    <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5"></textarea>
                                 </div>
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
                                 <div align="center">
                                     <input type="submit" class="btn btn-inverse-success mr-2" name="submit" value="提交">
                                 </div>

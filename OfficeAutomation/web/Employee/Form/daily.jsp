@@ -86,26 +86,21 @@
                                             <option value="其他报销/零星工日" style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
                                         </select>
                                     </div>
-                                    <div style="height:1px; background: transparent;">
-                                        <hr style="display:none;" />
-                                    </div>
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label">折合工日</label>
                                     <input type="text" class="form-control col-sm-2" name="monthDay" id="monthDay" placeholder="天数" autocomplete="off">
                                 </div>
-
                                 <div class="help-text col-sm text-small text-facebook mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">注：如有多项工作内容，请多次填写。</div>
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+<%--                                <div style="height:20px; background: transparent;">--%>
+<%--                                    <hr style="display:none;" />--%>
+<%--                                </div>--%>
+                                &nbsp;
                                 <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label">备注</label>
                                     <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5"></textarea>
                                 </div>
 
-                                <div style="height:30px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
 
                                 <div align="center">
                                     <input type="submit" class="btn btn-inverse-success mr-2" name="submit" value="提交">

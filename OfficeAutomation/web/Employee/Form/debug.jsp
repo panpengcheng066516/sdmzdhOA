@@ -50,6 +50,11 @@
             height: 1px;
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(192,192,192), rgba(0, 0, 0, 0));
         }
+        .special {
+            font-weight: normal !important;
+            color: #0C090A !important;
+            background: whitesmoke !important;
+        }
     </style>
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
@@ -95,18 +100,18 @@
                             <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/debugWorkingServlet?method=addDebugWorking" method="post">
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
-                                    <div class="control-text col-xs-pull col-sm col-md-3 col-lg-3">
-                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="true">
+                                    <div class="control-text col-sm-2 col-md-2 col-lg-2">
+                                        <select class="selectpicker show-tick" id="projectid" name="projectid" data-live-search="true" required="true" title="选择对应项目">
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
-                                                    <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;">${project.projectName}</option>
+                                                    <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;" class="special">${project.projectName}</option>
                                                 </c:forEach>
                                             </c:if>
                                         </select>
                                     </div>
-                                    <%--<div class="d-flex flex-fill"></div>--%>
+                                    &nbsp;
                                     <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
-                                    <input type="text" class="form-control col-sm-2 " name="projectNo" id="projectNo" disabled>
+                                    <input type="text" class="form-control col-sm-2 " name="projectNo" id="projectNo" readonly>
                                 </div>
                                 <div class="help-text col-sm text-small text-success mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">前往<a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject" class="text">项目查询页</a>添加相关项目</div>
                                 <hr class="style-two">
@@ -115,32 +120,21 @@
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="site" >项目地点</label>
                                     <input type="text" class="form-control col-sm-2" name="site" id="site" placeholder="地点" autocomplete="off">
                                 </div>
-
-                                <div style="height:10px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manageday">工程管理</label>
                                     <input type="text" class="form-control col-sm-2" name="manageday" id="manageday" placeholder="工日" autocomplete="off">
-
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="debugday">工程调试</label>
                                     <input type="text" class="form-control col-sm-2" name="debugday" id="debugday" placeholder="工日" autocomplete="off">
                                 </div>
-
                                 <div class="help-text col-sm text-small text-reddit mt-1 text-justify" style="margin-left: 3.2%; margin-right: 3.5%">注：填写以上两（单）项内容请统计好当月该项工作所用的工日。</div>
-
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="font-size: 14px;">备注</label>
                                     <textarea class="form-control col-sm-6" name="remark" id="remark" placeholder="备注" rows="5"></textarea>
                                 </div>
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
                                 <div align="center">
                                     <input type="submit" class="btn btn-inverse-success mr-2" name="submit" value="提交">
                                 </div>

@@ -72,12 +72,12 @@
                                 for(var i=0;i<data.length;i++) {
                                     content += " <tr>" +
                                         "<td><div class='text-wrap text-break'>" + data[i].projectName + "</div></td>" +
-                                        "<td>" + data[i].projectNo + "</td>" +
+                                        "<td><div class='text-wrap text-break'>" + data[i].projectNo + "</div></td>" +
                                         "<td><div class='text-wrap text-break'>" + data[i].deadline + "</div></td>" +
                                         "<td><div class='text-wrap text-break'>" + data[i].finish + "</div></td>" +
-                                        "<td>" + data[i].progress + "</td>" +
+                                        "<td><div class='text-wrap text-break'>" + data[i].progress + "</div></td>" +
                                         "<td>" + data[i].manager + "</td>" +
-                                        "<td><div class='text-wrap text-break'>" + data[i].designer + "</div></td>" +
+                                        "<td>" + data[i].designer + "</td>" +
                                         "<td>" + data[i].reviewer + "</td>" +
                                         "<td>" + data[i].office + "</td>" +
                                         "<td>" + data[i].ce + "</td>" +
@@ -142,7 +142,7 @@
                                 <div class="table-content">
                                     <div class="custom-control table">
                                         <div class="table-responsive text-wrap">
-                                            <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" id="table01" cellspacing="0" cellpadding="15">
+                                            <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md w-auto" id="table01" cellspacing="0" cellpadding="15">
                                                 <thead>
                                                 <tr>
                                                     <th>项目名称</th>
@@ -156,7 +156,7 @@
                                                     <th>室审</th>
                                                     <th>总师</th>
                                                     <th>高阶段<br>分类</th>
-                                                    <th>备&emsp;注</th>
+                                                    <th>&emsp;备注&emsp;</th>
                                                     <th>操作</th>
                                                 </tr>
                                                 </thead>
@@ -168,13 +168,13 @@
                                                             <td><div class="text-wrap text-break">${project.projectNo}</div></td>
                                                             <td><div class="text-wrap text-break">${project.deadline}</div></td>
                                                             <td><div class="text-wrap text-break">${project.finish}</div></td>
-                                                            <td><div class="text-wrap text-break">${project.progress}</div></td>
-                                                            <td><div class="text-wrap text-break">${project.manager}</div></td>
-                                                            <td><div class="text-wrap text-break">${project.designer}</div></td>
-                                                            <td><div class="text-wrap text-break">${project.reviewer}</div></td>
-                                                            <td><div class="text-wrap text-break">${project.office}</div></td>
-                                                            <td><div class="text-wrap text-break">${project.ce}</div></td>
-                                                            <td><div class="text-wrap text-break">${project.stage}</div></td>
+                                                            <td>${project.progress}</td>
+                                                            <td>${project.manager}</td>
+                                                            <td>${project.designer}</td>
+                                                            <td>${project.reviewer}</td>
+                                                            <td>${project.office}</td>
+                                                            <td>${project.ce}</td>
+                                                            <td>${project.stage}</td>
                                                             <td><div class="text-wrap">${project.remarks}</div></td>
                                                             <td>
                                                                 <a href="${pageContext.request.contextPath}/projectServlet?method=quitProject&projectid=${project.id}">

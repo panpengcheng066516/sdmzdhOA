@@ -91,8 +91,8 @@
                         for(var i=0;i<data.designVoList.length;i++) {
                             designContent += " <tr>" +
                                 "<td>" + i + "</td>" +
+                                "<td><div class='text-wrap text-break'>" + data.designVoList[i].projectName + "</div></td>" +
                                 "<td><div class='text-wrap text-break'>" + data.designVoList[i].projectNo + "</div></td>" +
-                                "<td>" + data.designVoList[i].projectName + "</td>" +
                                 "<td>" + data.designVoList[i].amount + "</td>" +
                                 "<td>" + data.designVoList[i].a1 + "</td>" +
                                 "<td>" + data.designVoList[i].zheheWorkingDay + "</td>" +
@@ -101,7 +101,7 @@
                                 "<td>" + data.designVoList[i].basicDesignDay + "</td>" +
                                 "<td>" + data.designVoList[i].leader + "</td>" +
                                 "<td><div class='text text-wrap text-break'>" + data.designVoList[i].remark + "</div></td>" +
-                                "<td><div class='text text-wrap text-break'><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-sm'>修改</button></a></div></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -118,7 +118,7 @@
                                 "<td>" + data.programingVoList[i].programingDay + "</td>" +
                                 "<td>" + data.programingVoList[i].monthday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.programingVoList[i].remark + "</div></td>" +
-                                "<td><div class='text-wrap text-break'><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-sm'>修改</button></a></div></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -133,7 +133,7 @@
                                 "<td>" + data.debugVoList[i].manageday + "</td>" +
                                 "<td>" + data.debugVoList[i].debugday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.debugVoList[i].remark + "</div></td>" +
-                                "<td><div class='text-wrap text-break'><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-sm'>修改</button></a></div></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -155,7 +155,7 @@
                                 "<td>" + data.manageVoList[i].other + "</td>" +
                                 "<td>" + data.manageVoList[i].PMday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.manageVoList[i].remark + "</div></td>" +
-                                "<td><div class='text-wrap text-break'><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-sm'>修改</button></a></div></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -168,7 +168,7 @@
                                 "<td>" + data.dailyVoList[i].type + "</td>" +
                                 "<td>" + data.dailyVoList[i].monthDay + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.dailyVoList[i].remark + "</div></td>" +
-                                "<td><div class='text-wrap text-break'><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-sm'>修改</button></a></div></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -282,7 +282,7 @@
                                                 <table class="table table-striped table-condensed table-hover table-responsive-md" id="table01">
                                                     <thead>
                                                     <tr>
-                                                        <th>#</th>
+                                                        <th style="width:5%">#</th>
                                                         <th>姓名</th>
                                                         <th>总工日</th>
                                                     </tr>
@@ -305,20 +305,20 @@
                                     <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" id="table02" >
+                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md w-auto" id="table02" >
                                                     <thead>
                                                     <tr>
-                                                        <th>#</th>
+                                                        <th style="width:5%">#</th>
+                                                        <th style="width:10%">工程名称</th>
                                                         <th>工程号</th>
-                                                        <th>&emsp;工程名称&emsp;</th>
                                                         <th>图纸数</th>
                                                         <th>折合A1</th>
                                                         <th>总工日</th>
                                                         <th>完成工日</th>
                                                         <th>技术方案</th>
                                                         <th>基本设计</th>
-                                                        <th>专业<br>负责人</th>
-                                                        <th>&emsp;备注&emsp;</th>
+                                                        <th style="width:5%">专业<br>负责人</th>
+                                                        <th style="width:15%">&emsp;备注&emsp;</th>
                                                         <th>操作</th>
                                                     </tr>
                                                     </thead>
@@ -327,8 +327,8 @@
                                                         <c:forEach var="design" items="${mainVo.designVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
-                                                                <td><div class="text text-wrap text-break">${design.projectNo}</div></td>
                                                                 <td><div class="text text-wrap text-break">${design.projectName}</div></td>
+                                                                <td><div class="text text-wrap text-break">${design.projectNo}</div></td>
                                                                 <td>${design.amount}</td>
                                                                 <td>${design.a1}</td>
                                                                 <td>${design.zheheWorkingDay}</td>
@@ -339,7 +339,7 @@
                                                                 <td><div class="text text-wrap text-break">${design.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid=${design.id}">
-                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-sm">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -356,7 +356,7 @@
                                                 <table class="table table-striped table-borderless table-hover table-condensed table-sm table-responsive-md" id="table03" cellspacing="0">
                                                     <thead>
                                                     <tr>
-                                                        <th>#</th>
+                                                        <th style="width:5%">#</th>
                                                         <th>工程号</th>
                                                         <th>总开关量</th>
                                                         <th>总模拟量</th>
@@ -381,7 +381,7 @@
                                                                 <td><div class="text-wrap text-break">${programing.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
-                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-sm">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -398,12 +398,12 @@
                                                 <table class="table table-striped table-borderless table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table04">
                                                     <thead>
                                                     <tr>
-                                                        <th>#</th>
+                                                        <th style="width:5%">#</th>
                                                         <th>工程号</th>
                                                         <th>地点</th>
-                                                        <th>管理</th>
-                                                        <th>调试</th>
-                                                        <th>&emsp;备注&emsp;</th>
+                                                        <th style="width:5%">管理</th>
+                                                        <th style="width:5%">调试</th>
+                                                        <th>备注</th>
                                                         <th>操作</th>
                                                     </tr>
                                                     </thead>
@@ -419,7 +419,7 @@
                                                                 <td><div class="text-wrap text-break">${debug.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid=${debug.id}">
-                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-sm">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -436,7 +436,7 @@
                                                 <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table05">
                                                     <thead>
                                                     <tr>
-                                                        <th>#</th>
+                                                        <th style="width:5%">#</th>
                                                         <th>工程号</th>
                                                         <th>商务询价</th>
                                                         <th>标书制作</th>
@@ -471,9 +471,7 @@
                                                                 <td><div class="text-wrap text-break">${manage.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid=${manage.id}">
-                                                                        <%--<button type="button" class="btn btn-inverse-warning btn-icon btn-xs btn-rounded">--%>
-                                                                        <%--    <i data-feather="edit-2"></i></button>--%>
-                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-sm">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -490,9 +488,9 @@
                                                 <table class="table table-striped table-borderless table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table06">
                                                     <thead>
                                                     <tr>
-                                                        <th>#</th>
+                                                        <th style="width:5%">#</th>
                                                         <th>类型</th>
-                                                        <th>工日</th>
+                                                        <th style="width:10%">工日</th>
                                                         <th>&emsp;备注&emsp;</th>
                                                         <th>操作</th>
                                                     </tr>
@@ -507,7 +505,7 @@
                                                                 <td><div class="text-wrap text-break">${daily.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid=${daily.id}">
-                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-sm">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>

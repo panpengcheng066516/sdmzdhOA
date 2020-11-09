@@ -84,27 +84,19 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" for="projectName">项目名称</label>
                                     <input type="text" class="form-control col-sm-2" name="projectName" id="projectName" placeholder="项目名称" autocomplete="off">
-
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" for="projectNo">工程号&emsp;</label>
                                     <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" placeholder="工程号" autocomplete="off">
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="deadline">截止日期</label>
                                     <input type="date" class="datepicker form-control col-sm-2 text-success" name="deadline" id="deadline">
-
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="finish">实际日期</label>
                                     <input type="date" class="datepicker form-control col-sm-2 text-success" name="finish" id="finish">
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row text-nowrap" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="progress">进度状态</label>
                                     <div class="control-text col-sm-2">
@@ -115,7 +107,7 @@
                                             <option value="取消">取消</option>
                                         </select>
                                     </div>
-
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="stage">高阶段分类</label>
                                     <div class="control-text col-sm-2">
                                         <select class="dropdown-item-text" name="stage" id="stage">
@@ -127,57 +119,42 @@
                                         </select>
                                     </div>
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manager">专业负责人</label>
                                     <input type="text" class="form-control col-sm-2" name="manager" id="manager" placeholder="专业负责人" autocomplete="off">
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="designer">设计人&emsp;</label>
-                                    <input type="text" class="form-control col-sm-2" name="designer" id="designer" placeholder="设计人" autocomplete="off">
-<%--                                    <div class="control-text col-sm-2">--%>
-<%--                                        <select class="selectpicker" id="designer" name="designer" required="true" data-live-search="true">--%>
-<%--                                            <c:if test="${!empty userList}">--%>
-
-
+                                    <div class="control-text col-sm-2">
+                                        <select class="selectpicker" id="designer" name="designer" required="true" data-live-search="true" multiple data-selected-text-format="values">
+                                            <option>Mustard</option>
+                                            <option>Ketchup</option>
+                                            <option>Relish</option>
+                                            <option>Mustard</option>
+                                            <option>Ketchup</option>
+                                            <option>Relish</option>
+                                        </select>
+                                    </div>
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="reviewer">审核人&emsp;</label>
                                     <input type="text" class="form-control col-sm-2" name="reviewer" id="reviewer" placeholder="审核" autocomplete="off">
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">室审&emsp;&emsp;</label>
                                     <input type="text" class="form-control col-sm-2" name="office" id="office" placeholder="室审" autocomplete="off">
-
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="ce">总师&emsp;&emsp;</label>
                                     <input type="text" class="form-control col-sm-2" name="ce" id="ce" placeholder="总师" autocomplete="off">
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" for="remarks">备注</label>
                                     <textarea class="form-control col-sm-6" type="text" name="remarks" id="remarks" placeholder="备注" rows="5" ></textarea>
                                 </div>
-
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div align="center">
                                     <input type="submit" class="btn btn-inverse-success mb-1 mb-md-0" name="submit" value="提交">
                                 </div>

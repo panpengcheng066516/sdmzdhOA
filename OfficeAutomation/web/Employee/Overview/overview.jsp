@@ -59,11 +59,6 @@
         table {
             table-layout: fixed;
         }
-        .special {
-            font-weight: normal !important;
-            color: #0C090A !important;
-            background: whitesmoke !important;
-        }
     </style>
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
@@ -159,11 +154,12 @@
                                                 </c:forEach>
                                             </select>
                                         </div>
-
+                                        &nbsp;
                                         <div class="col-sm-1 form-label">
                                             <input type="button" id="selButton" class="btn btn-inverse-danger-muted btn-rounded border-danger-muted btn-sm text-danger" name="submit" value="确定">
                                         </div>
                                     </div>
+                                    <hr class="style-two">
                                     <!-- tab选项卡 -->
                                     <ul class="nav nav-tabs mt-6" role="tablist">
                                         <li class="nav-item">
@@ -195,7 +191,7 @@
                                                     <table class="table table-striped table-condensed table-hover table-responsive-md" id="table01">
                                                         <thead>
                                                         <tr>
-                                                            <th>#</th>
+                                                            <th style="width:5%">#</th>
                                                             <th>员工</th>
                                                             <th>月工日和</th>
                                                         </tr>
@@ -225,7 +221,7 @@
                                                     <table class="table table-striped table-condensed table-hover table-responsive-md" id="table02">
                                                         <thead>
                                                         <tr>
-                                                            <th>#</th>
+                                                            <th style="width:5%">#</th>
                                                             <th>员工</th>
                                                             <th>年工日和</th>
                                                         </tr>
