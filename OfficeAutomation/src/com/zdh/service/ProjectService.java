@@ -32,6 +32,7 @@ public class ProjectService {
     }
 
     public int addProject(Project project) {
+
         int r = 0;
         try {
             r = projectDao.addProject(project);
@@ -92,6 +93,10 @@ public class ProjectService {
     }
 
     public int joinProject(String userName, String projectid) {
+        int b = checkJoinProject(userName,projectid);
+        if(b>0){
+            return 1;
+        }
         int r = 0;
         try {
             r = projectDao.joinProject(userName,projectid);
@@ -105,6 +110,16 @@ public class ProjectService {
         int r = 0;
         try {
             r = projectDao.checkJoinProject(userName,projectid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return r;
+    }
+
+    public int deleteRelationByProject(String id) {
+        int r = 0;
+        try {
+            r = projectDao.deleteRelationByProject(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }

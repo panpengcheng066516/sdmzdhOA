@@ -21,7 +21,7 @@ public class ProjectDao {
     }
 
     public List<Project> getProjectListByUser(String username) throws SQLException {
-        String sql = "select * from project where id in (select projectid from projectPeople where username = ?)";
+        String sql = "select * from project where id in (select projectid from projectPeople where username = ?) order by deadline DESC";
         return runner.query(sql, new BeanListHandler<Project>(Project.class),username);
     }
 
@@ -71,5 +71,10 @@ public class ProjectDao {
     public int checkJoinProject(String userName, String projectid) throws SQLException {
         String sql = "select count(*) from projectPeople where projectid = ? and username = ?";
         return (int) runner.query(sql, new ScalarHandler(),projectid,userName);
+    }
+
+    public int deleteRelationByProject(String id) throws SQLException {
+        String sql = "delete from projectPeople where projectid = ?";
+        return runner.update(sql,id);
     }
 }

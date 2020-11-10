@@ -42,6 +42,7 @@ public class AddProjectServlet extends BaseServlet {
         int rreviewer = 0;
         int roffice = 0;
         if(project.getCe()!="" && project.getCe()!=null){
+            int r = projectService.checkJoinProject(project.getCe(),project.getId());
             bce = projectService.joinProject(project.getCe(),project.getId());
             String ce = userservice.getUserByUsername(project.getCe()).getName();
             project.setCe(ce);
@@ -68,7 +69,6 @@ public class AddProjectServlet extends BaseServlet {
         }
 
         //向数据库存入项目信息
-        ProjectService projectService = new ProjectService();
         int r = projectService.addProject(project);
 
         PrintWriter out = response.getWriter();
