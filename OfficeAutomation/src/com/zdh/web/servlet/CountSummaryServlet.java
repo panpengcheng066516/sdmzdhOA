@@ -14,10 +14,12 @@ import java.util.List;
 
 public class CountSummaryServlet extends BaseServlet {
 
+    PersonalSummaryService personalSummaryService = new PersonalSummaryService();
+
+
     public void getHistorySummary(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
 
-        PersonalSummaryService personalSummaryService = new PersonalSummaryService();
         //月各人员工作量
         List<Summary> summaryMonthList = personalSummaryService.getSummaryList(CommonsUtils.getCurrentYear(),CommonsUtils.getCurrentMonth());
         //月科室总工作量

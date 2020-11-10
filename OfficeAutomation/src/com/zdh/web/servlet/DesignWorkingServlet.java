@@ -19,6 +19,10 @@ import java.util.List;
 import java.util.Map;
 
 public class DesignWorkingServlet extends BaseServlet {
+
+    ProjectService projectService = new ProjectService();
+    DesignWorkingService designWorkingService = new DesignWorkingService();
+
     //得到当前用户的所有的project
     public void getAllProjectByUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
@@ -27,7 +31,6 @@ public class DesignWorkingServlet extends BaseServlet {
         User user = (User) session.getAttribute("user");
         String userName = user.getUsername();
         //通过Userid获得projectList
-        ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getProjectListByUser(userName);
 //        ProjectService projectService = new ProjectService();
 //        List<Project> list = projectService.getAllProject();
@@ -52,7 +55,6 @@ public class DesignWorkingServlet extends BaseServlet {
         designWorking.setMonth(CommonsUtils.getCurrentMonth());
 
         //向数据库存入项目信息
-        DesignWorkingService designWorkingService = new DesignWorkingService();
         int r = designWorkingService.addDesignWorking(designWorking);
 
         PrintWriter out = response.getWriter();
@@ -75,7 +77,6 @@ public class DesignWorkingServlet extends BaseServlet {
         designWorking.setUsername(user.getUsername());
 
         //向数据库存入项目信息
-        DesignWorkingService designWorkingService = new DesignWorkingService();
         int r = designWorkingService.updateDesignWorking(designWorking);
 
         PrintWriter out = response.getWriter();
@@ -94,13 +95,11 @@ public class DesignWorkingServlet extends BaseServlet {
         User user = (User) session.getAttribute("user");
         String userName = user.getUsername();
         //通过Userid获得projectList
-        ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getProjectListByUser(userName);
         request.setAttribute("projectList",list);
 
         //通过id得到design对象
         String designid = request.getParameter("designid");
-        DesignWorkingService designWorkingService = new DesignWorkingService();
         DesignWorking designWorking = designWorkingService.getDesignWorkingInfo(designid);
         //通过id得到工程
         Project project = designWorkingService.getProjectByid(designid);

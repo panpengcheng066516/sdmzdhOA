@@ -76,7 +76,7 @@
                             <a href="${ pageContext.request.contextPath }/personalProjectServlet?method=getAllPersonalProject" class="nav-link">个人已参与项目</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item" ${user.power==2?"":"hidden"}}>
                             <a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject" class="nav-link">科室项目查询</a>
                         </li>
                     </ul>

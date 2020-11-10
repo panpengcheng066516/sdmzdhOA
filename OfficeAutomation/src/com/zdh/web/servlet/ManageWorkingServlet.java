@@ -21,6 +21,10 @@ import java.util.List;
 import java.util.Map;
 
 public class ManageWorkingServlet extends BaseServlet {
+
+    ProjectService projectService = new ProjectService();
+    ManageWorkingService manageWorkingService = new ManageWorkingService();
+
     //得到当前用户的所有的project
     public void getAllProjectByUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
@@ -29,7 +33,6 @@ public class ManageWorkingServlet extends BaseServlet {
         User user = (User) session.getAttribute("user");
         String userName = user.getUsername();
         //通过Userid获得projectList
-        ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getProjectListByUser(userName);
 
 //        ProjectService projectService = new ProjectService();
@@ -53,7 +56,6 @@ public class ManageWorkingServlet extends BaseServlet {
         manageWorking.setMonth(CommonsUtils.getCurrentMonth());
 
         //向数据库存入项目信息
-        ManageWorkingService manageWorkingService = new ManageWorkingService();
         int r = manageWorkingService.addManageWorking(manageWorking);
 
         PrintWriter out = response.getWriter();
@@ -76,7 +78,6 @@ public class ManageWorkingServlet extends BaseServlet {
         manageWorking.setUsername(user.getUsername());
 
         //向数据库存入项目信息
-        ManageWorkingService manageWorkingService = new ManageWorkingService();
         int r = manageWorkingService.updateManageWorking(manageWorking);
 
         PrintWriter out = response.getWriter();
@@ -95,13 +96,11 @@ public class ManageWorkingServlet extends BaseServlet {
         User user = (User) session.getAttribute("user");
         String userName = user.getUsername();
         //通过Userid获得projectList
-        ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getProjectListByUser(userName);
         request.setAttribute("projectList",list);
 
         //通过id得到design对象
         String manageid = request.getParameter("manageid");
-        ManageWorkingService manageWorkingService = new ManageWorkingService();
         ManageWorking manageWorking = manageWorkingService.getManageWorkingInfo(manageid);
         //通过id得到工程
         Project project = manageWorkingService.getProjectByid(manageid);

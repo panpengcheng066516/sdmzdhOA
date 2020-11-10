@@ -14,13 +14,15 @@ import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 
 public class ExportMonthSummaryServlet extends BaseServlet {
+
+    PersonalSummaryService personalSummaryService = new PersonalSummaryService();
+
     public void exportMonthSummary(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
         //首先准备要输出的工作量数据
         String year = request.getParameter("year");
         String month = request.getParameter("month");
         String projectid = new String(request.getParameter("projectid").getBytes("ISO-8859-1"),"UTF-8");
-        PersonalSummaryService personalSummaryService = new PersonalSummaryService();
         MainVo mainVo = null;
         if(projectid.equals("全部")){
             //得到所有工作量

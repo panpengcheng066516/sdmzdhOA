@@ -16,6 +16,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class PersonalSummaryServlet  extends BaseServlet {
+
+    PersonalSummaryService personalSummaryService = new PersonalSummaryService();
+
     //得到所有的project
     public void getAllWorkingList(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
@@ -25,7 +28,6 @@ public class PersonalSummaryServlet  extends BaseServlet {
         String username = user.getUsername();
 
         //得到所有工作量
-        PersonalSummaryService personalSummaryService = new PersonalSummaryService();
         MainVo mainVo = personalSummaryService.getMainVoByDateUser(CommonsUtils.getCurrentYear(),CommonsUtils.getCurrentMonth(),username);
 
         //请求转发
@@ -45,7 +47,6 @@ public class PersonalSummaryServlet  extends BaseServlet {
         String year = request.getParameter("year");
         String month = request.getParameter("month");
         //得到所有工作量
-        PersonalSummaryService personalSummaryService = new PersonalSummaryService();
         MainVo mainVo = personalSummaryService.getMainVoByDateUser(year,month,username);
 
         //转换为json向前台传输数据
@@ -64,7 +65,6 @@ public class PersonalSummaryServlet  extends BaseServlet {
         String year = request.getParameter("year");
         String month = request.getParameter("month");
         String projectid = request.getParameter("projectid");
-        PersonalSummaryService personalSummaryService = new PersonalSummaryService();
         MainVo mainVo = null;
 
         if(projectid.equals("全部")){
@@ -92,7 +92,6 @@ public class PersonalSummaryServlet  extends BaseServlet {
         String year = request.getParameter("year");
         String month = request.getParameter("month");
 
-        PersonalSummaryService personalSummaryService = new PersonalSummaryService();
         //月各人员工作量
         List<Summary> summaryMonthList = personalSummaryService.getSummaryList(year,month);
         //月科室总工作量

@@ -22,10 +22,12 @@ import java.util.Map;
 
 public class ProjectServlet extends BaseServlet {
 
+    ProjectService projectService = new ProjectService();
+
+
     //得到所有的project
     public void getAllProject(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
-        ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getAllProject();
         request.setAttribute("projectList",list);
         request.getRequestDispatcher("/Employee/Overview/projectOverview.jsp").forward(request, response);
@@ -44,7 +46,6 @@ public class ProjectServlet extends BaseServlet {
         String userName = user.getUsername();
         String projectid = request.getParameter("projectid");
         //通过Userid获得projectList
-        ProjectService projectService = new ProjectService();
         int r = projectService.quitProject(userName,projectid);
 
         PrintWriter out = response.getWriter();
@@ -65,13 +66,12 @@ public class ProjectServlet extends BaseServlet {
         String userName = user.getUsername();
         String projectid = request.getParameter("projectid");
         //验证是否已经加入
-        ProjectService projectService = new ProjectService();
         int b = projectService.checkJoinProject(userName,projectid);
         int r =0;
 
         PrintWriter out = response.getWriter();
         if(b>0){
-            out.print("<script>alert('不能重复加入项目！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
+            out.print("<script>alert('您已在项目内！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
         }else{
             r = projectService.joinProject(userName,projectid);
             if(r>0){
@@ -86,7 +86,6 @@ public class ProjectServlet extends BaseServlet {
     public void getProjectInfo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
         String projectid = request.getParameter("projectid");
-        ProjectService projectService = new ProjectService();
         Project project = projectService.getProjectById(projectid);
 
         request.setAttribute("project",project);
@@ -101,7 +100,6 @@ public class ProjectServlet extends BaseServlet {
         User user = (User) session.getAttribute("user");
         String userName = user.getUsername();
         //通过Userid获得projectList
-        ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getProjectListByUser(userName);
         request.setAttribute("projectList",list);
         response.sendRedirect("");
@@ -125,7 +123,6 @@ public class ProjectServlet extends BaseServlet {
             BeanUtils.populate(project,map);
 
             //向数据库存入项目信息
-            ProjectService projectService = new ProjectService();
             int r = projectService.updateProject(project);
             if(r>0){
                 out.print("<script>alert('修改成功！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
@@ -142,7 +139,6 @@ public class ProjectServlet extends BaseServlet {
         response.setContentType("text/html;charset=utf-8");
         // 得到参数并查询
         String progress = request.getParameter("progress");
-        ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getProjectByProgress(progress);
 
         //转换为json向前台传输数据
@@ -163,7 +159,6 @@ public class ProjectServlet extends BaseServlet {
         User user = (User) session.getAttribute("user");
         String username = user.getUsername();
         String progress = request.getParameter("progress");
-        ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getPersonalProjectByProgress(username,progress);
 
         //转换为json向前台传输数据

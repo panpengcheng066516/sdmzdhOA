@@ -20,6 +20,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class UserServlet extends BaseServlet{
+
+    UserService service = new UserService();
+
+
     //用户登录
     public void login(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
@@ -31,7 +35,6 @@ public class UserServlet extends BaseServlet{
 
 
         //将用户名和密码传递给service层
-        UserService service = new UserService();
         User user = null;
         try {
             user = service.login(username,password);
@@ -77,7 +80,6 @@ public class UserServlet extends BaseServlet{
             request.getRequestDispatcher("/register.jsp").forward(request, response);
         }else {
             //验证user是否存在且匹配
-            UserService service = new UserService();
             User user = null;
             try {
                 user = service.login(username,oldPIN);

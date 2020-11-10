@@ -17,9 +17,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class JiediaoServlet extends BaseServlet {
+
+
+    JiediaoService jiediaoService = new JiediaoService();
+    UserService userService = new UserService();
+
     //添加借调
     public void addJiediao(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+
         //创建借调类
         String transfer = request.getParameter("transfer");
         HttpSession session = request.getSession();
@@ -28,10 +34,9 @@ public class JiediaoServlet extends BaseServlet {
         jiediao.setTransfer(transfer);
         jiediao.setUsername(user.getUsername());
         jiediao.setRatio("无");
+
         //将借调存入数据库
-        JiediaoService jiediaoService = new JiediaoService();
         int i = jiediaoService.addJiediao(jiediao);
-        UserService userService = new UserService();
         int j = userService.jiediaouser(jiediao.getUsername());
 
         PrintWriter out = response.getWriter();

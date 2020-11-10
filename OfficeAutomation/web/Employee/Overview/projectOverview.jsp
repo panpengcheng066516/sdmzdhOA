@@ -157,7 +157,7 @@
                                                         <th>总师</th>
                                                         <th>高阶段<br>分类</th>
                                                         <th>&emsp;备注&emsp;</th>
-                                                        <th ${user.power==2||user.power==3||user.power==18?"":"hidden"} >操作</th>
+                                                        <th ${user.power==2?"":"hidden"} >操作</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="tb" class="text-secondary">
@@ -176,13 +176,13 @@
                                                                 <td>${project.ce}</td>
                                                                 <td>${project.stage}</td>
                                                                 <td><div class="text-wrap">${project.remarks}</div></td>
-                                                                <td ${user.power==2||user.power==3||user.power==18?"":"hidden"} >
+                                                                <td ${user.power==2?"":"hidden"} >
                                                                     <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
                                                                         <button type="button" ${user.power==2?"":"hidden"} class="btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary">修改</button>
                                                                     </a><br>
-                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">
-                                                                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-xs border-primary">&#10004;</button>
-                                                                    </a>
+<%--                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">--%>
+<%--                                                                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-xs border-primary">&#10004;</button>--%>
+<%--                                                                    </a>--%>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>

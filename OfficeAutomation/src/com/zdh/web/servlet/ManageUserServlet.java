@@ -14,11 +14,13 @@ import java.util.List;
 import java.util.Map;
 
 public class ManageUserServlet extends BaseServlet {
+
+    UserService service = new UserService();
+
     //用户列表
     public void findAllUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
 
-        UserService service = new UserService();
         List<User> list = service.findAllUser();
         request.setAttribute("userList",list);
         request.getRequestDispatcher("/root/management.jsp").forward(request,response);
@@ -28,7 +30,7 @@ public class ManageUserServlet extends BaseServlet {
     public void addUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
 
-        UserService service = new UserService();
+
 
         //获得user对象
         User user = new User();
@@ -67,7 +69,6 @@ public class ManageUserServlet extends BaseServlet {
     public void updateUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
 
-        UserService service = new UserService();
 
         User user = new User();
         Map<String, String[]> map = request.getParameterMap();

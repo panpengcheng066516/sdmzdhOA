@@ -83,7 +83,7 @@
                                         "<td>" + data[i].ce + "</td>" +
                                         "<td>" + data[i].stage + "</td>" +
                                         "<td><div class='text-wrap text-break'>" + data[i].remarks + "</div></td>" +
-                                        "<td><a href='${pageContext.request.contextPath}/projectServlet?method=quitProject&projectid="+data[i].id+"'><button type='button' class='btn btn-inverse-danger-muted btn-rounded btn-xs text-danger border-danger'>退出</button></a></td>" +
+                                        <%--"<td><a href='${pageContext.request.contextPath}/projectServlet?method=quitProject&projectid="+data[i].id+"'><button type='button' class='btn btn-inverse-danger-muted btn-rounded btn-xs text-danger border-danger'>退出</button></a></td>" +--%>
                                         "</tr>";
                                 }
                             }else{
@@ -157,7 +157,7 @@
                                                     <th>总师</th>
                                                     <th>高阶段<br>分类</th>
                                                     <th>&emsp;备注&emsp;</th>
-                                                    <th>操作</th>
+<%--                                                    <th>操作</th>--%>
                                                 </tr>
                                                 </thead>
                                                 <tbody id="tb" class="text-secondary">
@@ -176,11 +176,11 @@
                                                             <td>${project.ce}</td>
                                                             <td>${project.stage}</td>
                                                             <td><div class="text-wrap">${project.remarks}</div></td>
-                                                            <td>
-                                                                <a href="${pageContext.request.contextPath}/projectServlet?method=quitProject&projectid=${project.id}">
-                                                                    <button type="button" class="btn btn-inverse-danger-muted btn-rounded btn-xs text-danger border-danger">退出</button>
-                                                                </a>
-                                                            </td>
+<%--                                                            <td>--%>
+<%--                                                                <a href="${pageContext.request.contextPath}/projectServlet?method=quitProject&projectid=${project.id}">--%>
+<%--                                                                    <button type="button" class="btn btn-inverse-danger-muted btn-rounded btn-xs text-danger border-danger">退出</button>--%>
+<%--                                                                </a>--%>
+<%--                                                            </td>--%>
                                                         </tr>
                                                     </c:forEach>
                                                 </c:if>

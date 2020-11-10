@@ -15,13 +15,17 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class ChartServlet  extends BaseServlet {
+
+    ChartsService chartsService = new ChartsService();
+
+
     public void getChartData(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
 
         String year = CommonsUtils.getCurrentYear();
         String month = CommonsUtils.getCurrentMonth();
 
-        ChartsService chartsService = new ChartsService();
+
         List<Double> doubles = chartsService.getSumWorkdays(year,month);
 
         //转换为json向前台传输数据

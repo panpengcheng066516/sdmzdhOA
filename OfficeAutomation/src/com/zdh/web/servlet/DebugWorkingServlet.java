@@ -16,6 +16,11 @@ import java.util.List;
 import java.util.Map;
 
 public class DebugWorkingServlet extends BaseServlet {
+
+    ProjectService projectService = new ProjectService();
+    DebugWorkingService debugWorkingService = new DebugWorkingService();
+
+
     //得到当前用户的所有的project
     public void getAllProjectByUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
@@ -24,7 +29,6 @@ public class DebugWorkingServlet extends BaseServlet {
         User user = (User) session.getAttribute("user");
         String userName = user.getUsername();
         //通过Userid获得projectList
-        ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getProjectListByUser(userName);
 
 //        ProjectService projectService = new ProjectService();
@@ -48,7 +52,6 @@ public class DebugWorkingServlet extends BaseServlet {
         debugWorking.setMonth(CommonsUtils.getCurrentMonth());
 
         //向数据库存入项目信息
-        DebugWorkingService debugWorkingService = new DebugWorkingService();
         int r = debugWorkingService.addDebugWorking(debugWorking);
 
         PrintWriter out = response.getWriter();
@@ -71,7 +74,6 @@ public class DebugWorkingServlet extends BaseServlet {
         debugWorking.setUsername(user.getUsername());
 
         //向数据库存入项目信息
-        DebugWorkingService debugWorkingService = new DebugWorkingService();
         int r = debugWorkingService.updateDebugWorking(debugWorking);
 
         PrintWriter out = response.getWriter();

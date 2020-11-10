@@ -124,7 +124,7 @@
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manager">专业负责人</label>
                                     <div class="control-text col-sm-2">
                                         <select class="selectpicker" name="manager" id="manager" required="true" data-live-search="true">
-                                            <option value="0"  style="text-align: center; text-align-last: center;">请选择</option>
+                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
                                                     <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
@@ -139,7 +139,7 @@
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="designer">设计人&emsp;</label>
                                     <div class="control-text col-sm-2">
                                         <select class="selectpicker" name="designer" id="designer" required="true" data-live-search="true">
-                                            <option value="0"  style="text-align: center; text-align-last: center;">请选择</option>
+                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
                                                     <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
@@ -151,7 +151,7 @@
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="reviewer">审核人&emsp;</label>
                                     <div class="control-text col-sm-2">
                                         <select class="selectpicker" name="reviewer" id="reviewer" required="true" data-live-search="true">
-                                            <option value="0"  style="text-align: center; text-align-last: center;">请选择</option>
+                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
                                                     <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
@@ -166,7 +166,7 @@
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">室审&emsp;&emsp;</label>
                                     <div class="control-text col-sm-2">
                                         <select class="selectpicker" name="office" id="office" required="true" data-live-search="true">
-                                            <option value="0"  style="text-align: center; text-align-last: center;">请选择</option>
+                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
                                                     <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
@@ -179,7 +179,7 @@
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="ce">总师&emsp;&emsp;</label>
                                     <div class="control-text col-sm-2">
                                         <select class="selectpicker" name="ce" id="ce" required="true" data-live-search="true">
-                                            <option value="0"  style="text-align: center; text-align-last: center;">请选择</option>
+                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
                                                     <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>

@@ -21,6 +21,11 @@ import java.util.List;
 import java.util.Map;
 
 public class ProgramingPictureWorkingServlet extends BaseServlet {
+
+    ProjectService projectService = new ProjectService();
+    ProgramingPictureWorkingService programingPictureWorkingService = new ProgramingPictureWorkingService();
+
+
     //得到当前用户的所有的project
     public void getAllProjectByUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
@@ -29,7 +34,6 @@ public class ProgramingPictureWorkingServlet extends BaseServlet {
         User user = (User) session.getAttribute("user");
         String userName = user.getUsername();
         //通过Userid获得projectList
-        ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getProjectListByUser(userName);
 
 //        ProjectService projectService = new ProjectService();
@@ -54,7 +58,6 @@ public class ProgramingPictureWorkingServlet extends BaseServlet {
         programingPictureWorking.setMonth(CommonsUtils.getCurrentMonth());
 
         //向数据库存入项目信息
-        ProgramingPictureWorkingService programingPictureWorkingService = new ProgramingPictureWorkingService();
         int r = programingPictureWorkingService.addProgramingPictureWorking(programingPictureWorking);
 
         PrintWriter out = response.getWriter();
@@ -77,7 +80,6 @@ public class ProgramingPictureWorkingServlet extends BaseServlet {
         programingPictureWorking.setUsername(user.getUsername());
 
         //向数据库存入项目信息
-        ProgramingPictureWorkingService programingPictureWorkingService = new ProgramingPictureWorkingService();
         int r = programingPictureWorkingService.updateProgramingWorking(programingPictureWorking);
 
         PrintWriter out = response.getWriter();
@@ -102,7 +104,6 @@ public class ProgramingPictureWorkingServlet extends BaseServlet {
 
         //通过id得到design对象
         String programingid = request.getParameter("programingid");
-        ProgramingPictureWorkingService programingPictureWorkingService = new ProgramingPictureWorkingService();
         ProgramingPictureWorking programingPictureWorking = programingPictureWorkingService.getprogramingPictureWorkingInfo(programingid);
         //通过id得到工程
         Project project = programingPictureWorkingService.getProjectByid(programingid);

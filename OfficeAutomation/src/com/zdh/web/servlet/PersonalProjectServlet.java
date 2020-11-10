@@ -14,6 +14,8 @@ import java.util.List;
 
 public class PersonalProjectServlet extends BaseServlet {
 
+    ProjectService projectService = new ProjectService();
+
     //前往个人项目查询页面
     public void getAllPersonalProject(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
@@ -21,9 +23,10 @@ public class PersonalProjectServlet extends BaseServlet {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         String userName = user.getUsername();
+
         //通过Userid获得projectList
-        ProjectService projectService = new ProjectService();
         List<Project> list = projectService.getProjectListByUser(userName);
+
         request.setAttribute("projectList",list);
         request.getRequestDispatcher("/Employee/Overview/personalProjectOverview.jsp").forward(request, response);
     }

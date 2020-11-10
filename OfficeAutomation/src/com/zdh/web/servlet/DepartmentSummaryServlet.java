@@ -15,10 +15,12 @@ import java.util.List;
 
 public class DepartmentSummaryServlet extends BaseServlet {
 
+    ProjectService projectService = new ProjectService();
+
     public void getWorkingList(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
 
-        ProjectService projectService = new ProjectService();
+
         List<Project> projectList = projectService.getAllProject();
 
         //得到所有工作量

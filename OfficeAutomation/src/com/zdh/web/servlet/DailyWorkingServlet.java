@@ -19,6 +19,10 @@ import java.util.List;
 import java.util.Map;
 
 public class DailyWorkingServlet extends BaseServlet {
+
+    DailyWorkingService dailyWorkingService = new DailyWorkingService();
+
+
     public void addDailyWorking(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
 
@@ -34,7 +38,7 @@ public class DailyWorkingServlet extends BaseServlet {
         dailyWorking.setMonth(CommonsUtils.getCurrentMonth());
 
         //向数据库存入项目信息
-        DailyWorkingService dailyWorkingService = new DailyWorkingService();
+
         int r = dailyWorkingService.addDailyWorking(dailyWorking);
 
         PrintWriter out = response.getWriter();
@@ -57,7 +61,6 @@ public class DailyWorkingServlet extends BaseServlet {
         dailyWorking.setUsername(user.getUsername());
 
         //向数据库存入项目信息
-        DailyWorkingService dailyWorkingService = new DailyWorkingService();
         int r = dailyWorkingService.updateDailyWorking(dailyWorking);
 
         PrintWriter out = response.getWriter();
@@ -75,7 +78,6 @@ public class DailyWorkingServlet extends BaseServlet {
 
         //通过id得到对象
         String dailyid = request.getParameter("dailyid");
-        DailyWorkingService dailyWorkingService = new DailyWorkingService();
         DailyWorking dailyWorking = dailyWorkingService.getDailyWorkingInfo(dailyid);
 
         request.setAttribute("daily",dailyWorking);
