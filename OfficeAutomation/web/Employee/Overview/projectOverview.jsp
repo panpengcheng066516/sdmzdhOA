@@ -6,12 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@page import="java.util.LinkedList"%>
-<%@page import="java.io.File"%>
-<%@page import="java.util.Queue"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="java.util.LinkedList" %>
+<%@page import="java.io.File" %>
+<%@page import="java.util.Queue" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="zh">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -32,48 +32,53 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-colorpicker/bootstrap-colorpicker.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet"
+          href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png"/>
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
     <style type="text/css">
-        .table>thead>tr>th {
+        .table > thead > tr > th {
             text-align: center;
         }
-        .table>tbody>tr>td {
+
+        .table > tbody > tr > td {
             text-align: center;
         }
-        .table>tfoot>tr>th {
-            font-size:small;
+
+        .table > tfoot > tr > th {
+            font-size: small;
             text-align: center;
         }
+
         hr.style-two {
             border: 0;
             height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(204,204,204), rgba(0, 0, 0, 0));
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(204, 204, 204), rgba(0, 0, 0, 0));
         }
+
         table {
             table-layout: fixed;
         }
     </style>
     <script type="text/javascript">
-        $(function(){
+        $(function () {
             // 选项框
             $("#progressSelect").change(function () {
-                var p1=$(this).children('option:selected').val();
-                if(p1=="全部"){
+                var p1 = $(this).children('option:selected').val();
+                if (p1 == "全部") {
                     var p2 = "${pageContext.request.contextPath}/projectServlet?method=getAllProject";
-                    $(location).attr('href',p2);
-                }else{
+                    $(location).attr('href', p2);
+                } else {
                     var p2 = "${pageContext.request.contextPath}/projectServlet?method=getProjectByProgress";
                     var content = "";
-                    $.post(p2,{"progress":p1},function(data){
-                        if(data.length>0){
-                            for(var i=0;i<data.length;i++) {
+                    $.post(p2, {"progress": p1}, function (data) {
+                        if (data.length > 0) {
+                            for (var i = 0; i < data.length; i++) {
                                 content += " <tr>" +
                                     "<td><div class='text-wrap text-break'>" + data[i].projectName + "</div></td>" +
                                     "<td><div class='text-wrap text-break'>" + data[i].projectNo + "</div></td>" +
@@ -87,15 +92,15 @@
                                     "<td>" + data[i].ce + "</td>" +
                                     "<td>" + data[i].stage + "</td>" +
                                     "<td><div class='text-wrap text-break'>" + data[i].remarks + "</div></td>" +
-                                    "<td ${user.power==2||user.power==3||user.power==18?'':'hidden'}><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid="+data[i].id+"'><button type='button' ${user.power==2?'':'hidden'} class='btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary'>修改</button></a><br>" +
-                                    "<a href='${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid="+data[i].id+"'><button type='button' class='btn btn-inverse-primary btn-rounded btn-xs border-primary'>加入</button></a></td>" +
+                                    "<td ${user.power==2||user.power==3||user.power==18?'':'hidden'}><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=" + data[i].id + "'><button type='button' ${user.power==2?'':'hidden'} class='btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary'>修改</button></a><br>" +
+                                    <%--"<a href='${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid="+data[i].id+"'><button type='button' class='btn btn-inverse-primary btn-rounded btn-xs border-primary'>加入</button></a></td>" +--%>
                                     "</tr>";
                             }
-                        }else{
+                        } else {
                             content = " <tr> <td>空</td> </tr>";
                         }
                         $("#tb").html(content);
-                    },"json");
+                    }, "json");
                 }
             })
         });
@@ -104,11 +109,11 @@
 <body>
 <div class="main-wrapper">
     <!-- partial:partials/_sidebar.html -->
-    <%@ include file="../Master/SideBar.jsp"%>
+    <%@ include file="../Master/SideBar.jsp" %>
     <!-- partial -->
     <main class="page-wrapper">
         <!-- partial:partials/_navbar.html -->
-        <%@ include file="../Master/NavBar.jsp"%>
+        <%@ include file="../Master/NavBar.jsp" %>
         <!-- partial -->
         <main class="page-main">
             <div class="page-content">
@@ -126,7 +131,8 @@
                                 <div class="form-group row">
                                     <label class="col-sm-auto col-form-label text-primary">请选择</label>
                                     <div class="control-text col-sm-auto col-md-auto col-lg-auto">
-                                        <select class="dropdown-item-text text-primary border-primary-muted" id="progressSelect" name="progressSelect">
+                                        <select class="dropdown-item-text text-primary border-primary-muted"
+                                                id="progressSelect" name="progressSelect">
                                             <option value="全部">全部</option>
                                             <option value="已完成">已完成</option>
                                             <option value="未完成">未完成</option>
@@ -148,116 +154,9 @@
                                     <div class="table-content">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-wrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md table-sm w-auto" id="table01" cellspacing="0" cellpadding="15">
+                                                <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md table-sm w-auto"
+                                                       id="table01" cellspacing="0" cellpadding="15">
                                                     <thead>
-                                                        <tr>
-                                                            <th>项目名称</th>
-                                                            <th>工程号</th>
-                                                            <th>截止日期</th>
-                                                            <th>实际日期</th>
-                                                            <th>状态</th>
-                                                            <th>专业<br>负责人</th>
-                                                            <th>设计人</th>
-                                                            <th>审核</th>
-                                                            <th>室审</th>
-                                                            <th>总师</th>
-                                                            <th>高阶段<br>分类</th>
-                                                            <th>&emsp;备注&emsp;</th>
-                                                            <th ${user.power==2?"":"hidden"} >操作</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="tb" class="text-secondary">
-                                                        <c:if test="${!empty projectList}">
-                                                            <c:forEach var="project" items="${projectList}">
-                                                                <tr>
-                                                                    <td><div class="text-wrap text-break">${project.projectName}</div></td>
-                                                                    <td><div class="text-wrap text-break">${project.projectNo}</div></td>
-                                                                    <td><div class="text-wrap text-break">${project.deadline}</div></td>
-                                                                    <td><div class="text-wrap text-break">${project.finish}</div></td>
-                                                                    <td>${project.progress}</td>
-                                                                    <td>${project.manager}</td>
-                                                                    <td>${project.designer}</td>
-                                                                    <td>${project.reviewer}</td>
-                                                                    <td>${project.office}</td>
-                                                                    <td>${project.ce}</td>
-                                                                    <td>${project.stage}</td>
-                                                                    <td><div class="text-wrap">${project.remarks}</div></td>
-                                                                    <td ${user.power==2?"":"hidden"} >
-                                                                        <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
-                                                                            <button type="button" ${user.power==2?"":"hidden"} class="btn btn-inverse-info btn-rounded btn-xs border-info text-primary">修改</button>
-                                                                        </a><br>
-    <%--                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">--%>
-    <%--                                                                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-xs border-primary">&#10004;</button>--%>
-    <%--                                                                    </a>--%>
-                                                                        <button type="button" ${user.power==2?"":"hidden"} class="btn btn-inverse-success btn-rounded btn-xs border-primary-muted text-danger" data-toggle="modal" data-target="#ModalCenter">编辑</button>
-                                                                            <!-- Modal -->
-                                                                            <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenter" aria-hidden="true">
-                                                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                                    <div class="modal-content">
-                                                                                        <div class="modal-header">
-                                                                                            <div class="modal-title text-success text"><strong>编辑名单</strong></div>
-                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                                <span aria-hidden="true">&times;</span>
-                                                                                            </button>
-                                                                                        </div>
-                                                                                        <div class="modal-body">
-
-                                                                                            <div class="form-group row">
-                                                                                                <label class="col-sm-auto col-form-label">当前设计人</label>
-                                                                                                <input type="text" class="form-control form-control-sm col-xs-2  col-sm-2 mt-1" name="add1" id="add1" readonly>&nbsp;
-                                                                                            </div>
-
-                                                                                            <a href="javascript:void(0);" id="addon" class="linkbutton" data-options="iconCls:'icon-add',plain:true">增加</a>
-                                                                                            <!--<a href="javascript:void(0);" id="delPrndInput" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>-->
-                                                                                            <div id="add2">
-                                                                                                <div style="float: left; margin-left:5%">
-                                                                                                    <select id="addDesigner1" name="prnd[]" class="input-sm" style="width:100px;"></select>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <script>
-                                                                                            //添加input框
-                                                                                            $(document).ready(function () {
-                                                                                            var maxInputs = 3; //input最大
-                                                                                            var add2 = $("#add2");
-                                                                                            var addButton = $("#addon");
-                                                                                            var x = add2.length;
-                                                                                            var InputCount = 1;
-                                                                                                $(addButton).click(function (e) {
-                                                                                                    if (x <= maxInputs) {
-                                                                                                    InputCount++;
-                                                                                                    $(add2).append('<div id="addDiv' + InputCount + '" style="float: left; margin-left:5%">' +
-                                                                                                                    '<select id="addDesigner' + InputCount + '" name="prnd" style="width:100px;"></select>' +
-                                                                                                                    '<a href="#" class="removeclass">×</a>' +
-                                                                                                                    '</div>');
-                                                                                                    x++;
-                                                                                                    }
-                                                                                                $("input[id^='addDesigner']").datebox({disabled: false});
-                                                                                                    return false;
-                                                                                                });
-                                                                                                $("body").on("click", ".removeclass", function (e) {
-                                                                                                    if (x > 1) {
-                                                                                                    $(this).parent('div').remove();
-                                                                                                        x--;
-                                                                                                    }
-                                                                                                return false;
-                                                                                                })
-                                                                                            });
-                                                                                            </script>
-
-                                                                                        </div>
-                                                                                        <div class="modal-footer">
-                                                                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                                                                            <button type="button" class="btn btn-primary btn-sm">Save changes</button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </c:forEach>
-                                                        </c:if>
-                                                    </tbody>
-                                                    <tfoot>
                                                     <tr>
                                                         <th>项目名称</th>
                                                         <th>工程号</th>
@@ -273,7 +172,48 @@
                                                         <th>&emsp;备注&emsp;</th>
                                                         <th ${user.power==2?"":"hidden"} >操作</th>
                                                     </tr>
-                                                    </tfoot>
+                                                    </thead>
+                                                    <tbody id="tb" class="text-secondary">
+                                                    <c:if test="${!empty projectList}">
+                                                        <c:forEach var="project" items="${projectList}">
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="text-wrap text-break">${project.projectName}</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="text-wrap text-break">${project.projectNo}</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="text-wrap text-break">${project.deadline}</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="text-wrap text-break">${project.finish}</div>
+                                                                </td>
+                                                                <td>${project.progress}</td>
+                                                                <td>${project.manager}</td>
+                                                                <td>${project.designer}</td>
+                                                                <td>${project.reviewer}</td>
+                                                                <td>${project.office}</td>
+                                                                <td>${project.ce}</td>
+                                                                <td>${project.stage}</td>
+                                                                <td>
+                                                                    <div class="text-wrap">${project.remarks}</div>
+                                                                </td>
+                                                                <td ${user.power==2?"":"hidden"} >
+                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
+                                                                        <button type="button" ${user.power==2?"":"hidden"}
+                                                                                class="btn btn-inverse-info btn-rounded btn-xs border-info text-primary">
+                                                                            修改
+                                                                        </button>
+                                                                    </a><br>
+                                                                        <%--                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">--%>
+                                                                        <%--                                                                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-xs border-primary">&#10004;</button>--%>
+                                                                        <%--                                                                    </a>--%>
+                                                                </td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </c:if>
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -286,9 +226,9 @@
             </div>
         </main>
         <!-- partial:partials/_footer.html -->
-        <%@ include file="../Master/Footer.jsp"%>
+        <%@ include file="../Master/Footer.jsp" %>
         <!-- partial -->
-    </div>
+</div>
 </body>
 <script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>
@@ -316,7 +256,7 @@
         //$("body").append(form);//将表单放置在web中
         //form.append(input1);
         //form.submit();//表单提交
-        var fileName="项目信息整理分析表";
+        var fileName = "项目信息整理分析表";
         var time = new Date();
         var day = ("0" + time.getDate()).slice(-2);
         var month = ("0" + (time.getMonth() + 1)).slice(-2);
@@ -325,7 +265,7 @@
         $("#table01").table2excel({
             exclude: ".noExl",
             name: "Excel Document Name",
-            filename: fileName+today,
+            filename: fileName + today,
             sheetName: fileName,// sheetName
             exclude_img: true,
             exclude_links: true,
@@ -333,19 +273,18 @@
         });
     }
 
-    $(function() {
-        var winWidth=$(window).width();
-        if (parseInt(winWidth)>parseInt("900")) {
+    $(function () {
+        var winWidth = $(window).width();
+        if (parseInt(winWidth) > parseInt("900")) {
             $("#title1").addClass("search-form");
-            $("#titleText").css("font-size","24px");
-        }
-        else {
+            $("#titleText").css("font-size", "24px");
+        } else {
             $("#title1").removeClass("search-form");
         }
     });
 
     $('#table01').DataTable({
-        "aLengthMenu" : [ [ 10, 20, 30, -1 ], [ "10条", "20条", "30条", "所有" ] ],
+        "aLengthMenu": [[10, 20, 30, -1], ["10条", "20条", "30条", "所有"]],
         "iDisplayLength": 10,
         "language": {
             search: "",
@@ -374,7 +313,7 @@
         }
     });
 
-    $('#table01').each(function() {
+    $('#table01').each(function () {
         var datatable = $(this);
         var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
         search_input.attr('placeholder', '搜索');
@@ -383,18 +322,17 @@
         length_sel.removeClass('form-control-sm');
     });
 
-    $(function() {
-        var winWidth=$(window).width();
-        if (parseInt(winWidth)>parseInt("900")) {
+    $(function () {
+        var winWidth = $(window).width();
+        if (parseInt(winWidth) > parseInt("900")) {
             $("#title1").addClass("search-form");
-            $("#titleText").css("font-size","24px");
-        }
-        else {
+            $("#titleText").css("font-size", "24px");
+        } else {
             $("#title1").removeClass("search-form");
         }
     });
 
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         $('.selectpicker').selectpicker('mobile');
     }
 
