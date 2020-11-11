@@ -39,11 +39,16 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
     <style type="text/css">
         .table>thead>tr>th {
             text-align: center;
         }
         .table>tbody>tr>td {
+            text-align: center;
+        }
+        .table>tfoot>tr>th {
+            font-size:small;
             text-align: center;
         }
         hr.style-two {
@@ -55,7 +60,6 @@
             table-layout: fixed;
         }
     </style>
-    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
         $(function(){
             // 选项框
@@ -133,17 +137,127 @@
                                 </div>
                                 <hr class="style-two">
                                 &nbsp;
-                                <div class="custom-control row align-self-end">
-                                    <div class="right-pill col-sm-auto text-small text-reddit text-justify float-sm-right">
-                                        * 点击操作栏的按钮可将对应项目加入自己名下
+                                <div class="wrapper-editor">
+                                    <div class="custom-control row align-self-end">
+                                        <div class="right-pill col-sm-auto text-small text-reddit text-justify float-sm-right">
+                                            * 点击<strong>修改</strong>对项目的现有信息进行修改<br>
+                                            * 如该项目有新设计人出现，请点击<strong>编辑</strong>添加成员姓名
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="table-content">
-                                    <div class="custom-control table">
-                                        <div class="table-responsive text-wrap">
-                                            <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md w-auto" id="table01" cellspacing="0" cellpadding="15">
-                                                <thead>
+                                    <div class="table-content">
+                                        <div class="custom-control table">
+                                            <div class="table-responsive text-wrap">
+                                                <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md table-sm w-auto" id="table01" cellspacing="0" cellpadding="15">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>项目名称</th>
+                                                            <th>工程号</th>
+                                                            <th>截止日期</th>
+                                                            <th>实际日期</th>
+                                                            <th>状态</th>
+                                                            <th>专业<br>负责人</th>
+                                                            <th>设计人</th>
+                                                            <th>审核</th>
+                                                            <th>室审</th>
+                                                            <th>总师</th>
+                                                            <th>高阶段<br>分类</th>
+                                                            <th>&emsp;备注&emsp;</th>
+                                                            <th ${user.power==2?"":"hidden"} >操作</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tb" class="text-secondary">
+                                                        <c:if test="${!empty projectList}">
+                                                            <c:forEach var="project" items="${projectList}">
+                                                                <tr>
+                                                                    <td><div class="text-wrap text-break">${project.projectName}</div></td>
+                                                                    <td><div class="text-wrap text-break">${project.projectNo}</div></td>
+                                                                    <td><div class="text-wrap text-break">${project.deadline}</div></td>
+                                                                    <td><div class="text-wrap text-break">${project.finish}</div></td>
+                                                                    <td>${project.progress}</td>
+                                                                    <td>${project.manager}</td>
+                                                                    <td>${project.designer}</td>
+                                                                    <td>${project.reviewer}</td>
+                                                                    <td>${project.office}</td>
+                                                                    <td>${project.ce}</td>
+                                                                    <td>${project.stage}</td>
+                                                                    <td><div class="text-wrap">${project.remarks}</div></td>
+                                                                    <td ${user.power==2?"":"hidden"} >
+                                                                        <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
+                                                                            <button type="button" ${user.power==2?"":"hidden"} class="btn btn-inverse-info btn-rounded btn-xs border-info text-primary">修改</button>
+                                                                        </a><br>
+    <%--                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">--%>
+    <%--                                                                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-xs border-primary">&#10004;</button>--%>
+    <%--                                                                    </a>--%>
+                                                                        <button type="button" ${user.power==2?"":"hidden"} class="btn btn-inverse-success btn-rounded btn-xs border-primary-muted text-danger" data-toggle="modal" data-target="#ModalCenter">编辑</button>
+                                                                            <!-- Modal -->
+                                                                            <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenter" aria-hidden="true">
+                                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <div class="modal-title text-success text"><strong>编辑名单</strong></div>
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                                <span aria-hidden="true">&times;</span>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+
+                                                                                            <div class="form-group row">
+                                                                                                <label class="col-sm-auto col-form-label">当前设计人</label>
+                                                                                                <input type="text" class="form-control form-control-sm col-xs-2  col-sm-2 mt-1" name="add1" id="add1" readonly>&nbsp;
+                                                                                            </div>
+
+                                                                                            <a href="javascript:void(0);" id="addon" class="linkbutton" data-options="iconCls:'icon-add',plain:true">增加</a>
+                                                                                            <!--<a href="javascript:void(0);" id="delPrndInput" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>-->
+                                                                                            <div id="add2">
+                                                                                                <div style="float: left; margin-left:5%">
+                                                                                                    <select id="addDesigner1" name="prnd[]" class="input-sm" style="width:100px;"></select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <script>
+                                                                                            //添加input框
+                                                                                            $(document).ready(function () {
+                                                                                            var maxInputs = 3; //input最大
+                                                                                            var add2 = $("#add2");
+                                                                                            var addButton = $("#addon");
+                                                                                            var x = add2.length;
+                                                                                            var InputCount = 1;
+                                                                                                $(addButton).click(function (e) {
+                                                                                                    if (x <= maxInputs) {
+                                                                                                    InputCount++;
+                                                                                                    $(add2).append('<div id="addDiv' + InputCount + '" style="float: left; margin-left:5%">' +
+                                                                                                                    '<select id="addDesigner' + InputCount + '" name="prnd" style="width:100px;"></select>' +
+                                                                                                                    '<a href="#" class="removeclass">×</a>' +
+                                                                                                                    '</div>');
+                                                                                                    x++;
+                                                                                                    }
+                                                                                                $("input[id^='addDesigner']").datebox({disabled: false});
+                                                                                                    return false;
+                                                                                                });
+                                                                                                $("body").on("click", ".removeclass", function (e) {
+                                                                                                    if (x > 1) {
+                                                                                                    $(this).parent('div').remove();
+                                                                                                        x--;
+                                                                                                    }
+                                                                                                return false;
+                                                                                                })
+                                                                                            });
+                                                                                            </script>
+
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                                                                            <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </c:forEach>
+                                                        </c:if>
+                                                    </tbody>
+                                                    <tfoot>
                                                     <tr>
                                                         <th>项目名称</th>
                                                         <th>工程号</th>
@@ -159,36 +273,9 @@
                                                         <th>&emsp;备注&emsp;</th>
                                                         <th ${user.power==2?"":"hidden"} >操作</th>
                                                     </tr>
-                                                </thead>
-                                                <tbody id="tb" class="text-secondary">
-                                                    <c:if test="${!empty projectList}">
-                                                        <c:forEach var="project" items="${projectList}">
-                                                            <tr>
-                                                                <td><div class="text-wrap text-break">${project.projectName}</div></td>
-                                                                <td><div class="text-wrap text-break">${project.projectNo}</div></td>
-                                                                <td><div class="text-wrap text-break">${project.deadline}</div></td>
-                                                                <td><div class="text-wrap text-break">${project.finish}</div></td>
-                                                                <td>${project.progress}</td>
-                                                                <td>${project.manager}</td>
-                                                                <td>${project.designer}</td>
-                                                                <td>${project.reviewer}</td>
-                                                                <td>${project.office}</td>
-                                                                <td>${project.ce}</td>
-                                                                <td>${project.stage}</td>
-                                                                <td><div class="text-wrap">${project.remarks}</div></td>
-                                                                <td ${user.power==2?"":"hidden"} >
-                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
-                                                                        <button type="button" ${user.power==2?"":"hidden"} class="btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary">修改</button>
-                                                                    </a><br>
-<%--                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">--%>
-<%--                                                                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-xs border-primary">&#10004;</button>--%>
-<%--                                                                    </a>--%>
-                                                                </td>
-                                                            </tr>
-                                                        </c:forEach>
-                                                    </c:if>
-                                                </tbody>
-                                            </table>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

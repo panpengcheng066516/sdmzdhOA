@@ -236,10 +236,9 @@
                                         </div>
                                         &nbsp;
                                         <label class="col-sm-auto col-form-label text-primary">项目</label>
-                                        <div class="control-text col-sm-auto col-md-auto col-lg-auto">
-                                            <select class="selectpicker show-tick " id="selProject" name="selProject" data-live-search="true">
+                                        <div class="control-text col-sm-2 col-md-2 col-lg-2">
+                                            <select class="selectpicker show-tick" id="selProject" name="selProject" data-live-search="true" style="width:50%">
                                                 <c:if test="${!empty projectList}">
-                                                    <option value="全部" selected="selected" data-content="<span class='badge badge-primary'>全部</span>">全部</option>
                                                     <option value="全部" selected="selected">全部</option>
                                                     <c:forEach  var="project" items="${projectList}">
                                                         <option value="${project.id}">${project.projectName}</option>
@@ -407,7 +406,7 @@
                                                         <th>工程号</th>
                                                         <th>总开关量</th>
                                                         <th>总模拟量</th>
-                                                        <th>类型</th>
+                                                        <th style="width:5%">类型</th>
                                                         <th>总工日</th>
                                                         <th>完成工日</th>
                                                         <th>&emsp;备注&emsp;</th>
@@ -443,7 +442,7 @@
                                     <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table04">
+                                                <table class="table table-striped table-borderless table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table04">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
@@ -483,7 +482,7 @@
                                     <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md w-auto" cellspacing="0" id="table05">
+                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive w-auto" cellspacing="0" id="table05">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
