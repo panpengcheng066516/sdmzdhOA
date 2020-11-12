@@ -69,7 +69,7 @@
             function addpeople(projectid) {
                 var username = $("#uname").children('option:selected').val();
                 var name = $("#uname").children('option:selected').html();
-                if(username!=null && name!=''){
+                if(username!=null && username!=''){
                     if(confirm("确定从项目中添加"+name+"吗？")){
                         window.location.href="${pageContext.request.contextPath}/projectServlet?method=addPeopleToProject&projectid="+projectid+"&username="+username;
                     }
