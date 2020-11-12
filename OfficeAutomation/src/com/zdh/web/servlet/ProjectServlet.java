@@ -235,7 +235,7 @@ public class ProjectServlet extends BaseServlet {
         request.getRequestDispatcher("/Employee/Overview/projectPeopleOverview.jsp").forward(request, response);
     }
 
-    //加入项目
+    //撤离人员
     public void removePeopleFromProject(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
         //得到userId
@@ -250,7 +250,30 @@ public class ProjectServlet extends BaseServlet {
         if(b>0){
             request.getRequestDispatcher("/projectServlet?method=projectPeopleInfo&projectid="+projectid).forward(request, response);
         }else{
-            out.print("<script>alert('撤离失败！');</script>");
+            out.print("<script>alert('撤离失败！');window.location='"+request.getContextPath()+"/projectServlet?method=projectPeopleInfo&projectid="+projectid+"';</script>");
+        }
+    }
+
+    //加入项目
+    public void addPeopleToProject(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        //得到userId
+        String username = request.getParameter("username");
+        String projectid = request.getParameter("projectid");
+        //验证是否已经加入
+        int b = projectService.checkJoinProject(username,projectid);
+        int r =0;
+
+        PrintWriter out = response.getWriter();
+        if(b>0){
+            out.print("<script>alert('该人员已在项目中！');window.location='"+request.getContextPath()+"/projectServlet?method=projectPeopleInfo&projectid="+projectid+"';</script>");
+        }else{
+            r = projectService.joinProject(username,projectid);
+            if(r>0){
+                request.getRequestDispatcher("/projectServlet?method=projectPeopleInfo&projectid="+projectid).forward(request, response);
+            }else{
+                out.print("<script>alert('加入失败！');window.location='"+request.getContextPath()+"/projectServlet?method=projectPeopleInfo&projectid="+projectid+"';</script>");
+            }
         }
     }
 }

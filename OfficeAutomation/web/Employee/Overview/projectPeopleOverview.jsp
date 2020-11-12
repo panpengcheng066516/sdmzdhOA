@@ -65,6 +65,16 @@
                     window.location.href="${pageContext.request.contextPath}/projectServlet?method=removePeopleFromProject&projectid="+projectid+"&username="+username;
                 }
             }
+
+            function addpeople(projectid) {
+                var username = $("#uname").children('option:selected').val();
+                var name = $("#uname").children('option:selected').html();
+                if(name!=null && name!=''){
+                    if(confirm("确定从项目中添加"+name+"吗？")){
+                        window.location.href="${pageContext.request.contextPath}/projectServlet?method=addPeopleToProject&projectid="+projectid+"&username="+username;
+                    }
+                }
+            }
     </script>
 </head>
 <body>
@@ -92,6 +102,21 @@
                                 <div class="custom-control-inline">
                                     <div class="col">
                                         <div class="card-title"><h3 class="text text-primary">${project.projectName}</h3></div>
+                                    </div>
+
+                                    <label class="col-sm-auto col-form-label text-primary">姓名：</label>
+                                    <div class="control-text col-sm-auto col-md-auto col-lg-auto">
+                                        <select class="dropdown-item-text text-primary border-primary-muted" id="uname" name="uname">
+                                            <option value="" selected style="text-align: center; text-align-last: center;">请选择</option>
+                                            <c:if test="${!empty userList}">
+                                                <c:forEach var="u" items="${userList}">
+                                                    <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
+                                                </c:forEach>
+                                            </c:if>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-1 form-label">
+                                        <input type="button" class="btn btn-inverse-warning btn-rounded border-warning btn-sm" id="addButton" onclick="addpeople('${project.id}')" value="添加人员">
                                     </div>
                                 </div>
                             </div>
