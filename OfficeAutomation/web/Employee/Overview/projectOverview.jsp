@@ -93,7 +93,7 @@
                                     "<td>" + data[i].stage + "</td>" +
                                     "<td><div class='text-wrap text-break'>" + data[i].remarks + "</div></td>" +
                                     "<td ${user.power==2||user.power==3||user.power==18?'':'hidden'}><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=" + data[i].id + "'><button type='button' ${user.power==2?'':'hidden'} class='btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary'>修改</button></a><br>" +
-                                    <%--"<a href='${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid="+data[i].id+"'><button type='button' class='btn btn-inverse-primary btn-rounded btn-xs border-primary'>加入</button></a></td>" +--%>
+                                    "<a href='${pageContext.request.contextPath}/projectServlet?method=projectPeopleInfo&projectid="+data[i].id+"'><button type='button' class='btn btn-inverse-primary btn-rounded btn-xs border-primary'>增删人员</button></a></td>" +
                                     "</tr>";
                             }
                         } else {
@@ -206,9 +206,9 @@
                                                                             修改
                                                                         </button>
                                                                     </a><br>
-                                                                        <%--                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=joinProject&projectid=${project.id}">--%>
-                                                                        <%--                                                                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-xs border-primary">&#10004;</button>--%>
-                                                                        <%--                                                                    </a>--%>
+                                                                    <a href="${pageContext.request.contextPath}/projectServlet?method=projectPeopleInfo&projectid=${project.id}">
+                                                                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-xs border-primary">增删人员</button>
+                                                                    </a>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>

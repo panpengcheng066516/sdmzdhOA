@@ -129,7 +129,9 @@ public class ProjectServlet extends BaseServlet {
             Map<String,String[]> map =  request.getParameterMap();
             Project newProject = new Project();
             BeanUtils.populate(newProject,map);
-            int b = projectService.deleteRelationByProject(newProject.getId());
+
+            //删除之前参与人员
+//            int b = projectService.deleteRelationByProject(newProject.getId());
 
             //为人员加入项目,并获得人员名字。
             int bce = 0;
@@ -213,5 +215,42 @@ public class ProjectServlet extends BaseServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().write(json);
+    }
+
+    //前往人员修改页面
+    public void projectPeopleInfo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        //得到项目信息
+        String projectid = request.getParameter("projectid");
+        Project project = projectService.getProjectById(projectid);
+        request.setAttribute("project",project);
+
+        //取得人员列表
+        List<User> peopleList = projectService.getUserListByProject(projectid);
+        List<User> userList = userservice.findAllUser();
+        userList.remove(0);
+        request.setAttribute("peopleList",peopleList);
+        request.setAttribute("userList",userList);
+
+        request.getRequestDispatcher("/Employee/Overview/projectPeopleOverview.jsp").forward(request, response);
+    }
+
+    //加入项目
+    public void removePeopleFromProject(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+        //得到userId
+        HttpSession session = request.getSession();
+        String username = request.getParameter("username");
+        String projectid = request.getParameter("projectid");
+        //验证是否已经加入
+        int b = projectService.removePeopleFromProject(projectid,username);
+
+
+        PrintWriter out = response.getWriter();
+        if(b>0){
+            request.getRequestDispatcher("/projectServlet?method=projectPeopleInfo&projectid="+projectid).forward(request, response);
+        }else{
+            out.print("<script>alert('撤离失败！');</script>");
+        }
     }
 }

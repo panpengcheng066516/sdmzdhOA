@@ -2,6 +2,7 @@ package com.zdh.service;
 
 import com.zdh.dao.ProjectDao;
 import com.zdh.domain.Project;
+import com.zdh.domain.User;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -25,6 +26,16 @@ public class ProjectService {
         List<Project> list = null;
         try {
             list = projectDao.getProjectListByUser(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<User> getUserListByProject(String projectid) {
+        List<User> list = null;
+        try {
+            list = projectDao.getUserListByPeoject(projectid);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -120,6 +131,16 @@ public class ProjectService {
         int r = 0;
         try {
             r = projectDao.deleteRelationByProject(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return r;
+    }
+
+    public int removePeopleFromProject(String projectid, String username) {
+        int r = 0;
+        try {
+            r = projectDao.removePeopleFromProject(projectid,username);
         } catch (SQLException e) {
             e.printStackTrace();
         }
