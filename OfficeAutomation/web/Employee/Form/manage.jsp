@@ -150,8 +150,8 @@
                                 </div>
                                 &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="leader" >项目经理</label>
-                                    <input type="text" class="form-control col-sm-2" name="leader" id="leader" placeholder="工日" autocomplete="off">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="PMday" >项目经理</label>
+                                    <input type="text" class="form-control col-sm-2" name="PMday" id="PMday" placeholder="工日" autocomplete="off">
                                     <div class="help-text col-sm-3 text-small text-reddit mt-2 text-justify" for="leader">注：<strong>该处不写经理人名字</strong>，请经理人将工作量折合工日写在此处。</div>
                                 </div>
                                 &nbsp;
