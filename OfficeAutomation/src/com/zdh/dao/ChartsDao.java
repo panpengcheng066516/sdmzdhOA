@@ -14,7 +14,7 @@ public class ChartsDao {
     QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 
     public double getDesignMonthdays(String year, String month) throws SQLException {
-        String sql = "select SUM(cast(monthDay as float)) from Design where year = ? and month = ?";
+        String sql = "select SUM(cast(monthDay as float))+SUM(cast(programDay as float))+SUM(cast(basicDesignDay as float))+SUM(cast(leader as float)) from Design where year = ? and month = ?";
         Object o = runner.query(sql,new ScalarHandler(),year,month);
         if(o == null){
             return 0;
