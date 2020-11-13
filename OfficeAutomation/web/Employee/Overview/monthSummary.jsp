@@ -351,7 +351,7 @@
                                     <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" id="table02">
+                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md w-auto" id="table02">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
@@ -401,7 +401,7 @@
                                     <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" id="table03" cellspacing="0">
+                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md w-auto" id="table03" cellspacing="0">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
@@ -447,7 +447,7 @@
                                     <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-borderless table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table04">
+                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table04">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>

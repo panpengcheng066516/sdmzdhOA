@@ -108,7 +108,7 @@
                                     <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
                                     <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled>
                                 </div>
-                                <div class="help-text col-sm text-small text-success mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">前往<a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject" class="text">项目查询页</a>添加相关项目</div>
+                                <div class="help-text col-sm text-small text-success mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">前往<a href="${ pageContext.request.contextPath }//personalProjectServlet?method=getAllPersonalProject" class="text">项目查询页</a>查看相关内容</div>
                                 <hr class="style-two">
                                 <%-- horizontal rule --%>
                                 <div>

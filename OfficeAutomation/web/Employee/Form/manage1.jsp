@@ -103,10 +103,11 @@
                                             </c:if>
                                         </select>
                                     </div>
-
+                                    &nbsp;
                                     <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
                                     <input type="text" class="form-control col-sm-2 col-md-2 col-lg-2" name="projectNo" id="projectNo" disabled value="${requestScope.manageproject.projectNo}">
                                 </div>
+                                &nbsp;
                                 <%--隐藏--%>
                                 <div class="input-group-append" style="margin-left: 3.5%; margin-right: 3.5%" hidden="true">
                                     <input type="text"  class="form-control col-sm-1" name="id" id="id"  value="${manage.id}">
@@ -114,76 +115,66 @@
                                     <input type="text" class="form-control col-sm-1" name="month" id="month"  value="${manage.month}">
                                 </div>
 
+                                <div class="input-group mb-3" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text col-sm-auto text-dark">工作量名称</span>
+                                    </div>
+                                    <input type="text" aria-label="定义工作" class="form-control col-sm-2" style="margin-right:40px" name="workname" id="workname" value="${manage.workname}" autocomplete="off">
+                                </div>
+
                                 <hr class="style-two">
                                 <%-- horizontal rule --%>
-                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="workname" >工作量名称</label>
-                                    <input type="text" class="form-control col-sm-2" name="workname" id="workname" placeholder="请为工作量起个名称" autocomplete="off" value="${manage.workname}" >
-                                </div>
+<%--                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">--%>
+<%--                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="workname" >工作量名称</label>--%>
+<%--                                    <input type="text" class="form-control col-sm-2" name="workname" id="workname" placeholder="请为工作量起个名称" autocomplete="off" value="${manage.workname}" >--%>
+<%--                                </div>--%>
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="xunjiabaojia" >商务询价</label>
                                     <input type="text" class="form-control col-sm-2" name="xunjiabaojia" id="xunjiabaojia" value="${manage.xunjiabaojia}">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="tender">标书制作</label>
                                     <input type="text" class="form-control col-sm-2"  name="tender" id="tender" value="${manage.tender}">
                                 </div>
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="sign">合同相关</label>
                                     <input type="text" class="form-control form-group-sm col-sm-2" name="sign" id="sign" value="${manage.sign}">
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="toubiao">投标工作</label>
                                     <input type="text" class="form-control col-sm-2" name="toubiao" id="toubiao" value="${manage.toubiao}">
                                 </div>
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="equip">设备采购</label>
                                     <input type="text" class="form-control col-sm-2 " name="equip" id="equip" value="${manage.equip}">
-                                    <%--<div class="d-flex flex-fill min-col-xs-1"></div>--%>
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="test">设备检测</label>
                                     <input type="text" class="form-control col-sm-2 " name="test" id="test" value="${manage.test}">
                                 </div>
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="cuikuan">债务相关</label>
                                     <input type="text" class="form-control col-sm-2 " name="cuikuan" id="cuikuan" value="${manage.cuikuan}">
-                                    <%--<div class="d-flex flex-fill min-col-xs-1"></div>--%>
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="contract">合同管理</label>
                                     <input type="text" class="form-control col-sm-2 " name="contract" id="contract" value="${manage.contract}">
                                 </div>
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="other">其他活动</label>
                                     <input type="text" class="form-control col-sm-2" name="other" id="other" value="${manage.other}">
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="PMday" >项目经理</label>
                                     <input type="text" class="form-control col-sm-2" name="PMday" id="PMday" value="${manage.PMday}">
                                     <div class="help-text col-sm-3 text-small text-reddit mt-2 text-justify" for="leader">注：<strong>该处不写经理人名字</strong>，请经理人将工作量折合工日写在此处。</div>
                                 </div>
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" for="remark">备注</label>
                                     <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5" >${manage.remark}</textarea>
                                 </div>
-
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div align="center">
                                     <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>

@@ -133,16 +133,16 @@
 
                                 <hr class="style-two">
 
-                                <div class="custom-control row align-self-end">
-                                    <div class="right-pill col-sm-auto text-small text-reddit text-justify float-sm-right">
-                                        &nbsp;* 点击退出即表示你不在负责或经手此项目！<br>&nbsp;Pressing Out-Button means you're no longer working on this case!&nbsp;
-                                    </div>
-                                </div>
+<%--                                <div class="custom-control row align-self-end">--%>
+<%--                                    <div class="right-pill col-sm-auto text-small text-reddit text-justify float-sm-right">--%>
+<%--                                        &nbsp;* 点击退出即表示你不在负责或经手此项目！<br>&nbsp;Pressing Out-Button means you're no longer working on this case!&nbsp;--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
 
                                 <div class="table-content">
                                     <div class="custom-control table">
                                         <div class="table-responsive text-wrap">
-                                            <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md table-sm w-auto" id="table01" cellspacing="0" cellpadding="15">
+                                            <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md table-sm w-auto" id="table01">
                                                 <thead>
                                                 <tr>
                                                     <th>项目名称</th>

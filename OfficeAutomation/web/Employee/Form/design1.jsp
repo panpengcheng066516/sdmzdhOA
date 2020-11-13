@@ -101,6 +101,7 @@
                                             </c:if>
                                         </select>
                                     </div>
+                                    &nbsp;
                                     <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
                                     <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled value="${requestScope.designproject.projectNo}">
                                 </div>
@@ -114,64 +115,43 @@
                                 <hr class="style-two">
                                 <%-- horizontal rule --%>
                                 <div>
-                                    <div class="form-text mdi-help-box text-small text-gray col-xs-auto" style="margin-left: 50px">施工图工作量：</div>
-                                    <br>
+                                    <div class="form-text mdi-help-box text-small text-gray col-xs-auto" style="margin-left: 50px">施工图工作量：</div><br>
                                     <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                         <label class="col-sm-auto col-form-label" style="display:table-cell;" for="amount">图纸张数</label>
                                         <input type="text" class="form-control col-sm-2" name="amount" id="amount" value="${design.amount}">
-                                        <%--<div class="d-flex flex-fill"></div>--%>
+                                        &nbsp;
                                         <label class="col-sm-auto col-form-label" style="display:table-cell;" for="a1">折合成A1</label>
                                         <input type="text" class="form-control col-sm-2"  name="a1" id="a1" value="${design.a1}">
                                     </div>
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="zheheWorkingDay">总工日数</label>
                                     <input type="text" class="form-control form-group-sm col-sm-2" name="zheheWorkingDay" id="zheheWorkingDay" value="${design.zheheWorkingDay}">
-
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="monthDay">本月完成</label>
                                     <input type="text" class="form-control col-sm-2" name="monthDay"   id="monthDay" value="${design.monthDay}">
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="programDay">技术方案</label>
                                     <input type="text" class="form-control col-sm-2" name="programDay" id="programDay" value="${design.programDay}">
-                                    <%--<div class="d-flex flex-fill min-col-xs-1"></div>--%>
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="basicDesignDay">基本设计</label>
                                     <input type="text" class="form-control col-sm-2" name="basicDesignDay" id="basicDesignDay" value="${design.basicDesignDay}">
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="leader" >专业负责人</label>
                                     <input type="text" class="form-control col-sm-2" name="leader" id="leader" value="${design.leader}">
                                     <div class="help-text col-sm-3 text-small text-reddit mt-2 text-justify">注：<strong>是专业负责人且不是设计人员</strong>，将工作量折合工日后填在此处。</div>
                                 </div>
-
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" for="remark">备注</label>
                                     <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5" >${design.remark}</textarea>
                                 </div>
-
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div align="center">
                                     <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>

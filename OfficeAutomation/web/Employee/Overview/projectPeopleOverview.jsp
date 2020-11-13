@@ -96,16 +96,15 @@
                 </nav>
                 <!-- row -->
                 <div class="row">
-                    <div class="container-fluid grid-margin col-md-12">
-                        <div class="card card-rounded border-light">
+                    <div class="col-md-6 grid-margin container">
+                        <div class="card card-rounded card-block visible-inline">
                             <div class="card-header">
-                                <div class="custom-control-inline">
-                                    <div class="col">
-                                        <div class="card-title"><h3 class="text text-primary">${project.projectName}</h3></div>
-                                    </div>
-
+                                <div class="noble-ui-logo">项目：${project.projectName}</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label text-primary">姓名：</label>
-                                    <div class="control-text col-sm-auto col-md-auto col-lg-auto">
+                                    <div class="control-text col-sm-auto col-md-3 col-lg-3">
                                         <select class="dropdown-item-text text-primary border-primary-muted" id="uname" name="uname">
                                             <option value="" selected style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
@@ -115,42 +114,47 @@
                                             </c:if>
                                         </select>
                                     </div>
+                                    &nbsp;
                                     <div class="col-sm-1 form-label">
-                                        <input type="button" class="btn btn-inverse-warning btn-rounded border-warning btn-sm" id="addButton" onclick="addpeople('${project.id}')" value="添加人员">
+                                        <input type="button" class="btn btn-inverse-danger-muted border-danger-muted text-danger btn-sm" id="addButton" onclick="addpeople('${project.id}')" value="添加人员">
                                     </div>
                                 </div>
-                            </div>
-
-                            <hr class="style-two">
-
-                            <div class="card-body">
+                                <div class="help-text col-sm-auto text-small text-success text-justify" style="margin-left: 3.5%; margin-right: 3.5%">将项目涉及到的相关人员关联到该项目名下。</div>
+                                &nbsp;
                                 <div class="table-content">
                                     <div class="custom-control table">
                                         <div class="table-responsive text-wrap">
-                                            <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md table-sm w-auto" id="table01" cellspacing="0" cellpadding="15">
+                                            <table class="table table-striped table-condensed table-hover table-responsive-md">
+                                                <caption class="text-facebook">此处显示的是目前项目所涉及到的所有自动化成员，包括负责人，设计人，审核人，室审，总师。<br>操作按钮可将当前人员从该项目中撤离。</caption>
                                                 <thead>
                                                 <tr>
-                                                    <th>人员姓名</th>
-                                                    <th>人员账号</th>
+                                                    <th>姓名</th>
+                                                    <th>账号</th>
                                                     <th>操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody id="tb" class="text-secondary">
-                                                    <c:if test="${!empty peopleList}">
-                                                        <c:forEach var="people" items="${peopleList}">
-                                                            <tr>
-                                                                <td><div class="text-wrap text-break">${people.name}</div></td>
-                                                                <td><div class="text-wrap text-break">${people.username}</div></td>
-                                                                <td>
-                                                                    <button id="bDelete" type="button" onclick="de('${people.name}','${people.username}','${project.id}')" class="btn btn-inverse-danger-muted btn-rounded btn-xs text-danger border-danger">撤离此人员</button>
-                                                                </td>
-                                                            </tr>
-                                                        </c:forEach>
-                                                    </c:if>
+                                                <c:if test="${!empty peopleList}">
+                                                    <c:forEach var="people" items="${peopleList}">
+                                                        <tr>
+                                                            <td><div class="text-wrap text-break">${people.name}</div></td>
+                                                            <td><div class="text-wrap text-break">${people.username}</div></td>
+                                                            <td>
+                                                                <button id="bDelete" type="button" onclick="de('${people.name}','${people.username}','${project.id}')" class="btn btn-inverse-primary-muted btn-rounded btn-sm border-primary text-primary">撤离</button>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </c:if>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-link col-sm text-success mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <i class="mb-1 text-success ml-1 icon-small" data-feather="log-in"></i>
+                                    是否<a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject" class="text">返回项目查询</a>界面 ？
                                 </div>
                             </div>
                         </div>

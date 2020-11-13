@@ -93,7 +93,7 @@
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/debugWorkingServlet?method=updateDebugWorking" method="post">
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
-                                    <div class="control-text col-sm col-md-3 col-lg-3">
+                                    <div class="control-text col-sm-auto col-md-3 col-lg-3">
                                         <select class="selectpicker" id="projectid" name="projectid" data-live-search="true">
                                             <option value="" ${debug.projectid==""?"selected":""} style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty projectList}">
@@ -103,53 +103,56 @@
                                             </c:if>
                                         </select>
                                     </div>
+                                    &nbsp;
                                     <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
                                     <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled value="${requestScope.debugproject.projectNo}">
                                 </div>
-
+                                &nbsp;
                                 <div class="input-group-append" style="margin-left: 3.5%; margin-right: 3.5%" hidden="true">
                                     <input type="text"  class="form-control col-sm-1" name="id" id="id" value="${debug.id}">
                                     <input type="text"  class="form-control col-sm-1" name="year" id="year" value="${debug.year}">
                                     <input type="text" class="form-control col-sm-1" name="month" id="month" value="${debug.month}">
                                 </div>
 
+                                <div class="input-group mb-3" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text col-sm-auto text-dark">工作量名称</span>
+                                    </div>
+                                    <input type="text" aria-label="定义工作" class="form-control col-sm-2" style="margin-right:40px" name="workname" id="workname"  value="${debug.workname}" autocomplete="off">
+                                </div>
                                 <hr class="style-two">
                                 <%-- horizontal rule --%>
-                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="workname" >工作量名称</label>
-                                    <input type="text" class="form-control col-sm-2" name="workname" id="workname" placeholder="请为工作量起个名称" autocomplete="off" value="${debug.workname}" >
-                                </div>
+<%--                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">--%>
+<%--                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="workname" >工作量名称</label>--%>
+<%--                                    <input type="text" class="form-control col-sm-2" name="workname" id="workname" placeholder="请为工作量起个名称" autocomplete="off" value="${debug.workname}" >--%>
+<%--                                </div>--%>
+
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="site" >项目地点</label>
                                     <input type="text" class="form-control col-sm-2" name="site" id="site" value="${debug.site}">
                                 </div>
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manageday">工程管理</label>
                                     <input type="text" class="form-control col-sm-2" name="manageday" id="manageday" value="${debug.manageday}">
-
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="debugday">工程调试</label>
                                     <input type="text" class="form-control col-sm-2" name="debugday" id="debugday" value="${debug.debugday}">
                                 </div>
                                 <div class="help-text col-sm text-small text-reddit mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">注：修改以上两（单）项内容请统计好当月该项工作所用的工日。</div>
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
                                 <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="font-size: 14px;">备注</label>
                                     <textarea class="form-control col-sm-6" name="remark" id="remark" placeholder="备注" rows="5">${debug.remark}</textarea>
                                 </div>
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
                                 <div align="center">
                                     <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>
                             </form>
                         </div>
-                    <div class="card-footer"></div>
+                        <div class="card-footer"></div>
+                    </div>
                 </div>
             </div>
         </div>

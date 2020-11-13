@@ -96,11 +96,12 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="card-body">
                             <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/debugWorkingServlet?method=addDebugWorking" method="post">
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
-                                    <div class="control-text col-sm-2 col-md-2 col-lg-2">
+                                    <div class="control-text col-sm-auto col-md-3 col-lg-3">
                                         <select class="selectpicker show-tick" id="projectid" name="projectid" data-live-search="true" >
                                             <option value="" style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty projectList}">
@@ -114,13 +115,21 @@
                                     <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
                                     <input type="text" class="form-control col-sm-2 " name="projectNo" id="projectNo" readonly>
                                 </div>
-                                <div class="help-text col-sm text-small text-success mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">前往<a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject" class="text">项目查询页</a>添加相关项目</div>
+                                <div class="help-text col-sm text-small text-success mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">前往<a href="${ pageContext.request.contextPath }//personalProjectServlet?method=getAllPersonalProject" class="text">项目查询页</a>查看相关内容<br></br>如果要填写的工作量没有对应的具体项目，请填写具体名称。</div>
+                                &nbsp;
+<%--                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">--%>
+<%--                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="workname" >工作量名称</label>--%>
+<%--                                    <input type="text" class="form-control col-sm-2" name="workname" id="workname" placeholder="请为工作量起个名称" autocomplete="off">--%>
+<%--                                </div>--%>
+                                <div class="input-group mb-3" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text col-sm-auto text-dark">工作量名称</span>
+                                    </div>
+                                    <input type="text" aria-label="定义工作" class="form-control col-sm-2" style="margin-right:40px" name="workname" id="workname" placeholder="请为工作量定义名称" autocomplete="off">
+                                </div>
+
                                 <hr class="style-two">
                                 <%-- horizontal rule --%>
-                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="workname" >工作量名称</label>
-                                    <input type="text" class="form-control col-sm-2" name="workname" id="workname" placeholder="请为工作量起个名称" autocomplete="off">
-                                </div>
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="site" >项目地点</label>
                                     <input type="text" class="form-control col-sm-2" name="site" id="site" placeholder="地点" autocomplete="off">

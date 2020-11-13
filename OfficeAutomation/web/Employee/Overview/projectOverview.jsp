@@ -93,7 +93,7 @@
                                     "<td>" + data[i].stage + "</td>" +
                                     "<td><div class='text-wrap text-break'>" + data[i].remarks + "</div></td>" +
                                     "<td ${user.power==2||user.power==3||user.power==18?'':'hidden'}><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=" + data[i].id + "'><button type='button' ${user.power==2?'':'hidden'} class='btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary'>修改</button></a><br>" +
-                                    "<a href='${pageContext.request.contextPath}/projectServlet?method=projectPeopleInfo&projectid="+data[i].id+"'><button type='button' class='btn btn-inverse-primary btn-rounded btn-xs border-primary'>增删人员</button></a></td>" +
+                                    "<a href='${pageContext.request.contextPath}/projectServlet?method=projectPeopleInfo&projectid="+data[i].id+"'><button type='button' class='btn btn-linkedin btn-rounded btn-xs border-primary'>编辑</button></a></td>" +
                                     "</tr>";
                             }
                         } else {
@@ -146,8 +146,8 @@
                                 <div class="wrapper-editor">
                                     <div class="custom-control row align-self-end">
                                         <div class="right-pill col-sm-auto text-small text-reddit text-justify float-sm-right">
-                                            * 点击<strong>修改</strong>对项目的现有信息进行修改<br>
-                                            * 如该项目有新设计人出现，请点击<strong>编辑</strong>添加成员姓名
+                                            *&nbsp;如需对现有内容进行修改，请点击<strong>修改</strong><br>
+                                            &emsp;如需添加或撤离相关人员，请点击<strong>编辑</strong>
                                         </div>
                                     </div>
 
@@ -207,7 +207,7 @@
                                                                         </button>
                                                                     </a><br>
                                                                     <a href="${pageContext.request.contextPath}/projectServlet?method=projectPeopleInfo&projectid=${project.id}">
-                                                                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-xs border-primary">增删人员</button>
+                                                                        <button type="button" class="btn btn-linkedin btn-rounded btn-xs border-primary">编辑</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
