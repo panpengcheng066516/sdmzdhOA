@@ -37,8 +37,6 @@ public class ProjectServlet extends BaseServlet {
 
 
 
-
-
     //退出项目
     public void quitProject(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
@@ -134,21 +132,16 @@ public class ProjectServlet extends BaseServlet {
 //            int b = projectService.deleteRelationByProject(newProject.getId());
 
             //为人员加入项目,并获得人员名字。
-            int bce = 0;
+//            int bce = 0;
             int bmanager = 0;
             int bdesigner = 0;
             int breviewer = 0;
             int boffice = 0;
-            int rce = 0;
-            int rmanager = 0;
-            int rdesigner = 0;
-            int rreviewer = 0;
-            int roffice = 0;
-            if(newProject.getCe()!="" && newProject.getCe()!=null){
-                bce = projectService.joinProject(newProject.getCe(),newProject.getId());
-                String ce = userservice.getUserByUsername(newProject.getCe()).getName();
-                newProject.setCe(ce);
-            }
+//            if(newProject.getCe()!="" && newProject.getCe()!=null){
+//                bce = projectService.joinProject(newProject.getCe(),newProject.getId());
+//                String ce = userservice.getUserByUsername(newProject.getCe()).getName();
+//                newProject.setCe(ce);
+//            }
             if(newProject.getManager()!="" && newProject.getManager()!=null){
                 bmanager = projectService.joinProject(newProject.getManager(),newProject.getId());
                 String manager = userservice.getUserByUsername(newProject.getManager()).getName();
