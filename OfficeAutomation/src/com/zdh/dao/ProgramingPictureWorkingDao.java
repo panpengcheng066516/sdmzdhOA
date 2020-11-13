@@ -35,10 +35,10 @@ public class ProgramingPictureWorkingDao {
 
     //新增编程画面工作
     public int addProgramingPictureWorking(ProgramingPictureWorking programingPictureWorking) throws SQLException {
-        String sql = "insert into ProgramingPicture (year,month,username,id,digitalNumber,analogNumber,programingPicture,ProgramingDay,MonthDay,remark,projectId) values(?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into ProgramingPicture (year,month,username,id,digitalNumber,analogNumber,programingPicture,ProgramingDay,MonthDay,remark,projectId,workname) values(?,?,?,?,?,?,?,?,?,?,?,?)";
         return runner.update(sql,programingPictureWorking.getYear(),programingPictureWorking.getMonth(),programingPictureWorking.getUsername(),programingPictureWorking.getId(),
                 programingPictureWorking.getDigitalNumber(),programingPictureWorking.getAnalogNumber(),programingPictureWorking.getProgramingPicture(),programingPictureWorking.getProgramingDay(),
-                programingPictureWorking.getMonthday(),programingPictureWorking.getRemark(),programingPictureWorking.getProjectid());
+                programingPictureWorking.getMonthday(),programingPictureWorking.getRemark(),programingPictureWorking.getProjectid(),programingPictureWorking.getWorkname());
     }
 
     //通过id删除编程画面工作
@@ -49,10 +49,10 @@ public class ProgramingPictureWorkingDao {
 
     //更新编程画面工作
     public int updateProgramingPictureWorking(ProgramingPictureWorking programingPictureWorking) throws SQLException {
-        String sql = "update ProgramingPicture set year=?,month=?,digitalNumber=?,analogNumber=?,programingPicture=?,ProgramingDay=?,MonthDay=?,remark=?,projectId=? where id = ?";
+        String sql = "update ProgramingPicture set year=?,month=?,digitalNumber=?,analogNumber=?,programingPicture=?,ProgramingDay=?,MonthDay=?,remark=?,projectId=?,workname = ? where id = ?";
         int update = runner.update(sql,programingPictureWorking.getYear(),programingPictureWorking.getMonth(), programingPictureWorking.getDigitalNumber(),
                 programingPictureWorking.getAnalogNumber(),programingPictureWorking.getProgramingPicture(),programingPictureWorking.getProgramingDay(),
-                programingPictureWorking.getMonthday(),programingPictureWorking.getRemark(),programingPictureWorking.getProjectid(),programingPictureWorking.getId());
+                programingPictureWorking.getMonthday(),programingPictureWorking.getRemark(),programingPictureWorking.getProjectid(),programingPictureWorking.getWorkname(),programingPictureWorking.getId());
         return update;
     }
 

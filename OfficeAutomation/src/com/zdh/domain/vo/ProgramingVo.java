@@ -24,6 +24,16 @@ public class ProgramingVo {
         this.projectNo = "";
     }
 
+    private String workname;
+
+    public String getWorkname() {
+        return workname;
+    }
+
+    public void setWorkname(String workname) {
+        this.workname = workname;
+    }
+
     public String getId() {
         return id;
     }

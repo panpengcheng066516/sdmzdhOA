@@ -38,10 +38,10 @@ public class ExportMonthSummaryServlet extends BaseServlet {
         String fileName = year + "年" + month + "月科室工作量汇总_项目：" + projectid + ".xls";
         String[] table = {"当月工日之和","设计","编程画面","调试管理","经营","日常零星"};
         String[][] title = {{"姓名","总工日"},
-                {"姓名","工程号","工程名称","施工图纸张数","折合A1","折合总工日","本月完成工日","技术方案","基本设计","专业负责人","备注"},
-                {"姓名","工程号","总开关点数","总模拟量点数","编程/画面","总工日","本月完成工日","备注"},
-                {"姓名","工程号","项目地点","项目管理","调试","备注"},
-                {"姓名","工程号","商务询价报价","标书制作","合同制作与签署","投标","设备招标采购","设备出厂检测","催款","合同管理","其他","项目经理","备注"},
+                {"姓名","工程号","工程名","施工图纸张数","折合A1","折合总工日","本月完成工日","技术方案","基本设计","专业负责人","备注"},
+                {"姓名","工程号","工程名","工作量名称","总开关点数","总模拟量点数","编程/画面","总工日","本月完成工日","备注"},
+                {"姓名","工程号","工程名","工作量名称","项目地点","项目管理","调试","备注"},
+                {"姓名","工程号","工程名","工作量名称","商务询价报价","标书制作","合同制作与签署","投标","设备招标采购","设备出厂检测","催款","合同管理","其他","项目经理","备注"},
                 {"姓名","工作类型","折合天数","备注"}};
         for(int i = 0;i<table.length;i++){
             //在workbook中添加一个sheet
@@ -89,6 +89,8 @@ public class ExportMonthSummaryServlet extends BaseServlet {
                         row = sheet.createRow(j + 1);
                         row.createCell(0).setCellValue(mainVo.getProgramingVoList().get(j).getName());
                         row.createCell(1).setCellValue(mainVo.getProgramingVoList().get(j).getProjectNo());
+                        row.createCell(1).setCellValue(mainVo.getProgramingVoList().get(j).getProjectName());
+                        row.createCell(1).setCellValue(mainVo.getProgramingVoList().get(j).getWorkname());
                         row.createCell(2).setCellValue(mainVo.getProgramingVoList().get(j).getDigitalNumber());
                         row.createCell(3).setCellValue(mainVo.getProgramingVoList().get(j).getAnalogNumber());
                         row.createCell(4).setCellValue(mainVo.getProgramingVoList().get(j).getProgramingPicture());
@@ -102,6 +104,8 @@ public class ExportMonthSummaryServlet extends BaseServlet {
                         row = sheet.createRow(j + 1);
                         row.createCell(0).setCellValue(mainVo.getDebugVoList().get(j).getName());
                         row.createCell(1).setCellValue(mainVo.getDebugVoList().get(j).getProjectNo());
+                        row.createCell(1).setCellValue(mainVo.getDebugVoList().get(j).getProjectName());
+                        row.createCell(1).setCellValue(mainVo.getDebugVoList().get(j).getWorkname());
                         row.createCell(2).setCellValue(mainVo.getDebugVoList().get(j).getSite());
                         row.createCell(3).setCellValue(mainVo.getDebugVoList().get(j).getManageday());
                         row.createCell(4).setCellValue(mainVo.getDebugVoList().get(j).getDebugday());
@@ -113,6 +117,8 @@ public class ExportMonthSummaryServlet extends BaseServlet {
                         row = sheet.createRow(j + 1);
                         row.createCell(0).setCellValue(mainVo.getManageVoList().get(j).getName());
                         row.createCell(1).setCellValue(mainVo.getManageVoList().get(j).getProjectNo());
+                        row.createCell(1).setCellValue(mainVo.getManageVoList().get(j).getProjectName());
+                        row.createCell(1).setCellValue(mainVo.getManageVoList().get(j).getWorkname());
                         row.createCell(2).setCellValue(mainVo.getManageVoList().get(j).getXunjiabaojia());
                         row.createCell(3).setCellValue(mainVo.getManageVoList().get(j).getTender());
                         row.createCell(4).setCellValue(mainVo.getManageVoList().get(j).getSign());

@@ -12,6 +12,15 @@ public class ProgramingPictureWorking {
     private String programingDay;
     private String monthday;
     private String remark;
+    private String workname;
+
+    public String getWorkname() {
+        return workname;
+    }
+
+    public void setWorkname(String workname) {
+        this.workname = workname;
+    }
 
     public String getId() {
         return id;

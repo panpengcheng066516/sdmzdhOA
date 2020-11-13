@@ -83,9 +83,9 @@ public class PersonalSummaryDao {
 //        return runner.query(sql, new BeanListHandler<ManageVo>(ManageVo.class),year,month,projectid);
 //    }
 public List<ManageVo> getManageVoListByDateUsername(String year, String month, String username) throws SQLException {
-    String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.xunjiaBaojia,a.tender,a.sign,a.toubiao,a.equip,a.test, " +
+    String sql = "SELECT a.workname,a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.xunjiaBaojia,a.tender,a.sign,a.toubiao,a.equip,a.test, " +
             "a.cuikuan,a.contract,a.other,a.PMday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
-            "FROM(SELECT Manage.id,Manage.username,Manage.projectid,Manage. YEAR,Manage. MONTH,Manage.xunjiaBaojia,Manage.tender, " +
+            "FROM(SELECT Manage.workname,Manage.id,Manage.username,Manage.projectid,Manage. YEAR,Manage. MONTH,Manage.xunjiaBaojia,Manage.tender, " +
             "Manage.sign,Manage.toubiao,Manage.equip,Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday, " +
             "Manage.remark,people.name,people.groupId FROM Manage,people WHERE Manage.username = people.username) a " +
             "LEFT JOIN project b ON a.projectid = b.id WHERE a. YEAR = ? AND a. MONTH = ? AND a.username = ?";
@@ -93,9 +93,9 @@ public List<ManageVo> getManageVoListByDateUsername(String year, String month, S
 }
 
     public List<ManageVo> getManageVoListByDate(String year, String month) throws SQLException {
-        String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.xunjiaBaojia,a.tender,a.sign,a.toubiao,a.equip,a.test, " +
+        String sql = "SELECT a.workname,a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.xunjiaBaojia,a.tender,a.sign,a.toubiao,a.equip,a.test, " +
                 "a.cuikuan,a.contract,a.other,a.PMday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
-                "FROM(SELECT Manage.id,Manage.username,Manage.projectid,Manage. YEAR,Manage. MONTH,Manage.xunjiaBaojia,Manage.tender, " +
+                "FROM(SELECT Manage.workname,Manage.id,Manage.username,Manage.projectid,Manage. YEAR,Manage. MONTH,Manage.xunjiaBaojia,Manage.tender, " +
                 "Manage.sign,Manage.toubiao,Manage.equip,Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday, " +
                 "Manage.remark,people.name,people.groupId FROM Manage,people WHERE Manage.username = people.username) a " +
                 "LEFT JOIN project b ON a.projectid = b.id WHERE a. YEAR = ? AND a. MONTH = ?";
@@ -103,9 +103,9 @@ public List<ManageVo> getManageVoListByDateUsername(String year, String month, S
     }
 
     public List<ManageVo> getManageVoListByDateProject(String year, String month, String projectid) throws SQLException {
-        String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.xunjiaBaojia,a.tender,a.sign,a.toubiao,a.equip,a.test, " +
+        String sql = "SELECT a.workname,a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.xunjiaBaojia,a.tender,a.sign,a.toubiao,a.equip,a.test, " +
                 "a.cuikuan,a.contract,a.other,a.PMday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
-                "FROM(SELECT Manage.id,Manage.username,Manage.projectid,Manage. YEAR,Manage. MONTH,Manage.xunjiaBaojia,Manage.tender, " +
+                "FROM(SELECT Manage.workname,Manage.id,Manage.username,Manage.projectid,Manage. YEAR,Manage. MONTH,Manage.xunjiaBaojia,Manage.tender, " +
                 "Manage.sign,Manage.toubiao,Manage.equip,Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday, " +
                 "Manage.remark,people.name,people.groupId FROM Manage,people WHERE Manage.username = people.username) a " +
                 "LEFT JOIN project b ON a.projectid = b.id WHERE a. YEAR = ? AND a. MONTH = ? AND a.projectid = ?";
@@ -148,11 +148,11 @@ public List<ManageVo> getManageVoListByDateUsername(String year, String month, S
 
     public List<ProgramingVo> getProgramingVoListByDateUsername(String year, String month, String username) throws SQLException {
         String sql = "select " +
-                "a.id,a.username,a.projectid,a.year,a.month, " +
+                "a.workname,a.id,a.username,a.projectid,a.year,a.month, " +
                 "a.digitalNumber,a.analogNumber,a.programingPicture, " +
                 "a.programingDay,a.monthDay,a.remark, " +
                 "a.name,a.groupId,b.projectName,b.projectNo  " +
-                "from (SELECT ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month, " +
+                "from (SELECT ProgramingPicture.workname,ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month, " +
                 "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture, " +
                 "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark, " +
                 "people.name,people.groupId from ProgramingPicture,people where ProgramingPicture.username = people.username) a  " +
@@ -162,11 +162,11 @@ public List<ManageVo> getManageVoListByDateUsername(String year, String month, S
 
     public List<ProgramingVo> getProgramingVoListByDate(String year, String month) throws SQLException {
         String sql = "select " +
-                "a.id,a.username,a.projectid,a.year,a.month, " +
+                "a.workname,a.id,a.username,a.projectid,a.year,a.month, " +
                 "a.digitalNumber,a.analogNumber,a.programingPicture, " +
                 "a.programingDay,a.monthDay,a.remark, " +
                 "a.name,a.groupId,b.projectName,b.projectNo  " +
-                "from (SELECT ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month, " +
+                "from (SELECT ProgramingPicture.workname,ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month, " +
                 "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture, " +
                 "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark, " +
                 "people.name,people.groupId from ProgramingPicture,people where ProgramingPicture.username = people.username) a  " +
@@ -176,11 +176,11 @@ public List<ManageVo> getManageVoListByDateUsername(String year, String month, S
 
     public List<ProgramingVo> getProgramingVoListByDateProject(String year, String month, String projectid) throws SQLException {
         String sql = "select " +
-                "a.id,a.username,a.projectid,a.year,a.month, " +
+                "a.workname,a.id,a.username,a.projectid,a.year,a.month, " +
                 "a.digitalNumber,a.analogNumber,a.programingPicture, " +
                 "a.programingDay,a.monthDay,a.remark, " +
                 "a.name,a.groupId,b.projectName,b.projectNo  " +
-                "from (SELECT ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month, " +
+                "from (SELECT ProgramingPicture.workname,ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month, " +
                 "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture, " +
                 "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark, " +
                 "people.name,people.groupId from ProgramingPicture,people where ProgramingPicture.username = people.username) a  " +
@@ -223,24 +223,24 @@ public List<ManageVo> getManageVoListByDateUsername(String year, String month, S
 //    }
 
     public List<DebugVo> getDebugVoListByDateUsername(String year, String month, String username) throws SQLException {
-        String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.site,a.manageday,a.debugday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
-                "FROM(SELECT Debug.id,Debug.username,Debug.projectid,Debug. YEAR,Debug. MONTH,Debug.site,Debug.manageday,Debug.debugday,Debug.remark,people.name,people.groupId " +
+        String sql = "SELECT a.workname,a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.site,a.manageday,a.debugday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
+                "FROM(SELECT Debug.workname,Debug.id,Debug.username,Debug.projectid,Debug. YEAR,Debug. MONTH,Debug.site,Debug.manageday,Debug.debugday,Debug.remark,people.name,people.groupId " +
                 "FROM Debug,people WHERE Debug.username = people.username) a " +
                 "LEFT JOIN project b ON a.projectid = b.id where a.year = ? AND a.month = ? AND a.username = ?";
         return runner.query(sql, new BeanListHandler<DebugVo>(DebugVo.class),year,month,username);
     }
 
     public List<DebugVo> getDebugVoListByDate(String year, String month) throws SQLException {
-        String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.site,a.manageday,a.debugday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
-                "FROM(SELECT Debug.id,Debug.username,Debug.projectid,Debug. YEAR,Debug. MONTH,Debug.site,Debug.manageday,Debug.debugday,Debug.remark,people.name,people.groupId " +
+        String sql = "SELECT a.workname,a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.site,a.manageday,a.debugday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
+                "FROM(SELECT Debug.workname,Debug.id,Debug.username,Debug.projectid,Debug. YEAR,Debug. MONTH,Debug.site,Debug.manageday,Debug.debugday,Debug.remark,people.name,people.groupId " +
                 "FROM Debug,people WHERE Debug.username = people.username) a " +
                 "LEFT JOIN project b ON a.projectid = b.id where a.year = ? AND a.month = ?";
         return runner.query(sql, new BeanListHandler<DebugVo>(DebugVo.class),year,month);
     }
 
     public List<DebugVo> getDebugVoListByDateProject(String year, String month, String projectid) throws SQLException {
-        String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.site,a.manageday,a.debugday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
-                "FROM(SELECT Debug.id,Debug.username,Debug.projectid,Debug. YEAR,Debug. MONTH,Debug.site,Debug.manageday,Debug.debugday,Debug.remark,people.name,people.groupId " +
+        String sql = "SELECT a.workname,a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.site,a.manageday,a.debugday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
+                "FROM(SELECT Debug.workname,Debug.id,Debug.username,Debug.projectid,Debug. YEAR,Debug. MONTH,Debug.site,Debug.manageday,Debug.debugday,Debug.remark,people.name,people.groupId " +
                 "FROM Debug,people WHERE Debug.username = people.username) a " +
                 "LEFT JOIN project b ON a.projectid = b.id where a.year = ? AND a.month = ? AND a.projectid = ?";
         return runner.query(sql, new BeanListHandler<DebugVo>(DebugVo.class),year,month,projectid);

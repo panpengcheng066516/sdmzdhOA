@@ -36,8 +36,8 @@ public class DebugWorkingDao {
 
     //新增调试工作
     public int addDebugWorking(DebugWorking debugWorking) throws SQLException {
-        String sql = "insert into Debug (id,debugday,manageday,month,projectid,remark,site,username,year) values(?,?,?,?,?,?,?,?,?)";
-        return runner.update(sql,debugWorking.getId(),debugWorking.getDebugday(),debugWorking.getManageday(),debugWorking.getMonth(),debugWorking.getProjectid(),debugWorking.getRemark(),debugWorking.getSite(),debugWorking.getUsername(),debugWorking.getYear());
+        String sql = "insert into Debug (id,debugday,manageday,month,projectid,remark,site,username,year,workname) values(?,?,?,?,?,?,?,?,?,?)";
+        return runner.update(sql,debugWorking.getId(),debugWorking.getDebugday(),debugWorking.getManageday(),debugWorking.getMonth(),debugWorking.getProjectid(),debugWorking.getRemark(),debugWorking.getSite(),debugWorking.getUsername(),debugWorking.getYear(),debugWorking.getWorkname());
     }
 
     //通过id删除调试工作
@@ -48,8 +48,8 @@ public class DebugWorkingDao {
 
     //更新调试工作
     public int updateDebugWorking(DebugWorking debugWorking) throws SQLException {
-        String sql = "update Debug set site = ?,manageday = ?,debugday = ?,remark = ?,projectid = ? where id = ?";
-        int update = runner.update(sql,debugWorking.getSite(),debugWorking.getManageday(),debugWorking.getDebugday(),debugWorking.getRemark(),debugWorking.getProjectid(),debugWorking.getId());
+        String sql = "update Debug set site = ?,manageday = ?,debugday = ?,remark = ?,projectid = ?,workname = ? where id = ?";
+        int update = runner.update(sql,debugWorking.getSite(),debugWorking.getManageday(),debugWorking.getDebugday(),debugWorking.getRemark(),debugWorking.getProjectid(),debugWorking.getWorkname(),debugWorking.getId());
         return update;
     }
 

@@ -94,10 +94,11 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
                                     <div class="control-text col-sm col-md-3 col-lg-3">
-                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="true">
+                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true">
+                                            <option value="" ${debug.projectid==""?"selected":""} style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
-                                                    <option id="${project.projectNo}" value="${project.id}" ${project.id == programing.id?"selected":""} style="text-align: center; text-align-last: center;">${project.projectName}</option>
+                                                    <option id="${project.projectNo}" value="${project.id}" ${project.id == debug.projectid?"selected":""} style="text-align: center; text-align-last: center;">${project.projectName}</option>
                                                 </c:forEach>
                                             </c:if>
                                         </select>
@@ -114,6 +115,10 @@
 
                                 <hr class="style-two">
                                 <%-- horizontal rule --%>
+                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="workname" >工作量名称</label>
+                                    <input type="text" class="form-control col-sm-2" name="workname" id="workname" placeholder="请为工作量起个名称" autocomplete="off" value="${debug.workname}" >
+                                </div>
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="site" >项目地点</label>
                                     <input type="text" class="form-control col-sm-2" name="site" id="site" value="${debug.site}">

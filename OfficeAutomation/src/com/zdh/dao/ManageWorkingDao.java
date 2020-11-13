@@ -35,11 +35,11 @@ public class ManageWorkingDao {
 
     //新增管理工作
     public int addManageWorking(ManageWorking manageWorking) throws SQLException {
-        String sql = "insert into Manage (year,month,username,id,xunjiabaojia,tender,sign,toubiao,equip,test,cuikuan,contract,other,PMday,remark,projectid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into Manage (year,month,username,id,xunjiabaojia,tender,sign,toubiao,equip,test,cuikuan,contract,other,PMday,remark,projectid,workname) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         return runner.update(sql,manageWorking.getYear(),manageWorking.getMonth(),manageWorking.getUsername(),manageWorking.getId(),
                 manageWorking.getXunjiabaojia(),manageWorking.getTender(),manageWorking.getSign(),manageWorking.getToubiao(),
                 manageWorking.getEquip(),manageWorking.getTest(),manageWorking.getCuikuan(),manageWorking.getContract(),manageWorking.getOther(),manageWorking.getPMday(),
-                manageWorking.getRemark(),manageWorking.getProjectid());
+                manageWorking.getRemark(),manageWorking.getProjectid(),manageWorking.getWorkname());
     }
 
     //通过id删除管理工作
@@ -50,10 +50,10 @@ public class ManageWorkingDao {
 
     //更新管理工作
     public int updateManageWorking(ManageWorking manageWorking) throws SQLException {
-        String sql = "update Manage set year=?,month=?,xunjiabaojia=?,tender=?,sign=?,toubiao=?,equip=?,test=?,cuikuan=?,contract=?,other=?,PMday=?,remark=?,projectid=? where id = ?";
+        String sql = "update Manage set year=?,month=?,xunjiabaojia=?,tender=?,sign=?,toubiao=?,equip=?,test=?,cuikuan=?,contract=?,other=?,PMday=?,remark=?,projectid=?,workname = ? where id = ?";
         int update = runner.update(sql,manageWorking.getYear(),manageWorking.getMonth(),manageWorking.getXunjiabaojia(),manageWorking.getTender(),
                 manageWorking.getSign(),manageWorking.getToubiao(),manageWorking.getEquip(),manageWorking.getTest(),manageWorking.getCuikuan(),
-                manageWorking.getContract(),manageWorking.getOther(),manageWorking.getPMday(),manageWorking.getRemark(),manageWorking.getProjectid(),manageWorking.getId());
+                manageWorking.getContract(),manageWorking.getOther(),manageWorking.getPMday(),manageWorking.getRemark(),manageWorking.getProjectid(),manageWorking.getWorkname(),manageWorking.getId());
         return update;
     }
 

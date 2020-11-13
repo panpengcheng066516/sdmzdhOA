@@ -111,7 +111,8 @@
                         for(var i=0;i<data.programingVoList.length;i++) {
                             programingContent += " <tr>" +
                                 "<td>" + i + "</td>" +
-                                "<td><div class='text-wrap text-break'>" + data.programingVoList[i].projectNo + "</div></td>" +
+                                "<td><div class='text-wrap text-break'>" + data.programingVoList[i].projectName + "</div></td>" +
+                                "<td>" + data.programingVoList[i].workname + "</td>" +
                                 "<td>" + data.programingVoList[i].digitalNumber + "</td>" +
                                 "<td>" + data.programingVoList[i].analogNumber + "</td>" +
                                 "<td>" + data.programingVoList[i].programingPicture + "</td>" +
@@ -128,7 +129,8 @@
                         for(var i=0;i<data.debugVoList.length;i++) {
                             debugContent += " <tr>" +
                                 "<td>" + i + "</td>" +
-                                "<td><div class='text-wrap text-break'>" + data.debugVoList[i].projectNo + "</div></td>" +
+                                "<td><div class='text-wrap text-break'>" + data.debugVoList[i].projectName + "</div></td>" +
+                                "<td>" + data.debugVoList[i].workname + "</td>" +
                                 "<td>" + data.debugVoList[i].site + "</td>" +
                                 "<td>" + data.debugVoList[i].manageday + "</td>" +
                                 "<td>" + data.debugVoList[i].debugday + "</td>" +
@@ -143,7 +145,8 @@
                         for(var i=0;i<data.manageVoList.length;i++) {
                             manageContent += " <tr>" +
                                 "<td>" + i + "</td>" +
-                                "<td><div class='text-wrap text-break'>" + data.manageVoList[i].projectNo + "</div></td>" +
+                                "<td><div class='text-wrap text-break'>" + data.manageVoList[i].projectName + "</div></td>" +
+                                "<td>" + data.manageVoList[i].workname + "</td>" +
                                 "<td>" + data.manageVoList[i].xunjiabaojia + "</td>" +
                                 "<td>" + data.manageVoList[i].tender + "</td>" +
                                 "<td>" + data.manageVoList[i].sign + "</td>" +
@@ -357,7 +360,8 @@
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
-                                                        <th>工程号</th>
+                                                        <th>工程名</th>
+                                                        <th>工作量名称</th>
                                                         <th>总开关量</th>
                                                         <th>总模拟量</th>
                                                         <th>类型</th>
@@ -372,7 +376,8 @@
                                                         <c:forEach var="programing" items="${mainVo.programingVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
-                                                                <td><div class="text-wrap text-break">${programing.projectNo}</div></td>
+                                                                <td><div class="text-wrap text-break">${programing.projectName}</div></td>
+                                                                <td>${programing.workname}</td>
                                                                 <td>${programing.digitalNumber}</td>
                                                                 <td>${programing.analogNumber}</td>
                                                                 <td>${programing.programingPicture}</td>
@@ -399,7 +404,8 @@
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
-                                                        <th>工程号</th>
+                                                        <th>工程名</th>
+                                                        <th>工作量名称</th>
                                                         <th>地点</th>
                                                         <th style="width:5%">管理</th>
                                                         <th style="width:5%">调试</th>
@@ -412,7 +418,8 @@
                                                         <c:forEach var="debug" items="${mainVo.debugVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
-                                                                <td><div class="text-wrap text-break">${debug.projectNo}</div></td>
+                                                                <td><div class="text-wrap text-break">${debug.projectName}</div></td>
+                                                                <td>${debug.workname}</td>
                                                                 <td>${debug.site}</td>
                                                                 <td>${debug.manageday}</td>
                                                                 <td>${debug.debugday}</td>
@@ -437,7 +444,8 @@
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
-                                                        <th>工程号</th>
+                                                        <th>工程名</th>
+                                                        <th>工作量名称</th>
                                                         <th>商务询价</th>
                                                         <th>标书制作</th>
                                                         <th>合同签署</th>
@@ -457,7 +465,8 @@
                                                         <c:forEach var="manage" items="${mainVo.manageVoList}" varStatus="s">
                                                             <tr>
                                                                 <td>${s.index}</td>
-                                                                <td><div class="text-wrap text-break">${manage.projectNo}</div></td>
+                                                                <td><div class="text-wrap text-break">${manage.projectName}</div></td>
+                                                                <td>${manage.workname}</td>
                                                                 <td>${manage.xunjiabaojia}</td>
                                                                 <td>${manage.tender}</td>
                                                                 <td>${manage.sign}</td>

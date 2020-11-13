@@ -10,6 +10,15 @@ public class DebugWorking {
     private String manageday;
     private String debugday;
     private String remark;
+    private String workname;
+
+    public String getWorkname() {
+        return workname;
+    }
+
+    public void setWorkname(String workname) {
+        this.workname = workname;
+    }
 
     public String getId() {
         return id;
