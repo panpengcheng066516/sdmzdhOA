@@ -101,7 +101,7 @@
                                 "<td>" + data.designVoList[i].basicDesignDay + "</td>" +
                                 "<td>" + data.designVoList[i].leader + "</td>" +
                                 "<td><div class='text text-wrap text-break'>" + data.designVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs border-light'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -119,7 +119,7 @@
                                 "<td>" + data.programingVoList[i].programingDay + "</td>" +
                                 "<td>" + data.programingVoList[i].monthday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.programingVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs border-light'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -135,7 +135,7 @@
                                 "<td>" + data.debugVoList[i].manageday + "</td>" +
                                 "<td>" + data.debugVoList[i].debugday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.debugVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs border-light'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -158,7 +158,7 @@
                                 "<td>" + data.manageVoList[i].other + "</td>" +
                                 "<td>" + data.manageVoList[i].PMday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.manageVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs border-light'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -171,7 +171,7 @@
                                 "<td>" + data.dailyVoList[i].type + "</td>" +
                                 "<td>" + data.dailyVoList[i].monthDay + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.dailyVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs'>修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-inverse-warning btn-rounded btn-xs border-light'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -342,7 +342,7 @@
                                                                 <td><div class="text text-wrap text-break">${design.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid=${design.id}">
-                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs border-light">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -361,7 +361,7 @@
                                                     <tr>
                                                         <th style="width:5%">#</th>
                                                         <th>工程名</th>
-                                                        <th>工作量名称</th>
+                                                        <th>工作名称</th>
                                                         <th>总开关量</th>
                                                         <th>总模拟量</th>
                                                         <th>类型</th>
@@ -386,7 +386,7 @@
                                                                 <td><div class="text-wrap text-break">${programing.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
-                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs border-light">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -405,7 +405,7 @@
                                                     <tr>
                                                         <th style="width:5%">#</th>
                                                         <th>工程名</th>
-                                                        <th>工作量名称</th>
+                                                        <th>工作名称</th>
                                                         <th>地点</th>
                                                         <th style="width:5%">管理</th>
                                                         <th style="width:5%">调试</th>
@@ -426,7 +426,7 @@
                                                                 <td><div class="text-wrap text-break">${debug.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid=${debug.id}">
-                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs border-light">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -440,12 +440,12 @@
                                     <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table05">
+                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md w-auto" cellspacing="0" id="table05">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
                                                         <th>工程名</th>
-                                                        <th>工作量名称</th>
+                                                        <th>工作名称</th>
                                                         <th>商务询价</th>
                                                         <th>标书制作</th>
                                                         <th>合同签署</th>
@@ -480,7 +480,7 @@
                                                                 <td><div class="text-wrap text-break">${manage.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid=${manage.id}">
-                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs border-light">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -514,7 +514,7 @@
                                                                 <td><div class="text-wrap text-break">${daily.remark}</div></td>
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid=${daily.id}">
-                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs">修改</button>
+                                                                        <button type="button" class="btn btn-inverse-warning btn-rounded btn-xs border-light">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>

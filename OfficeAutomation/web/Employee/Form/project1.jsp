@@ -137,7 +137,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manager">专业负责人</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker" name="manager" id="manager" required="true" data-live-search="true">
+                                        <select class="selectpicker show-tick" name="manager" id="manager" required="true" data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
@@ -156,7 +156,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="designer">设计人&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker" name="designer" id="designer" required="true" data-live-search="true">
+                                        <select class="selectpicker show-tick" name="designer" id="designer" required="true" data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
@@ -169,7 +169,7 @@
 
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="reviewer">审核人&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker" name="reviewer" id="reviewer" required="true" data-live-search="true">
+                                        <select class="selectpicker show-tick" name="reviewer" id="reviewer" required="true" data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
@@ -188,7 +188,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">室审&emsp;&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker" name="office" id="office" required="true" data-live-search="true">
+                                        <select class="selectpicker show-tick" name="office" id="office" required="true" data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
@@ -200,17 +200,17 @@
 <%--                                    <input type="text" class="form-control col-sm-2" name="office" id="office" value="${project.office}">--%>
 
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="ce">总师&emsp;&emsp;</label>
-                                    <div class="control-text col-sm-2">
-                                        <select class="selectpicker" name="ce" id="ce" required="true" data-live-search="true">
-                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
-                                            <c:if test="${!empty userList}">
-                                                <c:forEach var="u" items="${userList}">
-                                                    <option value="${u.username}"  ${project.ce == u.name?"selected":""}  style="text-align: center; text-align-last: center;">${u.name}</option>
-                                                </c:forEach>
-                                            </c:if>
-                                        </select>
-                                    </div>
-<%--                                    <input type="text" class="form-control col-sm-2" name="ce" id="ce" value="${project.ce}">--%>
+<%--                                    <div class="control-text col-sm-2">--%>
+<%--                                        <select class="selectpicker" name="ce" id="ce" required="true" data-live-search="true">--%>
+<%--                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>--%>
+<%--                                            <c:if test="${!empty userList}">--%>
+<%--                                                <c:forEach var="u" items="${userList}">--%>
+<%--                                                    <option value="${u.username}"  ${project.ce == u.name?"selected":""}  style="text-align: center; text-align-last: center;">${u.name}</option>--%>
+<%--                                                </c:forEach>--%>
+<%--                                            </c:if>--%>
+<%--                                        </select>--%>
+<%--                                    </div>--%>
+                                    <input type="text" class="form-control col-sm-2" name="ce" id="ce" value="${project.ce}">
                                 </div>
 
                                 <div style="height:1px; background: transparent;">

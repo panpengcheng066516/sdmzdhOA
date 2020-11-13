@@ -103,33 +103,40 @@
                                             </c:if>
                                         </select>
                                     </div>
+                                    &nbsp;
                                     <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
                                     <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled value="${requestScope.programingproject.projectNo}">
                                 </div>
-
+                                &nbsp;
                                 <div class="input-group-append" style="margin-left: 3.5%; margin-right: 3.5%" hidden="true">
                                     <input type="text" class="form-control col-sm-1" name="id" id="id" value="${programing.id}">
                                     <input type="text" class="form-control col-sm-1" name="year" id="year" value="${programing.year}">
                                     <input type="text" class="form-control col-sm-1" name="month" id="month" value="${programing.month}">
                                 </div>
 
+                                <div class="input-group mb-3" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text col-sm-auto text-dark">工作量名称</span>
+                                    </div>
+                                    <input type="text" aria-label="定义工作" class="form-control col-sm-2" style="margin-right:40px" name="workname" id="workname" value="${programing.workname}" autocomplete="off">
+                                </div>
+
                                 <hr class="style-two">
                                 <%-- horizontal rule --%>
-                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="workname" >工作量名称</label>
-                                    <input type="text" class="form-control col-sm-2" name="workname" id="workname" placeholder="请为工作量起个名称" autocomplete="off" value="${programing.workname}">
-                                </div>
+<%--                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">--%>
+<%--                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="workname" >工作量名称</label>--%>
+<%--                                    <input type="text" class="form-control col-sm-2" name="workname" id="workname" placeholder="请为工作量起个名称" autocomplete="off" value="${programing.workname}">--%>
+<%--                                </div>--%>
+
+
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="digitalNumber" >总开关量</label>
                                     <input type="text" class="form-control col-sm-2" name="digitalNumber" id="digitalNumber" value="${programing.digitalNumber}">
-                                    <%--<div class="d-flex flex-fill"></div>--%>
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="analogNumber">总模拟量</label>
                                     <input type="text" class="form-control col-sm-2"  name="analogNumber" id="analogNumber" value="${programing.analogNumber}">
                                 </div>
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" >具体类型</label>
                                     <div class="col-sm-4">
@@ -147,28 +154,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="programingDay">总工日数</label>
                                     <input type="text" class="form-control col-sm-2 " name="programingDay" id="programingDay" value="${programing.programingDay}" >
-                                    <%--<div class="d-flex flex-fill min-col-xs-1"></div>--%>
+                                    &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="monthday">完成情况</label>
                                     <input type="text" class="form-control col-sm-2 " name="monthday" id="monthday" value="${programing.monthday}">
                                 </div>
-                                <div style="height:1px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
-
+                                &nbsp;
                                 <div class="form-group-material" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" for="remark">备注</label>
                                     <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5" >${programing.remark}</textarea>
                                 </div>
-                                <div style="height:20px; background: transparent;">
-                                    <hr style="display:none;" />
-                                </div>
+                                &nbsp;
                                 <div align="center">
                                     <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>
