@@ -107,10 +107,11 @@
         <!-- partial -->
         <div class="page-main">
             <div class="page-content">
+                <%--breadscrumb--%>
                 <nav class="page-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item text-small text-twitter">Tables</li>
-                        <li class="breadcrumb-item active text-small" aria-current="project">个人项目一览</li>
+                    <ol class="breadcrumb bg-inverse-primary">
+                        <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                        <li class="breadcrumb-item active text-small" aria-current="page">个人项目一览</li>
                     </ol>
                 </nav>
                 <!-- row -->

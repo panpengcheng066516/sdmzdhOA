@@ -74,6 +74,14 @@
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
         <div class="page-content">
+            <%--breadscrumb--%>
+            <nav class="page-breadcrumb">
+                <ol class="breadcrumb bg-inverse-primary">
+                    <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                    <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/personalSummaryServlet?method=getAllWorkingList">个人工作记录一览</a></li>
+                    <li class="breadcrumb-item active text-small" aria-current="page">录入工作量</li>
+                </ol>
+            </nav>
             <!-- row -->
             <div class="row">
                 <div class="container-fluid grid-margin col-md-12">
@@ -97,7 +105,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
                                     <div class="control-text col-sm col-md-3 col-lg-3">
-                                        <select class="selectpicker text-dark" id="projectid" name="projectid" data-live-search="true" >
+                                        <select class="selectpicker show-tick" id="projectid" name="projectid" data-live-search="true" >
                                             <option value="" style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
@@ -110,14 +118,24 @@
                                     <strong><label class="col-sm-auto col-form-label" for="projectNo">工程号</label></strong>
                                     <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled>
                                 </div>
-                                <div class="help-text col-sm text-small text-success mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">前往<a href="${ pageContext.request.contextPath }//personalProjectServlet?method=getAllPersonalProject" class="text">项目查询页</a>查看相关内容<br></br>如果要填写的工作量没有对应的具体项目，请填写具体名称。</div>
+                                <div class="help-text col-sm text-small text-success mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">前往<a href="${ pageContext.request.contextPath }//personalProjectServlet?method=getAllPersonalProject" class="text">项目查询页</a>查看相关内容</div>
                                 &nbsp;
-                                <div class="input-group mb-3" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text col-sm-auto text-dark">工作量名称</span>
+                                <div class="row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <div class="form-check form-check-flat form-check-danger-muted">
+                                        <label class="form-check-label text-secondary">
+                                            <input type="checkbox" class="form-check-input" onclick="var input=document.getElementById('workname'); if(this.checked){ input.disabled=false; input.focus();}else{input.disabled=true;}">
+                                            该工作无可对应项目
+                                        </label>
                                     </div>
-                                    <input type="text" aria-label="定义工作" class="form-control col-sm-2" style="margin-right:40px" name="workname" id="workname" placeholder="请为工作量定义名称" autocomplete="off">
+                                    &nbsp;
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text col-sm-auto text-dark">工作名称</span>
+                                        </div>
+                                        <input type="text" aria-label="定义工作" class="form-control col-sm-2" disabled style="margin-right:40px" name="workname" id="workname" placeholder="请定义工作量具体名称" autocomplete="off">
+                                    </div>
                                 </div>
+
                                 <hr class="style-two">
                                 <%-- horizontal rule --%>
 <%--                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">--%>

@@ -55,6 +55,14 @@
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
         <div class="page-content">
+            <%--breadscrumb--%>
+            <nav class="page-breadcrumb">
+                <ol class="breadcrumb bg-inverse-primary">
+                    <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                    <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/personalSummaryServlet?method=getAllWorkingList">个人工作记录一览</a></li>
+                    <li class="breadcrumb-item active text-small" aria-current="page">借调记录</li>
+                </ol>
+            </nav>
             <!-- row -->
             <div class="row">
                 <div class="col-md-6 grid-margin container-fluid">

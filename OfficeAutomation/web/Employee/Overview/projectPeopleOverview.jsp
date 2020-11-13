@@ -88,10 +88,13 @@
         <!-- partial -->
         <div class="page-main">
             <div class="page-content">
+                <%--breadscrumb--%>
                 <nav class="page-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item text-small text-twitter">Tables</li>
-                        <li class="breadcrumb-item active text-small" aria-current="project">编辑参与人员</li>
+                    <ol class="breadcrumb bg-inverse-primary">
+                        <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                        <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/addProjectServlet?method=getPeopleInfo">录入项目</a></li>
+                        <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject">科室项目一览</a></li>
+                        <li class="breadcrumb-item active  text-small" aria-current="page">编辑参与人员</li>
                     </ol>
                 </nav>
                 <!-- row -->
@@ -140,7 +143,7 @@
                                                             <td><div class="text-wrap text-break">${people.name}</div></td>
                                                             <td><div class="text-wrap text-break">${people.username}</div></td>
                                                             <td>
-                                                                <button id="bDelete" type="button" onclick="de('${people.name}','${people.username}','${project.id}')" class="btn btn-inverse-primary-muted btn-rounded btn-sm border-primary text-primary">撤离</button>
+                                                                <button id="bDelete" type="button" onclick="de('${people.name}','${people.username}','${project.id}')" class="btn btn-inverse-primary-muted btn-rounded btn-xs border-primary text-primary">撤离</button>
                                                             </td>
                                                         </tr>
                                                     </c:forEach>

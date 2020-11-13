@@ -114,12 +114,22 @@
                                     <input type="text" class="form-control col-sm-1" name="month" id="month" value="${debug.month}">
                                 </div>
 
-                                <div class="input-group mb-3" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text col-sm-auto text-dark">工作量名称</span>
+                                <div class="row" style="margin-left: 3.5%; margin-right: 3.5%">
+                                    <div class="form-check form-check-flat form-check-danger-muted">
+                                        <label class="form-check-label text-secondary">
+                                            <input type="checkbox" class="form-check-input" onclick="var input=document.getElementById('workname'); if(this.checked){ input.disabled=false; input.focus();}else{input.disabled=true;}">
+                                            修改工作名称
+                                        </label>
                                     </div>
-                                    <input type="text" aria-label="定义工作" class="form-control col-sm-2" style="margin-right:40px" name="workname" id="workname"  value="${debug.workname}" autocomplete="off">
+                                    &nbsp;
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text col-sm-auto text-dark">工作名称</span>
+                                        </div>
+                                        <input type="text" aria-label="定义工作" class="form-control col-sm-2" disabled style="margin-right:40px" name="workname" id="workname" value="${debug.workname}" autocomplete="off">
+                                    </div>
                                 </div>
+
                                 <hr class="style-two">
                                 <%-- horizontal rule --%>
 <%--                                <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">--%>

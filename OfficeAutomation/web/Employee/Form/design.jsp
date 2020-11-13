@@ -74,6 +74,14 @@
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
         <div class="page-content">
+            <%--breadscrumb--%>
+            <nav class="page-breadcrumb">
+                <ol class="breadcrumb bg-inverse-primary">
+                    <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                    <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/personalSummaryServlet?method=getAllWorkingList">个人工作记录一览</a></li>
+                    <li class="breadcrumb-item active text-small" aria-current="page">录入工作量</li>
+                </ol>
+            </nav>
             <!-- row -->
             <div class="row">
                 <div class="container-fluid grid-margin col-md-12">
@@ -95,8 +103,9 @@
                             <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/designWorkingServlet?method=addDesignWorking" method="post">
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
-                                    <div class="control-text col-sm col-md-3 col-lg-3">
-                                        <select class="selectpicker" id="projectid" name="projectid" data-live-search="true" required="true">
+                                    <div class="control-text col-sm-auto col-md-3 col-lg-3">
+                                        <select class="selectpicker show-tick" id="projectid" name="projectid" data-live-search="true" required="true">
+                                            <option value="" style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
                                                     <option id="${project.projectNo}" value="${project.id}" style="text-align: center; text-align-last: center;">${project.projectName}</option>

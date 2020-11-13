@@ -64,7 +64,7 @@
                 <div class="alert alert-danger-muted" role="alert">
                     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
                         <div>
-                            <h4 class="mb-3 mb-md-0">Hi again, ${ sessionScope.user.name } <i class="mb-1 text-primary ml-1 icon-small" data-feather="smile"></i></h4>
+                            <h4 class="mb-3 mb-md-0">Hi again, ${ sessionScope.user.name } <a href="credit.jsp"><i class="mb-1 text-primary ml-1 icon-small" data-feather="smile"></i></a></h4>
                             <br><h4 class="mb-3 mb-md-0">Welcome to Dashboard.</h4>
                         </div>
                         <div class="d-flex align-items-center flex-wrap text-nowrap">

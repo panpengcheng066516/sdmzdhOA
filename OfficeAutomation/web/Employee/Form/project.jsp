@@ -62,6 +62,14 @@
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
         <div class="page-content">
+            <%--breadscrumb--%>
+            <nav class="page-breadcrumb">
+                <ol class="breadcrumb bg-inverse-primary">
+                    <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                    <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject">科室项目一览</a></li>
+                    <li class="breadcrumb-item active text-small" aria-current="page">录入项目</li>
+                </ol>
+            </nav>
             <!-- row -->
             <div class="row">
                 <div class="container-fluid grid-margin col-md-12">
@@ -123,7 +131,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manager">专业负责人</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker" name="manager" id="manager" required="true" data-live-search="true">
+                                        <select class="selectpicker show-tick" name="manager" id="manager" required="true" data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
@@ -138,7 +146,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="designer">设计人&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker" name="designer" id="designer" required="true" data-live-search="true">
+                                        <select class="selectpicker show-tick" name="designer" id="designer" required="true" data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
@@ -150,7 +158,7 @@
                                     &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="reviewer">审核人&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker" name="reviewer" id="reviewer" required="true" data-live-search="true">
+                                        <select class="selectpicker show-tick" name="reviewer" id="reviewer" required="true" data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
@@ -165,7 +173,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">室审&emsp;&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker" name="office" id="office" required="true" data-live-search="true">
+                                        <select class="selectpicker show-tick" name="office" id="office" required="true" data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">

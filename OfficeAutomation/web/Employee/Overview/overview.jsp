@@ -131,6 +131,15 @@
         <!-- partial -->
         <div class="page-main">
             <div class="page-content">
+                <%--breadscrumb--%>
+                <nav class="page-breadcrumb">
+                    <ol class="breadcrumb bg-inverse-primary">
+                        <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                        <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/departmentSummaryServlet?method=getWorkingList">月工作记录</a></li>
+                        <li class="breadcrumb-item active text-small" aria-current="page">科室年工作记录一览</li>
+                    </ol>
+                </nav>
+
                 <div class="row">
                     <div class="container-fluid grid-margin col-md-12">
                         <div class="card card-rounded border-light">
@@ -140,7 +149,7 @@
                                         <label class="col-sm-auto col-form-label text-primary">年份</label>
                                         <div class="control-text col-sm-auto col-md-auto col-lg-auto">
                                             <select class="dropdown-item-text text-primary border-primary-muted" id="selYear" name="selYear" onchange="sel()">
-                                                <c:forEach begin="2019" end="2025" step="1" var="i">
+                                                <c:forEach begin="2018" end="2026" step="1" var="i">
                                                     <option value="${i}" ${currentYear == i?"selected":""}>${i}</option>
                                                 </c:forEach>
                                             </select>
