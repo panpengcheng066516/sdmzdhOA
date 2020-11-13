@@ -62,4 +62,9 @@ public class UserDao {
         String sql = "select * from people where username = ?";
         return runner.query(sql, new BeanHandler<User>(User.class),username);
     }
+
+    public User getUserByName(String name) throws SQLException {
+        String sql = "select * from people where name = ?";
+        return runner.query(sql, new BeanHandler<User>(User.class),name);
+    }
 }

@@ -110,4 +110,14 @@ public class UserService {
         }
         return user;
     }
+
+    public User getUserByName(String name) {
+        User user = null;
+        try {
+            user = dao.getUserByName(name);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
 }
