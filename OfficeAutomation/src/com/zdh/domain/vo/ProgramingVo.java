@@ -19,6 +19,11 @@ public class ProgramingVo {
     private String projectName;
     private String projectNo;
 
+    public ProgramingVo() {
+        this.projectName = "";
+        this.projectNo = "";
+    }
+
     public String getId() {
         return id;
     }

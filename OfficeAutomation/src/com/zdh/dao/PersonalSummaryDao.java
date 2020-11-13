@@ -50,99 +50,199 @@ public class PersonalSummaryDao {
         return runner.query(sql, new BeanListHandler<DesignVo>(DesignVo.class),year,month,projectid);
     }
 
-    public List<ManageVo> getManageVoListByDateUsername(String year, String month, String username) throws SQLException {
-        String sql = "select \n" +
-                "Manage.id,Manage.username,Manage.projectid,Manage.year,Manage.month," +
-                "Manage.xunjiaBaojia,Manage.tender,Manage.sign,Manage.toubiao,Manage.equip," +
-                "Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday,Manage.remark," +
-                "people.name,people.groupId,project.projectName,project.projectNo " +
-                "from Manage,people,project " +
-                "where Manage.year = ? and Manage.month = ? and Manage.username = ? and Manage.projectid = project.id and Manage.username = people.username";
-        return runner.query(sql, new BeanListHandler<ManageVo>(ManageVo.class),year,month,username);
-    }
+//    public List<ManageVo> getManageVoListByDateUsername(String year, String month, String username) throws SQLException {
+//        String sql = "select \n" +
+//                "Manage.id,Manage.username,Manage.projectid,Manage.year,Manage.month," +
+//                "Manage.xunjiaBaojia,Manage.tender,Manage.sign,Manage.toubiao,Manage.equip," +
+//                "Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday,Manage.remark," +
+//                "people.name,people.groupId,project.projectName,project.projectNo " +
+//                "from Manage,people,project " +
+//                "where Manage.year = ? and Manage.month = ? and Manage.username = ? and Manage.projectid = project.id and Manage.username = people.username";
+//        return runner.query(sql, new BeanListHandler<ManageVo>(ManageVo.class),year,month,username);
+//    }
+//
+//    public List<ManageVo> getManageVoListByDate(String year, String month) throws SQLException {
+//        String sql = "select \n" +
+//                "Manage.id,Manage.username,Manage.projectid,Manage.year,Manage.month," +
+//                "Manage.xunjiaBaojia,Manage.tender,Manage.sign,Manage.toubiao,Manage.equip," +
+//                "Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday,Manage.remark," +
+//                "people.name,people.groupId,project.projectName,project.projectNo " +
+//                "from Manage,people,project " +
+//                "where Manage.year = ? and Manage.month = ? and Manage.projectid = project.id and Manage.username = people.username";
+//        return runner.query(sql, new BeanListHandler<ManageVo>(ManageVo.class),year,month);
+//    }
+//
+//    public List<ManageVo> getManageVoListByDateProject(String year, String month, String projectid) throws SQLException {
+//        String sql = "select \n" +
+//                "Manage.id,Manage.username,Manage.projectid,Manage.year,Manage.month," +
+//                "Manage.xunjiaBaojia,Manage.tender,Manage.sign,Manage.toubiao,Manage.equip," +
+//                "Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday,Manage.remark," +
+//                "people.name,people.groupId,project.projectName,project.projectNo " +
+//                "from Manage,people,project " +
+//                "where Manage.year = ? and Manage.month = ? and Manage.projectid = ? and Manage.projectid = project.id and Manage.username = people.username";
+//        return runner.query(sql, new BeanListHandler<ManageVo>(ManageVo.class),year,month,projectid);
+//    }
+public List<ManageVo> getManageVoListByDateUsername(String year, String month, String username) throws SQLException {
+    String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.xunjiaBaojia,a.tender,a.sign,a.toubiao,a.equip,a.test, " +
+            "a.cuikuan,a.contract,a.other,a.PMday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
+            "FROM(SELECT Manage.id,Manage.username,Manage.projectid,Manage. YEAR,Manage. MONTH,Manage.xunjiaBaojia,Manage.tender, " +
+            "Manage.sign,Manage.toubiao,Manage.equip,Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday, " +
+            "Manage.remark,people.name,people.groupId FROM Manage,people WHERE Manage.username = people.username) a " +
+            "LEFT JOIN project b ON a.projectid = b.id WHERE a. YEAR = ? AND a. MONTH = ? AND a.username = ?";
+    return runner.query(sql, new BeanListHandler<ManageVo>(ManageVo.class),year,month,username);
+}
 
     public List<ManageVo> getManageVoListByDate(String year, String month) throws SQLException {
-        String sql = "select \n" +
-                "Manage.id,Manage.username,Manage.projectid,Manage.year,Manage.month," +
-                "Manage.xunjiaBaojia,Manage.tender,Manage.sign,Manage.toubiao,Manage.equip," +
-                "Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday,Manage.remark," +
-                "people.name,people.groupId,project.projectName,project.projectNo " +
-                "from Manage,people,project " +
-                "where Manage.year = ? and Manage.month = ? and Manage.projectid = project.id and Manage.username = people.username";
+        String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.xunjiaBaojia,a.tender,a.sign,a.toubiao,a.equip,a.test, " +
+                "a.cuikuan,a.contract,a.other,a.PMday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
+                "FROM(SELECT Manage.id,Manage.username,Manage.projectid,Manage. YEAR,Manage. MONTH,Manage.xunjiaBaojia,Manage.tender, " +
+                "Manage.sign,Manage.toubiao,Manage.equip,Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday, " +
+                "Manage.remark,people.name,people.groupId FROM Manage,people WHERE Manage.username = people.username) a " +
+                "LEFT JOIN project b ON a.projectid = b.id WHERE a. YEAR = ? AND a. MONTH = ?";
         return runner.query(sql, new BeanListHandler<ManageVo>(ManageVo.class),year,month);
     }
 
     public List<ManageVo> getManageVoListByDateProject(String year, String month, String projectid) throws SQLException {
-        String sql = "select \n" +
-                "Manage.id,Manage.username,Manage.projectid,Manage.year,Manage.month," +
-                "Manage.xunjiaBaojia,Manage.tender,Manage.sign,Manage.toubiao,Manage.equip," +
-                "Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday,Manage.remark," +
-                "people.name,people.groupId,project.projectName,project.projectNo " +
-                "from Manage,people,project " +
-                "where Manage.year = ? and Manage.month = ? and Manage.projectid = ? and Manage.projectid = project.id and Manage.username = people.username";
+        String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.xunjiaBaojia,a.tender,a.sign,a.toubiao,a.equip,a.test, " +
+                "a.cuikuan,a.contract,a.other,a.PMday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
+                "FROM(SELECT Manage.id,Manage.username,Manage.projectid,Manage. YEAR,Manage. MONTH,Manage.xunjiaBaojia,Manage.tender, " +
+                "Manage.sign,Manage.toubiao,Manage.equip,Manage.test,Manage.cuikuan,Manage.contract,Manage.other,Manage.PMday, " +
+                "Manage.remark,people.name,people.groupId FROM Manage,people WHERE Manage.username = people.username) a " +
+                "LEFT JOIN project b ON a.projectid = b.id WHERE a. YEAR = ? AND a. MONTH = ? AND a.projectid = ?";
         return runner.query(sql, new BeanListHandler<ManageVo>(ManageVo.class),year,month,projectid);
     }
 
+//    public List<ProgramingVo> getProgramingVoListByDateUsername(String year, String month, String username) throws SQLException {
+//        String sql = "select " +
+//                "ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month," +
+//                "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture," +
+//                "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark," +
+//                "people.name,people.groupId,project.projectName,project.projectNo " +
+//                "from ProgramingPicture,people,project " +
+//                "where ProgramingPicture.year = ? and ProgramingPicture.month = ? and ProgramingPicture.username = ? and ProgramingPicture.projectid = project.id and ProgramingPicture.username = people.username";
+//        return runner.query(sql, new BeanListHandler<ProgramingVo>(ProgramingVo.class),year,month,username);
+//    }
+
+//    public List<ProgramingVo> getProgramingVoListByDate(String year, String month) throws SQLException {
+//        String sql = "select " +
+//                "ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month," +
+//                "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture," +
+//                "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark," +
+//                "people.name,people.groupId,project.projectName,project.projectNo " +
+//                "from ProgramingPicture,people,project " +
+//                "where ProgramingPicture.year = ? and ProgramingPicture.month = ? and ProgramingPicture.projectid = project.id and ProgramingPicture.username = people.username";
+//        return runner.query(sql, new BeanListHandler<ProgramingVo>(ProgramingVo.class),year,month);
+//    }
+
+//    public List<ProgramingVo> getProgramingVoListByDateProject(String year, String month, String projectid) throws SQLException {
+//        String sql = "select " +
+//                "ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month," +
+//                "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture," +
+//                "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark," +
+//                "people.name,people.groupId,project.projectName,project.projectNo " +
+//                "from ProgramingPicture,people,project " +
+//                "where ProgramingPicture.year = ? and ProgramingPicture.month = ? and ProgramingPicture.projectid = ? and ProgramingPicture.projectid = project.id and ProgramingPicture.username = people.username";
+//        return runner.query(sql, new BeanListHandler<ProgramingVo>(ProgramingVo.class),year,month,projectid);
+//    }
+
+
     public List<ProgramingVo> getProgramingVoListByDateUsername(String year, String month, String username) throws SQLException {
         String sql = "select " +
-                "ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month," +
-                "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture," +
-                "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark," +
-                "people.name,people.groupId,project.projectName,project.projectNo " +
-                "from ProgramingPicture,people,project " +
-                "where ProgramingPicture.year = ? and ProgramingPicture.month = ? and ProgramingPicture.username = ? and ProgramingPicture.projectid = project.id and ProgramingPicture.username = people.username";
+                "a.id,a.username,a.projectid,a.year,a.month, " +
+                "a.digitalNumber,a.analogNumber,a.programingPicture, " +
+                "a.programingDay,a.monthDay,a.remark, " +
+                "a.name,a.groupId,b.projectName,b.projectNo  " +
+                "from (SELECT ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month, " +
+                "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture, " +
+                "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark, " +
+                "people.name,people.groupId from ProgramingPicture,people where ProgramingPicture.username = people.username) a  " +
+                "LEFT JOIN project b on a.projectid = b.id where a.year=? and a.month=? and a.username=?";
         return runner.query(sql, new BeanListHandler<ProgramingVo>(ProgramingVo.class),year,month,username);
     }
 
     public List<ProgramingVo> getProgramingVoListByDate(String year, String month) throws SQLException {
         String sql = "select " +
-                "ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month," +
-                "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture," +
-                "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark," +
-                "people.name,people.groupId,project.projectName,project.projectNo " +
-                "from ProgramingPicture,people,project " +
-                "where ProgramingPicture.year = ? and ProgramingPicture.month = ? and ProgramingPicture.projectid = project.id and ProgramingPicture.username = people.username";
+                "a.id,a.username,a.projectid,a.year,a.month, " +
+                "a.digitalNumber,a.analogNumber,a.programingPicture, " +
+                "a.programingDay,a.monthDay,a.remark, " +
+                "a.name,a.groupId,b.projectName,b.projectNo  " +
+                "from (SELECT ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month, " +
+                "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture, " +
+                "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark, " +
+                "people.name,people.groupId from ProgramingPicture,people where ProgramingPicture.username = people.username) a  " +
+                "LEFT JOIN project b on a.projectid = b.id where a.year=? and a.month=?";
         return runner.query(sql, new BeanListHandler<ProgramingVo>(ProgramingVo.class),year,month);
     }
 
     public List<ProgramingVo> getProgramingVoListByDateProject(String year, String month, String projectid) throws SQLException {
         String sql = "select " +
-                "ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month," +
-                "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture," +
-                "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark," +
-                "people.name,people.groupId,project.projectName,project.projectNo " +
-                "from ProgramingPicture,people,project " +
-                "where ProgramingPicture.year = ? and ProgramingPicture.month = ? and ProgramingPicture.projectid = ? and ProgramingPicture.projectid = project.id and ProgramingPicture.username = people.username";
+                "a.id,a.username,a.projectid,a.year,a.month, " +
+                "a.digitalNumber,a.analogNumber,a.programingPicture, " +
+                "a.programingDay,a.monthDay,a.remark, " +
+                "a.name,a.groupId,b.projectName,b.projectNo  " +
+                "from (SELECT ProgramingPicture.id,ProgramingPicture.username,ProgramingPicture.projectid,ProgramingPicture.year,ProgramingPicture.month, " +
+                "ProgramingPicture.digitalNumber,ProgramingPicture.analogNumber,ProgramingPicture.programingPicture, " +
+                "ProgramingPicture.programingDay,ProgramingPicture.monthDay,ProgramingPicture.remark, " +
+                "people.name,people.groupId from ProgramingPicture,people where ProgramingPicture.username = people.username) a  " +
+                "LEFT JOIN project b on a.projectid = b.id where a.year=? and a.month=? and a.projectid = ?";
         return runner.query(sql, new BeanListHandler<ProgramingVo>(ProgramingVo.class),year,month,projectid);
     }
 
+
+
+
+
+//    public List<DebugVo> getDebugVoListByDateUsername(String year, String month, String username) throws SQLException {
+//        String sql = "select " +
+//                "Debug.id,Debug.username,Debug.projectid,Debug.year,Debug.month," +
+//                "Debug.site,Debug.manageday,Debug.debugday,Debug.remark," +
+//                "people.name,people.groupId,project.projectName,project.projectNo " +
+//                "from Debug,people,project " +
+//                "where Debug.year = ? and Debug.month = ? and Debug.username = ? and Debug.projectid = project.id and Debug.username = people.username";
+//        return runner.query(sql, new BeanListHandler<DebugVo>(DebugVo.class),year,month,username);
+//    }
+//
+//    public List<DebugVo> getDebugVoListByDate(String year, String month) throws SQLException {
+//        String sql = "select " +
+//                "Debug.id,Debug.username,Debug.projectid,Debug.year,Debug.month," +
+//                "Debug.site,Debug.manageday,Debug.debugday,Debug.remark," +
+//                "people.name,people.groupId,project.projectName,project.projectNo " +
+//                "from Debug,people,project " +
+//                "where Debug.year = ? and Debug.month = ? and Debug.projectid = project.id and Debug.username = people.username";
+//        return runner.query(sql, new BeanListHandler<DebugVo>(DebugVo.class),year,month);
+//    }
+//
+//    public List<DebugVo> getDebugVoListByDateProject(String year, String month, String projectid) throws SQLException {
+//        String sql = "select " +
+//                "Debug.id,Debug.username,Debug.projectid,Debug.year,Debug.month," +
+//                "Debug.site,Debug.manageday,Debug.debugday,Debug.remark," +
+//                "people.name,people.groupId,project.projectName,project.projectNo " +
+//                "from Debug,people,project " +
+//                "where Debug.year = ? and Debug.month = ? and Debug.projectid = ? and Debug.projectid = project.id and Debug.username = people.username";
+//        return runner.query(sql, new BeanListHandler<DebugVo>(DebugVo.class),year,month,projectid);
+//    }
+
     public List<DebugVo> getDebugVoListByDateUsername(String year, String month, String username) throws SQLException {
-        String sql = "select " +
-                "Debug.id,Debug.username,Debug.projectid,Debug.year,Debug.month," +
-                "Debug.site,Debug.manageday,Debug.debugday,Debug.remark," +
-                "people.name,people.groupId,project.projectName,project.projectNo " +
-                "from Debug,people,project " +
-                "where Debug.year = ? and Debug.month = ? and Debug.username = ? and Debug.projectid = project.id and Debug.username = people.username";
+        String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.site,a.manageday,a.debugday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
+                "FROM(SELECT Debug.id,Debug.username,Debug.projectid,Debug. YEAR,Debug. MONTH,Debug.site,Debug.manageday,Debug.debugday,Debug.remark,people.name,people.groupId " +
+                "FROM Debug,people WHERE Debug.username = people.username) a " +
+                "LEFT JOIN project b ON a.projectid = b.id where a.year = ? AND a.month = ? AND a.username = ?";
         return runner.query(sql, new BeanListHandler<DebugVo>(DebugVo.class),year,month,username);
     }
 
     public List<DebugVo> getDebugVoListByDate(String year, String month) throws SQLException {
-        String sql = "select " +
-                "Debug.id,Debug.username,Debug.projectid,Debug.year,Debug.month," +
-                "Debug.site,Debug.manageday,Debug.debugday,Debug.remark," +
-                "people.name,people.groupId,project.projectName,project.projectNo " +
-                "from Debug,people,project " +
-                "where Debug.year = ? and Debug.month = ? and Debug.projectid = project.id and Debug.username = people.username";
+        String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.site,a.manageday,a.debugday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
+                "FROM(SELECT Debug.id,Debug.username,Debug.projectid,Debug. YEAR,Debug. MONTH,Debug.site,Debug.manageday,Debug.debugday,Debug.remark,people.name,people.groupId " +
+                "FROM Debug,people WHERE Debug.username = people.username) a " +
+                "LEFT JOIN project b ON a.projectid = b.id where a.year = ? AND a.month = ?";
         return runner.query(sql, new BeanListHandler<DebugVo>(DebugVo.class),year,month);
     }
 
     public List<DebugVo> getDebugVoListByDateProject(String year, String month, String projectid) throws SQLException {
-        String sql = "select " +
-                "Debug.id,Debug.username,Debug.projectid,Debug.year,Debug.month," +
-                "Debug.site,Debug.manageday,Debug.debugday,Debug.remark," +
-                "people.name,people.groupId,project.projectName,project.projectNo " +
-                "from Debug,people,project " +
-                "where Debug.year = ? and Debug.month = ? and Debug.projectid = ? and Debug.projectid = project.id and Debug.username = people.username";
+        String sql = "SELECT a.id,a.username,a.projectid,a. YEAR,a. MONTH,a.site,a.manageday,a.debugday,a.remark,a.name,a.groupId,b.projectName,b.projectNo " +
+                "FROM(SELECT Debug.id,Debug.username,Debug.projectid,Debug. YEAR,Debug. MONTH,Debug.site,Debug.manageday,Debug.debugday,Debug.remark,people.name,people.groupId " +
+                "FROM Debug,people WHERE Debug.username = people.username) a " +
+                "LEFT JOIN project b ON a.projectid = b.id where a.year = ? AND a.month = ? AND a.projectid = ?";
         return runner.query(sql, new BeanListHandler<DebugVo>(DebugVo.class),year,month,projectid);
     }
 

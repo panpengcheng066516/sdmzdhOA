@@ -24,6 +24,11 @@ public class ManageVo {
     private String projectName;
     private String projectNo;
 
+    public ManageVo() {
+        this.projectName = "";
+        this.projectNo = "";
+    }
+
     public String getId() {
         return id;
     }

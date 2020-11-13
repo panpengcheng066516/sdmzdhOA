@@ -17,6 +17,11 @@ public class DebugVo {
     private String projectName;
     private String projectNo;
 
+    public DebugVo() {
+        this.projectName = "";
+        this.projectNo = "";
+    }
+
     public String getId() {
         return id;
     }
