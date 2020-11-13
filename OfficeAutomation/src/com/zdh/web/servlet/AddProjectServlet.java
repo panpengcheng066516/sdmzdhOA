@@ -31,22 +31,17 @@ public class AddProjectServlet extends BaseServlet {
         project.setId(CommonsUtils.getUUID());
 
         //为人员加入项目,并获得人员名字。
-        int bce = 0;
+//        int bce = 0;
         int bmanager = 0;
         int bdesigner = 0;
         int breviewer = 0;
         int boffice = 0;
-        int rce = 0;
-        int rmanager = 0;
-        int rdesigner = 0;
-        int rreviewer = 0;
-        int roffice = 0;
-        if(project.getCe()!="" && project.getCe()!=null){
-            int r = projectService.checkJoinProject(project.getCe(),project.getId());
-            bce = projectService.joinProject(project.getCe(),project.getId());
-            String ce = userservice.getUserByUsername(project.getCe()).getName();
-            project.setCe(ce);
-        }
+//        if(project.getCe()!="" && project.getCe()!=null){
+//            int r = projectService.checkJoinProject(project.getCe(),project.getId());
+//            bce = projectService.joinProject(project.getCe(),project.getId());
+//            String ce = userservice.getUserByUsername(project.getCe()).getName();
+//            project.setCe(ce);
+//        }
         if(project.getManager()!="" && project.getManager()!=null){
             bmanager = projectService.joinProject(project.getManager(),project.getId());
             String manager = userservice.getUserByUsername(project.getManager()).getName();
@@ -72,7 +67,7 @@ public class AddProjectServlet extends BaseServlet {
         int r = projectService.addProject(project);
 
         PrintWriter out = response.getWriter();
-        if(r>0 && bce>0 && bmanager>0 && bdesigner>0 && breviewer>0 && boffice>0){
+        if(r>0 && bmanager>0 && bdesigner>0 && breviewer>0 && boffice>0){
             out.print("<script>alert('提交成功！');window.location='"+request.getContextPath()+"/Employee/Form/project.jsp';</script>");
         }else{
             out.print("<script>alert('提交失败！');window.location='"+request.getContextPath()+"/Employee/Form/project.jsp';</script>");

@@ -200,17 +200,17 @@
 <%--                                    <input type="text" class="form-control col-sm-2" name="office" id="office" value="${project.office}">--%>
 
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="ce">总师&emsp;&emsp;</label>
-                                    <div class="control-text col-sm-2">
-                                        <select class="selectpicker" name="ce" id="ce" required="true" data-live-search="true">
-                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
-                                            <c:if test="${!empty userList}">
-                                                <c:forEach var="u" items="${userList}">
-                                                    <option value="${u.username}"  ${project.ce == u.name?"selected":""}  style="text-align: center; text-align-last: center;">${u.name}</option>
-                                                </c:forEach>
-                                            </c:if>
-                                        </select>
-                                    </div>
-<%--                                    <input type="text" class="form-control col-sm-2" name="ce" id="ce" value="${project.ce}">--%>
+<%--                                    <div class="control-text col-sm-2">--%>
+<%--                                        <select class="selectpicker" name="ce" id="ce" required="true" data-live-search="true">--%>
+<%--                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>--%>
+<%--                                            <c:if test="${!empty userList}">--%>
+<%--                                                <c:forEach var="u" items="${userList}">--%>
+<%--                                                    <option value="${u.username}"  ${project.ce == u.name?"selected":""}  style="text-align: center; text-align-last: center;">${u.name}</option>--%>
+<%--                                                </c:forEach>--%>
+<%--                                            </c:if>--%>
+<%--                                        </select>--%>
+<%--                                    </div>--%>
+                                    <input type="text" class="form-control col-sm-2" name="ce" id="ce" value="${project.ce}">
                                 </div>
 
                                 <div style="height:1px; background: transparent;">
