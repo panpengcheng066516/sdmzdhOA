@@ -31,7 +31,7 @@
 
             <li class="nav-item nav-category">Web Apps</li>
 
-            <li class="nav-item">
+            <li class="nav-item" ${user.power!=1?"":"hidden"}>
                 <a class="nav-link" data-toggle="collapse" href="#workloadInput" role="button" aria-expanded="false" aria-controls="workloadInput"> <i class="link-icon" data-feather="chevrons-right"></i> <span class="link-title">工作量填写</span> <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="workloadInput">
@@ -63,7 +63,7 @@
                 </div>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item" >
                 <a class="nav-link" data-toggle="collapse" href="#projectCheck" role="button" aria-expanded="false" aria-controls="projectCheck"> <i class="link-icon" data-feather="box"></i> <span class="link-title">项目管理</span> <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="projectCheck">
@@ -76,7 +76,7 @@
                             <a href="${ pageContext.request.contextPath }/personalProjectServlet?method=getAllPersonalProject" class="nav-link">个人已参与项目</a>
                         </li>
 
-                        <li class="nav-item" ${user.power==2?"":"hidden"}>
+                        <li class="nav-item" ${user.power==2 || user.power==1?"":"hidden"}>
                             <a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject" class="nav-link">科室项目查询</a>
                         </li>
                     </ul>
@@ -85,7 +85,7 @@
 
             <li class="nav-item nav-category">Inspect</li>
 
-            <li class="nav-item">
+            <li class="nav-item" ${user.power!=1?"":"hidden"}>
                 <a class="nav-link" data-toggle="collapse" href="#personalCheck" role="button" aria-expanded="false" aria-controls="personalCheck"> <i class="link-icon" data-feather="trello"></i> <span class="link-title">个人工作量查询</span> <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="personalCheck">

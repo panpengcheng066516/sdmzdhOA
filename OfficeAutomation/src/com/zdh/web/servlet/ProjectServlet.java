@@ -132,16 +132,17 @@ public class ProjectServlet extends BaseServlet {
 //            int b = projectService.deleteRelationByProject(newProject.getId());
 
             //为人员加入项目,并获得人员名字。
-//            int bce = 0;
-            int bmanager = 0;
-            int bdesigner = 0;
-            int breviewer = 0;
-            int boffice = 0;
-//            if(newProject.getCe()!="" && newProject.getCe()!=null){
-//                bce = projectService.joinProject(newProject.getCe(),newProject.getId());
-//                String ce = userservice.getUserByUsername(newProject.getCe()).getName();
-//                newProject.setCe(ce);
-//            }
+            int bce = 1;
+            int bmanager = 1;
+            int bdesigner = 1;
+            int breviewer = 1;
+            int boffice = 1;
+            if(newProject.getCe()!="" && newProject.getCe()!=null){
+                User uce = userservice.getUserByName(newProject.getCe());
+                if(uce != null){
+                    bce = projectService.joinProject(uce.getUsername(),newProject.getId());
+                }
+            }
             if(newProject.getManager()!="" && newProject.getManager()!=null){
                 bmanager = projectService.joinProject(newProject.getManager(),newProject.getId());
                 String manager = userservice.getUserByUsername(newProject.getManager()).getName();
@@ -165,10 +166,10 @@ public class ProjectServlet extends BaseServlet {
 
             //向数据库存入项目信息
             int r = projectService.updateProject(newProject);
-            if(r>0){
+            if(r>0 && bce>0 && bmanager>0 && bdesigner>0 && breviewer>0 && boffice>0){
                 out.print("<script>alert('修改成功！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
             }else{
-                out.print("<script>alert('修改失败！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
+                out.print("<script>alert('修改失败！');window.location='"+request.getContextPath()+"/addProjectServlet?method=getPeopleInfo';</script>");
             }
         }
     }
