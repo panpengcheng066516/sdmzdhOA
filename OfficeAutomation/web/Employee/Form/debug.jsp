@@ -56,7 +56,7 @@
             background: whitesmoke !important;
         }
     </style>
-    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript" src="<%=basePath%>assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
         $(function(){
             var p=$("#projectid").children('option:selected').attr("id");

@@ -48,8 +48,7 @@
             text-align: center;
         }
     </style>
-
-    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js" ></script>
+    <script type="text/javascript" src="<%=basePath%>assets/js/jquery-1.11.3.min.js" ></script>
 </head>
 <body>
 <div class="main-wrapper">
