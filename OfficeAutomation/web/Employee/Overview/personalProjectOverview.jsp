@@ -143,7 +143,7 @@
                                 <div class="table-content">
                                     <div class="custom-control table">
                                         <div class="table-responsive text-wrap">
-                                            <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md table-sm w-auto" id="table01">
+                                            <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md w-auto" id="table01">
                                                 <thead>
                                                 <tr>
                                                     <th>项目名称</th>

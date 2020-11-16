@@ -363,8 +363,8 @@
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
-                                                        <th style="width:10%">姓名</th>
-                                                        <th style="width:10%">工程名称</th>
+                                                        <th>姓名</th>
+                                                        <th>工程名称</th>
                                                         <th>工程号</th>
                                                         <th>图纸数</th>
                                                         <th>折合A1</th>
@@ -418,7 +418,7 @@
                                                         <th>工作量名称</th>
                                                         <th>总开关量</th>
                                                         <th>总模拟量</th>
-                                                        <th style="width:5%">类型</th>
+                                                        <th>类型</th>
                                                         <th>总工日</th>
                                                         <th>完成工日</th>
                                                         <th>&emsp;备注&emsp;</th>
@@ -515,7 +515,7 @@
                                                         <th>其他</th>
                                                         <th>项目经理</th>
                                                         <th>&emsp;备注&emsp;</th>
-                                                        <th style="width:15%" ${user.power==1||user.power==2?"":"hidden"}>操作</th>
+                                                        <th ${user.power==1||user.power==2?"":"hidden"}>操作</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody id="tbManage" class="text-secondary">

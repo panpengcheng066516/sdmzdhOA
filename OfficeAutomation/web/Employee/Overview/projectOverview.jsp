@@ -146,10 +146,10 @@
                                 <hr class="style-two">
                                 &nbsp;
                                 <div class="wrapper-editor">
-                                    <div class="custom-control row align-self-end">
+                                    <div class="custom-control row align-self-end" ${user.power==2?"":"hidden"}>
                                         <div class="right-pill col-sm-auto text-small text-reddit text-justify float-sm-right">
-                                            *&nbsp;如需对现有内容进行修改，请点击<strong>修改</strong><br>
-                                            &emsp;如需添加或撤离相关人员，请点击<strong>编辑</strong>
+                                            *&nbsp;如需对现有内容进行修改，请点击<strong>修改</strong>&nbsp;*<br>
+                                            *&nbsp;如需添加或撤离相关人员，请点击<strong>编辑</strong>&nbsp;*
                                         </div>
                                     </div>
 

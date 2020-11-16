@@ -289,7 +289,7 @@
                                     <div class="tab-pane fade show active" id="total" role="tabpanel" aria-labelledby="total-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-condensed table-hover table-responsive-md" id="table01">
+                                                <table class="table table-striped table-hover table-responsive-md" id="table01">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>

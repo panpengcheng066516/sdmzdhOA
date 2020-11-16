@@ -128,7 +128,7 @@
                                     <div class="custom-control table">
                                         <div class="table-responsive text-wrap">
                                             <table class="table table-striped table-condensed table-hover table-responsive-md">
-                                                <caption class="text-facebook">此处显示的是目前项目所涉及到的所有自动化成员，包括负责人，设计人，审核人，室审，总师。<br>操作按钮可将当前人员从该项目中撤离。</caption>
+                                                <caption class="text-facebook">此处显示的是目前项目所涉及到的所有自动化成员，包括负责人，设计人，审核人，室审。<br>操作按钮可将当前人员从该项目中撤离。</caption>
                                                 <thead>
                                                 <tr>
                                                     <th>姓名</th>
