@@ -248,11 +248,11 @@
                                         &nbsp;
                                         <label class="col-sm-auto col-form-label text-primary">项目</label>
                                         <div class="control-text col-sm-2 col-md-2 col-lg-2">
-                                            <select class="selectpicker show-tick" id="selProject" name="selProject" data-live-search="true" style="width:50%">
+                                            <select class="dropdown-item-text text-primary border-primary-muted" name="selProject" id="selProject">
                                                 <c:if test="${!empty projectList}">
                                                     <option value="全部" selected="selected">全部</option>
                                                     <c:forEach  var="project" items="${projectList}">
-                                                        <option value="${project.id}">${project.projectName}</option>
+                                                        <option value="${project.id}" data-content="${project.id}">${project.projectName}</option>
                                                     </c:forEach>
                                                 </c:if>
                                             </select>
@@ -613,10 +613,9 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script>
-
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-        $('.selectpicker').selectpicker('mobile');
-    }
+    // if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    //     $('.selectpicker').selectpicker('mobile');
+    // }
 
     function logUp() {
         window.location.href = "../../login.jsp";

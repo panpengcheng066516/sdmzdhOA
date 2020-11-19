@@ -78,7 +78,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="name">选择用户</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker" name="username" id="username" required="true" data-live-search="true">
+                                        <select class="dropdown-item-text" name="username" id="username" required="true" data-live-search="true">
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
                                                     <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>

@@ -93,8 +93,8 @@
                             <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/manageWorkingServlet?method=updateManageWorking" method="post">
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
-                                    <div class="control-text col-sm col-md-3 col-lg-3">
-                                        <select class="selectpicker text-dark" id="projectid" name="projectid" data-live-search="true" >
+                                    <div class="control-text col-sm col-md-2 col-lg-2">
+                                        <select class="dropdown-item-text" id="projectid" name="projectid" data-live-search="true" >
                                             <option value="" ${manage.projectid==""?"selected":""} style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
@@ -214,9 +214,9 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-        $('.selectpicker').selectpicker('mobile');
-    }
+    // if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    //     $('.selectpicker').selectpicker('mobile');
+    // }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";

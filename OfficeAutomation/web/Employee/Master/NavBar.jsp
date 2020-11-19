@@ -18,9 +18,10 @@
     });
 </script>
 
-<nav class="navbar"> <a href="#" class="sidebar-toggler">
-    <i data-feather="menu"></i>
-</a>
+<nav class="navbar">
+    <a href="#" class="sidebar-toggler">
+        <i data-feather="menu"></i>
+    </a>
     <div class="navbar-content">
         <div id="title1">
             <div class="navbar-brand">
@@ -29,8 +30,10 @@
         </div>
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown nav-profile"><a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="<%=basePath%>assets/images/carousel/gitlab.jpg" alt="profile"></a>
+            <li class="nav-item dropdown nav-profile">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="<%=basePath%>assets/images/carousel/gitlab.jpg" alt="profile">
+                </a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
                     <div class="dropdown-header d-flex flex-column align-items-center">
                         <div class="figure mb-3">

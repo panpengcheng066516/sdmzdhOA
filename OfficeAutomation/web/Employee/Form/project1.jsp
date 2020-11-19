@@ -137,7 +137,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manager">专业负责人</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker show-tick" name="manager" id="manager"  data-live-search="true">
+                                        <select class="dropdown-item-text" name="manager" id="manager"  data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
@@ -156,7 +156,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="designer">设计人&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker show-tick" name="designer" id="designer"  data-live-search="true">
+                                        <select class="dropdown-item-text" name="designer" id="designer"  data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
@@ -169,7 +169,7 @@
 
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="reviewer">审核人&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker show-tick" name="reviewer" id="reviewer"  data-live-search="true">
+                                        <select class="dropdown-item-text" name="reviewer" id="reviewer"  data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
@@ -188,7 +188,7 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">室审&emsp;&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="selectpicker show-tick" name="office" id="office"  data-live-search="true">
+                                        <select class="dropdown-item-text" name="office" id="office"  data-live-search="true">
                                             <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
@@ -257,9 +257,9 @@
 <script src="<%=basePath%>dialogeffects/js/classie.js"></script>
 <script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
 <script type="text/javascript">
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-        $('.selectpicker').selectpicker('mobile');
-    }
+    // if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    //     $('.selectpicker').selectpicker('mobile');
+    // }
 
     function logUp() {
         window.location.href = "../../index.jsp";
