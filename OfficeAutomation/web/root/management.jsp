@@ -63,11 +63,11 @@
             <!-- row -->
             <div class="row">
                 <div class="container-fluid grid-margin col-md-12">
-                    <div class="card card-rounded">
+                    <div class="d-inline ">
                         <div class="card-header">
                             <div class="custom-control-inline">
                                 <div class="col">
-                                    <div class="card-title">
+                                    <div class="title">
                                         <h3 class="text text-success">用户信息修改</h3>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@
                         <div class="card-body">
                             <form class="forms-sample" action="${ pageContext.request.contextPath }/manageUserServlet?method=updateUser" method="post">
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="name">选择用户</label>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="username">选择用户</label>
                                     <div class="control-text col-sm-2">
                                         <select class="dropdown-item-text" name="username" id="username" required="true" data-live-search="true">
                                             <c:if test="${!empty userList}">
@@ -105,7 +105,7 @@
                                 </div>
 
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password">分组&emsp;&emsp;</label>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="groupId">分组&emsp;&emsp;</label>
                                     <div class="control-text col-sm-2">
                                         <select class="dropdown-item-text" id="groupId" name="groupId" required="true">
                                             <option value="0" style="text-align: center; text-align-last: center;">领导组</option>
@@ -115,7 +115,7 @@
                                         </select>
                                     </div>
 
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password1">权限&emsp;&emsp;</label>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="power">权限&emsp;&emsp;</label>
                                     <div class="control-text col-sm-2">
                                         <select class="dropdown-item-text" id="power" name="power" required="true">
                                             <option value="0" style="text-align: center; text-align-last: center;">管理员</option>
@@ -128,7 +128,7 @@
                                 </div>
 
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password">是否借调</label>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="transfer">是否借调</label>
                                     <div class="control-text col-sm-2">
                                         <select class="dropdown-item-text" id="transfer" name="transfer" required="true">
                                             <option value="0" selected style="text-align: center; text-align-last: center;">否</option>
@@ -136,7 +136,7 @@
                                         </select>
                                     </div>
 
-                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="password1">是否在职</label>
+                                    <label class="col-sm-auto col-form-label" style="display:table-cell;" for="inuse">是否在职</label>
                                     <div class="control-text col-sm-2">
                                         <select class="dropdown-item-text" id="inuse" name="inuse" required="true">
                                             <option value="0"  style="text-align: center; text-align-last: center;">否</option>

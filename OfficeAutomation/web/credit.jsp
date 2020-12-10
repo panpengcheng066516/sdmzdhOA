@@ -27,28 +27,9 @@
     <base href="<%=basePath%>">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/core/core.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/fullcalendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/jquery-tags-input/jquery.tagsinput.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropzone/dropzone.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropify/dist/dropify.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-colorpicker/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
-    <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
-    <!-- 弹出气泡 -->
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/normalize.css" />
-    <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog.css">
-    <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
-    <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
-    <script type="text/javascript" src="<%=basePath%>assets/js/jquery-1.11.3.min.js" ></script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -104,29 +85,7 @@
     </div>
 </div>
 </body>
-<script src="<%=basePath%>assets/vendors/select2/select2.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.resize.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/template.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/bootstrap-select.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/htmlFile/linkman.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/js/dashboard.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/js/datepicker.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js" type="text/javascript"></script>
-<!-- 弹出气泡 -->
-<script src="<%=basePath%>dialogeffects/js/classie.js"></script>
-<script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
-<!-- chart -->
-<script src="<%=basePath%>js/apexcharts.min.js"></script>
-<script type="text/javascript">
-    /* logout */
-    function logUp() {
-        window.location.href = "${pageContext.request.contextPath}/login.jsp";
-    }
-
-</script>
 </html>

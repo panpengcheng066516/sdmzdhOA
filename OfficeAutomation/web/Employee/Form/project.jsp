@@ -26,31 +26,12 @@
     %>
     <base href="<%=basePath%>">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/core/core.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/jquery-tags-input/jquery.tagsinput.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropzone/dropzone.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropify/dist/dropify.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-colorpicker/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
-    <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
-    <!-- 弹出气泡 -->
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/normalize.css" />
-    <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog.css">
-    <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
-    <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
-    <style type="text/css">
-        hr.style-two {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(192, 192, 192), rgba(0, 0, 0, 0));
-        }
-    </style>
 </head>
 <body>
 <div class="main-wrapper">
@@ -65,7 +46,7 @@
             <%--breadscrumb--%>
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb bg-inverse-primary">
-                    <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                    <li class="breadcrumb-item text-small"><a href="index.jsp">首页</a></li>
                     <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/projectServlet?method=getAllProject">科室项目一览</a></li>
                     <li class="breadcrumb-item active text-small" aria-current="page">录入项目</li>
                 </ol>
@@ -99,16 +80,16 @@
                                 &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="deadline">截止日期</label>
-                                    <input type="date" class="datepicker form-control col-sm-2 text-success" name="deadline" id="deadline">
+                                    <input type="text" class="datepicker form-control col-sm-2" name="deadline" id="deadline">
                                     &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="finish">实际日期</label>
-                                    <input type="date" class="datepicker form-control col-sm-2 text-success" name="finish" id="finish">
+                                    <input type="text" class="datepicker form-control col-sm-2" name="finish" id="finish">
                                 </div>
                                 &nbsp;
                                 <div class="form-group row text-nowrap" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="progress">进度状态</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="dropdown-item-text" id="progress" name="progress">
+                                        <select class="select2" id="progress" name="progress">
                                             <option value="已完成">已完成</option>
                                             <option value="未完成">未完成</option>
                                             <option value="延期">延期</option>
@@ -118,7 +99,7 @@
                                     &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="stage">高阶段分类</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="dropdown-item-text" name="stage" id="stage">
+                                        <select class="select2" name="stage" id="stage">
                                             <option value="施工图">施工图</option>
                                             <option value="方案设计">方案设计</option>
                                             <option value="经营投标">经营投标</option>
@@ -131,26 +112,25 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="manager">专业负责人</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="dropdown-item-text" name="manager" id="manager" required="true" data-live-search="true">
-                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
+                                        <select class="select2-single" name="manager" id="manager" required="true">
+                                            <option value="">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
-                                                    <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
+                                                    <option value="${u.username}">${u.name}</option>
                                                 </c:forEach>
                                             </c:if>
                                         </select>
                                     </div>
-<%--                                    <input type="text" class="form-control col-sm-2" name="manager" id="manager" placeholder="专业负责人" autocomplete="off">--%>
                                 </div>
                                 &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="designer">设计人&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="dropdown-item-text" name="designer" id="designer" required="true" data-live-search="true">
-                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
+                                        <select class="select2-single" name="designer" id="designer" required="true">
+                                            <option value="">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
-                                                    <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
+                                                    <option value="${u.username}">${u.name}</option>
                                                 </c:forEach>
                                             </c:if>
                                         </select>
@@ -158,43 +138,31 @@
                                     &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="reviewer">审核人&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="dropdown-item-text" name="reviewer" id="reviewer" required="true" data-live-search="true">
-                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
+                                        <select class="select2-single" name="reviewer" id="reviewer" required="true">
+                                            <option value="">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
-                                                    <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
+                                                    <option value="${u.username}">${u.name}</option>
                                                 </c:forEach>
                                             </c:if>
                                         </select>
                                     </div>
-<%--                                    <input type="text" class="form-control col-sm-2" name="reviewer" id="reviewer" placeholder="审核" autocomplete="off">--%>
                                 </div>
                                 &nbsp;
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="office">室审&emsp;&emsp;</label>
                                     <div class="control-text col-sm-2">
-                                        <select class="dropdown-item-text" name="office" id="office" required="true" data-live-search="true">
-                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>
+                                        <select class="select2-single" name="office" id="office" required="true">
+                                            <option value="">请选择</option>
                                             <c:if test="${!empty userList}">
                                                 <c:forEach var="u" items="${userList}">
-                                                    <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>
+                                                    <option value="${u.username}">${u.name}</option>
                                                 </c:forEach>
                                             </c:if>
                                         </select>
                                     </div>
-<%--                                    <input type="text" class="form-control col-sm-2" name="office" id="office" placeholder="室审" autocomplete="off">--%>
                                     &nbsp;
                                     <label class="col-sm-auto col-form-label" style="display:table-cell;" for="ce">总师&emsp;&emsp;</label>
-<%--                                    <div class="control-text col-sm-2">--%>
-<%--                                        <select class="selectpicker" name="ce" id="ce" required="true" data-live-search="true">--%>
-<%--                                            <option value=""  style="text-align: center; text-align-last: center;">请选择</option>--%>
-<%--                                            <c:if test="${!empty userList}">--%>
-<%--                                                <c:forEach var="u" items="${userList}">--%>
-<%--                                                    <option value="${u.username}"  style="text-align: center; text-align-last: center;">${u.name}</option>--%>
-<%--                                                </c:forEach>--%>
-<%--                                            </c:if>--%>
-<%--                                        </select>--%>
-<%--                                    </div>--%>
                                     <input type="text" class="form-control col-sm-2" name="ce" id="ce" placeholder="总师" autocomplete="off">
                                 </div>
                                 &nbsp;
@@ -220,30 +188,52 @@
     </div>
 </div>
 </body>
-<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/progressbar.js/progressbar.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/template.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/bootstrap-select.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/htmlFile/linkman.js" type="text/javascript"></script>
-<!-- 弹出气泡 -->
-<script src="<%=basePath%>dialogeffects/js/classie.js"></script>
-<script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
+<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
+<script src="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js" type="text/javascript"></script>
+<script src="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script type="text/javascript">
+    if ($(".select2").length) {
+        $(".select2").select2({
+            minimumResultsForSearch: Infinity,
+        });
+    }
 
-    $(function() {
-        var time = new Date();
-        var day = ("0" + time.getDate()).slice(-2);
-        var month = ("0" + (time.getMonth() + 1)).slice(-2);
-        var today = time.getFullYear() + "-" + (month) + "-" + (day);
+    if ($(".select2-single").length) {
+        $(".select2-single").select2();
+    }
 
-        $('#deadline').val(today);
-        $('#finish').val(today);
-    });
+    if($('#deadline').length) {
+        var date = new Date();
+        var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        $('#deadline').datepicker({
+            language: 'zh-CN',
+            format: "mm-dd-yyyy",
+            todayHighlight: true,
+            autoclose: true,
+            immediateUpdates: true,
+            orientation: 'bottom',
+            todayBtn: 'linked',
+        });
+        $('#deadline').datepicker('setDate', today);
+    }
+
+    if($('#finish').length) {
+        var date = new Date();
+        var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        $('#finish').datepicker({
+            language: 'zh-CN',
+            format: "mm-dd-yyyy",
+            todayHighlight: true,
+            autoclose: true,
+            immediateUpdates: true,
+            orientation: 'bottom',
+            todayBtn: 'linked',
+        });
+        $('#finish').datepicker('setDate', today);
+    }
 
     function logUp() {
         window.location.href = "../../login.jsp";

@@ -26,20 +26,12 @@
     %>
     <base href="<%=basePath%>">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/core/core.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/jquery-tags-input/jquery.tagsinput.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropzone/dropzone.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropify/dist/dropify.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-colorpicker/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet"
-          href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png"/>
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-    <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <script type="text/javascript" src="<%=basePath%>assets/js/jquery-1.11.3.min.js"></script>
     <style type="text/css">
         .table > thead > tr > th {
@@ -92,8 +84,8 @@
                                     "<td>" + data[i].ce + "</td>" +
                                     "<td>" + data[i].stage + "</td>" +
                                     "<td><div class='text-wrap text-break'>" + data[i].remarks + "</div></td>" +
-                                    "<td ${user.power==2||user.power==3||user.power==18?'':'hidden'}><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=" + data[i].id + "'><button type='button' ${user.power==2?'':'hidden'} class='btn btn-inverse-info btn-rounded btn-xs border-info-muted text-primary'>修改</button></a><br>" +
-                                    "<a href='${pageContext.request.contextPath}/projectServlet?method=projectPeopleInfo&projectid="+data[i].id+"'><button type='button' class='btn btn-linkedin btn-rounded btn-xs border-primary'>编辑</button></a></td>" +
+                                    "<td ${user.power==2||user.power==3||user.power==18?'':'hidden'}><a href='${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=" + data[i].id + "'><button type='button' ${user.power==2?'':'hidden'} class='btn btn-instagram btn-rounded btn-xs'>修改</button></a><br>" +
+                                    "<a href='${pageContext.request.contextPath}/projectServlet?method=projectPeopleInfo&projectid="+data[i].id+"'><button type='button' class='btn btn-twitter btn-rounded btn-xs'>添加</button></a></td>" +
                                     "</tr>";
                             }
                         } else {
@@ -120,7 +112,7 @@
                 <%--breadscrumb--%>
                 <nav class="page-breadcrumb">
                     <ol class="breadcrumb bg-inverse-primary">
-                        <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                        <li class="breadcrumb-item text-small"><a href="index.jsp">首页</a></li>
                         <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/addProjectServlet?method=getPeopleInfo">录入项目</a></li>
                         <li class="breadcrumb-item active text-small" aria-current="page">科室项目一览</li>
                     </ol>
@@ -131,10 +123,9 @@
                         <div class="card card-rounded border-light">
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label class="col-sm-auto col-form-label text-primary">请选择</label>
+                                    <label class="col-sm-auto col-form-label text-muted">请选择</label>
                                     <div class="control-text col-sm-auto col-md-auto col-lg-auto">
-                                        <select class="dropdown-item-text text-primary border-primary-muted"
-                                                id="progressSelect" name="progressSelect">
+                                        <select class="select2" id="progressSelect" name="progressSelect">
                                             <option value="全部">全部</option>
                                             <option value="已完成">已完成</option>
                                             <option value="未完成">未完成</option>
@@ -144,19 +135,18 @@
                                     </div>
                                 </div>
                                 <hr class="style-two">
-                                &nbsp;
                                 <div class="wrapper-editor">
                                     <div class="custom-control row align-self-end" ${user.power==2?"":"hidden"}>
                                         <div class="right-pill col-sm-auto text-small text-reddit text-justify float-sm-right">
                                             *&nbsp;如需对现有内容进行修改，请点击<strong>修改</strong>&nbsp;*<br>
-                                            *&nbsp;如需添加或撤离相关人员，请点击<strong>编辑</strong>&nbsp;*
+                                            *&nbsp;如需添加或撤离相关人员，请点击<strong>添加</strong>&nbsp;*
                                         </div>
                                     </div>
-
+                                    <br>
                                     <div class="table-content">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-wrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md table-sm w-auto"
+                                                <table class="table table-striped table-bordered table-hover table-responsive-md table-sm w-auto"
                                                        id="table01" cellspacing="0" cellpadding="15">
                                                     <thead>
                                                     <tr>
@@ -203,13 +193,12 @@
                                                                 </td>
                                                                 <td ${user.power==2?"":"hidden"} >
                                                                     <a href="${pageContext.request.contextPath}/projectServlet?method=getProjectInfo&projectid=${project.id}">
-                                                                        <button type="button" ${user.power==2?"":"hidden"}
-                                                                                class="btn btn-inverse-info btn-rounded btn-xs border-info text-primary">
+                                                                        <button type="button" ${user.power==2?"":"hidden"} class="btn btn-instagram btn-rounded btn-xs">
                                                                             修改
                                                                         </button>
                                                                     </a><br>
                                                                     <a href="${pageContext.request.contextPath}/projectServlet?method=projectPeopleInfo&projectid=${project.id}">
-                                                                        <button type="button" class="btn btn-linkedin btn-rounded btn-xs border-primary">编辑</button>
+                                                                        <button type="button" class="btn btn-twitter btn-rounded btn-xs">添加</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -232,58 +221,20 @@
         <!-- partial -->
 </div>
 </body>
-<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/progressbar.js/progressbar.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/template.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/bootstrap-select.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/htmlFile/linkman.js" type="text/javascript"></script>
-<!-- 弹出气泡 -->
-<script src="<%=basePath%>dialogeffects/js/classie.js"></script>
-<script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
+<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
+<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
+<script src="<%=basePath%>assets/vendors/datatables.net/jquery.dataTables.js"></script>
+<script src="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+<script src="<%=basePath%>assets/js/data-table.js"></script>
+<%--<script src="<%=basePath%>assets/js/datatableChinese.js"></script>--%>
 <script type="text/javascript">
-
-    function exportExcel() {
-        //var tmp=document.getElementById("companySel1").value;
-        //var form=$("<form>");//定义一个form表单
-        //form.attr("style","display:none");
-        //form.attr("target","");
-        //form.attr("method","post");
-        //form.attr("action","${pageContext.request.contextPath}/OrderContactExportExcelServlet?method="+tmp);
-        //var input1=$("<input>");
-        //$("body").append(form);//将表单放置在web中
-        //form.append(input1);
-        //form.submit();//表单提交
-        var fileName = "项目信息整理分析表";
-        var time = new Date();
-        var day = ("0" + time.getDate()).slice(-2);
-        var month = ("0" + (time.getMonth() + 1)).slice(-2);
-        var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
-
-        $("#table01").table2excel({
-            exclude: ".noExl",
-            name: "Excel Document Name",
-            filename: fileName + today,
-            sheetName: fileName,// sheetName
-            exclude_img: true,
-            exclude_links: true,
-            exclude_inputs: true
+    if ($(".select2").length) {
+        $(".select2").select2({
+            minimumResultsForSearch: Infinity,
         });
     }
-
-    $(function () {
-        var winWidth = $(window).width();
-        if (parseInt(winWidth) > parseInt("900")) {
-            $("#title1").addClass("search-form");
-            $("#titleText").css("font-size", "24px");
-        } else {
-            $("#title1").removeClass("search-form");
-        }
-    });
 
     $('#table01').DataTable({
         "aLengthMenu": [[10, 20, 30, -1], ["10条", "20条", "30条", "所有"]],
@@ -334,9 +285,6 @@
         }
     });
 
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        $('.selectpicker').selectpicker('mobile');
-    }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";

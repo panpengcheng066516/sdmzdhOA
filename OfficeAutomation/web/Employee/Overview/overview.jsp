@@ -26,24 +26,11 @@
     %>
     <base href="<%=basePath%>">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/core/core.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/jquery-tags-input/jquery.tagsinput.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropzone/dropzone.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropify/dist/dropify.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-colorpicker/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
-    <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
-    <!-- 弹出气泡 -->
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/normalize.css" />
-    <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog.css">
-    <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
-    <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
     <style type="text/css">
         .table>thead>tr>th {
             text-align: center;
@@ -134,7 +121,7 @@
                 <%--breadscrumb--%>
                 <nav class="page-breadcrumb">
                     <ol class="breadcrumb bg-inverse-primary">
-                        <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                        <li class="breadcrumb-item text-small"><a href="index.jsp">首页</a></li>
                         <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/departmentSummaryServlet?method=getWorkingList">月工作记录</a></li>
                         <li class="breadcrumb-item active text-small" aria-current="page">科室年工作记录一览</li>
                     </ol>
@@ -146,18 +133,18 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <label class="col-sm-auto col-form-label text-primary">年份</label>
+                                        <label class="col-sm-auto col-form-label text-muted">年份</label>
                                         <div class="control-text col-sm-auto col-md-auto col-lg-auto">
-                                            <select class="dropdown-item-text text-primary border-primary-muted" id="selYear" name="selYear" onchange="sel()">
+                                            <select class="select2" id="selYear" name="selYear" onchange="sel()">
                                                 <c:forEach begin="2018" end="2026" step="1" var="i">
                                                     <option value="${i}" ${currentYear == i?"selected":""}>${i}</option>
                                                 </c:forEach>
                                             </select>
                                         </div>
                                         &nbsp;
-                                        <label class="col-sm-auto col-form-label text-primary">月份</label>
+                                        <label class="col-sm-auto col-form-label text-muted">月份</label>
                                         <div class="control-text col-sm-auto col-md-auto col-lg-auto">
-                                            <select class="dropdown-item-text text-primary border-primary-muted" id="selMonth" name="selMonth" onchange="sel0()">
+                                            <select class="select2" id="selMonth" name="selMonth" onchange="sel0()">
                                                 <c:forEach begin="1" end="12" step="1" var="i">
                                                     <option value="${i}" ${currentMonth == i?"selected":""}>${i}</option>
                                                 </c:forEach>
@@ -165,7 +152,7 @@
                                         </div>
                                         &nbsp;
                                         <div class="col-sm-1 form-label">
-                                            <input type="button" id="selButton" class="btn btn-inverse-danger-muted btn-rounded border-danger-muted btn-sm text-danger" name="submit" value="确定">
+                                            <input type="button" id="selButton" class="btn btn-inverse-success border-success btn-sm" name="submit" value="确定">
                                         </div>
                                     </div>
                                     <hr class="style-two">
@@ -264,20 +251,17 @@
     </main>
 </div>
 </body>
-<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/progressbar.js/progressbar.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/template.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/bootstrap-select.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/htmlFile/linkman.js" type="text/javascript"></script>
-<!-- 弹出气泡 -->
-<script src="<%=basePath%>dialogeffects/js/classie.js"></script>
-<script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
+<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
+<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script type="text/javascript">
+    if ($(".select2").length) {
+        $(".select2").select2({
+            minimumResultsForSearch: Infinity,
+            closeOnSelect:true
+        });
+    }
 
     function exportExcel() {
         //var tmp=document.getElementById("companySel1").value;

@@ -26,24 +26,11 @@
     %>
     <base href="<%=basePath%>">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/core/core.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/jquery-tags-input/jquery.tagsinput.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropzone/dropzone.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropify/dist/dropify.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-colorpicker/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
-    <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
-    <!-- 弹出气泡 -->
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/normalize.css" />
-    <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog.css">
-    <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
-    <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
     <style type="text/css">
         .table>thead>tr>th {
             text-align: center;
@@ -96,6 +83,7 @@
                     }else{
                         summaryContent = " <tr> <td>空</td> </tr>";
                     }
+
                     if(data.designVoList.length>0){
                         for(var i=0;i<data.designVoList.length;i++) {
                             designContent += " <tr>" +
@@ -111,7 +99,7 @@
                                 "<td>" + data.designVoList[i].basicDesignDay + "</td>" +
                                 "<td>" + data.designVoList[i].leader + "</td>" +
                                 "<td ${user.power==1||user.power==2?'':'hidden'}><div class='text text-wrap text-break'>" + data.designVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary'>修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-dribbble btn-rounded btn-xs'>修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -130,7 +118,7 @@
                                 "<td>" + data.programingVoList[i].programingDay + "</td>" +
                                 "<td>" + data.programingVoList[i].monthday + "</td>" +
                                 "<td ${user.power==1||user.power==2?'':'hidden'}><div class='text text-wrap text-break'>" + data.programingVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='disabled' class='btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary' >修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='disabled' class='btn btn-dribbble btn-rounded btn-xs' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -147,7 +135,7 @@
                                 "<td>" + data.debugVoList[i].manageday + "</td>" +
                                 "<td>" + data.debugVoList[i].debugday + "</td>" +
                                 "<td ${user.power==1||user.power==2?'':'hidden'}><div class='text text-wrap text-break'>" + data.debugVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary' >修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-dribbble btn-rounded btn-xs' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -171,7 +159,7 @@
                                 "<td>" + data.manageVoList[i].other + "</td>" +
                                 "<td>" + data.manageVoList[i].PMday + "</td>" +
                                 "<td ${user.power==1||user.power==2?'':'hidden'}><div class='text text-wrap text-break'>" + data.manageVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary' >修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-dribbble btn-rounded btn-xs' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -185,7 +173,7 @@
                                 "<td>" + data.dailyVoList[i].type + "</td>" +
                                 "<td>" + data.dailyVoList[i].monthDay + "</td>" +
                                 "<td ${user.power==1||user.power==2?'':'hidden'}><div class='text text-wrap text-break'>" + data.dailyVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary' >修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-dribbble btn-rounded btn-xs' >修改</button></a></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -216,7 +204,7 @@
                 <%--breadscrumb--%>
                 <nav class="page-breadcrumb">
                     <ol class="breadcrumb bg-inverse-primary">
-                        <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                        <li class="breadcrumb-item text-small"><a href="index.jsp">首页</a></li>
                         <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/countSummaryServlet?method=getHistorySummary">年工作记录</a></li>
                         <li class="breadcrumb-item active text-small" aria-current="page">科室月工作记录一览</li>
                     </ol>
@@ -228,27 +216,27 @@
                             <div class="card-body">
                                 <div class="custom-control">
                                     <div class="form-group row">
-                                        <label class="col-sm-auto col-form-label text-primary">年份</label>
+                                        <label class="col-sm-auto col-form-label text-muted">年份</label>
                                         <div class="control-text col-sm-auto col-md-auto col-lg-auto">
-                                            <select class="dropdown-item-text text-primary border-primary-muted" id="selYear" name="selYear" >
+                                            <select class="select2" id="selYear" name="selYear" >
                                                 <c:forEach begin="2018" end="2026" step="1" var="i">
                                                     <option value="${i}" ${currentYear == i?"selected":""}>${i}</option>
                                                 </c:forEach>
                                             </select>
                                         </div>
                                         &nbsp;
-                                        <label class="col-sm-auto col-form-label text-primary">月份</label>
+                                        <label class="col-sm-auto col-form-label text-muted">月份</label>
                                         <div class="control-text col-sm-auto col-md-auto col-lg-auto">
-                                            <select class="dropdown-item-text text-primary border-primary-muted" id="selMonth" name="selMonth" >
+                                            <select class="select2" id="selMonth" name="selMonth" >
                                                 <c:forEach begin="1" end="12" step="1" var="i">
                                                     <option value="${i}" ${currentMonth == i?"selected":""}>${i}</option>
                                                 </c:forEach>
                                             </select>
                                         </div>
                                         &nbsp;
-                                        <label class="col-sm-auto col-form-label text-primary">项目</label>
+                                        <label class="col-sm-auto col-form-label text-muted">项目</label>
                                         <div class="control-text col-sm-2 col-md-2 col-lg-2">
-                                            <select class="dropdown-item-text text-primary border-primary-muted" name="selProject" id="selProject">
+                                            <select class="select2-single" name="selProject" id="selProject">
                                                 <c:if test="${!empty projectList}">
                                                     <option value="全部" selected="selected">全部</option>
                                                     <c:forEach  var="project" items="${projectList}">
@@ -259,13 +247,13 @@
                                         </div>
                                         &nbsp;
                                         <div class="col-sm-1 form-label">
-                                            <input type="button" id="selButton" class="btn btn-inverse-success btn-rounded border-success btn-sm" name="submit" value="确定">
+                                            <input type="button" id="selButton" class="btn btn-inverse-success border-success btn-sm" name="submit" value="确定">
                                         </div>
                                     </div>
                                     &nbsp;
-                                    <div class="form-group row align-content-sm-center">
-                                        <div class="col-sm-auto form-label align-content-sm-center">
-                                            <button type="button" id="expButton" class="btn btn-outline-danger btn-rounded btn-sm">导出</button>
+                                    <div class="form-group row">
+                                        <div class="col-sm-auto form-label">
+                                            <button type="button" id="expButton" class="btn btn-inverse-danger border-danger btn-rounded btn-sm">导出</button>
                                         </div>
                                     </div>
                                 </div>
@@ -333,7 +321,7 @@
                                         </div>
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-condensed table-hover table-responsive-md" id="table01">
+                                                <table class="table table-striped table-hover table-responsive-md" id="table01">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
@@ -359,7 +347,7 @@
                                     <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md w-auto" id="table02">
+                                                <table class="table table-striped table-bordered table-hover table-responsive-md w-auto" id="table02">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
@@ -395,7 +383,7 @@
                                                                 <td><div class="text text-wrap text-break">${design.remark}</div></td>
                                                                 <td ${user.power==1||user.power==2?"":"hidden"}>
                                                                     <a href="${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid=${design.id}">
-                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary">修改</button>
+                                                                        <button type="button" class="btn btn-dribbble btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -409,13 +397,13 @@
                                     <div class="tab-pane fade" id="programming" role="tabpanel" aria-labelledby="programming-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md w-auto" id="table03" cellspacing="0">
+                                                <table class="table table-striped table-bordered table-hover table-responsive-md w-auto" id="table03" cellspacing="0">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
                                                         <th>姓名</th>
                                                         <th>工程名</th>
-                                                        <th>工作量名称</th>
+                                                        <th>工作量<br>名称</th>
                                                         <th>总开关量</th>
                                                         <th>总模拟量</th>
                                                         <th>类型</th>
@@ -441,7 +429,7 @@
                                                                 <td><div class="text text-wrap text-break">${programing.remark}</div></td>
                                                                 <td ${user.power==1||user.power==2?"":"hidden"}>
                                                                     <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
-                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary">修改</button>
+                                                                        <button type="button" class="btn btn-dribbble btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -455,13 +443,13 @@
                                     <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table04">
+                                                <table class="table table-striped table-bordered table-hover table-responsive-md" cellspacing="0" id="table04">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
                                                         <th>姓名</th>
                                                         <th>工程名</th>
-                                                        <th>工作量名称</th>
+                                                        <th>工作量<br>名称</th>
                                                         <th>地点</th>
                                                         <th style="width:5%">管理</th>
                                                         <th style="width:5%">调试</th>
@@ -483,7 +471,7 @@
                                                                 <td><div class="text text-wrap text-break">${debug.remark}</div></td>
                                                                 <td ${user.power==1||user.power==2?"":"hidden"}>
                                                                     <a href="${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid=${debug.id}">
-                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary">修改</button>
+                                                                        <button type="button" class="btn btn-dribbble btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -497,13 +485,13 @@
                                     <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-bordered table-hover table-condensed table-sm table-responsive w-auto" cellspacing="0" id="table05">
+                                                <table class="table table-striped table-bordered table-hover table-responsive w-auto" cellspacing="0" id="table05">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
                                                         <th>姓名</th>
                                                         <th>工程名</th>
-                                                        <th>工作量名称</th>
+                                                        <th>工作量<br>名称</th>
                                                         <th>商务询价</th>
                                                         <th>标书制作</th>
                                                         <th>合同签署</th>
@@ -539,7 +527,7 @@
                                                                 <td><div class="text text-wrap text-break">${manage.remark}</div></td>
                                                                 <td ${user.power==1||user.power==2?"":"hidden"}>
                                                                     <a href="${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid=${manage.id}">
-                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary">修改</button>
+                                                                        <button type="button" class="btn btn-dribbble btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -553,7 +541,7 @@
                                     <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
                                         <div class="custom-control table">
                                             <div class="table-responsive text-nowrap">
-                                                <table class="table table-striped table-borderless table-hover table-condensed table-sm table-responsive-md" cellspacing="0" id="table06">
+                                                <table class="table table-striped table-borderless table-hover table-responsive-md" cellspacing="0" id="table06">
                                                     <thead>
                                                     <tr>
                                                         <th style="width:5%">#</th>
@@ -575,7 +563,7 @@
                                                                 <td><div class="text text-wrap text-break">${daily.remark}</div></td>
                                                                 <td ${user.power==1||user.power==2?"":"hidden"}>
                                                                     <a href="${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid=${daily.id}">
-                                                                        <button type="button" class="btn btn-inverse-info btn-rounded border-primary-muted btn-xs text-primary">修改</button>
+                                                                        <button type="button" class="btn btn-dribbble btn-rounded btn-xs">修改</button>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -599,23 +587,20 @@
     </div>
 </div>
 </body>
-<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/progressbar.js/progressbar.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/template.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/bootstrap-select.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/htmlFile/linkman.js" type="text/javascript"></script>
-<!-- 弹出气泡 -->
-<script src="<%=basePath%>dialogeffects/js/classie.js"></script>
-<script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
+<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
+<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script>
-    // if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-    //     $('.selectpicker').selectpicker('mobile');
-    // }
+    if ($(".select2").length) {
+        $(".select2").select2({
+            minimumResultsForSearch: Infinity,
+        });
+    }
+
+    if ($(".select2-single").length) {
+        $(".select2-single").select2();
+    }
 
     function logUp() {
         window.location.href = "../../login.jsp";

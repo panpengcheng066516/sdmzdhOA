@@ -9,32 +9,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!-- partial:partials/_sidebar.html -->
-<nav class="sidebar" style="color:#8DB6CD">
+<nav class="sidebar">
     <div class="sidebar-header">
-        <a href="javascript:void(0);" class="sidebar-brand" onclick="ShuaXin1()" style="color: white;">SDMZDH</a>
+        <a class="sidebar-brand text-white" onclick="window.location.href='index.jsp'">
+            SDM<span class="text-light">ZDH</span>
+        </a>
+
         <div class="sidebar-toggler not-active">
             <span></span> <span></span> <span></span>
         </div>
     </div>
     <div class="sidebar-body">
         <ul class="nav">
-            <li class="nav-item nav-category">Refresh</li>
+
+            <li class="nav-item nav-category"></li>
             <li class="nav-item">
-                <a href="javascript:void(0);" class="nav-link" onclick="ShuaXin()"> <i class="link-icon" data-feather="activity"></i> <span class="link-title">刷新本页</span>
+                <a href="${ pageContext.request.contextPath }/index.jsp" class="nav-link">
+                    <i class="link-icon" data-feather="star"></i><span class="link-title">首页</span>
                 </a>
             </li>
 
-            <li class="nav-item nav-category">Home</li>
-            <li class="nav-item"><a href="${ pageContext.request.contextPath }/index.jsp" class="nav-link">
-                <i class="link-icon" data-feather="star"></i> <span class="link-title">Dashboard</span>
-            </a></li>
-
-            <li class="nav-item nav-category">Web Apps</li>
-
+            <li class="nav-item nav-category">工作量</li>
             <li class="nav-item" ${user.power!=1?"":"hidden"}>
-                <a class="nav-link" data-toggle="collapse" href="#workloadInput" role="button" aria-expanded="false" aria-controls="workloadInput"> <i class="link-icon" data-feather="chevrons-right"></i> <span class="link-title">工作量填写</span> <i class="link-arrow" data-feather="chevron-down"></i>
+                <a class="nav-link" data-toggle="collapse" href="#workloadInput" role="button" aria-expanded="false" aria-controls="workloadInput">
+                    <i class="link-icon" data-feather="chevrons-right"></i><span class="link-title">工作量填写</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="workloadInput">
+                <div class="collapse show" id="workloadInput">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="${ pageContext.request.contextPath }/Employee/Form/transfer.jsp" class="nav-link">借调</a>
@@ -59,21 +60,47 @@
                         <li class="nav-item">
                             <a href="${ pageContext.request.contextPath }/Employee/Form/daily.jsp" class="nav-link">日常零星</a>
                         </li>
+
+                        <li class="nav-item" ${user.power==2?"":"hidden"}>
+                            <a href="${ pageContext.request.contextPath }/addProjectServlet?method=getPeopleInfo" class="nav-link">科室项目录入</a>
+                        </li>
                     </ul>
                 </div>
             </li>
 
-            <li class="nav-item" >
-                <a class="nav-link" data-toggle="collapse" href="#projectCheck" role="button" aria-expanded="false" aria-controls="projectCheck"> <i class="link-icon" data-feather="box"></i> <span class="link-title">项目管理</span> <i class="link-arrow" data-feather="chevron-down"></i>
+            <li class="nav-item nav-category">个人查询</li>
+            <li class="nav-item" ${user.power!=1?"":"hidden"}>
+                <a class="nav-link" data-toggle="collapse" href="#personalCheck" role="button" aria-expanded="false" aria-controls="personalCheck">
+                    <i class="link-icon" data-feather="trello"></i><span class="link-title">个人工作量查询</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="projectCheck">
+                <div class="collapse show" id="personalCheck">
                     <ul class="nav sub-menu">
-                        <li class="nav-item" ${user.power==2?"":"hidden"}>
-                            <a href="${ pageContext.request.contextPath }/addProjectServlet?method=getPeopleInfo" class="nav-link">科室项目录入</a>
+                        <li class="nav-item">
+                            <a href="${ pageContext.request.contextPath }/personalSummaryServlet?method=getAllWorkingList" class="nav-link">历史工作量</a>
                         </li>
 
                         <li class="nav-item" ${user.power!=1?"":"hidden"}>
                             <a href="${ pageContext.request.contextPath }/personalProjectServlet?method=getAllPersonalProject" class="nav-link">个人已参与项目</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item nav-category">科室查询</li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#overview" role="button" aria-expanded="false" aria-controls="overview">
+                    <i class="link-icon" data-feather="pocket"></i><span class="link-title">科室工作量查询</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse show" id="overview">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="${ pageContext.request.contextPath }/departmentSummaryServlet?method=getWorkingList" class="nav-link">历史工作量</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="${ pageContext.request.contextPath }/countSummaryServlet?method=getHistorySummary" class="nav-link">工作量统计汇总</a>
                         </li>
 
                         <li class="nav-item" ${user.power==2 || user.power==1?"":"hidden"}>
@@ -83,45 +110,9 @@
                 </div>
             </li>
 
-            <li class="nav-item nav-category">Inspect</li>
-
-            <li class="nav-item" ${user.power!=1?"":"hidden"}>
-                <a class="nav-link" data-toggle="collapse" href="#personalCheck" role="button" aria-expanded="false" aria-controls="personalCheck"> <i class="link-icon" data-feather="trello"></i> <span class="link-title">个人工作量查询</span> <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                <div class="collapse" id="personalCheck">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/personalSummaryServlet?method=getAllWorkingList" class="nav-link">历史工作量查询</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#overview" role="button" aria-expanded="false" aria-controls="overview"> <i class="link-icon" data-feather="pocket"></i> <span class="link-title">科室工作量查询</span> <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                <div class="collapse" id="overview">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/departmentSummaryServlet?method=getWorkingList" class="nav-link">历史工作量查询</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/countSummaryServlet?method=getHistorySummary" class="nav-link">工作量统计汇总</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
             <script type="text/javascript">
                 function ShuaXin() {
                     location.reload(true);
-                }
-            </script>
-
-            <script type="text/javascript">
-                function ShuaXin1(){
-                    window.location = "index.jsp";
                 }
             </script>
 

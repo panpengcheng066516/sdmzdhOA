@@ -26,24 +26,11 @@
     %>
     <base href="<%=basePath%>">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/core/core.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/jquery-tags-input/jquery.tagsinput.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropzone/dropzone.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropify/dist/dropify.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-colorpicker/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
-    <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.css">
-    <!-- 弹出气泡 -->
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/normalize.css" />
-    <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog.css">
-    <link rel="stylesheet" href="<%=basePath%>dialogeffects/css/dialog-sandra.css">
-    <script src="<%=basePath%>dialogeffects/js/modernizr.custom.js"></script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -77,13 +64,13 @@
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <label class="col-sm-auto col-form-label">选择类型</label>
                                     <div class="control-text col-sm-auto col-md-auto col-lg-auto">
-                                        <select class="dropdown-item-text" name="type" id="type">
-                                            <option value="日常管理" ${daily.type == "日常管理"?"selected":""} style="text-align: center; text-align-last: center;">日常管理</option>
-                                            <option value="工会事务" ${daily.type == "工会事务"?"selected":""} style="text-align: center; text-align-last: center;">工会事务</option>
-                                            <option value="党/团组事务" ${daily.type == "党/团组事务"?"selected":""} style="text-align: center; text-align-last: center;">党/团组事务</option>
-                                            <option value="考勤" ${daily.type == "考勤"?"selected":""} style="text-align: center; text-align-last: center;">考勤</option>
-                                            <option value="出差/交流" ${daily.type == "出差/交流"?"selected":""} style="text-align: center; text-align-last: center;">出差/交流</option>
-                                            <option value="其他报销/零星工日" ${daily.type == "其他报销/零星工日"?"selected":""} style="text-align: center; text-align-last: center;">其他报销/零星工日</option>
+                                        <select class="select2" name="type" id="type">
+                                            <option value="日常管理" ${daily.type == "日常管理"?"selected":""}>日常管理</option>
+                                            <option value="工会事务" ${daily.type == "工会事务"?"selected":""}>工会事务</option>
+                                            <option value="党/团组事务" ${daily.type == "党/团组事务"?"selected":""}>党/团组事务</option>
+                                            <option value="考勤" ${daily.type == "考勤"?"selected":""}>考勤</option>
+                                            <option value="出差/交流" ${daily.type == "出差/交流"?"selected":""}>出差/交流</option>
+                                            <option value="其他报销/零星工日" ${daily.type == "其他报销/零星工日"?"selected":""}>报销/零星工日</option>
                                         </select>
                                     </div>
                                     &nbsp;
@@ -119,22 +106,16 @@
     </div>
 </div>
 </body>
-<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/progressbar.js/progressbar.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/template.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/bootstrap-select.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/htmlFile/linkman.js" type="text/javascript"></script>
-<!-- 弹出气泡 -->
-<script src="<%=basePath%>dialogeffects/js/classie.js"></script>
-<script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
+<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
+<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script type="text/javascript">
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-        $('.selectpicker').selectpicker('mobile');
+
+    if ($(".select2").length) {
+        $(".select2").select2({
+            minimumResultsForSearch: Infinity
+        });
     }
 
     function logUp() {

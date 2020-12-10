@@ -26,19 +26,12 @@
     %>
     <base href="<%=basePath%>">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/core/core.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/jquery-tags-input/jquery.tagsinput.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropzone/dropzone.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/dropify/dist/dropify.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-colorpicker/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
-    <link rel="stylesheet" href="<%=basePath%>assets/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-    <link href="<%=basePath%>css/bootstrap-select.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <style type="text/css">
         .table>thead>tr>th {
             text-align: center;
@@ -110,7 +103,7 @@
                 <%--breadscrumb--%>
                 <nav class="page-breadcrumb">
                     <ol class="breadcrumb bg-inverse-primary">
-                        <li class="breadcrumb-item text-small"><a href="index.jsp">Home</a></li>
+                        <li class="breadcrumb-item text-small"><a href="index.jsp">首页</a></li>
                         <li class="breadcrumb-item active text-small" aria-current="page">个人项目一览</li>
                     </ol>
                 </nav>
@@ -120,9 +113,9 @@
                         <div class="card card-rounded border-light">
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label class="col-sm-auto col-form-label text-primary">请选择</label>
+                                    <label class="col-sm-auto col-form-label text-muted">请选择</label>
                                     <div class="control-text col-sm-auto col-md-auto col-lg-auto">
-                                        <select class="dropdown-item-text text-primary border-primary-muted" id="progressSelect" name="progressSelect">
+                                        <select class="select2" id="progressSelect" name="progressSelect">
                                             <option value="全部">全部</option>
                                             <option value="已完成">已完成</option>
                                             <option value="未完成">未完成</option>
@@ -131,19 +124,11 @@
                                         </select>
                                     </div>
                                 </div>
-
                                 <hr class="style-two">
-
-<%--                                <div class="custom-control row align-self-end">--%>
-<%--                                    <div class="right-pill col-sm-auto text-small text-reddit text-justify float-sm-right">--%>
-<%--                                        &nbsp;* 点击退出即表示你不在负责或经手此项目！<br>&nbsp;Pressing Out-Button means you're no longer working on this case!&nbsp;--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-
                                 <div class="table-content">
                                     <div class="custom-control table">
                                         <div class="table-responsive text-wrap">
-                                            <table class="table table-striped table-bordered table-hover table-condensed table-responsive-md w-auto" id="table01">
+                                            <table class="table table-striped table-bordered table-hover table-responsive-md w-auto" id="table01">
                                                 <thead>
                                                 <tr>
                                                     <th>项目名称</th>
@@ -202,62 +187,22 @@
     </main>
 </div>
 </body>
-<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/jquery.flot/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/progressbar.js/progressbar.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/template.js" type="text/javascript"></script>
-<script src="<%=basePath%>assets/vendors/sweetalert2/sweetalert2.min.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/bootstrap-select.js" type="text/javascript"></script>
-<script src="<%=basePath%>js/htmlFile/linkman.js" type="text/javascript"></script>
-<!-- 弹出气泡 -->
-<script src="<%=basePath%>dialogeffects/js/classie.js"></script>
-<script src="<%=basePath%>dialogeffects/js/dialogFx.js"></script>
+<script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
+<script src="<%=basePath%>assets/vendors/select2/select2.min.js"></script>
+<script src="<%=basePath%>assets/vendors/datatables.net/jquery.dataTables.js"></script>
+<script src="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+<script src="<%=basePath%>assets/js/data-table.js"></script>
 <script type="text/javascript">
-
-    function exportExcel() {
-        //var tmp=document.getElementById("companySel1").value;
-        //var form=$("<form>");//定义一个form表单
-        //form.attr("style","display:none");
-        //form.attr("target","");
-        //form.attr("method","post");
-        //form.attr("action","${pageContext.request.contextPath}/OrderContactExportExcelServlet?method="+tmp);
-        //var input1=$("<input>");
-        //$("body").append(form);//将表单放置在web中
-        //form.append(input1);
-        //form.submit();//表单提交
-        var fileName="项目信息整理分析表";
-        var time = new Date();
-        var day = ("0" + time.getDate()).slice(-2);
-        var month = ("0" + (time.getMonth() + 1)).slice(-2);
-        var today = time.getFullYear() + month + day + time.getHours() + time.getMinutes() + time.getSeconds();
-
-        $("#table01").table2excel({
-            exclude: ".noExl",
-            name: "Excel Document Name",
-            filename: fileName+today,
-            sheetName: fileName,// sheetName
-            exclude_img: true,
-            exclude_links: true,
-            exclude_inputs: true
+    if ($(".select2").length) {
+        $(".select2").select2({
+            minimumResultsForSearch: Infinity,
         });
     }
 
-    $(function() {
-        var winWidth=$(window).width();
-        if (parseInt(winWidth)>parseInt("900")) {
-            $("#title1").addClass("search-form");
-            $("#titleText").css("font-size","24px");
-        }
-        else {
-            $("#title1").removeClass("search-form");
-        }
-    });
-
     $('#table01').DataTable({
-        "aLengthMenu" : [ [ 10, 20, 30, -1 ], [ "10条", "20条", "30条", "所有" ] ],
+        "aLengthMenu": [[10, 20, 30, -1], ["10条", "20条", "30条", "所有"]],
         "iDisplayLength": 10,
         "language": {
             search: "",
@@ -286,7 +231,7 @@
         }
     });
 
-    $('#table01').each(function() {
+    $('#table01').each(function () {
         var datatable = $(this);
         var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
         search_input.attr('placeholder', '搜索');
@@ -295,20 +240,15 @@
         length_sel.removeClass('form-control-sm');
     });
 
-    $(function() {
-        var winWidth=$(window).width();
-        if (parseInt(winWidth)>parseInt("900")) {
+    $(function () {
+        var winWidth = $(window).width();
+        if (parseInt(winWidth) > parseInt("900")) {
             $("#title1").addClass("search-form");
-            $("#titleText").css("font-size","24px");
-        }
-        else {
+            $("#titleText").css("font-size", "24px");
+        } else {
             $("#title1").removeClass("search-form");
         }
     });
-
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-        $('.selectpicker').selectpicker('mobile');
-    }
 
     function logUp() {
         window.location.href = "${pageContext.request.contextPath}/login.jsp";
