@@ -23,12 +23,21 @@
         <i data-feather="menu"></i>
     </a>
     <div class="navbar-content">
-        <div>
-            <div class="navbar-brand">
-                <i data-feather="home" onclick="window.location.href='index.jsp'" style="color:white"></i>&nbsp;
-                <span style="font-weight: bold; font-size: x-large; color: white;">山冶设计自动化工程技术分公司</span>
+        <form class="search-form">
+            <div class="input-group">
+                <span draggable="false" style="font-weight: bold; font-size: x-large;color: white;margin-bottom: 10px">
+                    <i data-feather="home" style="color:white"></i>&nbsp;
+                    山冶设计自动化工程技术分公司
+                </span>
             </div>
-        </div>
+        </form>
+
+
+
+<%--            <div class="navbar-brand mt-1">&nbsp;--%>
+<%--                <span style="font-weight: bold; font-size: x-large; color: white;">山冶设计自动化工程技术分公司</span>--%>
+<%--            </div>--%>
+<%--        </div>--%>
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown nav-profile">

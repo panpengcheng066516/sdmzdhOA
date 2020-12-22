@@ -11,9 +11,10 @@
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar">
     <div class="sidebar-header">
-        <a class="sidebar-brand text-white" onclick="window.location.href='index.jsp'">
-            SDM<span class="text-light">ZDH</span>
-        </a>
+<%--        <a class="sidebar-brand text-white" onclick="window.location.href='index.jsp'">--%>
+<%--            SDM<span class="text-light">ZDH</span>--%>
+<%--        </a>--%>
+    <img src="${ pageContext.request.contextPath }/assets/images/logo.png" alt=" " style="width: 86%">
 
         <div class="sidebar-toggler not-active">
             <span></span> <span></span> <span></span>
