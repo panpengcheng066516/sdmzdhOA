@@ -88,7 +88,8 @@
                                 "<td>" + data.designVoList[i].basicDesignDay + "</td>" +
                                 "<td>" + data.designVoList[i].leader + "</td>" +
                                 "<td><div class='text text-wrap text-break'>" + data.designVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a>" +
+                                "<button type=\"button\" onclick=\"deDesign('"+data.designVoList[i].id+"')\" class=\"btn btn-reddit btn-rounded btn-xs\">删除</button></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -106,7 +107,8 @@
                                 "<td>" + data.programingVoList[i].programingDay + "</td>" +
                                 "<td>" + data.programingVoList[i].monthday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.programingVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a>" +
+                                "<button type=\"button\" onclick=\"dePrograming('"+data.programingVoList[i].id+"')\" class=\"btn btn-reddit btn-rounded btn-xs\">删除</button></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -122,7 +124,8 @@
                                 "<td>" + data.debugVoList[i].manageday + "</td>" +
                                 "<td>" + data.debugVoList[i].debugday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.debugVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a>" +
+                                "<button type=\"button\" onclick=\"deDebug('"+data.debugVoList[i].id+"')\" class=\"btn btn-reddit btn-rounded btn-xs\">删除</button></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -145,7 +148,8 @@
                                 "<td>" + data.manageVoList[i].other + "</td>" +
                                 "<td>" + data.manageVoList[i].PMday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.manageVoList[i].remark + "</div></td>" +
-                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a></td>" +
+                                "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a>" +
+                                "<button type=\"button\" onclick=\"deManage('"+data.manageVoList[i].id+"')\" class=\"btn btn-reddit btn-rounded btn-xs\">删除</button></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -159,6 +163,7 @@
                                 "<td>" + data.dailyVoList[i].monthDay + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.dailyVoList[i].remark + "</div></td>" +
                                 "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a></td>" +
+                                "<button type=\"button\" onclick=\"deDaily('"+data.dailyVoList[i].id+"')\" class=\"btn btn-reddit btn-rounded btn-xs\">删除</button></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -173,6 +178,32 @@
                 },"json");
             })
         });
+
+        function deDesign(id) {
+            if(confirm("确定删除此条工作量吗？")){
+                window.location.href="${ pageContext.request.contextPath }/designWorkingServlet?method=deleteByid&designid="+id;
+            }
+        }
+        function dePrograming(id) {
+            if(confirm("确定删除此条工作量吗？")){
+                window.location.href="${ pageContext.request.contextPath }/programingPictureWorkingServlet?method=deleteByid&programingid="+id;
+            }
+        }
+        function deDebug(id) {
+            if(confirm("确定删除此条工作量吗？")){
+                window.location.href="${ pageContext.request.contextPath }/debugWorkingServlet?method=deleteByid&debugid="+id;
+            }
+        }
+        function deManage(id) {
+            if(confirm("确定删除此条工作量吗？")){
+                window.location.href="${ pageContext.request.contextPath }/manageWorkingServlet?method=deleteByid&manageid="+id;
+            }
+        }
+        function deDaily(id) {
+            if(confirm("确定删除此条工作量吗？")){
+                window.location.href="${ pageContext.request.contextPath }/dailyWorkingServlet?method=deleteByid&dailyid="+id;
+            }
+        }
     </script>
 </head>
 <body>
@@ -338,6 +369,7 @@
                                                                     <a href="${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid=${design.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
                                                                     </a>
+                                                                    <button type="button" onclick="deDesign('${design.id}')" class="btn btn-reddit btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
@@ -382,6 +414,7 @@
                                                                     <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
                                                                     </a>
+                                                                    <button type="button" onclick="dePrograming('${programing.id}')" class="btn btn-reddit btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
@@ -422,6 +455,7 @@
                                                                     <a href="${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid=${debug.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
                                                                     </a>
+                                                                    <button type="button" onclick="deDebug('${debug.id}')" class="btn btn-reddit btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
@@ -476,6 +510,7 @@
                                                                     <a href="${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid=${manage.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
                                                                     </a>
+                                                                    <button type="button" onclick="deManage('${manage.id}')" class="btn btn-reddit btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
@@ -510,6 +545,7 @@
                                                                     <a href="${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid=${daily.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
                                                                     </a>
+                                                                    <button type="button" onclick="deDaily('${daily.id}')" class="btn btn-reddit btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>

@@ -33,13 +33,6 @@
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
 
-    <script type="text/javascript">
-        function de(projectid) {
-            if(confirm("确定删除此项目吗？")){
-                window.location.href="${ pageContext.request.contextPath }/projectServlet?method=deleteByid&projectid="+projectid;
-            }
-        }
-    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -178,8 +171,6 @@
                                 </div>
                                 &nbsp;
                                 <div align="center">
-
-                                    <input type="button" onclick="de('${project.id}')"  class="btn btn-instagram btn-rounded btn-xs" name="delete" value="删除">
                                     <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>
                             </form>
