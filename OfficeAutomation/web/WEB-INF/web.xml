@@ -211,4 +211,14 @@
         <url-pattern>/addProjectServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <display-name>UnityServlet</display-name>
+        <servlet-name>UnityServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.UnityServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UnityServlet</servlet-name>
+        <url-pattern>/unityServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

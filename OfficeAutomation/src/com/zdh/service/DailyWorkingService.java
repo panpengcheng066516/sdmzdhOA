@@ -60,4 +60,13 @@ public class DailyWorkingService {
         }
         return dailyWorking;
     }
+    public int deleteDailyWorkingByid(String id){
+        int i =0;
+        try {
+            i = dailyWorkingDao.deleteDailyWorkingByid(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
 }

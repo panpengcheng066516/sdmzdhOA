@@ -78,6 +78,11 @@ public class ProjectDao {
         return runner.update(sql,id);
     }
 
+    public int deleteProjectByid(String id)throws SQLException{
+        String sql = "delete from project where id = ?";
+        return runner.update(sql,id);
+    }
+
     public List<User> getUserListByPeoject(String projectid) throws SQLException {
         String sql = "select * from people where username in (select username from projectPeople where projectid = ?)";
         return runner.query(sql, new BeanListHandler<User>(User.class),projectid);

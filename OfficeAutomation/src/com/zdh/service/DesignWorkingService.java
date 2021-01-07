@@ -73,4 +73,13 @@ public class DesignWorkingService {
         }
         return i;
     }
+    public int deleteDesignWorkingByid(String id) {
+        int i =0;
+        try {
+            i = designWorkingDao.deleteDesignWorkingByid(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
 }

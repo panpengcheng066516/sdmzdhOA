@@ -69,4 +69,14 @@ public class ManageWorkingService {
         }
         return project;
     }
+
+    public int deleteManageWorkingByid(String id) {
+        int i = 0;
+        try {
+            i = manageWorkingDao.deleteManageWorkingByid(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
 }

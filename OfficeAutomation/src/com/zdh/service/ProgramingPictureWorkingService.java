@@ -71,4 +71,14 @@ public class ProgramingPictureWorkingService {
         }
         return i;
     }
+
+    public int deleteProgramingPictureWorkingByid(String id) {
+        int i = 0;
+        try {
+            i = programingPictureWorkingDao.deleteProgramingPictureWorkingByid(id);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return i;
+    }
 }

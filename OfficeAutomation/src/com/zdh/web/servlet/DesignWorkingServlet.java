@@ -108,4 +108,20 @@ public class DesignWorkingServlet extends BaseServlet {
         request.setAttribute("designproject",project);
         request.getRequestDispatcher("/Employee/Form/design1.jsp").forward(request, response);
     }
+
+    //通过id删除
+    public void deleteByid(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+
+        //通过id得到对象
+        String id = request.getParameter("designid");
+        int r  = designWorkingService.deleteDesignWorkingByid(id);
+
+        PrintWriter out = response.getWriter();
+        if(r>0){
+            out.print("<script>alert('已删除！');window.location='"+request.getContextPath()+"/personalSummaryServlet?method=getAllWorkingList';</script>");
+        }else{
+            out.print("<script>alert('删除失败！');window.location='"+request.getContextPath()+"/personalSummaryServlet?method=getAllWorkingList';</script>");
+        }
+    }
 }

@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 @WebFilter(filterName = "RootFilter")
 public class RootFilter implements Filter {
     public void destroy() {
+
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {

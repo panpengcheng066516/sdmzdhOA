@@ -72,4 +72,14 @@ public class DebugWorkingService {
         }
         return project;
     }
+
+    public int deleteDebugWorkingByid(String id) {
+        int i =0;
+        try {
+            i = debugWorkingDao.deleteDebugWorkingByid(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
 }

@@ -146,4 +146,21 @@ public class ProjectService {
         }
         return r;
     }
+
+    public int deleteProjectByid(String id) {
+        int r = 0;
+        int r2 = 0;
+        try {
+            r = projectDao.deleteRelationByProject(id);
+            r2 = projectDao.deleteProjectByid(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(r >0 && r2 >0){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
 }

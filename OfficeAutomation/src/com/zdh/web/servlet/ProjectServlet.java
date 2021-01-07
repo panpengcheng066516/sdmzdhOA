@@ -270,4 +270,20 @@ public class ProjectServlet extends BaseServlet {
             }
         }
     }
+
+    //通过id删除
+    public void deleteByid(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
+
+        //通过id得到对象
+        String id = request.getParameter("projectid");
+        int r  = projectService.deleteProjectByid(id);
+
+        PrintWriter out = response.getWriter();
+        if(r>0){
+            out.print("<script>alert('已删除！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
+        }else{
+            out.print("<script>alert('删除失败！');window.location='"+request.getContextPath()+"/projectServlet?method=getAllProject';</script>");
+        }
+    }
 }
