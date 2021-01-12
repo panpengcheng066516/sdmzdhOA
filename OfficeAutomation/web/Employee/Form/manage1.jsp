@@ -62,12 +62,11 @@
             <!-- row -->
             <div class="row">
                 <div class="container-fluid grid-margin col-md-12">
-                    <div class="card card-rounded">
+                    <div class="card card-rounded shadow-lg">
                         <div class="card-header">
                             <div class="custom-control-inline">
                                 <div class="col">
-                                    <div class="card-title"><h3 class="text text-primary">经营修改</h3>
-                                    </div>
+                                    <div class="card-title"><h3 class="text text-primary">经营修改</h3></div>
                                     <div class="col">
                                         <div class="alert alert-icon-danger-muted text-small col-sm-auto">
                                             <i data-feather="alert-circle"></i>修改时请注意，不得使用英文标点符号。
@@ -167,7 +166,7 @@
                                     <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5" >${manage.remark}</textarea>
                                 </div>
                                 &nbsp;
-                                <div align="center">
+                                <div class="d-flex col-sm-6 justify-content-center">
                                     <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>
                             </form>

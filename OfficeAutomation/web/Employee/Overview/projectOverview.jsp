@@ -33,30 +33,6 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <script type="text/javascript" src="<%=basePath%>assets/js/jquery-1.11.3.min.js"></script>
-    <style type="text/css">
-        .table > thead > tr > th {
-            text-align: center;
-        }
-
-        .table > tbody > tr > td {
-            text-align: center;
-        }
-
-        .table > tfoot > tr > th {
-            font-size: small;
-            text-align: center;
-        }
-
-        hr.style-two {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(204, 204, 204), rgba(0, 0, 0, 0));
-        }
-
-        table {
-            table-layout: fixed;
-        }
-    </style>
     <script type="text/javascript">
         $(function () {
             // 选项框
@@ -98,6 +74,30 @@
         });
     </script>
 </head>
+<style type="text/css">
+    .table > thead > tr > th {
+        text-align: center;
+    }
+
+    .table > tbody > tr > td {
+        text-align: center;
+    }
+
+    .table > tfoot > tr > th {
+        font-size: small;
+        text-align: center;
+    }
+
+    hr.style-two {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(204, 204, 204), rgba(0, 0, 0, 0));
+    }
+
+    table {
+        table-layout: fixed;
+    }
+</style>
 <body>
 <div class="main-wrapper">
     <!-- partial:partials/_sidebar.html -->

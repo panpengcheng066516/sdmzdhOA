@@ -31,22 +31,6 @@
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
-    <style type="text/css">
-        .table>thead>tr>th {
-            text-align: center;
-        }
-        .table>tbody>tr>td {
-            text-align: center;
-        }
-        hr.style-two {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(204,204,204), rgba(0, 0, 0, 0));
-        }
-        table {
-            table-layout: fixed;
-        }
-    </style>
     <script type="text/javascript" src="<%=basePath%>assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
         $(function(){
@@ -89,7 +73,7 @@
                                 "<td>" + data.designVoList[i].leader + "</td>" +
                                 "<td><div class='text text-wrap text-break'>" + data.designVoList[i].remark + "</div></td>" +
                                 "<td><a href='${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid="+data.designVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a>" +
-                                "<button type=\"button\" onclick=\"deDesign('"+data.designVoList[i].id+"')\" class=\"btn btn-reddit btn-rounded btn-xs\">删除</button></td>" +
+                                "<button type=\"button\" onclick=\"deDesign('"+data.designVoList[i].id+"')\" class=\"btn btn-primary btn-rounded btn-xs\">删除</button></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -108,7 +92,7 @@
                                 "<td>" + data.programingVoList[i].monthday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.programingVoList[i].remark + "</div></td>" +
                                 "<td><a href='${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid="+data.programingVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a>" +
-                                "<button type=\"button\" onclick=\"dePrograming('"+data.programingVoList[i].id+"')\" class=\"btn btn-reddit btn-rounded btn-xs\">删除</button></td>" +
+                                "<button type=\"button\" onclick=\"dePrograming('"+data.programingVoList[i].id+"')\" class=\"btn btn-primary btn-rounded btn-xs\">删除</button></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -125,7 +109,7 @@
                                 "<td>" + data.debugVoList[i].debugday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.debugVoList[i].remark + "</div></td>" +
                                 "<td><a href='${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid="+data.debugVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a>" +
-                                "<button type=\"button\" onclick=\"deDebug('"+data.debugVoList[i].id+"')\" class=\"btn btn-reddit btn-rounded btn-xs\">删除</button></td>" +
+                                "<button type=\"button\" onclick=\"deDebug('"+data.debugVoList[i].id+"')\" class=\"btn btn-primary btn-rounded btn-xs\">删除</button></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -149,7 +133,7 @@
                                 "<td>" + data.manageVoList[i].PMday + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.manageVoList[i].remark + "</div></td>" +
                                 "<td><a href='${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid="+data.manageVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a>" +
-                                "<button type=\"button\" onclick=\"deManage('"+data.manageVoList[i].id+"')\" class=\"btn btn-reddit btn-rounded btn-xs\">删除</button></td>" +
+                                "<button type=\"button\" onclick=\"deManage('"+data.manageVoList[i].id+"')\" class=\"btn btn-primary btn-rounded btn-xs\">删除</button></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -163,7 +147,7 @@
                                 "<td>" + data.dailyVoList[i].monthDay + "</td>" +
                                 "<td><div class='text-wrap text-break'>" + data.dailyVoList[i].remark + "</div></td>" +
                                 "<td><a href='${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid="+data.dailyVoList[i].id+"'><button type='button' class='btn btn-reddit btn-rounded btn-xs'>修改</button></a></td>" +
-                                "<button type=\"button\" onclick=\"deDaily('"+data.dailyVoList[i].id+"')\" class=\"btn btn-reddit btn-rounded btn-xs\">删除</button></td>" +
+                                "<button type=\"button\" onclick=\"deDaily('"+data.dailyVoList[i].id+"')\" class=\"btn btn-primary btn-rounded btn-xs\">删除</button></td>" +
                                 "</tr>";
                         }
                     }else{
@@ -206,6 +190,22 @@
         }
     </script>
 </head>
+<style type="text/css">
+    .table>thead>tr>th {
+        text-align: center;
+    }
+    .table>tbody>tr>td {
+        text-align: center;
+    }
+    hr.style-two {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(204,204,204), rgba(0, 0, 0, 0));
+    }
+    table {
+        table-layout: fixed;
+    }
+</style>
 <body>
 <div class="main-wrapper">
     <!-- partial:partials/_sidebar.html -->
@@ -227,7 +227,7 @@
                 <!-- row -->
                 <div class="row">
                     <div class="container-fluid grid-margin col-md-12">
-                        <div class="card card-rounded border-light">
+                        <div class="card card-rounded border-light shadow-lg">
                             <div class="card-body">
                                 <div class="form-group row">
                                     <label class="col-sm-auto col-form-label text-muted">年份</label>
@@ -369,7 +369,10 @@
                                                                     <a href="${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid=${design.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
                                                                     </a>
-                                                                    <button type="button" onclick="deDesign('${design.id}')" class="btn btn-reddit btn-rounded btn-xs">删除</button>
+                                                                    <button type="button"
+                                                                            onclick="deDesign('${design.id}')"
+                                                                            class="btn btn-primary btn-rounded btn-xs">删除
+                                                                    </button>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
@@ -414,7 +417,8 @@
                                                                     <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
                                                                     </a>
-                                                                    <button type="button" onclick="dePrograming('${programing.id}')" class="btn btn-reddit btn-rounded btn-xs">删除</button>
+                                                                    <button type="button"
+                                                                            onclick="dePrograming('${programing.id}')" class="btn btn-primary btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
@@ -455,7 +459,7 @@
                                                                     <a href="${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid=${debug.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
                                                                     </a>
-                                                                    <button type="button" onclick="deDebug('${debug.id}')" class="btn btn-reddit btn-rounded btn-xs">删除</button>
+                                                                    <button type="button" onclick="deDebug('${debug.id}')" class="btn btn-primary btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
@@ -510,7 +514,7 @@
                                                                     <a href="${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid=${manage.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
                                                                     </a>
-                                                                    <button type="button" onclick="deManage('${manage.id}')" class="btn btn-reddit btn-rounded btn-xs">删除</button>
+                                                                    <button type="button" onclick="deManage('${manage.id}')" class="btn btn-primary btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
@@ -545,7 +549,7 @@
                                                                     <a href="${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid=${daily.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
                                                                     </a>
-                                                                    <button type="button" onclick="deDaily('${daily.id}')" class="btn btn-reddit btn-rounded btn-xs">删除</button>
+                                                                    <button type="button" onclick="deDaily('${daily.id}')" class="btn btn-primary btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>

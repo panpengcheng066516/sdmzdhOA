@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
-    <script type="text/javascript" src="<%=basePath%>assets/js/jquery-1.11.3.min.js" ></script>
+
 </head>
 <body>
 <div class="main-wrapper">
@@ -93,7 +93,7 @@
     </div>
 </div>
 </body>
-
+<script src="<%=basePath%>assets/js/jquery-1.11.3.min.js" type="text/javascript" ></script>
 <script src="<%=basePath%>assets/vendors/core/core.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/js/template.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>

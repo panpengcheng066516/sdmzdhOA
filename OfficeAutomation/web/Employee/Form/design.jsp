@@ -32,25 +32,25 @@
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
     <script type="text/javascript" src="<%=basePath%>assets/js/jquery-1.11.3.min.js" ></script>
-    <style type="text/css">
-        hr.style-two {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(192,192,192), rgba(0, 0, 0, 0));
-        }
-    </style>
-    <script type="text/javascript">
-        $(function(){
-            var p=$("#projectid").children('option:selected').attr("id");
-            $("#projectNo").val(p);
-            // 给工程号赋值
-            $("#projectid").change(function () {
-                var p1=$(this).children('option:selected').attr("id");
-                $("#projectNo").val(p1);
-            })
-        });
-    </script>
 </head>
+<style type="text/css">
+    hr.style-two {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(192,192,192), rgba(0, 0, 0, 0));
+    }
+</style>
+<script type="text/javascript">
+    $(function(){
+        var p=$("#projectid").children('option:selected').attr("id");
+        $("#projectNo").val(p);
+        // 给工程号赋值
+        $("#projectid").change(function () {
+            var p1=$(this).children('option:selected').attr("id");
+            $("#projectNo").val(p1);
+        })
+    });
+</script>
 <body>
 <div class="main-wrapper">
     <!-- partial:partials/_sidebar.html -->
@@ -72,7 +72,7 @@
             <!-- row -->
             <div class="row">
                 <div class="container-fluid grid-margin col-md-12">
-                    <div class="card card-rounded">
+                    <div class="card card-rounded shadow-lg">
                         <div class="card-header">
                             <div class="custom-control-inline">
                                 <div class="col">
@@ -87,7 +87,9 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/designWorkingServlet?method=addDesignWorking" method="post">
+
+                            <form action="${ pageContext.request.contextPath }/designWorkingServlet?method=addDesignWorking" method="post">
+
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
                                     <div class="control-text col-sm-auto col-md-2 col-lg-2">
@@ -105,8 +107,9 @@
                                     <input type="text" class="form-control col-sm-2" name="projectNo" id="projectNo" disabled>
                                 </div>
                                 <div class="help-text col-sm text-small text-success mt-1 text-justify" style="margin-left: 3.5%; margin-right: 3.5%">前往<a href="${ pageContext.request.contextPath }//personalProjectServlet?method=getAllPersonalProject" class="text">项目查询页</a>查看相关内容</div>
+
                                 <hr class="style-two">
-                                <%-- horizontal rule --%>
+
                                 <div>
                                     <div class="form-text mdi-help-box text-small text-gray col-xs-auto" style="margin-left: 50px">施工图工作量：</div>
                                     <br>
@@ -156,7 +159,7 @@
 
                                 &nbsp;
 
-                                <div align="center">
+                                <div class="d-flex justify-content-center col-sm-6">
                                     <input type="submit" class="btn btn-inverse-success mb-1 mb-md-0" name="submit" value="提交">
                                 </div>
                             </form>

@@ -8,28 +8,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<!-- partial:partials/_sidebar.html -->
 <nav class="sidebar">
     <div class="sidebar-header">
-<%--        <a class="sidebar-brand text-white" onclick="window.location.href='index.jsp'">--%>
-<%--            SDM<span class="text-light">ZDH</span>--%>
-<%--        </a>--%>
-    <img src="${ pageContext.request.contextPath }/assets/images/logo.png" alt=" " style="width: 86%">
-
+    <img src="<%=basePath%>assets/images/SDM.png" alt=" " style="width: 70%" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
         <div class="sidebar-toggler not-active">
             <span></span> <span></span> <span></span>
         </div>
     </div>
     <div class="sidebar-body">
         <ul class="nav">
-
             <li class="nav-item nav-category"></li>
             <li class="nav-item">
                 <a href="${ pageContext.request.contextPath }/index.jsp" class="nav-link">
                     <i class="link-icon" data-feather="star"></i><span class="link-title">首页</span>
                 </a>
             </li>
-
             <li class="nav-item nav-category">工作量</li>
             <li class="nav-item" ${user.power!=1?"":"hidden"}>
                 <a class="nav-link" data-toggle="collapse" href="#workloadInput" role="button" aria-expanded="false" aria-controls="workloadInput">

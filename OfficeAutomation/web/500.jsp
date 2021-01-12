@@ -25,7 +25,6 @@
         String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
     %>
     <base href="<%=basePath%>">
-
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/core/core.css">
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
@@ -35,7 +34,6 @@
 <div class="main-wrapper">
     <div class="page-wrapper full-page">
         <div class="page-content d-flex align-items-center justify-content-center">
-
             <div class="row w-100 mx-0 auth-page">
                 <div class="col-md-8 col-xl-6 mx-auto d-flex flex-column align-items-center">
                     <img src="assets/images/404.svg" class="img-fluid mb-2" alt="404">

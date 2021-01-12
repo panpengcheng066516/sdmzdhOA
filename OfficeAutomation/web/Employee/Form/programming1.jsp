@@ -62,7 +62,7 @@
             <!-- row -->
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
+                    <div class="card shadow-lg">
                         <div class="card-header">
                             <div class="custom-control-inline">
                                 <div class="col">
@@ -158,13 +158,12 @@
                                     <textarea class="form-control col-sm-6" type="text" name="remark" id="remark" placeholder="备注" rows="5" >${programing.remark}</textarea>
                                 </div>
                                 &nbsp;
-                                <div align="center">
+                                <div class="d-flex col-sm-6 justify-content-center">
                                     <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>
                             </form>
                         </div>
-                        <div class="card-footer">
-                        </div>
+                        <div class="card-footer"></div>
                     </div>
                 </div>
             </div>

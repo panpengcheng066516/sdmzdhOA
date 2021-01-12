@@ -47,7 +47,7 @@
             <!-- row -->
             <div class="row">
                 <div class="container-fluid grid-margin col-md-12">
-                    <div class="card card-rounded">
+                    <div class="card card-rounded shadow-lg">
                         <div class="card-header">
                             <div class="custom-control-inline">
                                 <div class="col">
@@ -170,7 +170,7 @@
                                     <textarea class="form-control col-sm-6" type="text" name="remarks" id="remarks" placeholder="备注" rows="5" >${project.remarks}</textarea>
                                 </div>
                                 &nbsp;
-                                <div align="center">
+                                <div class="d-flex col-sm-6 justify-content-center">
                                     <input type="submit" class="btn btn-inverse-primary mb-1 mb-md-0" name="submit" value="确认修改">
                                 </div>
                             </form>

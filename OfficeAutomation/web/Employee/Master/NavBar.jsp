@@ -8,8 +8,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!-- partial:partials/_navbar.html -->
-<script type="text/javascript" src="<%=basePath%>assets/js/jquery-1.11.3.min.js" ></script>
+
 <script type="text/javascript">
     $(function(){
         $("#updatePassword").click(function(){
@@ -25,20 +24,12 @@
     <div class="navbar-content">
         <form class="search-form">
             <div class="input-group">
-                <span draggable="false" style="font-weight: bold; font-size: x-large;color: white;margin-bottom: 10px">
-                    <i data-feather="home" style="color:white"></i>&nbsp;
-                    山冶设计自动化工程技术分公司
+                <i data-feather="home" style="color:white" class="mt-2"></i>&nbsp;
+                <span style="font-weight: bold; font-size: x-large;color: white;margin-bottom: 10px" onselectstart="return false">
+                    &emsp;山冶设计自动化工程技术分公司
                 </span>
             </div>
         </form>
-
-
-
-<%--            <div class="navbar-brand mt-1">&nbsp;--%>
-<%--                <span style="font-weight: bold; font-size: x-large; color: white;">山冶设计自动化工程技术分公司</span>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown nav-profile">
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,7 +58,7 @@
                     </div>
                     <div class="dropdown-body">
                         <ul class="profile-nav p-0 pt-3">
-                            <li class="nav-item"><a href="javascript:void(0);" class="nav-link" id="updatePassword" >
+                            <li class="nav-item"><a href="${pageContext.request.contextPath}/register.jsp" class="nav-link" id="updatePassword" >
                                 <i data-feather="user"></i> <span>密码修改</span>
                             </a></li>
                             <li class="nav-item"><a href="${ pageContext.request.contextPath }/userServlet?method=logout" class="nav-link">

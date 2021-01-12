@@ -31,22 +31,6 @@
     <link rel="stylesheet" href="<%=basePath%>assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
-    <style type="text/css">
-        .table>thead>tr>th {
-            text-align: center;
-        }
-        .table>tbody>tr>td {
-            text-align: center;
-        }
-        hr.style-two {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(204,204,204), rgba(0, 0, 0, 0));
-        }
-        table {
-            table-layout: fixed;
-        }
-    </style>
     <script type="text/javascript" src="<%=basePath%>assets/js/jquery-1.11.3.min.js" ></script>
     <script type="text/javascript">
         $(function(){
@@ -107,6 +91,22 @@
         });
     </script>
 </head>
+<style type="text/css">
+    .table>thead>tr>th {
+        text-align: center;
+    }
+    .table>tbody>tr>td {
+        text-align: center;
+    }
+    hr.style-two {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(204,204,204), rgba(0, 0, 0, 0));
+    }
+    table {
+        table-layout: fixed;
+    }
+</style>
 <body>
 <div class="main-wrapper">
     <!-- partial:partials/_sidebar.html -->
@@ -129,7 +129,7 @@
 
                 <div class="row">
                     <div class="container-fluid grid-margin col-md-12">
-                        <div class="card card-rounded border-light">
+                        <div class="card card-rounded border-light shadow-lg">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="form-group row">
