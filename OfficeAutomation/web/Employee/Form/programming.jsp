@@ -60,7 +60,7 @@
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
-        <div class="page-content">
+        <div class="page-content" style="background-image: linear-gradient(to right bottom, #fbf6f0, #f8f6ee, #f5f5ed, #f1f5ed, #edf5ed, #edf5ed, #edf5ed, #edf5ed, #f1f5ed, #f5f5ed, #f8f6ee, #fbf6f0);">
             <%--breadscrumb--%>
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb bg-inverse-primary">
@@ -71,7 +71,7 @@
             </nav>
             <!-- row -->
             <div class="row">
-                <div class="col-md-12 grid-margin container-fluid">
+                <div class="col-md-8 grid-margin container-fluid">
                     <div class="card shadow-lg">
                         <div class="card-header">
                             <div class="custom-control-inline">
@@ -90,7 +90,7 @@
                             <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/programingPictureWorkingServlet?method=addProgramingPictureWorking" method="post">
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
-                                    <div class="control-text col-sm col-md-2 col-lg-2">
+                                    <div class="control-text col-sm col-md-3 col-lg-3">
                                         <select class="select2-single" id="projectid" name="projectid" >
                                             <option value="">请选择</option>
                                             <c:if test="${!empty projectList}">
@@ -118,7 +118,8 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text col-sm-auto text-dark">工作名称</span>
                                         </div>
-                                        <input type="text" aria-label="定义工作" class="form-control col-sm-2" disabled style="margin-right:40px" name="workname" id="workname" placeholder="请定义工作量具体名称" autocomplete="off">
+                                        <input type="text" aria-label="定义工作" class="form-control col-sm-5" disabled
+                                               style="margin-right:40px" name="workname" id="workname" placeholder="请定义工作量具体名称" autocomplete="off">
                                     </div>
                                 </div>
 

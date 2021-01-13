@@ -54,14 +54,14 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="background-image: linear-gradient(to right bottom, #fbf6f0, #f8f6ee, #f5f5ed, #f1f5ed, #edf5ed, #edf5ed, #edf5ed, #edf5ed, #f1f5ed, #f5f5ed, #f8f6ee, #fbf6f0);">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
         <div class="page-content">
             <!-- row -->
             <div class="row">
-                <div class="container-fluid grid-margin col-md-12">
+                <div class="container-fluid grid-margin col-md-8">
                     <div class="card card-rounded shadow-lg">
                         <div class="card-header">
                             <div class="custom-control">
@@ -79,7 +79,7 @@
                             <form class="forms form-control-plaintext align-content-center" action="${ pageContext.request.contextPath }/designWorkingServlet?method=updateDesignWorking" method="post">
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
-                                    <div class="control-text col-sm col-md-2 col-lg-2">
+                                    <div class="control-text col-sm col-md-3 col-lg-3">
                                         <select class="select2-single" id="projectid" name="projectid" required="true">
                                             <c:if test="${!empty projectList}">
                                                 <c:forEach var="project" items="${projectList}">
@@ -148,10 +148,10 @@
                 </div>
             </div>
         </div>
+    </div>
     <!-- partial:partials/_footer.html -->
     <%@ include file="../Master/Footer.jsp"%>
     <!-- partial -->
-    </div>
 </div>
 </body>
 <script src="<%=basePath%>assets/vendors/core/core.js"></script>

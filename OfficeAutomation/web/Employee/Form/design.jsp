@@ -60,7 +60,7 @@
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
-        <div class="page-content">
+        <div class="page-content" style="background-image: linear-gradient(to right bottom, #fbf6f0, #f8f6ee, #f5f5ed, #f1f5ed, #edf5ed, #edf5ed, #edf5ed, #edf5ed, #f1f5ed, #f5f5ed, #f8f6ee, #fbf6f0);">
             <%--breadscrumb--%>
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb bg-inverse-primary">
@@ -71,7 +71,7 @@
             </nav>
             <!-- row -->
             <div class="row">
-                <div class="container-fluid grid-margin col-md-12">
+                <div class="container-fluid grid-margin col-md-8">
                     <div class="card card-rounded shadow-lg">
                         <div class="card-header">
                             <div class="custom-control-inline">
@@ -92,7 +92,7 @@
 
                                 <div class="form-group row" style="margin-left: 3.5%; margin-right: 3.5%">
                                     <strong><label class="col-sm-auto col-form-label" for="projectid">项目名称</label></strong>
-                                    <div class="control-text col-sm-auto col-md-2 col-lg-2">
+                                    <div class="control-text col-sm-auto col-md-3 col-lg-3">
                                         <select class="select2-single" id="projectid" name="projectid" required="true">
                                             <option value="">请选择</option>
                                             <c:if test="${!empty projectList}">

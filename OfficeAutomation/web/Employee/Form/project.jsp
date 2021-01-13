@@ -38,7 +38,7 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="background-image: linear-gradient(to right bottom, #fbf6f0, #f8f6ee, #f5f5ed, #f1f5ed, #edf5ed, #edf5ed, #edf5ed, #edf5ed, #f1f5ed, #f5f5ed, #f8f6ee, #fbf6f0);">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
@@ -53,7 +53,7 @@
             </nav>
             <!-- row -->
             <div class="row">
-                <div class="container-fluid grid-margin col-md-12">
+                <div class="container-fluid grid-margin col-md-8">
                     <div class="card card-rounded shadow-lg">
                         <div class="card-header">
                             <div class="custom-control-inline">

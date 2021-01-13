@@ -36,7 +36,7 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="background-image: linear-gradient(to right bottom, #fbf6f0, #f8f6ee, #f5f5ed, #f1f5ed, #edf5ed, #edf5ed, #edf5ed, #edf5ed, #f1f5ed, #f5f5ed, #f8f6ee, #fbf6f0);">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
@@ -44,9 +44,8 @@
             <%--breadscrumb--%>
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb bg-inverse-primary">
-                    <li class="breadcrumb-item text-small"><a href="index.jsp">首页</a></li>
-                    <li class="breadcrumb-item text-small"><a href="${ pageContext.request.contextPath }/personalSummaryServlet?method=getAllWorkingList">个人工作记录一览</a></li>
-                    <li class="breadcrumb-item active text-small" aria-current="page">借调记录</li>
+                    <li class="breadcrumb-item text-small"><a href="${pageContext.request.contextPath}/index.jsp">首页</a></li>
+                    <li class="breadcrumb-item text-small active" aria-current="page">借调</li>
                 </ol>
             </nav>
             <!-- row -->
@@ -57,9 +56,8 @@
                             <div class="card-title"><h3 class="text text-primary mt-md-3">借调</h3></div>
                         </div>
                         <div class="card-body">
-                            &nbsp;
                             <form class="custom-control" action="${ pageContext.request.contextPath }/jiediaoServlet?method=addJiediao" method="post">
-                                <div class="input-group mb-3" style="margin-left: 2.5%; margin-right: 2.5%">
+                                <div class="input-group mb-3 col-md-12">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text col-sm-auto text-dark">借调至</span>
                                     </div>
@@ -68,7 +66,7 @@
 
                                 <div class="help-text col-sm-auto text-small text-reddit text-justify">注：此处请填写被借调至的相应地点或者部门名称。</div>
                                 &nbsp;
-                                <div align="center">
+                                <div class="d-flex col-md-6 justify-content-end">
                                     <input type="submit" class="btn btn-inverse-success mr-2" name="submit" value="提交">
                                 </div>
                             </form>

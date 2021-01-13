@@ -31,14 +31,13 @@
     <link rel="stylesheet" href="<%=basePath%>assets/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<%=basePath%>assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="<%=basePath%>assets/images/favicon.png" />
-
 </head>
 <body>
 <div class="main-wrapper">
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="Employee/Master/SideBar.jsp"%>
     <!-- partial -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="background-image: linear-gradient(to right bottom, #fbf6f0, #f8f6ee, #f5f5ed, #f1f5ed, #edf5ed, #edf5ed, #edf5ed, #edf5ed, #f1f5ed, #f5f5ed, #f8f6ee, #fbf6f0);">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="Employee/Master/NavBar.jsp"%>
         <!-- partial -->
@@ -47,8 +46,12 @@
                 <div class="alert alert-danger-muted" role="alert">
                     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
                         <div>
-                            <h4 class="mb-3 mb-md-0">你好， ${ sessionScope.user.name } &nbsp;<i class="mb-1 text-primary ml-1 icon-small" data-feather="smile"></i></h4>
-                            <br><h4 class="mb-3 mb-md-0">欢迎回来 </h4>
+                            <h4 class="mb-3 mb-md-0">
+                                你好，${sessionScope.user.name}&nbsp;
+                                <i class="text-primary" data-feather="smile"></i>
+                            </h4>
+                            <br>
+                            <h4 class="mb-3 mb-md-0">欢迎回来</h4>
                         </div>
                         <div class="d-flex align-items-center flex-wrap text-nowrap">
                             <div class="input-group date datepicker dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex" id="dashboardDate">
@@ -62,8 +65,8 @@
                 </div>
             </div>
 
-            <hr width="400">
-            <!-- partial -->
+            <hr style="border-top: 1px dashed lightsteelblue;" width="400">
+
             <div class="main-wrapper">
                 <div class="main-content">
                     <div class="row">
@@ -99,7 +102,6 @@
 <script src="<%=basePath%>assets/vendors/feather-icons/feather.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
-<!-- chart -->
 <script src="<%=basePath%>assets/vendors/apexcharts/apexcharts.min.js"></script>
 <script type="text/javascript">
     if($('#dashboardDate').length) {

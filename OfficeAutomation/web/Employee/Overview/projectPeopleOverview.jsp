@@ -74,7 +74,7 @@
     <!-- partial:partials/_sidebar.html -->
     <%@ include file="../Master/SideBar.jsp"%>
     <!-- partial -->
-    <main class="page-wrapper">
+    <main class="page-wrapper" style="background-image: linear-gradient(to right bottom, #fbf6f0, #f8f6ee, #f5f5ed, #f1f5ed, #edf5ed, #edf5ed, #edf5ed, #edf5ed, #f1f5ed, #f5f5ed, #f8f6ee, #fbf6f0);">
         <!-- partial:partials/_navbar.html -->
         <%@ include file="../Master/NavBar.jsp"%>
         <!-- partial -->
@@ -92,7 +92,7 @@
                 <!-- row -->
                 <div class="row">
                     <div class="col-md-6 grid-margin container">
-                        <div class="card card-rounded card-block visible-inline">
+                        <div class="card card-rounded card-block visible-inline shadow">
                             <div class="card-header">
                                 <div class="noble-ui-logo">项目：${project.projectName}</div>
                             </div>
@@ -111,7 +111,7 @@
                                     </div>
                                     &nbsp;
                                     <div class="col-sm-1 form-label">
-                                        <input type="button" class="btn btn-outline-instagram btn-sm" id="addButton" onclick="addpeople('${project.id}')" value="添加人员">
+                                        <input type="button" class="btn btn-instagram btn-sm" id="addButton" onclick="addpeople('${project.id}')" value="添加人员">
                                     </div>
                                 </div>
                                 <div class="help-text col-sm-auto text-small text-success text-justify" style="margin-left: 3.5%; margin-right: 3.5%">将项目涉及到的相关人员关联到该项目名下。</div>
