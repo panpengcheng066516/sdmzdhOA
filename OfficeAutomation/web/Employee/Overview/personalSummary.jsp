@@ -368,7 +368,7 @@
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/designWorkingServlet?method=getDesignInfo&designid=${design.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
-                                                                    </a>
+                                                                    </a><br>
                                                                     <button type="button"
                                                                             onclick="deDesign('${design.id}')"
                                                                             class="btn btn-primary btn-rounded btn-xs">删除
@@ -416,7 +416,7 @@
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/programingPictureWorkingServlet?method=getProgramingInfo&programingid=${programing.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
-                                                                    </a>
+                                                                    </a><br>
                                                                     <button type="button"
                                                                             onclick="dePrograming('${programing.id}')" class="btn btn-primary btn-rounded btn-xs">删除</button>
                                                                 </td>
@@ -458,7 +458,7 @@
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/debugWorkingServlet?method=getProgramingInfo&debugid=${debug.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
-                                                                    </a>
+                                                                    </a><br>
                                                                     <button type="button" onclick="deDebug('${debug.id}')" class="btn btn-primary btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>
@@ -513,7 +513,7 @@
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/manageWorkingServlet?method=getManageInfo&manageid=${manage.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
-                                                                    </a>
+                                                                    </a><br>
                                                                     <button type="button" onclick="deManage('${manage.id}')" class="btn btn-primary btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>
@@ -548,7 +548,7 @@
                                                                 <td>
                                                                     <a href="${pageContext.request.contextPath}/dailyWorkingServlet?method=getDailyWorkingInfo&dailyid=${daily.id}">
                                                                         <button type="button" class="btn btn-reddit btn-rounded btn-xs">修改</button>
-                                                                    </a>
+                                                                    </a><br>
                                                                     <button type="button" onclick="deDaily('${daily.id}')" class="btn btn-primary btn-rounded btn-xs">删除</button>
                                                                 </td>
                                                             </tr>

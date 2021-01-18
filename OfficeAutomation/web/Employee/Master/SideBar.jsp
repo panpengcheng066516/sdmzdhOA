@@ -48,15 +48,15 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/manageWorkingServlet?method=getAllProjectByUser" class="nav-link">经营</a>
+                            <a href="${ pageContext.request.contextPath }/manageWorkingServlet?method=getAllProjectByUser" class="nav-link">经营管理</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="${ pageContext.request.contextPath }/Employee/Form/daily.jsp" class="nav-link">日常零星</a>
+                            <a href="${ pageContext.request.contextPath }/Employee/Form/daily.jsp" class="nav-link">日常其他</a>
                         </li>
 
                         <li class="nav-item" ${user.power==2?"":"hidden"}>
-                            <a href="${ pageContext.request.contextPath }/addProjectServlet?method=getPeopleInfo" class="nav-link">科室项目录入</a>
+                            <a href="${ pageContext.request.contextPath }/addProjectServlet?method=getPeopleInfo" class="nav-link">科室项目</a>
                         </li>
                     </ul>
                 </div>
